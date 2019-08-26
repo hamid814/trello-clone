@@ -9,7 +9,6 @@ const Todos = ({ todos }) => {
       {todos !== [] ? todos.map(t => (
         <TodoItem key={t} todo={t} />
       )) : <NoTodo />}
-      {console.log(todos)}
     </div>
   )
 }

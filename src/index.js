@@ -25,7 +25,7 @@ function App() {
     setTodos(list);
 
     // add to local
-    
+    localStorage.setItem('todos', JSON.stringify(todos));
   }
 
   return (

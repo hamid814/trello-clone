@@ -9,30 +9,33 @@ import './App.css';
 
 function App() {
   useEffect(() => {
-    if(localStorage.getItem('todos') !== null) {
-      setTodos(JSON.parse(localStorage.getItem(todos)));
-    }
+    // if(localStorage.getItem('todos') !== null) {
+      // setTodos(JSON.parse(localStorage.getItem(todos)));
+    // }
     console.log(todos);
     // eslint-desable-next-line
   }, [])
 
   const [todos, setTodos] = useState([]);
+  const [todoEmpty, setTodoEmpty] = useState(true);
 
   const addTodo = (name) => {
+    setTodoEmpty(false);
     let list = [];
     todos.forEach(t => list.push(t));
     list.push(name);
     setTodos(list);
 
     // add to local
-    localStorage.setItem('todos', JSON.stringify(todos));
   }
 
   return (
     <Fragment>
       <Navbar />
       <div className="container mt-2">
-        <FormContainer addTodo={addTodo} />
+        <FormContainer
+          addTodo={addTodo}
+          todoEmpty={todoEmpty} />
         <Todos todos={todos} />
       </div>
       

@@ -1,12 +1,33 @@
-import React from 'react';
+import React, { Fragment, useState } from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+
+import Navbar from './components/layout/Navbar';
+import FormContainer from './components/layout/FormContainer';
+import Todos from './components/layout/Todos';
+
+import './App.css';
+
+function App() {
+  const [todos, setTodos] = useState([]);
+
+  const addTodo = (name) => {
+    let list = [];
+    todos.forEach(t => list.push(t));
+    list.push(name);
+    setTodos(list);
+    console.log(todos);
+  }
+
+  return (
+    <Fragment>
+      <Navbar />
+      <div className="container mt-2">
+        <FormContainer addTodo={addTodo} />
+        <Todos todos={todos} />
+      </div>
+      
+    </Fragment>
+  );
+}
 
 ReactDOM.render(<App />, document.getElementById('root'));
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();

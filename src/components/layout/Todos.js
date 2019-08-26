@@ -1,13 +1,21 @@
-import React from 'react'
+import React from 'react';
+import PropTypes from 'prop-types'
+import TodoItem from './TodoItem';
+import NoTodo from './NoTodo';
 
-const Todos = (props) => {
+const Todos = ({ todos }) => {
   return (
     <div className="form-container">
-      {props.todos.forEach(todo => {
-        return todo
-        })}
+      {todos !== [] ? todos.map(t => (
+        <TodoItem key={t} todo={t} />
+      )) : <NoTodo />}
+      {console.log(todos)}
     </div>
   )
+}
+
+Todos.propTypes = {
+  todos: PropTypes.array.isRequired
 }
 
 export default Todos

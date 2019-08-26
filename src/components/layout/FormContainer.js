@@ -1,6 +1,6 @@
 import React , { useState } from 'react';
 
-const FormContainer = (props) => {
+const FormContainer = ({ addTodo }) => {
   const [name, setName] = useState('');
   const [error, setError] = useState(false);
   const [wantToAddEmpty, setWantToAddEmpty] = useState(false);
@@ -11,7 +11,7 @@ const FormContainer = (props) => {
 
   const onSubmit = () => {
     if(name !== '') {
-      props.addTodo(name);
+      addTodo(name);
       setName('');
     } else {
       setError(true);

@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState , useEffect } from 'react';
 import ReactDOM from 'react-dom';
 
 import Navbar from './components/layout/Navbar';
@@ -8,6 +8,14 @@ import Todos from './components/layout/Todos';
 import './App.css';
 
 function App() {
+  useEffect(() => {
+    if(localStorage.getItem('todos') !== null) {
+      setTodos(JSON.parse(localStorage.getItem(todos)));
+    }
+    console.log(todos);
+    // eslint-desable-next-line
+  }, [])
+
   const [todos, setTodos] = useState([]);
 
   const addTodo = (name) => {
@@ -15,7 +23,9 @@ function App() {
     todos.forEach(t => list.push(t));
     list.push(name);
     setTodos(list);
-    console.log(todos);
+
+    // add to local
+    
   }
 
   return (

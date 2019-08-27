@@ -6,7 +6,11 @@ import {
   GET_TODOS,
   ADD_TODO,
   CLEAR_TODOS,
-  UPDATE_TODO
+  CHECK_TODO,
+  UPDATE_TODO,
+  DELETE_TODO,
+  SET_CURRENT,
+  CLEAR_CURRENT
 } from '../types';
 
 const TodoState = props => {
@@ -46,17 +50,49 @@ const TodoState = props => {
     });
   }
 
+  // mark todo as complete
+  const checkTodo = (id) => {
+    dispatch({
+      type: CHECK_TODO,
+      payload: id
+    });
+  }
+
+  //  delete todo
+  const deleteTodo = (id) => {
+    dispatch({
+      type: DELETE_TODO,
+      payload: id
+    });
+  }
+
+  // set current for edit
+  const setCurrent = (todo) => {
+    dispatch({
+      type: SET_CURRENT,
+      payload: todo
+    });
+  }
+
+  const clearCurrent = () => {
+    dispatch({
+      type: CLEAR_CURRENT
+    });
+  }
+
   // update todo
   const updateTodo = (text, id) => {
     dispatch({
       type: UPDATE_TODO,
-      action: {
+      payload: {
         text,
         id
       }
     });
+    clearCurrent();
   }
 
+  // clear all from todo list
   const clearTodos = () => {
     dispatch({
       type: CLEAR_TODOS
@@ -71,8 +107,10 @@ const TodoState = props => {
         getTodos,
         addTodo,
         updateTodo,
+        deleteTodo,
         clearTodos,
-        
+        setCurrent,
+        checkTodo,
         filtered: state.filtered
       }}
     >

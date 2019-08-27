@@ -9,6 +9,7 @@ const Todos = (props) => {
   const todoContext = useContext(TodoContext);
 
   const { todos, getTodos } = todoContext;
+  console.log(todos);
 
   useEffect(() => {
     getTodos();

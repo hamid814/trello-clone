@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import uuid from 'uuid';
 import Navbar from './components/layout/Navbar';
 import FormContainer from './components/layout/FormContainer';
+import Congrats from './components/layout/Congrats';
 import Todos from './components/todos/Todos';
 import TodoBtnPanel from './components/todos/TodoBtnPanel';
 
@@ -35,7 +36,7 @@ const App = () => {
     let listOfDoneTrue = [];
     let listOfDoneFalse = [];
     todos.forEach(t => t.done ? listOfDoneTrue.push(t.done) : listOfDoneFalse.push(t.done));
-    if(listOfDoneTrue.length === todos.length) {
+    if(listOfDoneTrue.length === todos.length && todos.length !== 0) {
       setAllDone(true);
     } else {
       setAllDone(false);
@@ -71,6 +72,7 @@ const App = () => {
 
   const onEdit = (id) => {
     todos.forEach(t => t.id === id && setCurrent(t));
+    document.querySelector('#input').focus();
   }
 
   const onUpdate = (text, id) => {
@@ -133,6 +135,8 @@ const App = () => {
         addTodo={addTodo}
         onUpdate={onUpdate}
         current={current} />
+      <Congrats
+        allDone={allDone} />
       <Todos
         todos={todos}
         todosEmpty={todosEmpty}

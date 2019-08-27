@@ -22,6 +22,12 @@ const FormContainer = ({ addTodo, todoEmpty }) => {
     }
   }
 
+  const onKeyDown = (e) => {
+    if(e.keyCode === 13) {
+      onSubmit();
+    }
+  }
+
   const onAddEmpty = () => {
     addTodo('');
   }
@@ -29,7 +35,7 @@ const FormContainer = ({ addTodo, todoEmpty }) => {
   return (
     <div className={`form-container ${todoEmpty ? '': 'border-bottom'}`}>
       <h2>Add Todo</h2>
-      <input type='text' onChange={onChange} value={name} />
+      <input type='text' onChange={onChange} onKeyDown={onKeyDown} value={name} />
       <div className={!wantToAddEmpty ? 'form-group' : 'form-group grid-2'}>
         <input
         onClick={onSubmit}
@@ -39,8 +45,8 @@ const FormContainer = ({ addTodo, todoEmpty }) => {
       <input
         onClick={onAddEmpty}
         type='submit'
-        className={wantToAddEmpty ? 'btn btn-light btn-block mt-0' : 'd-none'}
-        value='Add Empty' />
+        className={wantToAddEmpty ? 'btn btn-light btn-block mt-0 p-0' : 'd-none'}
+        value='Add Empty (some other shape)' />
       </div>
     </div>
   )

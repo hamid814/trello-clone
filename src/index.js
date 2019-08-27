@@ -8,15 +8,18 @@ import Todos from './components/layout/Todos';
 import './App.css';
 
 function App() {
+  const [todos, setTodos] = useState([]);
   useEffect(() => {
     // if(localStorage.getItem('todos') !== null) {
       // setTodos(JSON.parse(localStorage.getItem(todos)));
     // }
-    console.log(todos);
+    if(localStorage.getItem('todos') === null) {
+      console.log('is null');
+    }
     // eslint-desable-next-line
-  }, [])
+  }, [todos])
 
-  const [todos, setTodos] = useState([]);
+  
   const [todoEmpty, setTodoEmpty] = useState(true);
 
   const addTodo = (name) => {

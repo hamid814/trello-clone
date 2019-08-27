@@ -114,8 +114,6 @@ const App = () => {
     const newList = todos.filter(t => t.id !== id);
     setTodos(newList);
     localStorage.setItem('todos', JSON.stringify(newList));
-    console.log('set "todosEmpty" to true if length is 0');
-    console.log(todos);
   }
 
   const onClear = () => {

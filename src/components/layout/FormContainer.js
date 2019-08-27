@@ -56,7 +56,7 @@ const FormContainer = ({ addTodo, current, onUpdate }) => {
   }
 
   return (
-    <div className='form-container border border-light pt-1'>
+    <div className='form-container border border-light p-2 pb-1'>
       <h2 className="text-primary">Add Todo</h2>
       <input type='text' className="border-primary" onChange={onChange} onKeyDown={onKeyDown} value={text} />
       <div className={!wantToAddEmpty ? current ? 'form-group grid-3-1' : 'form-group' : 'form-group grid-3-1'}>
@@ -86,7 +86,8 @@ const FormContainer = ({ addTodo, current, onUpdate }) => {
 
 FormContainer.propTypes = {
   addTodo: PropTypes.func.isRequired,
-  current: PropTypes.object
+  current: PropTypes.object,
+  onUpdate: PropTypes.func.isRequired,
 }
 
 export default FormContainer

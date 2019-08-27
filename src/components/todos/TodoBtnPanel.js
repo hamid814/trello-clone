@@ -6,7 +6,7 @@ const TodoBtnPanel = (props) => {
           onCheckAll,
           allDone,
           todosEmpty,
-          showDone,
+          showActive,
           onFilter
   } = props;
 
@@ -17,7 +17,7 @@ const TodoBtnPanel = (props) => {
         {allDone ? 'Uncheck all' : 'Check all'}
       </div>
       <div className={`btn btn-block rounded ${todosEmpty ? 'btn-light' : 'btn-warning'}`} onClick={onFilter}>
-        Show {showDone ? 'all' : 'active'}
+        Show {showActive ? 'all' : 'active'}
       </div>
       <div className={`btn btn-block rounded ${todosEmpty ? 'btn-light' : 'btn-danger'}`} onClick={onClear}>
         Clear todos 
@@ -32,7 +32,7 @@ TodoBtnPanel.propTypes = {
   onCheckAll: PropTypes.func.isRequired,
   allDone: PropTypes.bool.isRequired,
   todosEmpty: PropTypes.bool.isRequired,
-  showDone: PropTypes.bool.isRequired,
+  showActive: PropTypes.bool.isRequired,
   onFilter: PropTypes.func.isRequired,
 }
 

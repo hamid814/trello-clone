@@ -1,16 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-
-const TodoItem = ({ todo: { id, text, done }, check, onDelete, onEdit }) => {
+const TodoItem = ({ todo: { id, text, done }, onCheck, onDelete, onEdit }) => {
   const onMarkComp = () => {
-    check(id);
+    onCheck(id);
   }
-
   const onDeleteClicked = () => {
     onDelete(id);
   }
-
   const onEditClicked = () => {
     onEdit(id);
   }
@@ -32,6 +29,9 @@ const EStyle = {
 
 TodoItem.propTypes = {
   todo: PropTypes.object.isRequired,
+  onCheck: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired,
+  onEdit: PropTypes.func.isRequired
 }
 
 export default TodoItem

@@ -24,7 +24,7 @@ const App = () => {
   const [todosEmpty, setTodosEmpty] = useState(true);
   const [allDone, setAllDone] = useState(false);
   const [current, setCurrent] = useState(null);
-  const [showDone, setShowDone] = useState(false);
+  const [showActive, setShowActive] = useState(false);
 
   useEffect(() => {
     if(todos.length === 0) {
@@ -123,7 +123,7 @@ const App = () => {
   }
 
   const onFilter = () => {
-    setShowDone(!showDone);
+    setShowActive(!showActive);
   }
 
   return (
@@ -136,14 +136,15 @@ const App = () => {
       <Todos
         todos={todos}
         todosEmpty={todosEmpty}
-        check={onCheck}
+        onCheck={onCheck}
         onDelete={onDelete}
+        showActive={showActive}
         onEdit={onEdit} />
       <TodoBtnPanel
         onClear={onClear}
         onCheckAll={onCheckAll}
         todosEmpty={todosEmpty}
-        showDone={showDone}
+        showActive={showActive}
         onFilter={onFilter}
         allDone={allDone} />
     </Fragment>

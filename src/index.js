@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 import Navbar from './components/layout/Navbar';
 import FormContainer from './components/layout/FormContainer';
-import Todos from './components/layout/Todos';
+import Todos from './components/todos/Todos';
 
 import './App.css';
 
@@ -13,10 +13,10 @@ function App() {
 
   useEffect(() => {
     setTodos(getTodos());
-    console.log(todos);
     console.log(getTodos());
+    console.log(todos);
     // eslint-disable-nex-line
-  }, [setTodos])
+  }, [])
 
   const getTodos = () => {
     let list;

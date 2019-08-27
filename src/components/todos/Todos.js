@@ -10,7 +10,6 @@ const Todos = ({ todos, todosEmpty, onClear }) => {
       {!todosEmpty ? todos.map((t, index) => (
         <Fragment key={t.id}>
           <TodoItem todo={t} />
-          {console.log(t.id)}
           {todos.length === index + 1 && <ClearList onClear={onClear} />}
         </Fragment>
       )) : <NoTodo />}

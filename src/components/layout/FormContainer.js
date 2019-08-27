@@ -33,7 +33,7 @@ const FormContainer = ({ addTodo, todosEmpty }) => {
   }
 
   return (
-    <div className='form-container border-bottom border-dark'>
+    <div className='form-container border-bottom'>
       <h2>Add Todo</h2>
       <input type='text' onChange={onChange} onKeyDown={onKeyDown} value={text} />
       <div className={!wantToAddEmpty ? 'form-group' : 'form-group grid-3-1'}>

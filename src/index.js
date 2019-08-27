@@ -41,7 +41,7 @@ function App() {
     const newTodo = {
       id: `todo-number-${todos.length + 1}`,
       text,
-      done: false
+      done: true
     };
     setTodosEmpty(false);
     let list = [];
@@ -51,6 +51,10 @@ function App() {
 
     // add to local
     setToLocal(newTodo);
+  }
+
+  const markComplete = (id) => {
+    console.log(id);
   }
 
   const onClear = () => {
@@ -69,6 +73,7 @@ function App() {
         <Todos
           todos={todos}
           todosEmpty={todosEmpty}
+          markComplete={markComplete}
           onClear={onClear} />
       </div>
       

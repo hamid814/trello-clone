@@ -12,8 +12,7 @@ function App() {
   const [todosEmpty, setTodosEmpty] = useState(true);
 
   useEffect(() => {
-    setToLocal();
-    getTodos();
+    setTodos(getTodos());
     console.log(todos);
     console.log(getTodos());
     // eslint-disable-nex-line
@@ -26,13 +25,16 @@ function App() {
     } else {
       list = JSON.parse(localStorage.getItem('todos'));
     }
-    setTodos(list);
 
     return list;
   }
   
-  const setToLocal = () => {
-    console.log('set to local');
+  const setToLocal = (name) => {
+    const list = getTodos();
+
+    list.push(name);
+
+    localStorage.setItem('todos', JSON.stringify(list));
   }
 
   const addTodo = (name) => {
@@ -43,6 +45,7 @@ function App() {
     setTodos(list);
 
     // add to local
+    setToLocal(name);
   }
 
   return (

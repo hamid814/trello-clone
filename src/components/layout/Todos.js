@@ -1,13 +1,17 @@
-import React from 'react';
+import React , { Fragment } from 'react';
 import PropTypes from 'prop-types'
 import TodoItem from './TodoItem';
 import NoTodo from './NoTodo';
+import ClearList from './ClearList';
 
 const Todos = ({ todos, todosEmpty }) => {
   return (
     <div className="form-container">
       {!todosEmpty ? todos.map(t => (
+        <Fragment>
         <TodoItem key={t} todo={t} />
+        
+        </Fragment>
       )) : <NoTodo />}
     </div>
   )

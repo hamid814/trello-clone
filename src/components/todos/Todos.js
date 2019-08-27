@@ -12,7 +12,7 @@ const Todos = (props) => {
           showActive
         } = props
   return (
-    <div className="form-container">
+    <div className='form-container'>
       {
         !todosEmpty
           ? !showActive

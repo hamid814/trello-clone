@@ -59,7 +59,7 @@ function App() {
   }
 
   const onUpdate = (text, id) => {
-    console.log(text);
+    // console.log(text);
     setCurrent(null);
   }
 

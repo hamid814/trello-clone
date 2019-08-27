@@ -10,7 +10,6 @@ const FormContainer = ({ addTodo, current, onUpdate }) => {
   useEffect(() => {
     if(current !== null) {
       setText(current.text, current.id);
-      console.log('hamid');
     }
     // eslint-disable-next-line
   }, [])
@@ -32,7 +31,7 @@ const FormContainer = ({ addTodo, current, onUpdate }) => {
         }, 3000);
       }
     } else {
-      onUpdate(text);
+      onUpdate(text, current.id);
       setText('');
     }
     

@@ -1,8 +1,8 @@
 import React from 'react'
 
-const ClearList = () => {
+const ClearList = ({ onClear }) => {
   return (
-    <div className='btn btn-danger btn-block'>
+    <div className='btn btn-danger btn-block' onClick={onClear}>
       clear todos 
     </div>
   )

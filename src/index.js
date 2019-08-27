@@ -16,7 +16,7 @@ function App() {
     console.log(todos);
     console.log(getTodos());
     // eslint-disable-nex-line
-  }, [])
+  }, [setTodos])
 
   const getTodos = () => {
     let list;
@@ -37,15 +37,26 @@ function App() {
     localStorage.setItem('todos', JSON.stringify(list));
   }
 
-  const addTodo = (name) => {
+  const addTodo = (text) => {
+    const newTodo = {
+      id: `todo-number-${todos.length + 1}`,
+      text,
+      done: false
+    };
     setTodosEmpty(false);
     let list = [];
     todos.forEach(t => list.push(t));
-    list.push(name);
+    list.push(newTodo);
     setTodos(list);
 
     // add to local
-    setToLocal(name);
+    setToLocal(newTodo);
+  }
+
+  const onClear = () => {
+    setTodos([]);
+    localStorage.setItem('todos', JSON.stringify([]));
+    setTodosEmpty(true);
   }
 
   return (
@@ -57,7 +68,8 @@ function App() {
           todosEmpty={todosEmpty} />
         <Todos
           todos={todos}
-          todosEmpty={todosEmpty} />
+          todosEmpty={todosEmpty}
+          onClear={onClear} />
       </div>
       
     </Fragment>

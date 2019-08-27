@@ -1,6 +1,6 @@
 import React, { Fragment, useState , useEffect } from 'react';
 import ReactDOM from 'react-dom';
-
+import uuid from 'uuid';
 import Navbar from './components/layout/Navbar';
 import FormContainer from './components/layout/FormContainer';
 import Todos from './components/todos/Todos';
@@ -39,9 +39,9 @@ function App() {
 
   const addTodo = (text) => {
     const newTodo = {
-      id: `todo-number-${todos.length + 1}`,
+      id: uuid.v4(),
       text,
-      done: true
+      done: false
     };
     setTodosEmpty(false);
     let list = [];
@@ -54,7 +54,18 @@ function App() {
   }
 
   const markComplete = (id) => {
-    console.log(id);
+    const newList = todos.map(t => {
+      if(t.id === id) {
+        t.done = !t.done
+      }
+      return t
+    });
+    setTodos(newList);
+    localStorage.setItem('todos', JSON.stringify(newList));
+  }
+
+  const onDelete = () => {
+    console.log('del');
   }
 
   const onClear = () => {
@@ -74,6 +85,7 @@ function App() {
           todos={todos}
           todosEmpty={todosEmpty}
           markComplete={markComplete}
+          onDelete={onDelete}
           onClear={onClear} />
       </div>
       

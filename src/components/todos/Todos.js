@@ -4,12 +4,12 @@ import TodoItem from './TodoItem';
 import NoTodo from './NoTodo';
 import ClearList from './ClearList';
 
-const Todos = ({ todos, todosEmpty, onClear, markComplete }) => {
+const Todos = ({ todos, todosEmpty, onClear, markComplete, onDelete }) => {
   return (
     <div className="form-container">
       {!todosEmpty ? todos.map((t, index) => (
         <Fragment key={t.id}>
-          <TodoItem todo={t} markComplete={markComplete} />
+          <TodoItem todo={t} markComplete={markComplete} onDelete={onDelete} />
           {todos.length === index + 1 && <ClearList onClear={onClear} />}
         </Fragment>
       )) : <NoTodo />}

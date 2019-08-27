@@ -18,9 +18,6 @@ const Todos = (props) => {
 
   const {
           todosEmpty,
-          onCheck,
-          onDelete,
-          onEdit,
           showActive
         } = props
   return (
@@ -29,10 +26,10 @@ const Todos = (props) => {
         !todosEmpty
           ? !showActive
             ? todos.map((t, index) => (
-              <TodoItem key={t.id} todo={t} onCheck={onCheck} onDelete={onDelete} onEdit={onEdit} />
+              <TodoItem key={t.id} todo={t} />
               ))
             : todos.map(t => (
-              !t.done && <TodoItem key={t.id} todo={t} onCheck={onCheck} onDelete={onDelete} onEdit={onEdit} />
+              !t.done && <TodoItem key={t.id} todo={t} />
             ))
           : <NoTodo />
       }
@@ -42,8 +39,6 @@ const Todos = (props) => {
 
 Todos.propTypes = {
   todosEmpty: PropTypes.bool.isRequired,
-  onCheck: PropTypes.func.isRequired,
-  onDelete: PropTypes.func.isRequired, 
   showActive: PropTypes.bool.isRequired
 }
 

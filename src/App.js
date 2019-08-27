@@ -27,7 +27,7 @@ const App = () => {
 
   useEffect(() => {
     if(todos.length === 0) {
-      setTodosEmpty(false);
+      setTodosEmpty(true);
     } else {
       setTodosEmpty(false);
     }
@@ -41,17 +41,6 @@ const App = () => {
     }
     // eslint-disable-next-line
   }, [todos])
-
-  const onCheck = (id) => {
-    const newList = todos.map(t => {
-      if(t.id === id) {
-        t.done = !t.done
-      }
-      return t
-    });
-    setTodos(newList);
-    localStorage.setItem('todos', JSON.stringify(newList));
-  }
 
   const onCheckAll = () => {
     if(!allDone) {
@@ -67,12 +56,6 @@ const App = () => {
     }
   }
 
-  const onDelete = (id) => {
-    const newList = todos.filter(t => t.id !== id);
-    setTodos(newList);
-    localStorage.setItem('todos', JSON.stringify(newList));
-  }
-
   const onFilter = () => {
     setShowActive(!showActive);
   }
@@ -85,8 +68,6 @@ const App = () => {
         allDone={allDone} />
       <Todos
         todosEmpty={todosEmpty}
-        onCheck={onCheck}
-        onDelete={onDelete}
         showActive={showActive} />
       <TodoBtnPanel
         onCheckAll={onCheckAll}

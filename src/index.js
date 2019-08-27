@@ -10,6 +10,7 @@ import './App.css';
 function App() {
   const [todos, setTodos] = useState([]);
   const [todosEmpty, setTodosEmpty] = useState(true);
+  const [current, setCurrent] = useState(null);
 
   useEffect(() => {
     setTodos(getTodos());
@@ -53,6 +54,10 @@ function App() {
     setToLocal(newTodo);
   }
 
+  const onEdit = (todo) => {
+    setCurrent(todo);
+  }
+
   const markComplete = (id) => {
     const newList = todos.map(t => {
       if(t.id === id) {
@@ -64,8 +69,11 @@ function App() {
     localStorage.setItem('todos', JSON.stringify(newList));
   }
 
-  const onDelete = () => {
-    console.log('del');
+  const onDelete = (id) => {
+    const newList = todos.filter(t => t.id !== id);
+    setTodos(newList);
+    localStorage.setItem('todos', JSON.stringify(newList));
+    console.log('set todosEmpty to true if length is 0');
   }
 
   const onClear = () => {
@@ -80,13 +88,15 @@ function App() {
       <div className="container mt-2">
         <FormContainer
           addTodo={addTodo}
-          todosEmpty={todosEmpty} />
+          todosEmpty={todosEmpty}
+          current={current} />
         <Todos
           todos={todos}
           todosEmpty={todosEmpty}
           markComplete={markComplete}
           onDelete={onDelete}
-          onClear={onClear} />
+          onClear={onClear}
+          onEdit={onEdit} />
       </div>
       
     </Fragment>

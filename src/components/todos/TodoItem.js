@@ -1,8 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
 
-const TodoItem = ({ todo, markComplete, onDelete }) => {
+const TodoItem = ({ todo, markComplete, onDelete, onEdit }) => {
   const onMarkComp = () => {
     markComplete(todo.id);
   }
@@ -11,8 +11,12 @@ const TodoItem = ({ todo, markComplete, onDelete }) => {
     onDelete(todo.id);
   }
 
+  const onDoubleClick = () => {
+    onEdit(todo);
+  }
+
   return (
-    <div className='card rounded pl-2'>
+    <div className='card rounded pl-2' onDoubleClick={onDoubleClick}>
       <div className={`box mr-1 cursor-p ${todo.done ? '' : 'bg-dark'}`} onClick={onMarkComp}></div>
       <div className={`text text-dark${todo.done ? ' line-through' : ''}`}>{todo.text}</div>
       <div className='float-right close' onClick={onDeleteClicked}>&times;</div>

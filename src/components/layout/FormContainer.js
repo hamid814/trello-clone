@@ -1,6 +1,6 @@
 import React , { useState } from 'react';
 
-const FormContainer = ({ addTodo, todosEmpty }) => {
+const FormContainer = ({ addTodo, todosEmpty, current }) => {
   const [text, setText] = useState('');
   const [error, setError] = useState(false);
   const [wantToAddEmpty, setWantToAddEmpty] = useState(false);
@@ -35,13 +35,13 @@ const FormContainer = ({ addTodo, todosEmpty }) => {
   return (
     <div className='form-container border-bottom'>
       <h2>Add Todo</h2>
-      <input type='text' onChange={onChange} onKeyDown={onKeyDown} value={text} />
+      <input type='text' onChange={onChange} onKeyDown={onKeyDown} value={!current ? text : current.text} />
       <div className={!wantToAddEmpty ? 'form-group' : 'form-group grid-3-1'}>
         <input
         onClick={onSubmit}
         type='submit'
         className='btn btn-white btn-block mt-0'
-        value={!error ? 'Add' : 'please enter somethig'}/>
+        value={!current ? !error ? 'Add' : 'Please enter somethig' : 'Update'}/>
       <input
         onClick={onAddEmpty}
         type='submit'

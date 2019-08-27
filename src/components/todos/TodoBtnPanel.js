@@ -11,7 +11,7 @@ const TodoBtnPanel = (props) => {
   } = props;
 
   return (
-    <div className='grid-3 form-container mt-0'>
+    <div className='grid-3 container-sm mt-0'>
       <div className={`btn btn-block rounded ${todosEmpty ? 'btn-light' : 'btn-success'}`} onClick={onCheckAll}>
         <div className={`box ${!allDone && 'bg-dark'}`}></div>
         {allDone ? 'Uncheck all' : 'Check all'}

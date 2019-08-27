@@ -56,7 +56,7 @@ const FormContainer = ({ addTodo, current, onUpdate }) => {
   }
 
   return (
-    <div className='form-container border border-light p-2 pb-1'>
+    <div className='container-sm border border-light p-2 pb-1'>
       <h2 className={current ? 'text-success' : 'text-primary'}>{current ? 'Edit Todo' : 'Add Todo'}</h2>
       <input id='input' type='text' className="border-primary" onChange={onChange} onKeyDown={onKeyDown} value={text} />
       <div className={!wantToAddEmpty ? current ? 'form-group grid-3-1' : 'form-group' : 'form-group grid-3-1'}>

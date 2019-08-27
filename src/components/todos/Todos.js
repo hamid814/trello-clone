@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types'
 import TodoItem from './TodoItem';
 import NoTodo from './NoTodo';
 
+import TodoContext from '../../context/todo/todoContext';
+
 const Todos = (props) => {
+  const todoContext = useContext(TodoContext);
+
+  console.log(todoContext);
+
   const { todos,
           todosEmpty,
           onCheck,
@@ -12,7 +18,7 @@ const Todos = (props) => {
           showActive
         } = props
   return (
-    <div className='form-container'>
+    <div className='container-sm'>
       {
         !todosEmpty
           ? !showActive

@@ -129,26 +129,23 @@ const App = () => {
   return (
     <Fragment>
       <Navbar />
-      <div className="container mt-2">
-        <FormContainer
-          addTodo={addTodo}
-          onUpdate={onUpdate}
-          current={current} />
-        <Todos
-          todos={todos}
-          todosEmpty={todosEmpty}
-          check={onCheck}
-          onDelete={onDelete}
-          onEdit={onEdit} />
-        <TodoBtnPanel
-          onClear={onClear}
-          onCheckAll={onCheckAll}
-          todosEmpty={todosEmpty}
-          showDone={showDone}
-          onFilter={onFilter}
-          allDone={allDone} />
-      </div>
-      
+      <FormContainer
+        addTodo={addTodo}
+        onUpdate={onUpdate}
+        current={current} />
+      <Todos
+        todos={todos}
+        todosEmpty={todosEmpty}
+        check={onCheck}
+        onDelete={onDelete}
+        onEdit={onEdit} />
+      <TodoBtnPanel
+        onClear={onClear}
+        onCheckAll={onCheckAll}
+        todosEmpty={todosEmpty}
+        showDone={showDone}
+        onFilter={onFilter}
+        allDone={allDone} />
     </Fragment>
   );
 }

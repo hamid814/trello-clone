@@ -54,12 +54,19 @@ function App() {
     setToLocal(newTodo);
   }
 
-  const onEdit = (todo) => {
-    setCurrent(todo);
+  const onEdit = (id) => {
+    todos.forEach(t => t.id === id && setCurrent(t));
   }
 
   const onUpdate = (text, id) => {
-    // console.log(text);
+    const newList = todos.map(t => {
+      if(t.id === id) {
+        t.text = text
+      }
+      return t
+    });
+    setTodos(newList);
+    localStorage.setItem('todos', JSON.stringify(newList));
     setCurrent(null);
   }
 

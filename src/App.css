@@ -4,7 +4,7 @@
 :root {
   --primary-color: #003699;
   --dark-color: #333333;
-  --light-color: #f4f4f4;
+  --light-color: #ddd;
   --danger-color: #dc3545;
   --success-color: #28a745;
   --warning-color: #ffc107;
@@ -80,7 +80,7 @@ img {
 }
 
 .text-light {
-  color: var(--light-color);
+  color: var(--light-color) !important;
 }
 
 .text-danger {
@@ -643,7 +643,7 @@ table th {
 }
 
 .border-primary {
-  border-color: var(--primary-color);
+  border-color: var(--primary-color) !important;
 }
 
 .border-success {
@@ -671,7 +671,7 @@ table th {
 }
 
 .rounded {
-  border-radius: .25rem;
+  border-radius: .15rem;
 }
 
 .rounded-top {
@@ -777,5 +777,5 @@ table th {
 .close:hover {
   color: var(--danger-color);
   text-decoration: none;
-  opacity: .85;
+  opacity: .95;
 }

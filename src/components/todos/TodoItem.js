@@ -2,24 +2,24 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 
-const TodoItem = ({ todo, markComplete, onDelete, onEdit }) => {
+const TodoItem = ({ todo: { id, text, done }, markComplete, onDelete, onEdit }) => {
   const onMarkComp = () => {
-    markComplete(todo.id);
+    markComplete(id);
   }
 
   const onDeleteClicked = () => {
-    onDelete(todo.id);
+    onDelete(id);
   }
 
   const onDoubleClick = () => {
-    onEdit(todo);
+    onEdit(id);
   }
 
   return (
-    <div className='card rounded pl-2' onDoubleClick={onDoubleClick}>
-      <div className={`box mr-1 cursor-p ${todo.done ? '' : 'bg-dark'}`} onClick={onMarkComp}></div>
-      <div className={`text text-dark${todo.done ? ' line-through' : ''}`}>{todo.text}</div>
-      <div className='float-right close' onClick={onDeleteClicked}>&times;</div>
+    <div className={`card rounded pl-2 ${done ? 'border-light' : 'border-dark'}`} onDoubleClick={onDoubleClick}>
+      <div className={`box mr-1 cursor-p ${done ? '' : 'bg-dark'}`} onClick={onMarkComp}></div>
+      <div className={`text text-dark${done && ' line-through text-light'}`}>{text}</div>
+      <div className={`float-right close ${done && 'text-light'}`} onClick={onDeleteClicked}>&times;</div>
     </div>
   )
 }

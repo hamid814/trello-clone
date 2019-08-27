@@ -1,9 +1,12 @@
-import React , { useState, useEffect } from 'react';
+import React , { useState, useEffect, useContext } from 'react';
 import PropTypes from 'prop-types'
 
+import TodoContext from '../../context/todo/todoContext';
 
-const FormContainer = ({ addTodo, current, onUpdate }) => {
-  
+const FormContainer = ({ current, onUpdate }) => {
+  const todoContext = useContext(TodoContext);
+
+  const { addTodo, todos } = todoContext;
 
   useEffect(() => {
     if(current !== null) {

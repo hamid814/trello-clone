@@ -1,4 +1,5 @@
 import React, { useReducer } from 'react';
+import uuid from 'uuid';
 import TodoContext from './todoContext';
 import todoReducer from './todoReducer';
 import {
@@ -14,7 +15,7 @@ const TodoState = props => {
   const [state, dispatch] = useReducer(todoReducer, initialState);
 
   // Get todos
-  const getContacts = async () => {
+  const getTodos = () => {
     let list;
     if(localStorage.getItem('todos') === null) {
       list = [];
@@ -22,28 +23,30 @@ const TodoState = props => {
       list = JSON.parse(localStorage.getItem('todos'));
     }
 
-    return list;
-     
-    // try {
-    //   const res = await axios.get('/api/contacts');
-
-    //   dispatch({
-    //     type: GET_CONTACTS,
-    //     payload: res.data
-    //   });
-    // } catch (err) {
-    //   dispatch({
-    //     type: CONTACT_ERROR,
-    //     payload: err.response.msg
-    //   });
-    // }
+    dispatch({
+      type: GET_TODOS,
+      payload: list
+    });
   };
+
+  const addTodo = (text) => {
+    const newTodo = {
+      id: uuid.v4(),
+      text,
+      done: false
+    }
+    dispatch({
+      type: ADD_TODO,
+      payload: newTodo
+    });
+  }
 
   return (
     <TodoContext.Provider
       value={{
         todos: state.todos,
-        getContacts,
+        getTodos,
+        addTodo
       }}
     >
       {props.children}

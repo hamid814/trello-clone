@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useEffect, useContext } from 'react';
 import PropTypes from 'prop-types'
 import TodoItem from './TodoItem';
 import NoTodo from './NoTodo';
@@ -8,9 +8,15 @@ import TodoContext from '../../context/todo/todoContext';
 const Todos = (props) => {
   const todoContext = useContext(TodoContext);
 
-  console.log(todoContext);
+  const { todos, getTodos } = todoContext;
+  console.log(todos);
 
-  const { todos,
+  useEffect(() => {
+    getTodos();
+    // eslint-disable-next-line
+  }, []);
+
+  const {
           todosEmpty,
           onCheck,
           onDelete,

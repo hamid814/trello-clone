@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import uuid from 'uuid';
 
 const TodoItem = ({ todo: { id, text, done }, onCheck, onDelete, onEdit }) => {
   const onMarkComp = () => {

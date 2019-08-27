@@ -1,5 +1,6 @@
 import {
-  GET_TODOS
+  GET_TODOS,
+  ADD_TODO
 } from '../types';
 
 export default (state, action) => {
@@ -7,8 +8,13 @@ export default (state, action) => {
     case GET_TODOS:
       return {
         ...state,
-        todoa: action.payload,
+        todos: action.payload,
       };
+    case ADD_TODO:
+      return {
+        ...state,
+        todos: [...state.todos, action.payload]
+      }
     default:
       return state;
   }

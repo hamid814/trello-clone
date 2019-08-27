@@ -138,7 +138,6 @@ const App = () => {
       <Congrats
         allDone={allDone} />
       <Todos
-        todos={todos}
         todosEmpty={todosEmpty}
         onCheck={onCheck}
         onDelete={onDelete}

@@ -24,7 +24,7 @@ const App = () => {
   const [todosEmpty, setTodosEmpty] = useState(true);
   const [allDone, setAllDone] = useState(false);
   const [current, setCurrent] = useState(null);
-  const [display, setDisplay] = useState('all');
+  const [showDone, setShowDone] = useState(false);
 
   useEffect(() => {
     if(todos.length === 0) {
@@ -35,9 +35,11 @@ const App = () => {
     let listOfDoneTrue = [];
     let listOfDoneFalse = [];
     todos.forEach(t => t.done ? listOfDoneTrue.push(t.done) : listOfDoneFalse.push(t.done));
-    console.log(listOfDoneTrue);
-    console.log(listOfDoneFalse);
-    console.log(todos.length);
+    if(listOfDoneTrue.length === todos.length) {
+      setAllDone(true);
+    } else {
+      setAllDone(false);
+    }
     // eslint-disable-next-line
   }, [todos])
 
@@ -122,6 +124,10 @@ const App = () => {
     setTodosEmpty(true);
   }
 
+  const onFilter = () => {
+    setShowDone(!showDone);
+  }
+
   return (
     <Fragment>
       <Navbar />
@@ -140,7 +146,8 @@ const App = () => {
           onClear={onClear}
           onCheckAll={onCheckAll}
           todosEmpty={todosEmpty}
-          display={display}
+          showDone={showDone}
+          onFilter={onFilter}
           allDone={allDone} />
       </div>
       

@@ -9,7 +9,6 @@ const Todos = (props) => {
   const todoContext = useContext(TodoContext);
 
   const { todos, getTodos } = todoContext;
-  console.log(todos);
 
   useEffect(() => {
     getTodos();
@@ -41,11 +40,9 @@ const Todos = (props) => {
 }
 
 Todos.propTypes = {
-  todos: PropTypes.array.isRequired,
   todosEmpty: PropTypes.bool.isRequired,
   onCheck: PropTypes.func.isRequired,
   onDelete: PropTypes.func.isRequired, 
-  onEdit: PropTypes.func.isRequired,
   showActive: PropTypes.bool.isRequired
 }
 

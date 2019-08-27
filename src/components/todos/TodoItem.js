@@ -1,23 +1,29 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 
-const TodoItem = ({ todo: { id, text, done }, onCheck, onDelete, onEdit }) => {
+import TodoContext from '../../context/todo/todoContext';
+
+const TodoItem = ({ todo: { id, text, done }, onCheck, onDelete }) => {
+  const todoContext = useContext(TodoContext);
+
+  const { editTodo } = todoContext;
+
   const onMarkComp = () => {
     onCheck(id);
   }
   const onDeleteClicked = () => {
     onDelete(id);
   }
-  const onEditClicked = () => {
-    onEdit(id);
+  const onEdit = () => {
+    editTodo();
   }
 
   return (
-    <div className={`card rounded pl-2 ${done ? 'border-light' : 'border-dark'}`} onDoubleClick={onEditClicked}>
+    <div className={`card rounded pl-2 ${done ? 'border-light' : 'border-dark'}`} onDoubleClick={onEdit}>
       <div className={`box cursor-p ${done ? '' : 'bg-dark'}`} onClick={onMarkComp}></div>
       <div className={`text text-dark${done && ' line-through text-light'}`}>{text}</div>
       <div className={`float-right close ${done && 'text-light'}`} onClick={onDeleteClicked}>&times;</div>
-      <div className={`float-right text-sm mr-1 hover-warning close ${done && 'text-light'}`} onClick={onEditClicked} style={EStyle}>&euml;</div>
+      <div className={`float-right text-sm mr-1 hover-warning close ${done && 'text-light'}`} onClick={onEdit} style={EStyle}>&euml;</div>
     </div>
   )
 }
@@ -30,8 +36,7 @@ const EStyle = {
 TodoItem.propTypes = {
   todo: PropTypes.object.isRequired,
   onCheck: PropTypes.func.isRequired,
-  onDelete: PropTypes.func.isRequired,
-  onEdit: PropTypes.func.isRequired
+  onDelete: PropTypes.func
 }
 
 export default TodoItem

@@ -1,5 +1,4 @@
 import React, { useState , useEffect } from 'react';
-import uuid from 'uuid';
 import Navbar from './components/layout/Navbar';
 import FormContainer from './components/layout/FormContainer';
 import Congrats from './components/layout/Congrats';
@@ -24,7 +23,6 @@ const App = () => {
   const [todos, setTodos] = useState(getTodos());
   const [todosEmpty, setTodosEmpty] = useState(true);
   const [allDone, setAllDone] = useState(false);
-  const [current, setCurrent] = useState(null);
   const [showActive, setShowActive] = useState(false);
 
   useEffect(() => {
@@ -43,49 +41,6 @@ const App = () => {
     }
     // eslint-disable-next-line
   }, [todos])
-
-  
-  
-  const setToLocal = (name) => {
-    const list = getTodos();
-
-    list.push(name);
-
-    localStorage.setItem('todos', JSON.stringify(list));
-  }
-
-  const addTodo = (text) => {
-    const newTodo = {
-      id: uuid.v4(),
-      text,
-      done: false
-    };
-    setTodosEmpty(false);
-    let list = [];
-    todos.forEach(t => list.push(t));
-    list.push(newTodo);
-    setTodos(list);
-
-    // add to local
-    setToLocal(newTodo);
-  }
-
-  const onEdit = (id) => {
-    todos.forEach(t => t.id === id && setCurrent(t));
-    document.querySelector('#input').focus();
-  }
-
-  const onUpdate = (text, id) => {
-    const newList = todos.map(t => {
-      if(t.id === id) {
-        t.text = text
-      }
-      return t
-    });
-    setTodos(newList);
-    localStorage.setItem('todos', JSON.stringify(newList));
-    setCurrent(null);
-  }
 
   const onCheck = (id) => {
     const newList = todos.map(t => {
@@ -118,12 +73,6 @@ const App = () => {
     localStorage.setItem('todos', JSON.stringify(newList));
   }
 
-  const onClear = () => {
-    setTodos([]);
-    localStorage.setItem('todos', JSON.stringify([]));
-    setTodosEmpty(true);
-  }
-
   const onFilter = () => {
     setShowActive(!showActive);
   }
@@ -131,20 +80,15 @@ const App = () => {
   return (
     <TodoState>
       <Navbar />
-      <FormContainer
-        addTodo={addTodo}
-        onUpdate={onUpdate}
-        current={current} />
+      <FormContainer />
       <Congrats
         allDone={allDone} />
       <Todos
         todosEmpty={todosEmpty}
         onCheck={onCheck}
         onDelete={onDelete}
-        showActive={showActive}
-        onEdit={onEdit} />
+        showActive={showActive} />
       <TodoBtnPanel
-        onClear={onClear}
         onCheckAll={onCheckAll}
         todosEmpty={todosEmpty}
         showActive={showActive}

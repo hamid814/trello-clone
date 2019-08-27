@@ -1,6 +1,8 @@
 import {
   GET_TODOS,
-  ADD_TODO
+  ADD_TODO,
+  CLEAR_TODOS,
+  UPDATE_TODO
 } from '../types';
 
 export default (state, action) => {
@@ -14,6 +16,20 @@ export default (state, action) => {
       return {
         ...state,
         todos: [...state.todos, action.payload]
+      }
+    case UPDATE_TODO:
+      return {
+        ...state,
+        todos: [state.todos.map(t => {if(t.id === action.payload.id) {
+            t.text = action.payload.text
+          }
+          return t
+        })]
+      }
+    case CLEAR_TODOS:
+      return {
+        ...state,
+        todos: []
       }
     default:
       return state;

@@ -1,12 +1,11 @@
 import React , { useState, useEffect, useContext } from 'react';
-import PropTypes from 'prop-types'
 
 import TodoContext from '../../context/todo/todoContext';
 
-const FormContainer = ({ current, onUpdate }) => {
+const FormContainer = () => {
   const todoContext = useContext(TodoContext);
 
-  const { addTodo, todos } = todoContext;
+  const { addTodo, updateTodo, current } = todoContext;
 
   useEffect(() => {
     if(current !== null) {
@@ -37,13 +36,13 @@ const FormContainer = ({ current, onUpdate }) => {
         }, 3000);
       }
     } else {
-      onUpdate(text, current.id);
+      updateTodo(text, current.id);
       setText('');
     }
   }
 
   const onBack = () => {
-    onUpdate(current.text, current.id);
+    updateTodo(current.text, current.id);
     setText('');
   }
 
@@ -85,12 +84,6 @@ const FormContainer = ({ current, onUpdate }) => {
       </div>
     </div>
   )
-}
-
-FormContainer.propTypes = {
-  addTodo: PropTypes.func.isRequired,
-  current: PropTypes.object,
-  onUpdate: PropTypes.func.isRequired,
 }
 
 export default FormContainer

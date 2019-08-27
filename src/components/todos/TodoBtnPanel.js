@@ -1,8 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types'
+import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
+
+import TodoContext from '../../context/todo/todoContext';
 
 const TodoBtnPanel = (props) => {
-  const { onClear,
+  const todoContext = useContext(TodoContext);
+
+  const { clearTodos } = todoContext;
+
+  const { 
           onCheckAll,
           allDone,
           todosEmpty,
@@ -19,7 +25,7 @@ const TodoBtnPanel = (props) => {
       <div className={`btn btn-block rounded ${todosEmpty ? 'btn-light' : 'btn-warning'}`} onClick={onFilter}>
         Show {showActive ? 'all' : 'active'}
       </div>
-      <div className={`btn btn-block rounded ${todosEmpty ? 'btn-light' : 'btn-danger'}`} onClick={onClear}>
+      <div className={`btn btn-block rounded ${todosEmpty ? 'btn-light' : 'btn-danger'}`} onClick={clearTodos}>
         Clear todos 
       </div>
     </div>
@@ -28,7 +34,6 @@ const TodoBtnPanel = (props) => {
 }
 
 TodoBtnPanel.propTypes = {
-  onClear: PropTypes.func.isRequired,
   onCheckAll: PropTypes.func.isRequired,
   allDone: PropTypes.bool.isRequired,
   todosEmpty: PropTypes.bool.isRequired,

@@ -4,12 +4,16 @@ import TodoContext from './todoContext';
 import todoReducer from './todoReducer';
 import {
   GET_TODOS,
-  ADD_TODO
+  ADD_TODO,
+  CLEAR_TODOS,
+  UPDATE_TODO
 } from '../types';
 
 const TodoState = props => {
   const initialState = {
-    todos: []
+    todos: [],
+    filtered: [],
+    current: null
   };
 
   const [state, dispatch] = useReducer(todoReducer, initialState);
@@ -29,6 +33,7 @@ const TodoState = props => {
     });
   };
 
+  // add todo
   const addTodo = (text) => {
     const newTodo = {
       id: uuid.v4(),
@@ -41,12 +46,34 @@ const TodoState = props => {
     });
   }
 
+  // update todo
+  const updateTodo = (text, id) => {
+    dispatch({
+      type: UPDATE_TODO,
+      action: {
+        text,
+        id
+      }
+    });
+  }
+
+  const clearTodos = () => {
+    dispatch({
+      type: CLEAR_TODOS
+    });
+  }
+
   return (
     <TodoContext.Provider
       value={{
         todos: state.todos,
+        current: state.current,
         getTodos,
-        addTodo
+        addTodo,
+        updateTodo,
+        clearTodos,
+        
+        filtered: state.filtered
       }}
     >
       {props.children}

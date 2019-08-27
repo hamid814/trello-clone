@@ -4,22 +4,11 @@ import uuid from 'uuid';
 import Navbar from './components/layout/Navbar';
 import FormContainer from './components/layout/FormContainer';
 import Todos from './components/todos/Todos';
+import TodoBtnPanel from './components/todos/TodoBtnPanel';
 
 import './App.css';
 
-function App() {
-  const [todos, setTodos] = useState([]);
-  const [todosEmpty, setTodosEmpty] = useState(true);
-  const [allChecked, setAllChecked] = useState(false);
-  const [current, setCurrent] = useState(null);
-
-  useEffect(() => {
-    setTodos(getTodos());
-    console.log(getTodos());
-    console.log(todos);
-    // eslint-disable-next-line
-  }, [])
-
+const App = () => {
   const getTodos = () => {
     let list;
     if(localStorage.getItem('todos') === null) {
@@ -30,6 +19,29 @@ function App() {
 
     return list;
   }
+  
+  const [todos, setTodos] = useState(getTodos());
+  const [todosEmpty, setTodosEmpty] = useState(true);
+  const [allDone, setAllDone] = useState(false);
+  const [current, setCurrent] = useState(null);
+  const [display, setDisplay] = useState('all');
+
+  useEffect(() => {
+    if(todos.length === 0) {
+      setTodosEmpty(true);
+    } else {
+      setTodosEmpty(false);
+    }
+    let listOfDoneTrue = [];
+    let listOfDoneFalse = [];
+    todos.forEach(t => t.done ? listOfDoneTrue.push(t.done) : listOfDoneFalse.push(t.done));
+    console.log(listOfDoneTrue);
+    console.log(listOfDoneFalse);
+    console.log(todos.length);
+    // eslint-disable-next-line
+  }, [todos])
+
+  
   
   const setToLocal = (name) => {
     const list = getTodos();
@@ -80,20 +92,19 @@ function App() {
     });
     setTodos(newList);
     localStorage.setItem('todos', JSON.stringify(newList));
-    console.log('set "allCheck" if all R checked or all R not checked');
   }
 
   const onCheckAll = () => {
-    if(!allChecked) {
+    if(!allDone) {
       const newList = todos.map(t => {t.done = true; return t});
       setTodos(newList);
       localStorage.setItem('todos', JSON.stringify(newList));
-      setAllChecked(true);  
+      setAllDone(true);  
     } else {
       const newList = todos.map(t => {t.done = false; return t});
       setTodos(newList);
       localStorage.setItem('todos', JSON.stringify(newList));
-      setAllChecked(false);
+      setAllDone(false);
     }
   }
 
@@ -102,6 +113,7 @@ function App() {
     setTodos(newList);
     localStorage.setItem('todos', JSON.stringify(newList));
     console.log('set "todosEmpty" to true if length is 0');
+    console.log(todos);
   }
 
   const onClear = () => {
@@ -123,10 +135,13 @@ function App() {
           todosEmpty={todosEmpty}
           check={onCheck}
           onDelete={onDelete}
+          onEdit={onEdit} />
+        <TodoBtnPanel
           onClear={onClear}
           onCheckAll={onCheckAll}
-          allChecked={allChecked}
-          onEdit={onEdit} />
+          todosEmpty={todosEmpty}
+          display={display}
+          allDone={allDone} />
       </div>
       
     </Fragment>

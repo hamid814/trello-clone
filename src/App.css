@@ -2,12 +2,12 @@
 
 /* Global Styles */
 :root {
-  --primary-color: #003699;
+  --primary-color: #4d6592;
   --dark-color: #333333;
   --light-color: #ddd;
-  --danger-color: #dc3545;
-  --success-color: #28a745;
-  --warning-color: #ffc107;
+  --danger-color: #da6671;
+  --success-color: #55a368;
+  --warning-color: #f7d87e;
 }
 
 * {
@@ -746,6 +746,26 @@ table th {
 
 .hover-warning:hover {
   color: var(--warning-color);
+}
+
+.hover-success:hover {
+  color: var(--success-color);
+}
+
+.hover-dark:hover {
+  color: var(--dark-color);
+}
+
+.hover-danger:hover {
+  color: var(--danger-color);
+}
+
+.hover-light:hover {
+  color: var(--light-color);
+}
+
+.hover-primary:hover {
+  color: var(--primary-color);
 }
 
 /* Mobile Styles */

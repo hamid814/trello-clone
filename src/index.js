@@ -9,24 +9,31 @@ import './App.css';
 
 function App() {
   const [todos, setTodos] = useState([]);
+  const [todosEmpty, setTodosEmpty] = useState(true);
+
   useEffect(() => {
+    setToLocal();
     getTodos();
-    if(localStorage.getItem('todos') === null) {
-      console.log('is null');
-    }
-    // eslint-desable-next-line
-  }, [todos])
+    console.log(todos);
+    console.log(getTodos());
+    // eslint-disable-nex-line
+  }, [])
 
   const getTodos = () => {
-    // let list = [];
-    // if(localStorage.getItem()) {
-      
-    // } else {
+    let list;
+    if(localStorage.getItem('todos') === null) {
+      list = [];
+    } else {
+      list = JSON.parse(localStorage.getItem('todos'));
+    }
+    setTodos(list);
 
-    // }
+    return list;
   }
   
-  const [todosEmpty, setTodosEmpty] = useState(true);
+  const setToLocal = () => {
+    console.log('set to local');
+  }
 
   const addTodo = (name) => {
     setTodosEmpty(false);

@@ -1,6 +1,6 @@
 import React , { useState } from 'react';
 
-const FormContainer = ({ addTodo, todoEmpty }) => {
+const FormContainer = ({ addTodo, todosEmpty }) => {
   const [name, setName] = useState('');
   const [error, setError] = useState(false);
   const [wantToAddEmpty, setWantToAddEmpty] = useState(false);
@@ -33,10 +33,10 @@ const FormContainer = ({ addTodo, todoEmpty }) => {
   }
 
   return (
-    <div className={`form-container ${todoEmpty ? '': 'border-bottom'}`}>
+    <div className={`form-container ${todosEmpty ? '': 'border-bottom'}`}>
       <h2>Add Todo</h2>
       <input type='text' onChange={onChange} onKeyDown={onKeyDown} value={name} />
-      <div className={!wantToAddEmpty ? 'form-group' : 'form-group grid-2'}>
+      <div className={!wantToAddEmpty ? 'form-group' : 'form-group grid-3-1'}>
         <input
         onClick={onSubmit}
         type='submit'
@@ -45,8 +45,8 @@ const FormContainer = ({ addTodo, todoEmpty }) => {
       <input
         onClick={onAddEmpty}
         type='submit'
-        className={wantToAddEmpty ? 'btn btn-light btn-block mt-0 p-0' : 'd-none'}
-        value='Add Empty (some other shape)' />
+        className={wantToAddEmpty ? 'btn btn-light btn-block mt-0 p-0' : 'd-n'}
+        value='Add empty' />
       </div>
     </div>
   )

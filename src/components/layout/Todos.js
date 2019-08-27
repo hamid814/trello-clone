@@ -3,10 +3,10 @@ import PropTypes from 'prop-types'
 import TodoItem from './TodoItem';
 import NoTodo from './NoTodo';
 
-const Todos = ({ todos }) => {
+const Todos = ({ todos, todosEmpty }) => {
   return (
     <div className="form-container">
-      {todos !== [] ? todos.map(t => (
+      {!todosEmpty ? todos.map(t => (
         <TodoItem key={t} todo={t} />
       )) : <NoTodo />}
     </div>
@@ -14,7 +14,8 @@ const Todos = ({ todos }) => {
 }
 
 Todos.propTypes = {
-  todos: PropTypes.array.isRequired
+  todos: PropTypes.array.isRequired,
+  todosEmpty: PropTypes.bool.isRequired
 }
 
 export default Todos

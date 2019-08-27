@@ -10,20 +10,26 @@ import './App.css';
 function App() {
   const [todos, setTodos] = useState([]);
   useEffect(() => {
-    // if(localStorage.getItem('todos') !== null) {
-      // setTodos(JSON.parse(localStorage.getItem(todos)));
-    // }
+    getTodos();
     if(localStorage.getItem('todos') === null) {
       console.log('is null');
     }
     // eslint-desable-next-line
   }, [todos])
 
+  const getTodos = () => {
+    // let list = [];
+    // if(localStorage.getItem()) {
+      
+    // } else {
+
+    // }
+  }
   
-  const [todoEmpty, setTodoEmpty] = useState(true);
+  const [todosEmpty, setTodosEmpty] = useState(true);
 
   const addTodo = (name) => {
-    setTodoEmpty(false);
+    setTodosEmpty(false);
     let list = [];
     todos.forEach(t => list.push(t));
     list.push(name);
@@ -38,8 +44,10 @@ function App() {
       <div className="container mt-2">
         <FormContainer
           addTodo={addTodo}
-          todoEmpty={todoEmpty} />
-        <Todos todos={todos} />
+          todosEmpty={todosEmpty} />
+        <Todos
+          todos={todos}
+          todosEmpty={todosEmpty} />
       </div>
       
     </Fragment>

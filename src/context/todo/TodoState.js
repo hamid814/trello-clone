@@ -2,7 +2,8 @@ import React, { useReducer } from 'react';
 import TodoContext from './todoContext';
 import todoReducer from './todoReducer';
 import {
-  GET_TODOS
+  GET_TODOS,
+  ADD_TODO
 } from '../types';
 
 const TodoState = props => {

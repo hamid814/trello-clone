@@ -88,7 +88,6 @@ function App() {
       <div className="container mt-2">
         <FormContainer
           addTodo={addTodo}
-          todosEmpty={todosEmpty}
           current={current} />
         <Todos
           todos={todos}

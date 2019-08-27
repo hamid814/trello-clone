@@ -115,6 +115,10 @@ img {
   text-align: left;
 }
 
+.text-sm {
+  font-size: 0.2rem;
+}
+
 /* Cards */
 .card {
   padding: 1rem;
@@ -437,7 +441,8 @@ img {
   height: 1rem;
   border: none;
   margin: 0;
-  border-radius: 0.25rem;
+  margin-right: 0.5rem;
+  border-radius: 50%;
   background: var(--light-color);
 }
 
@@ -549,7 +554,7 @@ button {
 }
 
 .form-container {
-  max-width: 500px;
+  max-width: 550px;
   margin: 2rem auto;
   overflow: hidden;
   padding: 0 2rem;
@@ -714,6 +719,35 @@ table th {
   cursor: pointer;
 }
 
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
+.close {
+  float: right;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  opacity: .5;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: var(--danger-color);
+  text-decoration: none;
+  opacity: .95;
+}
+
+.hover-warning:hover {
+  color: var(--warning-color);
+}
+
 /* Mobile Styles */
 @media (max-width: 700px) {
   .hide-sm {
@@ -753,29 +787,4 @@ table th {
     text-align: center;
     justify-content: center;
   }
-}
-
-.float-left {
-  float: left;
-}
-
-.float-right {
-  float: right;
-}
-
-.close {
-  float: right;
-  font-size: 1.5rem;
-  font-weight: 700;
-  line-height: 1;
-  color: #000;
-  text-shadow: 0 1px 0 #fff;
-  opacity: .5;
-  cursor: pointer;
-}
-
-.close:hover {
-  color: var(--danger-color);
-  text-decoration: none;
-  opacity: .95;
 }

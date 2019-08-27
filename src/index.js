@@ -10,6 +10,7 @@ import './App.css';
 function App() {
   const [todos, setTodos] = useState([]);
   const [todosEmpty, setTodosEmpty] = useState(true);
+  const [allChecked, setAllChecked] = useState(false);
   const [current, setCurrent] = useState(null);
 
   useEffect(() => {
@@ -70,7 +71,7 @@ function App() {
     setCurrent(null);
   }
 
-  const markComplete = (id) => {
+  const onCheck = (id) => {
     const newList = todos.map(t => {
       if(t.id === id) {
         t.done = !t.done
@@ -79,13 +80,28 @@ function App() {
     });
     setTodos(newList);
     localStorage.setItem('todos', JSON.stringify(newList));
+    console.log('set "allCheck" if all R checked or all R not checked');
+  }
+
+  const onCheckAll = () => {
+    if(!allChecked) {
+      const newList = todos.map(t => {t.done = true; return t});
+      setTodos(newList);
+      localStorage.setItem('todos', JSON.stringify(newList));
+      setAllChecked(true);  
+    } else {
+      const newList = todos.map(t => {t.done = false; return t});
+      setTodos(newList);
+      localStorage.setItem('todos', JSON.stringify(newList));
+      setAllChecked(false);
+    }
   }
 
   const onDelete = (id) => {
     const newList = todos.filter(t => t.id !== id);
     setTodos(newList);
     localStorage.setItem('todos', JSON.stringify(newList));
-    console.log('set todosEmpty to true if length is 0');
+    console.log('set "todosEmpty" to true if length is 0');
   }
 
   const onClear = () => {
@@ -105,9 +121,11 @@ function App() {
         <Todos
           todos={todos}
           todosEmpty={todosEmpty}
-          markComplete={markComplete}
+          check={onCheck}
           onDelete={onDelete}
           onClear={onClear}
+          onCheckAll={onCheckAll}
+          allChecked={allChecked}
           onEdit={onEdit} />
       </div>
       

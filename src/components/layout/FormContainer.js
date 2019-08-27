@@ -2,13 +2,16 @@ import React , { useState, useEffect } from 'react';
 import PropTypes from 'prop-types'
 
 
-const FormContainer = ({ addTodo, current }) => {
+const FormContainer = ({ addTodo, current, onUpdate }) => {
   const [text, setText] = useState('');
   const [error, setError] = useState(false);
   const [wantToAddEmpty, setWantToAddEmpty] = useState(false);
 
   useEffect(() => {
-    current && setText(current.text);
+    if(current !== null) {
+      setText(current.text, current.id);
+      console.log('hamid');
+    }
     // eslint-disable-next-line
   }, [])
 
@@ -29,7 +32,8 @@ const FormContainer = ({ addTodo, current }) => {
         }, 3000);
       }
     } else {
-
+      onUpdate(text);
+      setText('');
     }
     
   }

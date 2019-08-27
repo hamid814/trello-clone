@@ -16,7 +16,7 @@ function App() {
     setTodos(getTodos());
     console.log(getTodos());
     console.log(todos);
-    // eslint-disable-nex-line
+    // eslint-disable-next-line
   }, [])
 
   const getTodos = () => {
@@ -58,6 +58,11 @@ function App() {
     setCurrent(todo);
   }
 
+  const onUpdate = (text, id) => {
+    console.log(text);
+    setCurrent(null);
+  }
+
   const markComplete = (id) => {
     const newList = todos.map(t => {
       if(t.id === id) {
@@ -88,6 +93,7 @@ function App() {
       <div className="container mt-2">
         <FormContainer
           addTodo={addTodo}
+          onUpdate={onUpdate}
           current={current} />
         <Todos
           todos={todos}

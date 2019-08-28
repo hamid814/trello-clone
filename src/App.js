@@ -9,16 +9,6 @@ import TodoState from './context/todo/TodoState';
 import './App.css';
 
 const App = () => {
-    // let listOfDoneTrue = [];
-    // let listOfDoneFalse = [];
-    // todos.forEach(t => t.done ? listOfDoneTrue.push(t.done) : listOfDoneFalse.push(t.done));
-    // if(listOfDoneTrue.length === todos.length && todos.length !== 0) {
-    //   setAllDone(true);
-    // } else {
-    //   setAllDone(false);
-    // }
-    // eslint-disable-next-line
-
   return (
     <TodoState>
       <Navbar />
@@ -29,5 +19,4 @@ const App = () => {
     </TodoState>
   );
 }
-
 export default App

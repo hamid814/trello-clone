@@ -13,7 +13,8 @@ import {
   SET_CURRENT,
   CLEAR_CURRENT,
   FILTER_TODOS,
-  CLEAR_FILTER
+  CLEAR_FILTER,
+  SET_ALLDONE
 } from '../types';
 
 const TodoState = props => {
@@ -55,6 +56,7 @@ const TodoState = props => {
       type: ADD_TODO,
       payload: newTodo
     });
+    setAllDone();
   }
 
   // mark todo as complete
@@ -63,32 +65,43 @@ const TodoState = props => {
       type: CHECK_TODO,
       payload: id
     });
+    setAllDone();
   }
 
   // check all of todos
   const checkAll = () => {
-    console.log(state.todos);
     let newList;
     if(!state.allDone) {
       newList = state.todos.map(t => {t.done = true; return t});
       dispatch({
         type: CHECK_ALL,
-        payload: {
-          list: newList,
-          allDone: true
-        }
+        payload: newList
       });
     } else {
       newList = state.todos.map(t => {t.done = false; return t});
       dispatch({
         type: CHECK_ALL,
-        payload: {
-          list: newList,
-          allDone: false
-        }
+        payload: newList
       });
     }
-    
+    setAllDone();
+  }
+
+  const setAllDone = () => {
+    let listOfDoneTrue = [];
+    let listOfDoneFalse = [];
+    state.todos.forEach(t => t.done ? listOfDoneTrue.push(t.done) : listOfDoneFalse.push(t.done));
+    if(listOfDoneTrue.length === state.todos.length && state.todos.length !== 0) {
+      dispatch({
+        type: SET_ALLDONE,
+        payload: true
+      });
+    } else {
+      dispatch({
+        type: SET_ALLDONE,
+        payload: false
+      });
+    }
   }
 
   //  delete todo

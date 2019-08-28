@@ -16,6 +16,7 @@ const TodoItem = ({ todo: { id, text, done }, todo }) => {
   }
   const onEdit = () => {
     setCurrent(todo);
+    document.querySelector('#input').focus();
   }
 
   return (

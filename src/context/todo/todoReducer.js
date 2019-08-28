@@ -9,7 +9,8 @@ import {
   SET_CURRENT,
   CLEAR_CURRENT,
   FILTER_TODOS,
-  CLEAR_FILTER
+  CLEAR_FILTER,
+  SET_ALLDONE
 } from '../types';
 
 export default (state, action) => {
@@ -47,8 +48,7 @@ export default (state, action) => {
     case CHECK_ALL:
       return {
         ...state,
-        todos: action.payload.list,
-        allDone: action.payload.allDone
+        todos: action.payload
       }
     case UPDATE_TODO:
       return {
@@ -78,6 +78,11 @@ export default (state, action) => {
       return {
         ...state,
         todos: []
+      }
+    case SET_ALLDONE:
+      return {
+        ...state,
+        allDone: action.payload
       }
     default:
       return state;

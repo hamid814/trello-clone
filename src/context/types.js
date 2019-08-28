@@ -9,3 +9,4 @@ export const CLEAR_TODOS = 'CLEAR_TODOS';
 export const CHECK_ALL = 'CHECK_ALL';
 export const FILTER_TODOS = 'FILTER_TODOS';
 export const CLEAR_FILTER = 'CLEAR_FILTER';
+export const SET_ALLDONE = 'SET_ALLDONE';

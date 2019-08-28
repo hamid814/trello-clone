@@ -65,7 +65,7 @@ const TodoState = props => {
   // check all of todos
   const checkAll = () => {
     let newList;
-    if(!state.allDone) {
+    if(state.todos.filter(t => t.done).length !== state.todos.length) {
       newList = state.todos.map(t => {t.done = true; return t});
       dispatch({
         type: CHECK_ALL,
@@ -86,7 +86,7 @@ const TodoState = props => {
       type: DELETE_TODO,
       payload: id
     });
-    if(state.current.id === id) {
+    if(state.current && state.current.id === id) {
       clearCurrent();
     }
   }

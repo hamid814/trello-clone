@@ -14,6 +14,10 @@ const Todos = (props) => {
     // eslint-disable-next-line
   }, []);
 
+  useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }, [todos]);
+
   return (
     <div className='container-sm'>
       {

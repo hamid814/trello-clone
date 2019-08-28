@@ -7,13 +7,7 @@ const Congrats = () => {
   const [allDone, setAllDone] = useState(false);
 
   useEffect(() => {
-    let listOfDone = [];
-    todos.forEach(t => t.done && listOfDone.push(t.done));
-    if(listOfDone.length === todos.length && todos.length !== 0) {
-      setAllDone(true);
-    } else {
-      setAllDone(false);
-    }
+    todos.filter(t => t.done).length === todos.length && todos.length !== 0 ? setAllDone(true) : setAllDone(false)
   }, [todos]);
 
   return (

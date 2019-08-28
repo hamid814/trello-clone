@@ -2,4 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const StateContainer = () => {
+  return (
+    <App />
+  );
+}
+
+ReactDOM.render(<StateContainer />, document.getElementById('root'));

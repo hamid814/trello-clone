@@ -1,22 +1,14 @@
-import React from 'react';
-import Navbar from './components/layout/Navbar';
-import FormContainer from './components/layout/FormContainer';
-import Congrats from './components/layout/Congrats';
-import Todos from './components/todos/Todos';
-import TodoBtnPanel from './components/todos/TodoBtnPanel';
+import React, { Fragment } from 'react';
 
-import TodoState from './context/todo/TodoState';
 import './App.css';
 
 const App = () => {
   return (
-    <TodoState>
-      <Navbar />
-      <FormContainer />
-      <Congrats />
-      <Todos />
-      <TodoBtnPanel />
-    </TodoState>
+    <Fragment>
+      <h1 className='text-center mt-3 text-primary'>
+        trello clone app
+      </h1>
+    </Fragment>
   );
 }
 export default App

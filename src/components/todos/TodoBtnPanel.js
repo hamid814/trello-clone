@@ -1,11 +1,23 @@
-import React, { useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 
 import TodoContext from '../../context/todo/todoContext';
 
 const TodoBtnPanel = (props) => {
   const todoContext = useContext(TodoContext);
 
-  const { clearTodos, checkAll, filterTodos, clearFilter, filtered, todos, allDone } = todoContext;
+  const { clearTodos, checkAll, filterTodos, clearFilter, filtered, todos } = todoContext;
+
+  const [allDone, setAllDone] = useState(false);
+
+  useEffect(() => {
+    let listOfDone = [];
+    todos.forEach(t => t.done && listOfDone.push(t.done));
+    if(listOfDone.length === todos.length && todos.length !== 0) {
+      setAllDone(true);
+    } else {
+      setAllDone(false);
+    }
+  }, [todos]);
 
   const toggleFilter = () => {
     filtered ? clearFilter() : filterTodos()

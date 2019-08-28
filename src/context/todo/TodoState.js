@@ -13,8 +13,7 @@ import {
   SET_CURRENT,
   CLEAR_CURRENT,
   FILTER_TODOS,
-  CLEAR_FILTER,
-  SET_ALLDONE
+  CLEAR_FILTER
 } from '../types';
 
 const TodoState = props => {
@@ -22,7 +21,6 @@ const TodoState = props => {
     todos: [],
     filtered: null,
     current: null,
-    allDone: false,
     todosEmpty: true
   };
 
@@ -54,7 +52,6 @@ const TodoState = props => {
       type: ADD_TODO,
       payload: newTodo
     });
-    setAllDone();
   }
 
   // mark todo as complete
@@ -63,7 +60,6 @@ const TodoState = props => {
       type: CHECK_TODO,
       payload: id
     });
-    setAllDone();
   }
 
   // check all of todos
@@ -82,24 +78,6 @@ const TodoState = props => {
         payload: newList
       });
     }
-    setAllDone();
-  }
-
-  // check if all todos R done
-  const setAllDone = () => {
-    let listOfDone = [];
-    state.todos.forEach(t => t.done && listOfDone.push(t.done));
-    if(listOfDone.length === state.todos.length && state.todos.length !== 0) {
-      dispatch({
-        type: SET_ALLDONE,
-        payload: true
-      });
-    } else {
-      dispatch({
-        type: SET_ALLDONE,
-        payload: false
-      });
-    }
   }
 
   //  delete todo
@@ -111,7 +89,6 @@ const TodoState = props => {
     if(state.current.id === id) {
       clearCurrent();
     }
-    setAllDone();
   }
 
   // set current for edit
@@ -166,7 +143,6 @@ const TodoState = props => {
       value={{
         todos: state.todos,
         current: state.current,
-        allDone: state.allDone,
         todosEmpty: state.todosEmpty,
         filtered: state.filtered,
         getTodos,

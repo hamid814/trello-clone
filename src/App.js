@@ -27,7 +27,7 @@ const App = () => {
 
   useEffect(() => {
     if(todos.length === 0) {
-      setTodosEmpty(true);
+      setTodosEmpty(false);
     } else {
       setTodosEmpty(false);
     }

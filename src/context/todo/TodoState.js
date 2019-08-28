@@ -7,6 +7,7 @@ import {
   ADD_TODO,
   CLEAR_TODOS,
   CHECK_TODO,
+  CHECK_ALL,
   UPDATE_TODO,
   DELETE_TODO,
   SET_CURRENT,
@@ -17,7 +18,8 @@ const TodoState = props => {
   const initialState = {
     todos: [],
     filtered: [],
-    current: null
+    current: null,
+    allDone: false
   };
 
   const [state, dispatch] = useReducer(todoReducer, initialState);
@@ -55,6 +57,21 @@ const TodoState = props => {
     dispatch({
       type: CHECK_TODO,
       payload: id
+    });
+  }
+
+  // check all of todos
+  const checkAll = () => {
+    console.log(state.todos);
+    let newList;
+    if(!state.allDone) {
+      newList = state.todos.map(t => {t.done = true; return t});
+    } else {
+      newList = state.todos.map(t => {t.done = false; return t});
+    }
+    dispatch({
+      type: CHECK_ALL,
+      payload: newList
     });
   }
 
@@ -104,6 +121,8 @@ const TodoState = props => {
       value={{
         todos: state.todos,
         current: state.current,
+        allDone: state.allDone,
+        filtered: state.filtered,
         getTodos,
         addTodo,
         updateTodo,
@@ -111,7 +130,7 @@ const TodoState = props => {
         clearTodos,
         setCurrent,
         checkTodo,
-        filtered: state.filtered
+        checkAll,
       }}
     >
       {props.children}

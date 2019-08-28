@@ -35,7 +35,6 @@ const EStyle = {
 
 TodoItem.propTypes = {
   todo: PropTypes.object.isRequired,
-  onCheck: PropTypes.func.isRequired,
   onDelete: PropTypes.func
 }
 

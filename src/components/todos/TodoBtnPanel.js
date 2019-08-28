@@ -6,10 +6,9 @@ import TodoContext from '../../context/todo/todoContext';
 const TodoBtnPanel = (props) => {
   const todoContext = useContext(TodoContext);
 
-  const { clearTodos } = todoContext;
+  const { clearTodos, checkAll } = todoContext;
 
   const { 
-          onCheckAll,
           allDone,
           todosEmpty,
           showActive,
@@ -18,7 +17,7 @@ const TodoBtnPanel = (props) => {
 
   return (
     <div className='grid-3 container-sm mt-0'>
-      <div className={`btn btn-block rounded ${todosEmpty ? 'btn-light' : 'btn-success'}`} onClick={onCheckAll}>
+      <div className={`btn btn-block rounded ${todosEmpty ? 'btn-light' : 'btn-success'}`} onClick={checkAll}>
         <div className={`box ${!allDone && 'bg-dark'}`}></div>
         {allDone ? 'Uncheck all' : 'Check all'}
       </div>

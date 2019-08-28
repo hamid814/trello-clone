@@ -2,6 +2,7 @@ import {
   GET_TODOS,
   ADD_TODO,
   CHECK_TODO,
+  CHECK_ALL,
   CLEAR_TODOS,
   UPDATE_TODO,
   DELETE_TODO,
@@ -40,6 +41,11 @@ export default (state, action) => {
           }
            return t
         })
+      }
+    case CHECK_ALL:
+      return {
+        ...state,
+        // todos: action.payload
       }
     case UPDATE_TODO:
       return {

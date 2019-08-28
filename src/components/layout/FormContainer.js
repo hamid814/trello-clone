@@ -1,5 +1,4 @@
 import React , { useState, useEffect, useContext } from 'react';
-
 import TodoContext from '../../context/todo/todoContext';
 
 const FormContainer = () => {
@@ -9,7 +8,7 @@ const FormContainer = () => {
 
   useEffect(() => {
     if(current !== null) {
-      setText(current.text, current.id);
+      setText(current.text);
     }
     // eslint-disable-next-line
   }, [current])

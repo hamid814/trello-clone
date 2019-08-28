@@ -11,7 +11,6 @@ import './App.css';
 const App = () => {
   const [todos, setTodos] = useState();
   const [todosEmpty, setTodosEmpty] = useState(true);
-  const [allDone, setAllDone] = useState(false);
 
   useEffect(() => {
     // if(todos.length === 0) {
@@ -34,13 +33,9 @@ const App = () => {
     <TodoState>
       <Navbar />
       <FormContainer />
-      <Congrats
-        allDone={allDone} />
-      <Todos
-        todosEmpty={todosEmpty} />
-      <TodoBtnPanel
-        todosEmpty={todosEmpty}
-        allDone={allDone} />
+      <Congrats />
+      <Todos />
+      <TodoBtnPanel />
     </TodoState>
   );
 }

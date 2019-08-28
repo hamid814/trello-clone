@@ -27,6 +27,8 @@ const TodoState = props => {
 
   const [state, dispatch] = useReducer(todoReducer, initialState);
 
+  // set stats ( all R done )
+
   // Get todos
   const getTodos = () => {
     let list;

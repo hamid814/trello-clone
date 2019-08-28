@@ -1,5 +1,4 @@
 import React, { useEffect, useContext } from 'react';
-import PropTypes from 'prop-types'
 import TodoItem from './TodoItem';
 import NoTodo from './NoTodo';
 
@@ -9,20 +8,16 @@ const Todos = (props) => {
   const todoContext = useContext(TodoContext);
 
   const { todos, getTodos, filtered } = todoContext;
-  console.log(filtered);
 
   useEffect(() => {
     getTodos();
     // eslint-disable-next-line
   }, []);
 
-  const {
-          todosEmpty,
-        } = props
   return (
     <div className='container-sm'>
       {
-        !todosEmpty
+        todos.length > 0
           ? !filtered
             ? todos.map((t, index) => (
               <TodoItem key={t.id} todo={t} />
@@ -34,10 +29,6 @@ const Todos = (props) => {
       }
     </div>
   )
-}
-
-Todos.propTypes = {
-  todosEmpty: PropTypes.bool.isRequired,
 }
 
 export default Todos

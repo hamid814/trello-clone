@@ -87,11 +87,13 @@ const TodoState = props => {
     setAllDone();
   }
 
+  // check if all todos R done
   const setAllDone = () => {
-    let listOfDoneTrue = [];
-    let listOfDoneFalse = [];
-    state.todos.forEach(t => t.done ? listOfDoneTrue.push(t.done) : listOfDoneFalse.push(t.done));
-    if(listOfDoneTrue.length === state.todos.length && state.todos.length !== 0) {
+    let listOfDone = [];
+    state.todos.forEach(t => t.done && listOfDone.push(t.done));
+    console.clear();
+    console.log(state.todos);
+    if(listOfDone.length === state.todos.length && state.todos.length !== 0) {
       dispatch({
         type: SET_ALLDONE,
         payload: true

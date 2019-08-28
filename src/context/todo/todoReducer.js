@@ -47,7 +47,8 @@ export default (state, action) => {
     case CHECK_ALL:
       return {
         ...state,
-        todos: action.payload
+        todos: action.payload.list,
+        allDone: action.payload.allDone
       }
     case UPDATE_TODO:
       return {

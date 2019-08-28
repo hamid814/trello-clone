@@ -71,13 +71,24 @@ const TodoState = props => {
     let newList;
     if(!state.allDone) {
       newList = state.todos.map(t => {t.done = true; return t});
+      dispatch({
+        type: CHECK_ALL,
+        payload: {
+          list: newList,
+          allDone: true
+        }
+      });
     } else {
       newList = state.todos.map(t => {t.done = false; return t});
+      dispatch({
+        type: CHECK_ALL,
+        payload: {
+          list: newList,
+          allDone: false
+        }
+      });
     }
-    dispatch({
-      type: CHECK_ALL,
-      payload: newList
-    });
+    
   }
 
   //  delete todo

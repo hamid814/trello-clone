@@ -1,14 +1,11 @@
 import React, { useContext } from 'react';
-import PropTypes from 'prop-types';
 
 import TodoContext from '../../context/todo/todoContext';
 
 const TodoBtnPanel = (props) => {
   const todoContext = useContext(TodoContext);
 
-  const { clearTodos, checkAll, filterTodos, clearFilter, filtered, todos } = todoContext;
-
-  const { allDone } = props;
+  const { clearTodos, checkAll, filterTodos, clearFilter, filtered, todos, allDone } = todoContext;
 
   const toggleFilter = () => {
     filtered ? clearFilter() : filterTodos()
@@ -29,10 +26,6 @@ const TodoBtnPanel = (props) => {
     </div>
     
   )
-}
-
-TodoBtnPanel.propTypes = {
-  allDone: PropTypes.bool.isRequired,
 }
 
 export default TodoBtnPanel

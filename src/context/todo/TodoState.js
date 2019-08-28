@@ -28,8 +28,6 @@ const TodoState = props => {
 
   const [state, dispatch] = useReducer(todoReducer, initialState);
 
-  // set stats ( all R done )
-
   // Get todos
   const getTodos = () => {
     let list;
@@ -91,8 +89,6 @@ const TodoState = props => {
   const setAllDone = () => {
     let listOfDone = [];
     state.todos.forEach(t => t.done && listOfDone.push(t.done));
-    console.clear();
-    console.log(state.todos);
     if(listOfDone.length === state.todos.length && state.todos.length !== 0) {
       dispatch({
         type: SET_ALLDONE,
@@ -112,6 +108,10 @@ const TodoState = props => {
       type: DELETE_TODO,
       payload: id
     });
+    if(state.current.id === id) {
+      clearCurrent();
+    }
+    setAllDone();
   }
 
   // set current for edit

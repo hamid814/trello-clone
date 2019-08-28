@@ -7,7 +7,9 @@ import {
   UPDATE_TODO,
   DELETE_TODO,
   SET_CURRENT,
-  CLEAR_CURRENT
+  CLEAR_CURRENT,
+  FILTER_TODOS,
+  CLEAR_FILTER
 } from '../types';
 
 export default (state, action) => {
@@ -45,7 +47,7 @@ export default (state, action) => {
     case CHECK_ALL:
       return {
         ...state,
-        // todos: action.payload
+        todos: action.payload
       }
     case UPDATE_TODO:
       return {
@@ -60,6 +62,16 @@ export default (state, action) => {
       return {
         ...state,
         todos: state.todos.filter(t => t.id !== action.payload)
+      }
+    case FILTER_TODOS:
+      return {
+        ...state,
+        filtered: state.todos.filter(t => !t.done)
+      }
+    case CLEAR_FILTER:
+      return {
+        ...state,
+        filtered: null
       }
     case CLEAR_TODOS:
       return {

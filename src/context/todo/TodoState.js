@@ -11,15 +11,18 @@ import {
   UPDATE_TODO,
   DELETE_TODO,
   SET_CURRENT,
-  CLEAR_CURRENT
+  CLEAR_CURRENT,
+  FILTER_TODOS,
+  CLEAR_FILTER
 } from '../types';
 
 const TodoState = props => {
   const initialState = {
     todos: [],
-    filtered: [],
+    filtered: null,
     current: null,
-    allDone: false
+    allDone: false,
+    todosEmpty: true
   };
 
   const [state, dispatch] = useReducer(todoReducer, initialState);
@@ -109,6 +112,20 @@ const TodoState = props => {
     clearCurrent();
   }
 
+  // show todos that are not done
+  const filterTodos = () => {
+    dispatch({
+      type: FILTER_TODOS
+    });
+  }
+
+  // clear filter (show all)
+  const clearFilter = () => {
+    dispatch({
+      type: CLEAR_FILTER
+    });
+  }
+
   // clear all from todo list
   const clearTodos = () => {
     dispatch({
@@ -122,15 +139,18 @@ const TodoState = props => {
         todos: state.todos,
         current: state.current,
         allDone: state.allDone,
+        todosEmpty: state.todosEmpty,
         filtered: state.filtered,
         getTodos,
         addTodo,
+        checkTodo,
         updateTodo,
         deleteTodo,
+        checkAll,
         clearTodos,
         setCurrent,
-        checkTodo,
-        checkAll,
+        filterTodos,
+        clearFilter
       }}
     >
       {props.children}

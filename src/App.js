@@ -9,56 +9,26 @@ import TodoState from './context/todo/TodoState';
 import './App.css';
 
 const App = () => {
-  const getTodos = () => {
-    let list;
-    if(localStorage.getItem('todos') === null) {
-      list = [];
-    } else {
-      list = JSON.parse(localStorage.getItem('todos'));
-    }
-
-    return list;
-  }
-  
-  const [todos, setTodos] = useState(getTodos());
+  const [todos, setTodos] = useState();
   const [todosEmpty, setTodosEmpty] = useState(true);
   const [allDone, setAllDone] = useState(false);
-  const [showActive, setShowActive] = useState(false);
 
   useEffect(() => {
-    if(todos.length === 0) {
+    // if(todos.length === 0) {
       setTodosEmpty(false);
-    } else {
-      setTodosEmpty(false);
-    }
-    let listOfDoneTrue = [];
-    let listOfDoneFalse = [];
-    todos.forEach(t => t.done ? listOfDoneTrue.push(t.done) : listOfDoneFalse.push(t.done));
-    if(listOfDoneTrue.length === todos.length && todos.length !== 0) {
-      setAllDone(true);
-    } else {
-      setAllDone(false);
-    }
+    // } else {
+    //   setTodosEmpty(false);
+    // }
+    // let listOfDoneTrue = [];
+    // let listOfDoneFalse = [];
+    // todos.forEach(t => t.done ? listOfDoneTrue.push(t.done) : listOfDoneFalse.push(t.done));
+    // if(listOfDoneTrue.length === todos.length && todos.length !== 0) {
+    //   setAllDone(true);
+    // } else {
+    //   setAllDone(false);
+    // }
     // eslint-disable-next-line
   }, [todos])
-
-  const onCheckAll = () => {
-    if(!allDone) {
-      const newList = todos.map(t => {t.done = true; return t});
-      setTodos(newList);
-      localStorage.setItem('todos', JSON.stringify(newList));
-      setAllDone(true);  
-    } else {
-      const newList = todos.map(t => {t.done = false; return t});
-      setTodos(newList);
-      localStorage.setItem('todos', JSON.stringify(newList));
-      setAllDone(false);
-    }
-  }
-
-  const onFilter = () => {
-    setShowActive(!showActive);
-  }
 
   return (
     <TodoState>
@@ -67,13 +37,9 @@ const App = () => {
       <Congrats
         allDone={allDone} />
       <Todos
-        todosEmpty={todosEmpty}
-        showActive={showActive} />
+        todosEmpty={todosEmpty} />
       <TodoBtnPanel
-        onCheckAll={onCheckAll}
         todosEmpty={todosEmpty}
-        showActive={showActive}
-        onFilter={onFilter}
         allDone={allDone} />
     </TodoState>
   );

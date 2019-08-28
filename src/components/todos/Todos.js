@@ -8,8 +8,8 @@ import TodoContext from '../../context/todo/todoContext';
 const Todos = (props) => {
   const todoContext = useContext(TodoContext);
 
-  const { todos, getTodos } = todoContext;
-  console.log(todos);
+  const { todos, getTodos, filtered } = todoContext;
+  console.log(filtered);
 
   useEffect(() => {
     getTodos();
@@ -18,13 +18,12 @@ const Todos = (props) => {
 
   const {
           todosEmpty,
-          showActive
         } = props
   return (
     <div className='container-sm'>
       {
         !todosEmpty
-          ? !showActive
+          ? !filtered
             ? todos.map((t, index) => (
               <TodoItem key={t.id} todo={t} />
               ))
@@ -39,7 +38,6 @@ const Todos = (props) => {
 
 Todos.propTypes = {
   todosEmpty: PropTypes.bool.isRequired,
-  showActive: PropTypes.bool.isRequired
 }
 
 export default Todos

@@ -7,4 +7,5 @@ export const SET_CURRENT = 'SET_CURRENT';
 export const CLEAR_CURRENT = 'CLEAR_CURRENT';
 export const CLEAR_TODOS = 'CLEAR_TODOS';
 export const CHECK_ALL = 'CHECK_ALL';
-export const SHOW_ACTIVE = 'SHOW_ACTIVE';
+export const FILTER_TODOS = 'FILTER_TODOS';
+export const CLEAR_FILTER = 'CLEAR_FILTER';

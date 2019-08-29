@@ -1,4 +1,9 @@
-html {
+/*
+ *** all this file is to let main panel in  baore page get the remaining height of the page
+*/
+
+html,
+body {
   height: 100%;
 }
 

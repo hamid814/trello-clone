@@ -9,7 +9,7 @@ const App = () => {
   return (
     <Fragment>
       <Navbar />
-      <Home />
+      {/* <Home /> */}
       <Board />
     </Fragment>
   );

@@ -975,10 +975,6 @@ table th {
   padding-top: 0.5rem;
 }
 
-.trello-board-main {
-  flex-grow : 1;
-}
-
 .label-red {
   background: #ee3a59;
   color: #f4f4f4

@@ -16,7 +16,7 @@ const Board = () => {
   const boardContext = useContext(BoardContext);
 
   const { currentBoardId } = userContext;
-  const { getBoard } = boardContext;
+  const { getBoard, setStar } = boardContext;
 
   useEffect(() => {
     setBoard(getBoard(1)[0]);
@@ -25,10 +25,10 @@ const Board = () => {
   return (
     <Fragment>
       <div className="trello-board-row trello-board-row-1">
-        <BoardNavbar board={board} />
+        <BoardNavbar board={board} setStar={setStar} />
       </div>
       <div className="trello-board-main bg-primary lighten-20 p">
-        <BoardMain />
+        <BoardMain boardFuncs={boardContext} board={board} />
       </div>
     </Fragment>
   )

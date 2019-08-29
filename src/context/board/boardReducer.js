@@ -1,13 +1,18 @@
 import { 
-  TEST
+  SET_STAR
  } from '../types';
 
 export default (state, action) => {
   switch (action.type) {
-    case TEST:
+    case SET_STAR:
       return {
         ...state,
-        TEST: action.payload
+        boards: state.boards.map(b => {
+          if(b.id === action.payload) {
+            b.starred = !b.starred
+          }
+          return b
+        })
       }
     default:
       return state;

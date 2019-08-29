@@ -1,15 +1,18 @@
-import React from 'react'
+import React from 'react';
 
-const BoardNavbar = ({ board }) => {
+const BoardNavbar = ({ board, setStar }) => {
+  const onStarClick = () => {
+    setStar(board.id);
+  }
+
   return (
-    <div className="trello-board-navbar trello-navbar lighten-20">
-      <div className="card border-0 m-0 p-0 ml-1 text-white">
-        { board && board.title }
-        <div className="btn btn-primary btn-square rounded-lg lighten-20 ml-1">
-          <i className="fas fa-star text-warning"></i>
+    <div className='trello-board-navbar trello-navbar lighten-20'>
+      <div className='card border-0 m-0 p-0'>
+        <div className='btn btn-primary btn-narrow m-0'>
+          { board && board.title }
         </div>
-        <div className="btn btn-primary btn-square rounded-lg lighten-20 ml-1">
-          <i className="far fa-star"></i>
+        <div className='btn btn-primary btn-square rounded-lg lighten-20 ml-1' onClick={onStarClick}>
+          <i className={`fa-star ${board && board.starred ? 'fas text-warning' : 'far'}`}></i>
         </div>
       </div>
     </div>

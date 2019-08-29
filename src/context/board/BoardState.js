@@ -3,8 +3,8 @@ import uuid from 'uuid';
 import BoardContext from './boardContext';
 import boardReducer from './boardReducer';
 import { 
-  
- } from '../types';
+  SET_STAR
+} from '../types';
 
 const BoardState = props => {
   const initialState = {
@@ -44,10 +44,19 @@ const BoardState = props => {
     return list
   };
 
+  // send a single board to board page (returns an array with one object)
   const getBoard = (id) => {
     const board = state.boards.filter(b => b.id === id);
 
     return board
+  }
+
+  // set board starred or unstarred
+  const setStar = (id) => {
+    dispatch({
+      type: SET_STAR,
+      payload: id
+    });
   }
 
   return (
@@ -55,7 +64,8 @@ const BoardState = props => {
       value={{
         boards: state.boards,
         getBoardsNames,
-        getBoard
+        getBoard,
+        setStar
       }}
     >
       {props.children}

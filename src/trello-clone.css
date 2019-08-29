@@ -925,3 +925,7 @@ table th {
   background: #344e5c;
   color: #f4f4f4
 }
+ aside {
+   width: 200px;
+   margin-left: 3rem;
+ }

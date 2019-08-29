@@ -12,7 +12,7 @@ const BoardState = props => {
       {
         title: 'borad 1',
         id: uuid.v4(),
-        color: '#125964',
+        color: '#e27b47',
         lists: [
           {
             title: 'todos',
@@ -33,7 +33,7 @@ const BoardState = props => {
       {
         title: 'borad 2',
         id: uuid.v4(),
-        color: '#ac5962',
+        color: '#46b29e',
         lists: [
           {
             title: 'buying list',

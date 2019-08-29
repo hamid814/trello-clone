@@ -2,7 +2,7 @@
 
 /* Global Styles */
 :root {
-  --primary-color: #4caf50;
+  --primary-color: #f1828d;
   --dark-color: #333333;
   --light-color: #ddd;
   --danger-color: #da6671;
@@ -109,6 +109,10 @@ img {
 
 .text-dark {
   color: var(--dark-color);
+}
+
+.text-white {
+  color: #fff
 }
 
 .text-center {
@@ -560,6 +564,7 @@ img {
 
 .btn:hover {
   opacity: 0.8;
+  filter: brightness(85%);
 }
 
 .bg-light,
@@ -734,6 +739,10 @@ table th {
   border-radius: .15rem;
 }
 
+.rounded-lg {
+  border-radius: 0.3rem;
+}
+
 .rounded-top {
   border-top-left-radius: .25rem;
   border-top-right-radius: .25rem;
@@ -823,6 +832,18 @@ table th {
   color: var(--primary-color);
 }
 
+.transition {
+  transition: 0.3s;
+}
+
+.lighten {
+  filter: brightness(110%);
+}
+
+.darken {
+  filter: brightness(90%);
+}
+
 /* Mobile Styles */
 @media (max-width: 700px) {
   .hide-sm {
@@ -870,10 +891,37 @@ table th {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.3rem 0.3rem;
+  padding: 0.3rem 0.5rem;
+  background: var(--primary-color);
   z-index: 1;
   width: 100%;
   border-bottom: solid 1px var(--primary-color);
   opacity: 0.9;
   margin-bottom: 1rem;
+}
+
+/* label colors */
+.label-red {
+  background: #ee3a59;
+  color: #f4f4f4
+}
+
+.label-orange {
+  background: #e27b47;
+  color: #f4f4f4
+}
+
+.label-yellow {
+  background: #efca58;
+  color: #222
+}
+
+.label-blue-l {
+  background: #46b29e;
+  color: #f4f4f4
+}
+
+.label-blue-d {
+  background: #344e5c;
+  color: #f4f4f4
 }

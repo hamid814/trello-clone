@@ -1,20 +1,20 @@
 import React, { useContext } from 'react';
+import SideListItem from './SideListItem';
 
 import BoardContext from '../../../context/board/boardContext';
 
 const HomeSideList = () => {
-  const boardContext = useContext(BoardContext);
-
-  const { boards } = boardContext;
-
-  console.log(boards);
+  const { boards } = useContext(BoardContext);
 
   return (
-    <aside className="border-bottom border-dark">
-      <button className="btn btn-block btn-primary text-left">
+    <aside>
+      <button className="btn btn-block btn-primary text-left rounded-lg">
         <i className="fa fa-notes-medical mr-1"></i>
         <div className="text-bold d-i-b">Boards</div>
       </button>
+      { boards.map(b => (
+        <SideListItem key={b.id} board={b} />
+      )) }
     </aside>
   )
 }

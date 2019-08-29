@@ -7,7 +7,7 @@ export default (state, action) => {
     case TEST:
       return {
         ...state,
-        test: test
+        TEST: action.payload
       }
     default:
       return state;

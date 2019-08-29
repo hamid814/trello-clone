@@ -14,6 +14,7 @@ const UserState = props => {
   const [state, dispatch] = useReducer(userReducer, initialState);
 
   // Get data
+  // eslint-disable-next-line
   const getData = () => {
     dispatch({
       type: TEST,

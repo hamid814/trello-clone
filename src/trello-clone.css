@@ -2,7 +2,7 @@
 
 /* Global Styles */
 :root {
-  --primary-color: #4d6592;
+  --primary-color: #4caf50;
   --dark-color: #333333;
   --light-color: #ddd;
   --danger-color: #da6671;
@@ -73,6 +73,10 @@ img {
 
 .text-bold {
   font-weight: bold;
+}
+
+.text-black {
+  color: #111 !important;
 }
 
 .line-through {
@@ -401,10 +405,16 @@ img {
   text-align: center;
   font-size: 1rem;
   border: none;
+  border-radius: 0.15rem;
   cursor: pointer;
   margin-right: 0.5rem;
   transition: opacity 0.2s ease-in;
   outline: none;
+}
+
+.btn-square {
+  padding: 0.4rem !important;
+  border-radius: 0.15rem;
 }
 
 .btn-link {
@@ -422,6 +432,10 @@ img {
   font-size: 0.8rem;
   padding: 0.3rem 1rem;
   margin-right: 0.2rem;
+}
+
+.btn-narrow {
+  padding: 0.4rem;
 }
 
 .badge {
@@ -542,8 +556,8 @@ select,
 textarea {
   display: block;
   width: 100%;
-  padding: 0.4rem;
-  font-size: 1.2rem;
+  padding: 0.3rem;
+  font-size: 1rem;
   border: 1px solid #ccc;
 }
 
@@ -635,7 +649,7 @@ table th {
 }
 
 .border-0 {
-  border: 0;
+  border: none !important;
 }
 
 .border-top-0 {
@@ -814,4 +828,18 @@ table th {
     text-align: center;
     justify-content: center;
   }
+}
+
+/* trello stuff */
+
+.trello-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.3rem 0.3rem;
+  z-index: 1;
+  width: 100%;
+  border-bottom: solid 1px var(--primary-color);
+  opacity: 0.9;
+  margin-bottom: 1rem;
 }

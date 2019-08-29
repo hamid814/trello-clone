@@ -1,0 +1,13 @@
+html {
+  height: 100%;
+}
+
+#root {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+}
+
+.trello-board-main {
+  flex-grow: 1;
+}

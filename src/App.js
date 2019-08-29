@@ -8,8 +8,8 @@ import './trello-clone.css';
 const App = () => {
   return (
     <Fragment>
-      {/* <Navbar /> */}
-      {/* <Home /> */}
+      <Navbar />
+      <Home />
       <Board />
     </Fragment>
   );

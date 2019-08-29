@@ -18,6 +18,7 @@
 
 body {
   height: 100%;
+  width: 100%;
   font-family: 'Roboto', sans-serif;
   font-size: 1rem;
   line-height: 1;
@@ -974,22 +975,8 @@ table th {
   padding-top: 0.5rem;
 }
 
-.trello-board-container {
-  display: flex;
-  flex-flow: column;
-  height: 100%;
-}
-
-.trello-board-row-1 {
-  height: 70px;
-}
-
-.trello-board-row-2 {
-  flex-grow : 1;
-}
-
 .trello-board-main {
-
+  flex-grow : 1;
 }
 
 .label-red {

@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 
 const BoardMain = () => {
   return (
-    <div className="trello-board-main bg-primary lighten-20 p">
+    <Fragment>
       board Main
-    </div>
+    </Fragment>
   )
 }
 

@@ -4,12 +4,15 @@ import App from './App';
 
 import BoardState from './context/board/BoardState';
 import AlertState from './context/alert/AlertState';
+import UserState from './context/user/UserState';
 
 const StateContainer = () => {
   return (
     <BoardState>
       <AlertState>
-        <App />
+        <UserState>
+          <App />
+        </UserState>
       </AlertState>
     </BoardState>
   );

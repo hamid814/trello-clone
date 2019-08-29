@@ -2,7 +2,7 @@
 
 /* Global Styles */
 :root {
-  --primary-color: #f1828d;
+  --primary-color: #536b61;
   --dark-color: #333333;
   --light-color: #ddd;
   --danger-color: #da6671;
@@ -808,6 +808,14 @@ table th {
   opacity: .95;
 }
 
+.hover:hover, .hover-darken:hover {
+  filter: brightness(90%)
+}
+
+.hover-lighten:hover {
+  filter: brightness(110%)
+}
+
 .hover-warning:hover {
   color: var(--warning-color);
 }
@@ -925,7 +933,16 @@ table th {
   background: #344e5c;
   color: #f4f4f4
 }
- aside {
-   width: 200px;
-   margin-left: 3rem;
- }
+
+aside {
+  width: 200px;
+  margin-left: 3rem;
+}
+
+.trello-home-main-item {
+  background: var(--light-color);
+  padding: 2.5rem 3.5rem;
+  border-radius: 0.3rem;
+  display: inline-block;
+  cursor: pointer;
+}

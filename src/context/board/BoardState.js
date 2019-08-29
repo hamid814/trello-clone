@@ -13,6 +13,8 @@ const BoardState = props => {
         title: 'borad 1',
         id: uuid.v4(),
         color: '#e27b47',
+        starred: false,
+
         lists: [
           {
             title: 'todos',
@@ -24,26 +26,6 @@ const BoardState = props => {
                 labels: [
                   'label 1',
                   'label 2'
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      {
-        title: 'borad 2',
-        id: uuid.v4(),
-        color: '#46b29e',
-        lists: [
-          {
-            title: 'buying list',
-            id: uuid.v4(),
-            items: [
-              {
-                title: 'tacos',
-                id: uuid.v4(),
-                labels: [
-                  'food'
                 ]
               }
             ]

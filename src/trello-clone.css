@@ -2,7 +2,7 @@
 
 /* Global Styles */
 :root {
-  --primary-color: #536b61;
+  --primary-color: #388d6a;
   --dark-color: #333333;
   --light-color: #ddd;
   --danger-color: #da6671;
@@ -17,6 +17,7 @@
 }
 
 body {
+  height: 100%;
   font-family: 'Roboto', sans-serif;
   font-size: 1rem;
   line-height: 1;
@@ -645,7 +646,6 @@ table th {
   z-index: 1;
   width: 100%;
   border-bottom: solid 1px var(--primary-color);
-  opacity: 0.9;
   margin-bottom: 1rem;
 }
 
@@ -844,12 +844,76 @@ table th {
   transition: 0.3s;
 }
 
-.lighten {
+.lighten, .lighten-10 {
   filter: brightness(110%);
 }
 
-.darken {
+.lighten-20 {
+  filter: brightness(120%);
+}
+
+.lighten-30 {
+  filter: brightness(130%);
+}
+
+.lighten-40 {
+  filter: brightness(140%);
+}
+
+.lighten-50 {
+  filter: brightness(150%);
+}
+
+.lighten-60 {
+  filter: brightness(160%);
+}
+
+.lighten-70 {
+  filter: brightness(170%);
+}
+
+.lighten-80 {
+  filter: brightness(180%);
+}
+
+.lighten-90 {
+  filter: brightness(190%);
+}
+
+.darken, .darken-10 {
   filter: brightness(90%);
+}
+
+.darken-20 {
+  filter: brightness(80%);
+}
+
+.darken-30 {
+  filter: brightness(70%);
+}
+
+.darken-40 {
+  filter: brightness(60%);
+}
+
+.darken-50 {
+  filter: brightness(50%);
+}
+
+.darken-60 {
+  filter: brightness(40%);
+}
+
+.darken-70 {
+  filter: brightness(30%);
+}
+
+.darken-80 {
+  filter: brightness(20%);
+}
+
+.darken-90 {
+  filter: brightness(10%);
 }
 
 /* Mobile Styles */
@@ -904,11 +968,30 @@ table th {
   z-index: 1;
   width: 100%;
   border-bottom: solid 1px var(--primary-color);
-  opacity: 0.9;
-  margin-bottom: 1rem;
 }
 
-/* label colors */
+.trello-board-navbar {
+  padding-top: 0.5rem;
+}
+
+.trello-board-container {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+}
+
+.trello-board-row-1 {
+  height: 70px;
+}
+
+.trello-board-row-2 {
+  flex-grow : 1;
+}
+
+.trello-board-main {
+
+}
+
 .label-red {
   background: #ee3a59;
   color: #f4f4f4

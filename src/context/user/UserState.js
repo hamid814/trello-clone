@@ -2,12 +2,13 @@ import React, { useReducer } from 'react';
 import UserContext from './userContext';
 import userReducer from './userReducer';
 import { 
+  SET_CURRENT_BOARD_ID,
   TEST
 } from '../types';
 
 const UserState = props => {
   const initialState = {
-    test: 'test !!!',
+    currentBoardId: null,
   };
 
   const [state, dispatch] = useReducer(userReducer, initialState);
@@ -20,11 +21,18 @@ const UserState = props => {
     });
   };
 
+  const setCurrentBoardId = (id) => {
+    dispatch({
+      type: SET_CURRENT_BOARD_ID,
+      payload: id
+    });
+  }
+
   return (
     <UserContext.Provider
       value={{
-        test: state.test,
-        getData
+        currentBoardId: state.currentBoardId,
+        setCurrentBoardId
       }}
     >
       {props.children}

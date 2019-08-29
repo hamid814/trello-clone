@@ -3,18 +3,17 @@ import uuid from 'uuid';
 import BoardContext from './boardContext';
 import boardReducer from './boardReducer';
 import { 
-  TEST
+  
  } from '../types';
 
 const BoardState = props => {
   const initialState = {
     boards: [
       {
-        title: 'borad 1',
-        id: uuid.v4(),
+        title: 'my nice board',
+        id: 1,
         color: '#e27b47',
         starred: false,
-
         lists: [
           {
             title: 'todos',
@@ -45,11 +44,18 @@ const BoardState = props => {
     return list
   };
 
+  const getBoard = (id) => {
+    const board = state.boards.filter(b => b.id === id);
+
+    return board
+  }
+
   return (
     <BoardContext.Provider
       value={{
         boards: state.boards,
-        getBoardsNames
+        getBoardsNames,
+        getBoard
       }}
     >
       {props.children}

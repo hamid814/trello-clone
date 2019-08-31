@@ -1012,3 +1012,40 @@ aside {
   display: inline-block;
   cursor: pointer;
 }
+
+.trello-board-list {
+  width: 270px;
+  margin: 0 0.35rem;
+  padding: .5rem .7rem .3rem;
+  border-radius: .25rem;
+  font-weight: bold;
+  font-size: .9rem;
+  background: #bbb;
+  color: var(--dark-color);
+  display: inline-block;
+  vertical-align: top;
+}
+
+.trello-board-list-header {
+  padding: 0.5rem 0.6rem;
+
+}
+
+.trello-board-list:first-child {
+  margin-left: 0;
+}
+
+.trello-board-list-item {
+  background: var(--light-color);
+  font-size: 1rem;
+  margin: 0.5rem 0;
+  padding: 0.6rem 0.85rem;
+  border-radius: 0.25rem;
+  font-weight: 500;
+  box-shadow: 0 1px 0 rgba(9,30,66,.25);
+  cursor: pointer;
+}
+
+.trello-board-list-item:hover {
+  background: #c7d3cd;
+}

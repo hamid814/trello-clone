@@ -1,13 +1,13 @@
-import React, { Fragment } from 'react'
+import React, { Fragment } from 'react';
+import BoardList from './BoardList';
 
-const BoardMain = ({ board, boardFuncs }) => {
-  
-  console.log(board)
-  console.log(boardFuncs)
-  
+const BoardMain = ({ board, boardFuncs /* contains all of board context  */ }) => {
   return (
     <Fragment>
-      board Main
+      { board &&
+        board.lists.map(l => (
+          <BoardList key={l.id} list={l} />
+        )) }
     </Fragment>
   )
 }

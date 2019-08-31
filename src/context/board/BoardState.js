@@ -14,16 +14,167 @@ const BoardState = props => {
         id: 1,
         color: '#e27b47',
         starred: false,
+        description: 'board description goes here',
         lists: [
           {
             title: 'todos',
             id: uuid.v4(),
             items: [
               {
-                title: 'todo 1',
+                text: 'todo 1',
                 id: uuid.v4(),
                 labels: [
                   'label 1',
+                  'label 2'
+                ]
+              },
+              {
+                text: 'todo 2',
+                id: uuid.v4(),
+                labels: [
+                  'label 2'
+                ]
+              },
+              {
+                text: 'todo 2',
+                id: uuid.v4(),
+                labels: [
+                  'label 2'
+                ]
+              },
+              {
+                text: 'todo 2',
+                id: uuid.v4(),
+                labels: [
+                  'label 2'
+                ]
+              },
+              {
+                text: 'todo 2',
+                id: uuid.v4(),
+                labels: [
+                  'label 2'
+                ]
+              },
+              {
+                text: 'todo 2',
+                id: uuid.v4(),
+                labels: [
+                  'label 2'
+                ]
+              },
+              {
+                text: 'todo 2',
+                id: uuid.v4(),
+                labels: [
+                  'label 2'
+                ]
+              },
+              {
+                text: 'todo 2',
+                id: uuid.v4(),
+                labels: [
+                  'label 2'
+                ]
+              },
+              {
+                text: 'todo 2',
+                id: uuid.v4(),
+                labels: [
+                  'label 2'
+                ]
+              },
+              {
+                text: 'todo 2',
+                id: uuid.v4(),
+                labels: [
+                  'label 2'
+                ]
+              },
+              {
+                text: 'todo 2',
+                id: uuid.v4(),
+                labels: [
+                  'label 2'
+                ]
+              },
+              {
+                text: 'todo 2',
+                id: uuid.v4(),
+                labels: [
+                  'label 2'
+                ]
+              },
+              {
+                text: 'todo 2',
+                id: uuid.v4(),
+                labels: [
+                  'label 2'
+                ]
+              },
+              {
+                text: 'todo 2',
+                id: uuid.v4(),
+                labels: [
+                  'label 2'
+                ]
+              },
+              {
+                text: 'todo 2',
+                id: uuid.v4(),
+                labels: [
+                  'label 2'
+                ]
+              },
+            ]
+          },
+          {
+            title: 'doing',
+            id: uuid.v4(),
+            items: [
+              {
+                text: 'doing 1',
+                id: uuid.v4(),
+                labels: [
+                  'label 3',
+                  'label 2'
+                ]
+              },
+              {
+                text: 'doing 2',
+                id: uuid.v4(),
+                labels: [
+                  'label 3',
+                  'label 4'
+                ]
+              },
+              {
+                text: 'doing 3',
+                id: uuid.v4(),
+                labels: [
+                  'label 4',
+                  'label 2'
+                ]
+              }
+            ]
+          },
+          {
+            title: 'new list',
+            id: uuid.v4(),
+            items: [
+              {
+                text: 'new 1',
+                id: uuid.v4(),
+                labels: [
+                  'label 4',
+                  'label 2'
+                ]
+              },
+              {
+                text: 'new 2',
+                id: uuid.v4(),
+                labels: [
+                  'label 4',
                   'label 2'
                 ]
               }

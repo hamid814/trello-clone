@@ -14,6 +14,12 @@ const BoardNavbar = ({ board, setStar }) => {
         <div className='btn btn-primary btn-square rounded-lg lighten-20 ml-1' onClick={onStarClick}>
           <i className={`fa-star ${board && board.starred ? 'fas text-warning' : 'far'}`}></i>
         </div>
+        <div className="ml-1 d-i-b text-white">
+          { board && board.description }
+        </div>
+        <div className='btn btn-primary btn-square rounded-lg lighten-20 ml-1' onClick={onStarClick}>
+          <i className='fas fa-pen'></i>
+        </div>
       </div>
     </div>
   )

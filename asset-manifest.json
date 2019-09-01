@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/trello-clone/static/css/main.b59df8e6.chunk.css",
-    "main.js": "/trello-clone/static/js/main.63bb0223.chunk.js",
-    "main.js.map": "/trello-clone/static/js/main.63bb0223.chunk.js.map",
+    "main.js": "/trello-clone/static/js/main.fef9af67.chunk.js",
+    "main.js.map": "/trello-clone/static/js/main.fef9af67.chunk.js.map",
     "runtime~main.js": "/trello-clone/static/js/runtime~main.559d3c57.js",
     "runtime~main.js.map": "/trello-clone/static/js/runtime~main.559d3c57.js.map",
     "static/js/2.4b0f2c21.chunk.js": "/trello-clone/static/js/2.4b0f2c21.chunk.js",
     "static/js/2.4b0f2c21.chunk.js.map": "/trello-clone/static/js/2.4b0f2c21.chunk.js.map",
     "index.html": "/trello-clone/index.html",
-    "precache-manifest.c697456adfb05c23c1dc497448d178e6.js": "/trello-clone/precache-manifest.c697456adfb05c23c1dc497448d178e6.js",
+    "precache-manifest.4bd42bbdb2bf49fe07bd28042fa738a4.js": "/trello-clone/precache-manifest.4bd42bbdb2bf49fe07bd28042fa738a4.js",
     "service-worker.js": "/trello-clone/service-worker.js",
     "static/css/main.b59df8e6.chunk.css.map": "/trello-clone/static/css/main.b59df8e6.chunk.css.map"
   }

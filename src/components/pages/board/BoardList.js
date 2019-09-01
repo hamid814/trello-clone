@@ -16,8 +16,8 @@ const BoardList = ({ list, boardFuncs /* all of board context */ }) => {
     setNewCardText(e.target.value);
   }
 
-  const onTextareaBlur =() => {
-    if(newCardText !== 0) {
+  const onTextareaBlur = () => {
+    if(newCardText !== '') {
       addCard();
     } else {
       cancelAddCard();
@@ -26,7 +26,7 @@ const BoardList = ({ list, boardFuncs /* all of board context */ }) => {
 
   const onKeyUp = (e) => {
     if(e.keyCode === 13) {
-      onTextareaBlur();
+      addCard();
     }
   }
 
@@ -35,14 +35,13 @@ const BoardList = ({ list, boardFuncs /* all of board context */ }) => {
       // three parameters 1.text 2.list id 3.board id
       boardFuncs.addCard(newCardText, list.id, 1);
       setNewCardText('');
-    } else {
-      cancelAddCard();
     }
     console.log('get third id from user state');
   }
 
   const cancelAddCard = () => {
     setWantToAddCard(false);
+    setNewCardText('');
   }
 
   return (
@@ -67,9 +66,11 @@ const BoardList = ({ list, boardFuncs /* all of board context */ }) => {
           </textarea>
         </div>
       </div>
-      <div className={`trello-board-footer ${!wantToAddCard && 'hover cursor-p'}`} onClick={onAddCardClick}>
+      <div className={`trello-board-footer ${!wantToAddCard && 'hover cursor-p'}`}>
         { !wantToAddCard
-          ? list.items.length === 0 ? '+ Add a card' : '+ Add another card'
+          ?  (<div onClick={onAddCardClick}>
+                {list.items.length === 0 ? '+ Add a card' : '+ Add another card'}
+              </div>) 
           : (
             <Fragment>
               <div className='btn btn-success' onClick={addCard}>

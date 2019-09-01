@@ -1,10 +1,20 @@
-import React from 'react'
+import React, { useContext } from 'react';
+
+import UserContext from '../../context/user/userContext';
 
 const Navbar = () => {
+  const userContext = useContext(UserContext);
+
+  const { clearCurrentBoardId } = userContext;
+
+  const homeClick =() => {
+    clearCurrentBoardId();
+  }
+
   return (
     <div className="trello-navbar">
       <div>
-        <div className="btn btn-square btn-primary rounded-lg">
+        <div className="btn btn-square btn-primary rounded-lg" onClick={homeClick}>
           <i className="fa fa-home"></i>
         </div>
         <div className="btn btn-narrow btn-primary rounded-lg">

@@ -1,6 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react';
+
+import UserContext from '../../../context/user/userContext';
 
 const BoardTitle = ({ title, setTitle }) => {
+  const userContext = useContext(UserContext);
+
+  const { currentBoardId } = userContext;
+
   const [text, setText] = useState('');
   const [isSettingTitle, setIsSettingTitle] = useState(false);
 
@@ -16,7 +22,7 @@ const BoardTitle = ({ title, setTitle }) => {
 
   const onBlur = () => {
     if(text !== '') {
-      setTitle(text, 1);
+      setTitle(text, currentBoardId);
       setIsSettingTitle(false);
     } else {
       setIsSettingTitle(false);

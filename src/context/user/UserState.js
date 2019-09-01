@@ -3,7 +3,7 @@ import UserContext from './userContext';
 import userReducer from './userReducer';
 import { 
   SET_CURRENT_BOARD_ID,
-  TEST
+  CLEAR_CURRENT_BOARD_ID
 } from '../types';
 
 const UserState = props => {
@@ -17,7 +17,7 @@ const UserState = props => {
   // eslint-disable-next-line
   const getData = () => {
     dispatch({
-      type: TEST,
+      type: null,
       payload: 'new test'
     });
   };
@@ -29,11 +29,19 @@ const UserState = props => {
     });
   }
 
+  // also can be done with "setCurrentBoardId(null)"
+  const clearCurrentBoardId = () => {
+    dispatch({
+      type: CLEAR_CURRENT_BOARD_ID
+    });
+  }
+
   return (
     <UserContext.Provider
       value={{
         currentBoardId: state.currentBoardId,
-        setCurrentBoardId
+        setCurrentBoardId,
+        clearCurrentBoardId
       }}
     >
       {props.children}

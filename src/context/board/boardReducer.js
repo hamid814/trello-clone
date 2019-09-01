@@ -1,5 +1,6 @@
 import { 
-  SET_STAR
+  SET_STAR,
+  SET_DESCRIPTION
  } from '../types';
 
 export default (state, action) => {
@@ -10,6 +11,16 @@ export default (state, action) => {
         boards: state.boards.map(b => {
           if(b.id === action.payload) {
             b.starred = !b.starred
+          }
+          return b
+        })
+      }
+    case SET_DESCRIPTION:
+      return {
+        ...state,
+        boards: state.boards.map(b => {
+          if(b.id === action.payload.id) {
+            b.description = action.payload.newDesc
           }
           return b
         })

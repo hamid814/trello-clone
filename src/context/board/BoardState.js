@@ -3,7 +3,8 @@ import uuid from 'uuid';
 import BoardContext from './boardContext';
 import boardReducer from './boardReducer';
 import { 
-  SET_STAR
+  SET_STAR,
+  SET_DESCRIPTION
 } from '../types';
 
 const BoardState = props => {
@@ -162,28 +163,62 @@ const BoardState = props => {
             title: 'new list',
             id: uuid.v4(),
             items: [
-              {
-                text: 'new 1',
-                id: uuid.v4(),
-                labels: [
-                  'label 4',
-                  'label 2'
-                ]
-              },
-              {
-                text: 'new 2',
-                id: uuid.v4(),
-                labels: [
-                  'label 4',
-                  'label 2'
-                ]
-              }
+
+            ]
+          },
+          {
+            title: 'test for long',
+            id: uuid.v4(),
+            items: [
+
+            ]
+          },
+          {
+            title: 'test for long',
+            id: uuid.v4(),
+            items: [
+              
+            ]
+          },
+          {
+            title: 'test for long',
+            id: uuid.v4(),
+            items: [
+              
+            ]
+          },
+          {
+            title: 'test for long',
+            id: uuid.v4(),
+            items: [
+              
+            ]
+          },
+          {
+            title: 'test for long',
+            id: uuid.v4(),
+            items: [
+              
+            ]
+          },
+          {
+            title: 'test for long',
+            id: uuid.v4(),
+            items: [
+              
             ]
           }
         ]
+      },
+      {
+        title: 'test empty',
+        id: 2,
+        color: '#ccc',
+        lists: [
+
+        ]
       }
     ],
-    
   };
 
   const [state, dispatch] = useReducer(boardReducer, initialState);
@@ -210,13 +245,24 @@ const BoardState = props => {
     });
   }
 
+  const setDescription = (newDesc, id) => {
+    dispatch({
+      type: SET_DESCRIPTION,
+      payload: {
+        id,
+        newDesc
+      }
+    });
+  }
+
   return (
     <BoardContext.Provider
       value={{
         boards: state.boards,
         getBoardsNames,
         getBoard,
-        setStar
+        setStar,
+        setDescription
       }}
     >
       {props.children}

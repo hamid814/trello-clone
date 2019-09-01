@@ -1,8 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const BoardNavbar = ({ board, setStar }) => {
+const BoardNavbar = ({ board, setStar, setDescription }) => {
+  const [descText, setDescText] = useState('');
+  const [isSettingDesc, setIsSettingDesc] = useState(false);
+  
   const onStarClick = () => {
     setStar(board.id);
+  }
+
+  const onDescClick =() => {
+    setIsSettingDesc(true);
+  }
+
+  const onDescTextChange = (e) => {
+    setDescText(e.target.value);
+  }
+
+  const onSetDesc = () => {
+    setDescription(descText, board.id);
+    setIsSettingDesc(false);
   }
 
   return (
@@ -15,9 +31,19 @@ const BoardNavbar = ({ board, setStar }) => {
           <i className={`fa-star ${board && board.starred ? 'fas text-warning' : 'far'}`}></i>
         </div>
         <div className="ml-1 d-i-b text-white">
-          { board && board.description }
+          { 
+            board
+            && !isSettingDesc
+              ? board.description
+              : <input
+                  type="text"
+                  className="m-0 rounded"
+                  value={descText}
+                  onChange={onDescTextChange}
+                  onBlur={onSetDesc} />
+          }
         </div>
-        <div className='btn btn-primary btn-square rounded-lg lighten-20 ml-1' onClick={onStarClick}>
+        <div className='btn btn-primary btn-square rounded-lg lighten-20 ml-1' onClick={onDescClick}>
           <i className='fas fa-pen'></i>
         </div>
       </div>

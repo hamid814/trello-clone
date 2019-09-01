@@ -5,6 +5,7 @@
 html,
 body {
   height: 100%;
+  overflow: none;
 }
 
 #root {
@@ -13,6 +14,6 @@ body {
   height: 100%;
 }
 
-.trello-board-main {
+.trello-board-main-wrapper {
   flex-grow: 1;
 }

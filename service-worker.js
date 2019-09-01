@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/trello-clone/precache-manifest.80dbf24b7d918abfe6864982dd71b2cb.js"
+  "/trello-clone/precache-manifest.7cbefc7b057088077c928d567b1a6424.js"
 );
 
 self.addEventListener('message', (event) => {

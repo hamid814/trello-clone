@@ -109,10 +109,6 @@ img {
   color: var(--warning-color);
 }
 
-.text-dark {
-  color: var(--dark-color);
-}
-
 .text-white {
   color: #fff
 }
@@ -131,6 +127,10 @@ img {
 
 .text-sm {
   font-size: 0.2rem;
+}
+
+.text-lg {
+  font-size: 1.4rem
 }
 
 /* Cards */
@@ -1110,17 +1110,13 @@ aside {
   outline: none;
 }
 
-.trello-board-add-card {
+.trello-board-footer {
+  background: #bbb;
   padding: .7rem 1rem;
   border-bottom-right-radius: 0.25rem;
   border-bottom-left-radius: 0.25rem;
   font-size: .92rem;
   font-weight: 400;
-  cursor: pointer;
-}
-
-.trello-board-add-card:hover {
-  background: #aaa;
 }
 
 .trello-board-add-list {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import BoardListItem from './BoardListItem';
 
 const BoardList = ({ list, boardFuncs /* all of board context */ }) => {
@@ -17,20 +17,32 @@ const BoardList = ({ list, boardFuncs /* all of board context */ }) => {
   }
 
   const onTextareaBlur =() => {
-    if(newCardText !== '') {
-      // three parameters 1.text 2.list id 3.board id
-      boardFuncs.addCard(newCardText, list.id, 1);
-      setNewCardText('');
+    if(newCardText !== 0) {
+      addCard();
     } else {
-      setWantToAddCard(false);
+      cancelAddCard();
     }
-    console.log('get third id from user state');
   }
 
   const onKeyUp = (e) => {
     if(e.keyCode === 13) {
       onTextareaBlur();
     }
+  }
+
+  const addCard = () => {
+    if(newCardText !== '') {
+      // three parameters 1.text 2.list id 3.board id
+      boardFuncs.addCard(newCardText, list.id, 1);
+      setNewCardText('');
+    } else {
+      cancelAddCard();
+    }
+    console.log('get third id from user state');
+  }
+
+  const cancelAddCard = () => {
+    setWantToAddCard(false);
   }
 
   return (
@@ -55,10 +67,19 @@ const BoardList = ({ list, boardFuncs /* all of board context */ }) => {
           </textarea>
         </div>
       </div>
-      <div className='trello-board-add-card' onClick={onAddCardClick}>
+      <div className={`trello-board-footer ${!wantToAddCard && 'hover cursor-p'}`} onClick={onAddCardClick}>
         { !wantToAddCard
           ? list.items.length === 0 ? '+ Add a card' : '+ Add another card'
-          : ('adding panel and stuff')  
+          : (
+            <Fragment>
+              <div className='btn btn-success' onClick={addCard}>
+                Add Card
+              </div>
+              <div className='d-i-b cursor-p ml-1 text-lg lighten-60 hover' onClick={cancelAddCard}>
+                &times;
+              </div>
+            </Fragment>
+          )  
         }      
       </div>
     </div>

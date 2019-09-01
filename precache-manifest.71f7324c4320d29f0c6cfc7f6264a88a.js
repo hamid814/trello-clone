@@ -1,18 +1,18 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c70269eaca2c4b3e31b836dfca77a65e",
+    "revision": "e28f8dd1775177225da6ba1d16335458",
     "url": "/trello-clone/index.html"
   },
   {
-    "revision": "82d8e95789ff396277d3",
-    "url": "/trello-clone/static/css/main.b59df8e6.chunk.css"
+    "revision": "e68877362f8cf8206bda",
+    "url": "/trello-clone/static/css/main.058009d7.chunk.css"
   },
   {
     "revision": "7321b4759775a5b4608e",
     "url": "/trello-clone/static/js/2.4b0f2c21.chunk.js"
   },
   {
-    "revision": "82d8e95789ff396277d3",
+    "revision": "e68877362f8cf8206bda",
     "url": "/trello-clone/static/js/main.b1bd8e59.chunk.js"
   },
   {

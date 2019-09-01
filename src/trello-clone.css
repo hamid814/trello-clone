@@ -985,10 +985,6 @@ table th {
   border-bottom: solid 1px var(--primary-color);
 }
 
-.trello-board-navbar {
-  padding-top: 0.5rem;
-}
-
 .label-red {
   background: #ee3a59;
   color: #f4f4f4
@@ -1027,8 +1023,12 @@ aside {
   cursor: pointer;
 }
 
+.trello-board-navbar {
+  padding-top: 0.5rem;
+}
+
 .trello-board-main {
-  display: flex;
+  /* display: flex; */
   /* width: 100%; */
   /* flex-direction: row; */
   /* overflow-x: auto; */
@@ -1036,45 +1036,52 @@ aside {
   margin-bottom: 8px;
   overflow-x: scroll;
   overflow-y: hidden;
-  position: absolute;
+  /* position: absolute;
   top: 0;
   bottom: 0;
   right: 0;
-  left: 0;
+  left: 0; */
+}
+
+.trello-board-list-wrapper {
+  width: 270px;
+  display: inline-block;
+  vertical-align: top;
+  font-weight: bold;
+  font-size: .9rem;
 }
 
 .trello-board-list {
-  width: 270px;
   margin: 0 0.25rem;
   padding: 0;
   border-radius: .25rem;
-  font-weight: bold;
-  font-size: .9rem;
   background: #bbb;
   color: var(--dark-color);
-  display: inline-block;
-  vertical-align: top;
-}
-
-.trello-board-list-header {
-  padding: 0.9rem 1rem .1rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .trello-board-list:first-child {
   margin-left: 0;
 }
 
+.trello-board-list-header {
+  padding: 0.9rem 1rem .1rem;
+  min-height: 20px;
+}
+
 .trello-board-list-items {
   padding: .4rem .7rem .05rem;
   overflow-y: auto;
   margin-right: 0.3rem;
+  flex-grow: 1;
 }
 
 .trello-board-list-item {
   background: var(--light-color);
-  font-size: 1rem;
+  font-size: 0.9rem;
   margin: 0.5rem 0;
-  padding: 0.6rem 0.85rem;
+  padding: 0.6rem 0.55rem;
   border-radius: 0.25rem;
   font-weight: 500;
   box-shadow: 0 1px 0 rgba(9,30,66,.25);
@@ -1083,6 +1090,24 @@ aside {
 
 .trello-board-list-item:hover {
   background: #c7d3cd;
+}
+
+.trello-board-card-compose {
+
+}
+
+.trello-board-card-compose:hover {
+  background: var(--light-color);
+}
+
+.trello-board-card-compose-textarea {
+  border: none;
+  resize: none;
+  padding: 0;
+  width: 100%;
+  font-family: 'Roboto', sans-serif;
+  font-size: .9rem;
+  letter-spacing: normal;
 }
 
 .trello-board-plus {

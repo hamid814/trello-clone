@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import BoardList from './BoardList';
 
 const BoardMain = ({ board, boardFuncs /* contains all of board context  */ }) => {

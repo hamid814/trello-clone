@@ -10,15 +10,24 @@ const BoardNavbar = ({ board, setStar, setDescription }) => {
 
   const onDescClick =() => {
     setIsSettingDesc(true);
+    setDescText(board.description);
+    document.querySelector('#description-input').focus();
   }
 
   const onDescTextChange = (e) => {
-    setDescText(e.target.value);
+    e.target.value.length < 51 && setDescText(e.target.value);
+    console.log('set alert for maximum length')
   }
 
   const onSetDesc = () => {
     setDescription(descText, board.id);
     setIsSettingDesc(false);
+  }
+
+  const onKeyDown = (e) => {
+    if(e.keyCode === 13) {
+      onSetDesc();
+    }
   }
 
   return (
@@ -30,18 +39,20 @@ const BoardNavbar = ({ board, setStar, setDescription }) => {
         <div className='btn btn-primary btn-square rounded-lg lighten-20 ml-1' onClick={onStarClick}>
           <i className={`fa-star ${board && board.starred ? 'fas text-warning' : 'far'}`}></i>
         </div>
-        <div className="ml-1 d-i-b text-white">
+        <div className='ml-1 d-i-b text-white'>
           { 
             board
             && !isSettingDesc
-              ? board.description
-              : <input
-                  type="text"
-                  className="m-0 rounded"
-                  value={descText}
-                  onChange={onDescTextChange}
-                  onBlur={onSetDesc} />
+              && (board.description ? board.description : 'no description')
           }
+        <input
+          type='text'
+          id='description-input'
+          className={`m-0 rounded ${!isSettingDesc && 'd-n'}`}
+          value={descText}
+          onChange={onDescTextChange}
+          onBlur={onSetDesc}
+          onKeyDown={onKeyDown} />
         </div>
         <div className='btn btn-primary btn-square rounded-lg lighten-20 ml-1' onClick={onDescClick}>
           <i className='fas fa-pen'></i>

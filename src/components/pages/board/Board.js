@@ -20,6 +20,7 @@ const Board = () => {
 
   useEffect(() => {
     setBoard(getBoard(1)[0]);
+    // eslint-disable-next-line
   }, []);
 
   return (

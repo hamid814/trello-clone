@@ -2,9 +2,11 @@ import React, { useReducer } from 'react';
 import uuid from 'uuid';
 import BoardContext from './boardContext';
 import boardReducer from './boardReducer';
-import { 
+import {
+  SET_TITLE,
   SET_STAR,
-  SET_DESCRIPTION
+  SET_DESCRIPTION,
+  ADD_CARD
 } from '../types';
 
 const BoardState = props => {
@@ -216,6 +218,17 @@ const BoardState = props => {
     return board
   }
 
+  // set board title
+  const setTitle = (text, id) => {
+    dispatch({
+      type: SET_TITLE,
+      payload: {
+        id,
+        text
+      }
+    });
+  }
+
   // set board starred or unstarred
   const setStar = (id) => {
     dispatch({
@@ -224,12 +237,24 @@ const BoardState = props => {
     });
   }
 
-  const setDescription = (newDesc, id) => {
+  // set board description
+  const setDescription = (text, id) => {
     dispatch({
       type: SET_DESCRIPTION,
       payload: {
         id,
-        newDesc
+        text
+      }
+    });
+  }
+
+  const addCard = (text, listId, boardId) => {
+    dispatch({
+      type: ADD_CARD,
+      payload: {
+        text,
+        listId,
+        boardId
       }
     });
   }
@@ -240,8 +265,10 @@ const BoardState = props => {
         boards: state.boards,
         getBoardsNames,
         getBoard,
+        setTitle,
         setStar,
-        setDescription
+        setDescription,
+        addCard
       }}
     >
       {props.children}

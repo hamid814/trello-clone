@@ -1110,13 +1110,6 @@ aside {
   outline: none;
 }
 
-.trello-board-plus {
-  display: inline-block;
-  font-size: 1.2rem;
-  font-weight: 400;
-  margin-right: .5rem
-}
-
 .trello-board-add-card {
   padding: .7rem 1rem;
   border-bottom-right-radius: 0.25rem;

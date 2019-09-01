@@ -17,10 +17,14 @@ const BoardList = ({ list, boardFuncs /* all of board context */ }) => {
   }
 
   const onTextareaBlur =() => {
-    setWantToAddCard(false);
-    // three parameters 1.text 2.list id 3.board id
-    boardFuncs.addCard(newCardText, list.id, 1);
-    console.log('get third id from user state')
+    if(newCardText !== '') {
+      // three parameters 1.text 2.list id 3.board id
+      boardFuncs.addCard(newCardText, list.id, 1);
+      setNewCardText('');
+    } else {
+      setWantToAddCard(false);
+    }
+    console.log('get third id from user state');
   }
 
   const onKeyUp = (e) => {
@@ -45,7 +49,8 @@ const BoardList = ({ list, boardFuncs /* all of board context */ }) => {
             placeholder='Enter a title for this card'
             onBlur={onTextareaBlur}
             onKeyUp={onKeyUp}
-            onChange={onChange}>
+            onChange={onChange}
+            value={newCardText}>
 
           </textarea>
         </div>

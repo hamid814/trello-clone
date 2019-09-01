@@ -248,11 +248,17 @@ const BoardState = props => {
     });
   }
 
+  // add card to list
   const addCard = (text, listId, boardId) => {
+    const newCard = {
+      text,
+      id: uuid.v4(),
+      labels: []
+    }
     dispatch({
       type: ADD_CARD,
       payload: {
-        text,
+        newCard,
         listId,
         boardId
       }

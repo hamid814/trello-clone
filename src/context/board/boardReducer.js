@@ -44,7 +44,7 @@ export default (state, action) => {
           if(b.id === action.payload.boardId) {
             b.lists = b.lists.map(l => {
               if(l.id === action.payload.listId) {
-                l.items = [...l.items, action.payload.text]
+                l.items.push(action.payload.newCard);
               }
               return l
             })

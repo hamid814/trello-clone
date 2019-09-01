@@ -1092,10 +1092,6 @@ aside {
   background: #c7d3cd;
 }
 
-.trello-board-card-compose {
-
-}
-
 .trello-board-card-compose:hover {
   background: var(--light-color);
 }
@@ -1108,6 +1104,10 @@ aside {
   font-family: 'Roboto', sans-serif;
   font-size: .9rem;
   letter-spacing: normal;
+}
+
+.trello-board-card-compose-textarea:focus {
+  outline: none;
 }
 
 .trello-board-plus {

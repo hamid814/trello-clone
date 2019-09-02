@@ -31,8 +31,12 @@ const BoardNavbar = ({ board, setStar, setDescription, setTitle }) => {
     }
   }
 
+  const navbarStyle = {
+      background: board && board.color
+  }
+
   return (
-    <div className='trello-board-navbar trello-navbar lighten-20'>
+    <div className='trello-board-navbar trello-navbar lighten-20' style={navbarStyle}>
       <div className='card border-0 m-0 p-0'>
         { board && <BoardTitle title={board.title} setTitle={setTitle} /> }
         <div className='btn btn-primary btn-square rounded-lg lighten-20 ml-1' onClick={onStarClick}>

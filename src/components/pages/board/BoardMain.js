@@ -2,8 +2,12 @@ import React from 'react';
 import BoardList from './BoardList';
 
 const BoardMain = ({ board, boardFuncs /* contains all of board context  */ }) => {
+  const mainStyle = {
+    background: board && board.color
+  }
+
   return (
-    <div className='trello-board-main'>
+    <div className='trello-board-main' style={mainStyle}>
       { board &&
         board.lists.map(l => (
           <div key={l.id} className='trello-board-list-wrapper'>

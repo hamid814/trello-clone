@@ -133,6 +133,10 @@ img {
   font-size: 1.4rem
 }
 
+.test {
+  background-color: hsla(0,0%,100%,.24)
+}
+
 /* Cards */
 .card {
   padding: 1rem;
@@ -392,6 +396,9 @@ img {
 }
 .op-9 {
   opacity: 0.9;
+}
+.op-10 {
+  opacity: 1 !important;
 }
 
 /* Grid */

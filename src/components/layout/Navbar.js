@@ -20,21 +20,21 @@ const Navbar = () => {
   }
 
   const titleStyle = {
-    color: getBoard(currentBoardId) && getBoard(currentBoardId).color
+    color: getBoard(currentBoardId) && getBoard(currentBoardId).color + ' !important'
   }
 
   return (
     <div className='trello-navbar' style={navbarStyle}>
       <div>
-        <div className='btn btn-square btn-light op-8 rounded-lg' onClick={homeClick}>
+        <div className='btn btn-square btn-light op-8 rounded' onClick={homeClick}>
           <i className='fa fa-home'></i>
         </div>
-        <div className='btn btn-narrow btn-light op-8 rounded-lg'>
+        <div className='btn btn-narrow btn-light op-8 rounded'>
           <i className='mr-1 fa fa-notes-medical'></i>
           boards
         </div>
-        <div className='d-i-b rounded-lg'>
-          <input type='text' className='m-0 bg-light op-8 border-0 rounded-lg' id='search-input'/>
+        <div className='d-i-b rounded'>
+          <input type='text' className='m-0 bg-light op-8 border-0 rounded' id='search-input'/>
         </div>
       </div>
       <div className='mr-5'>
@@ -42,15 +42,13 @@ const Navbar = () => {
           <div className='m mt-0 ml-0 mb-0'>
             trello
           </div>
-          <div
-            className='bg-white text-primary d-i-b border-0 p pt-0 pb-0 pr-0'
-            style={{titleStyle}}>
+          <div className='bg-white text-primary d-i-b border-0 p pt-0 pb-0 pr-0' style={titleStyle}>
             clone
           </div>
         </div>
       </div>
       <div>
-        <div className='btn btn-square btn-light op-8 rounded-lg'>
+        <div className='btn btn-square btn-light op-8 rounded'>
           <i className='fa fa-plus'></i>
         </div>
       </div>

@@ -39,7 +39,7 @@ const BoardTitle = ({ title, setTitle }) => {
   return (
     <div className="d-i-b">
       <div
-        className={`btn btn-primary btn-narrow m-0 ${isSettingTitle && 'd-n'}`}
+        className={`btn btn-light op-8 darken-20 btn-narrow m-0 ${isSettingTitle && 'd-n'}`}
         onClick={onClick}>
         { title }
       </div>

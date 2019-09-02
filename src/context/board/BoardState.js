@@ -16,7 +16,7 @@ const BoardState = props => {
         title: 'my nice board',
         id: 1,
         color: '#e27b47',
-        starred: false,
+        starred: true,
         description: 'board description goes here',
         lists: [
           {
@@ -194,12 +194,14 @@ const BoardState = props => {
       {
         title: 'test empty',
         id: 2,
-        color: '#ccc',
+        starred: false,
+        color: '#475969',
         lists: [
 
         ]
       }
     ],
+    listOfStarredBoardsIds: []
   };
 
   const [state, dispatch] = useReducer(boardReducer, initialState);
@@ -210,6 +212,11 @@ const BoardState = props => {
     
     return list
   };
+
+  // get boards with starred = true
+  const getStarredBoards = () => {
+    return state.boards.filter(b => b.starred);
+  }
 
   // send a single board to board page (returns an array with one object)
   const getBoard = (id) => {
@@ -231,9 +238,17 @@ const BoardState = props => {
 
   // set board starred or unstarred
   const setStar = (id) => {
+    let newListOfStarredBoardsIds;
+    if(state.listOfStarredBoardsIds.indexOf(id) !== -1) {
+      
+    }
+    
     dispatch({
       type: SET_STAR,
-      payload: id
+      payload: {
+        id,
+        newListOfStarredBoardsIds
+      }
     });
   }
 
@@ -270,6 +285,7 @@ const BoardState = props => {
       value={{
         boards: state.boards,
         getBoardsNames,
+        getStarredBoards,
         getBoard,
         setTitle,
         setStar,

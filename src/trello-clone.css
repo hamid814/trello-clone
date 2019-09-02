@@ -1017,7 +1017,9 @@ aside {
 
 .trello-home-main-item {
   background: var(--light-color);
-  padding: 2.5rem 3.5rem;
+  width: 10rem;
+  height: 5rem;
+  padding: .5rem 0.5rem;
   border-radius: 0.3rem;
   display: inline-block;
   cursor: pointer;

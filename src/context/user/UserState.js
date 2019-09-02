@@ -9,6 +9,7 @@ import {
 const UserState = props => {
   const initialState = {
     currentBoardId: null,
+    recentIds: []
   };
 
   const [state, dispatch] = useReducer(userReducer, initialState);
@@ -23,6 +24,14 @@ const UserState = props => {
   };
 
   const setCurrentBoardId = (id) => {
+    const newRecentIds = state.recentIds;
+    if(newRecentIds.length === 3) {
+      newRecentIds.shift();
+      newRecentIds.push(id);
+    } else {
+      newRecentIds.push(id);
+    }
+    console.log(newRecentIds);
     dispatch({
       type: SET_CURRENT_BOARD_ID,
       payload: id

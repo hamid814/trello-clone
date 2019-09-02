@@ -86,7 +86,7 @@ img {
 }
 
 .text-primary {
-  color: var(--primary-color);
+  color: var(--primary-color) !important;
 }
 
 .text-light {
@@ -1023,6 +1023,20 @@ aside {
   border-radius: 0.3rem;
   display: inline-block;
   cursor: pointer;
+  position: relative;
+}
+
+.trello-home-main-item-star {
+  display: none;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 0.7rem;
+}
+
+.trello-home-main-item:hover .trello-home-main-item-star {
+  display: initial;
+  animation: HomeItemStar 0.15s ease-in; 
 }
 
 .trello-board-navbar {

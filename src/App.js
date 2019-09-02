@@ -6,6 +6,7 @@ import Board from './components/pages/board/Board';
 import UserContext from './context/user/userContext';
 
 import './trello-clone.css';
+import './trello-clone-keyframes.css';
 
 const App = () => {
   const userContext = useContext(UserContext);

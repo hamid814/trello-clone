@@ -19,7 +19,7 @@ const Board = () => {
   const { getBoard, setStar, setDescription, setTitle } = boardContext;
 
   useEffect(() => {
-    setBoard(getBoard(currentBoardId)[0]);
+    setBoard(getBoard(currentBoardId));
     // eslint-disable-next-line
   }, []);
 

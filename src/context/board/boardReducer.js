@@ -21,12 +21,12 @@ export default (state, action) => {
       return {
         ...state,
         boards: state.boards.map(b => {
-          if(b.id === action.payload) {
+          if(b.id === action.payload.id) {
             b.starred = !b.starred
           }
           return b
         }),
-        // starredListIds: 
+        listOfStarredBoardsIds: action.payload.newListOfStarredBoardsIds
       }
     case SET_DESCRIPTION:
       return {

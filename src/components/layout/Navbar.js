@@ -26,7 +26,14 @@ const Navbar = () => {
         </div>
       </div>
       <div className="mr-5">
-        <div className="text-white text-bold cursor-p">trello clone</div>
+        <div className="text-white text-bold cursor-p">
+          <div className="m mt-0 ml-0 mb-0">
+            trello
+          </div>
+          <div className="bg-white text-primary d-i-b border-0 p pt-0 pb-0 pr-0">
+            clone
+          </div>
+        </div>
       </div>
       <div>
         <div className="btn btn-square btn-primary rounded-lg">

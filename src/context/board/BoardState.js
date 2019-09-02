@@ -16,7 +16,7 @@ const BoardState = props => {
         title: 'my nice board',
         id: 1,
         color: '#e27b47',
-        starred: true,
+        starred: false,
         description: 'board description goes here',
         lists: [
           {
@@ -195,7 +195,7 @@ const BoardState = props => {
         title: 'test empty',
         id: 2,
         starred: false,
-        color: '#475969',
+        color: '#4759a3',
         lists: [
 
         ]
@@ -215,14 +215,17 @@ const BoardState = props => {
 
   // get boards with starred = true
   const getStarredBoards = () => {
-    return state.boards.filter(b => b.starred);
+    const list = [];
+    state.listOfStarredBoardsIds.forEach(id => list.push(getBoard(id)));
+
+    return list;
   }
 
   // send a single board to board page (returns an array with one object)
   const getBoard = (id) => {
     const board = state.boards.filter(b => b.id === id);
 
-    return board
+    return board[0]
   }
 
   // set board title
@@ -239,13 +242,11 @@ const BoardState = props => {
   // set board starred or unstarred
   const setStar = (id) => {
     let newListOfStarredBoardsIds = state.listOfStarredBoardsIds;
-    console.log(newListOfStarredBoardsIds)
     if(state.listOfStarredBoardsIds.indexOf(id) !== -1) {
-
+      newListOfStarredBoardsIds.splice(state.listOfStarredBoardsIds.indexOf(id), 1);
     } else {
-
+      newListOfStarredBoardsIds.push(id);
     }
-    
     dispatch({
       type: SET_STAR,
       payload: {

@@ -238,9 +238,12 @@ const BoardState = props => {
 
   // set board starred or unstarred
   const setStar = (id) => {
-    let newListOfStarredBoardsIds;
+    let newListOfStarredBoardsIds = state.listOfStarredBoardsIds;
+    console.log(newListOfStarredBoardsIds)
     if(state.listOfStarredBoardsIds.indexOf(id) !== -1) {
-      
+
+    } else {
+
     }
     
     dispatch({

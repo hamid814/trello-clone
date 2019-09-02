@@ -26,7 +26,7 @@ export default (state, action) => {
           }
           return b
         }),
-        starredListIds: 
+        // starredListIds: 
       }
     case SET_DESCRIPTION:
       return {

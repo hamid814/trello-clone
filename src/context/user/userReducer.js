@@ -1,6 +1,7 @@
 import { 
   SET_CURRENT_BOARD_ID,
   CLEAR_CURRENT_BOARD_ID,
+  SET_RECENT_IDS,
   TEST
 } from '../types';
 
@@ -20,6 +21,11 @@ export default (state, action) => {
       return {
         ...state,
         currentBoardId: null
+      }
+    case SET_RECENT_IDS:
+      return {
+        ...state,
+        recentIds: action.payload
       }
     default:
       return state;

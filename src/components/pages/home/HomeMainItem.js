@@ -29,7 +29,7 @@ const HomeMainItem = ({ board }) => {
       className='trello-home-main-item mt-1 mr-1'
       style={itemStyle}
       onClick={onClick}>
-        <div className="text-white">
+        <div className='text-white func-title'>
           {board.title}
         </div>
         <div

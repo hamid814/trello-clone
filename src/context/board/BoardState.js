@@ -213,6 +213,15 @@ const BoardState = props => {
     return list
   };
 
+  // get  recent used boards based on user state
+  const getRecentBoards = (ids) => {
+    const list = [];
+
+    ids && ids.forEach(id => list.push(getBoard(id)));
+
+    return list
+  }
+
   // get boards with starred = true
   const getStarredBoards = () => {
     const list = [];
@@ -289,6 +298,7 @@ const BoardState = props => {
       value={{
         boards: state.boards,
         getBoardsNames,
+        getRecentBoards,
         getStarredBoards,
         getBoard,
         setTitle,

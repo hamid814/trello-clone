@@ -1017,26 +1017,27 @@ aside {
 
 .trello-home-main-item {
   background: var(--light-color);
-  width: 10rem;
-  height: 5rem;
-  padding: .5rem 0.5rem;
-  border-radius: 0.3rem;
+  width: 10.5rem;
+  height: 5.5rem;
+  padding: .7rem 0.5rem;
+  border-radius: 0.2rem;
   display: inline-block;
   cursor: pointer;
   position: relative;
 }
 
 .trello-home-main-item-star {
-  display: none;
   position: absolute;
   bottom: 10px;
-  right: 10px;
+  right: 0px;
   font-size: 0.7rem;
+  opacity: 0;
+  transition: 150ms;
 }
 
 .trello-home-main-item:hover .trello-home-main-item-star {
-  display: initial;
-  animation: HomeItemStar 0.15s ease-in; 
+  right: 10px;
+  opacity: 1;
 }
 
 .trello-board-navbar {

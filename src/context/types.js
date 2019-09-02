@@ -10,6 +10,7 @@ export const ADD_CARD = 'ADD_CARD';
 // user state
 export const SET_CURRENT_BOARD_ID = 'SET_CURRENT_BOARD_ID';
 export const CLEAR_CURRENT_BOARD_ID = 'CLEAR_CURRENT_BOARD_ID';
+export const SET_RECENT_IDS = 'SET_RECENT_IDS';
 
 // 
 export const TEST = 'TEST';

@@ -3,7 +3,8 @@ import UserContext from './userContext';
 import userReducer from './userReducer';
 import { 
   SET_CURRENT_BOARD_ID,
-  CLEAR_CURRENT_BOARD_ID
+  CLEAR_CURRENT_BOARD_ID,
+  SET_RECENT_IDS
 } from '../types';
 
 const UserState = props => {
@@ -24,17 +25,25 @@ const UserState = props => {
   };
 
   const setCurrentBoardId = (id) => {
-    const newRecentIds = state.recentIds;
-    if(newRecentIds.length === 3) {
-      newRecentIds.shift();
-      newRecentIds.push(id);
-    } else {
-      newRecentIds.push(id);
-    }
-    console.log(newRecentIds);
     dispatch({
       type: SET_CURRENT_BOARD_ID,
       payload: id
+    });
+    setRecentBaord(id);
+  }
+
+  // set new board to recent
+  const setRecentBaord = (id) => {
+    const newRecentIds = state.recentIds;
+    if(newRecentIds.length === 3 && id !== null) {
+      newRecentIds.shift();
+      newRecentIds.push(id);
+    } else if(id !== null) {
+      newRecentIds.push(id);
+    }
+    dispatch({
+      type: SET_RECENT_IDS,
+      payload: newRecentIds
     });
   }
 
@@ -49,8 +58,9 @@ const UserState = props => {
     <UserContext.Provider
       value={{
         currentBoardId: state.currentBoardId,
+        recentIds: state.recentIds,
         setCurrentBoardId,
-        clearCurrentBoardId
+        clearCurrentBoardId,
       }}
     >
       {props.children}

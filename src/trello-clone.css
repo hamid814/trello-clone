@@ -24,6 +24,7 @@ body {
   line-height: 1;
   background-color: #fff;
   color: #333;
+  overflow: hidden;
 }
 
 a {
@@ -1049,22 +1050,6 @@ aside {
 
 .trello-board-navbar {
   padding-top: 0.5rem;
-}
-
-.trello-board-main {
-  /* display: flex; */
-  /* width: 100%; */
-  /* flex-direction: row; */
-  /* overflow-x: auto; */
-  /* overflow-y: hidden; */
-  margin-bottom: 8px;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  /* position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0; */
 }
 
 .trello-board-list-wrapper {

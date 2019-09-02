@@ -17,3 +17,20 @@ body {
 .trello-board-main-wrapper {
   flex-grow: 1;
 }
+
+/* 
+  bottom of this comes the css for making the lists scroll if the list is longer than the page
+*/
+
+.trello-board-main {
+  /* display: flex; */
+  /* flex-direction: row; */
+  margin-bottom: 8px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  /* position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0; */
+}

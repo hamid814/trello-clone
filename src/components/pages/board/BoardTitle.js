@@ -45,7 +45,7 @@ const BoardTitle = ({ title, setTitle }) => {
       <div
         className={`text-white m-0 ml-1 ${isSettingTitle && 'd-n'}`}
         onClick={onClick}>
-        { title }
+        { title.charAt(0).toUpperCase() + title.slice(1) }
       </div>
       <input
         type="text"

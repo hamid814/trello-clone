@@ -37,7 +37,7 @@ const SideListItem = ({ board }) => {
       className="card pl-1 cursor-p p border-0 rounded-lg text-dark transition text-bold"
       style={hoverStyle}
       >
-      {board.title}
+      { board.title.charAt(0).toUpperCase() + board.title.slice(1) }
       { <i className="fa fa-check m-0 float-right"></i> }
     </div> 
   );

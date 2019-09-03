@@ -185,6 +185,7 @@ const BoardState = props => {
         id: 2,
         starred: false,
         color: '#4759a3',
+        describtion: '',
         lists: [
 
         ]

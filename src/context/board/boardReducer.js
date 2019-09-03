@@ -40,7 +40,7 @@ export default (state, action) => {
         ...state,
         boards: state.boards.map(b => {
           if(b.id === action.payload.id) {
-            b.description = action.payload.text
+            b.describtion = action.payload.text
           }
           return b
         })

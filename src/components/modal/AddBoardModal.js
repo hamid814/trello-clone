@@ -34,7 +34,9 @@ const AddBoardModal = () => {
     if(text !== '') {
       addBoard(text, bg);
       onClose();
-      setAlert(`board ${text} was created`, 'success', 4000);
+      setAlert(`board ${text.charAt(0).toUpperCase() + text.slice(1)} was created`, 'success', 4000);
+    } else {
+      setAlert('board name is required', 'warning', 2500);
     }
   }
 

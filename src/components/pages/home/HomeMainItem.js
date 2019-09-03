@@ -34,7 +34,7 @@ const HomeMainItem = ({ board }) => {
       style={itemStyle}
       onClick={onClick}>
         <div className='text-white func-title'>
-          {board.title}
+          { board.title.charAt(0).toUpperCase() + board.title.slice(1) }
         </div>
         <div
           className='trello-home-main-item-star'

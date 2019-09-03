@@ -2,13 +2,16 @@ import React, { useContext } from 'react';
 
 import UserContext from '../../../context/user/userContext';
 import BoardContext from '../../../context/board/boardContext';
+import AlertContext from '../../../context/alert/alertContext';
 
 const HomeMainItem = ({ board }) => {
   const userContext = useContext(UserContext);
   const boardContext = useContext(BoardContext);
+  const alertContext = useContext(AlertContext);
 
   const { setCurrentBoardId } = userContext;
   const { setStar } = boardContext;
+  const { setAlert } = alertContext;
 
   const itemStyle = {
     background: board.color
@@ -22,6 +25,7 @@ const HomeMainItem = ({ board }) => {
 
   const onStarClicked = () => {
     setStar(board.id);
+    setAlert(`${board.starred ? 'board added to favorites' : 'board removed from favorites'}`, `${board.starred ? 'success' : 'dark'}`, 2500);
   }
 
   return (

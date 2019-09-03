@@ -925,6 +925,17 @@ table th {
   filter: brightness(10%);
 }
 
+.modal {
+  /* display: none; */
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #222;
+  opacity: 0.7;
+}
+
 /* Mobile Styles */
 @media (max-width: 700px) {
   .hide-sm {

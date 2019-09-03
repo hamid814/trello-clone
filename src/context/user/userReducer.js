@@ -23,7 +23,7 @@ export default (state, action) => {
         ...state,
         recentIds: action.payload
       }
-    case SET_MODAL_IS_ON:
+    case SET_MODAL:
       return {
         ...state,
         modalStatus: action.payload

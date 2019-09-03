@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react';
-// import AddBoardModal from './AddBoardModal';
-// import DetailsModal from './DetailsModal';
-// import FastEditModal from './FastEditModal';
-// import OptionsModal from './OptionsModal';
+import AddBoardModal from './AddBoardModal';
+import DetailsModal from './DetailsModal';
+import FastEditModal from './FastEditModal';
+import OptionsModal from './OptionsModal';
 
 import UserContext from '../../context/user/userContext';
 
@@ -14,7 +14,6 @@ const Modal = () => {
   const [showModal, setShowModal] = useState('off');
   
   useEffect(() => {
-    console.log(modalStatus);
     setShowModal(modalStatus /* from useState */);
   }, [modalStatus])
 
@@ -25,7 +24,7 @@ const Modal = () => {
   }
 
   const closeModal = () => {
-    setShowModal('off');
+    setModalStatus('off');
   }
 
   const modalDisplay = {

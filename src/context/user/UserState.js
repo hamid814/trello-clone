@@ -5,7 +5,7 @@ import {
   SET_CURRENT_BOARD_ID,
   CLEAR_CURRENT_BOARD_ID,
   SET_RECENT_IDS,
-  SET_MODAL_IS_ON,
+  SET_MODAL,
   SET_MODAL_TYPE
 } from '../types';
 
@@ -49,13 +49,15 @@ const UserState = props => {
     });
   }
 
-  const setModalStatus = (status) => {
+  const setModal = (status, type) => {
     dispatch({
-      type: SET_MODAL_IS_ON,
+      type: SET_MODAL,
       payload: status
     });
     if(status === 'off') {
       clearModalType();
+    } if(status === 'on') {
+      setModalType(type);
     }
   }
 

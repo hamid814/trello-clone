@@ -26,7 +26,8 @@ const AddBoardModal = () => {
           <div>
             <input
               type='text'
-              className='m-0 border-0'/>
+              placeholder='Add board title'
+              className='m-0 border-0 text-bold text-light pl-1 rounded'/>
           </div>
           <div>
             <div className='close' onClick={onClose}>
@@ -35,17 +36,17 @@ const AddBoardModal = () => {
           </div>
         </div>
         <div className='grid-3 gap-half' onClick={onBgClicked}>
-          <div id='#ee3a59' className='rounded-lg p-1 bg-warning cursor-p'></div>
-          <div id='#e27b47' className='rounded-lg p-1 bg-warning cursor-p'></div>
-          <div id='#efca58' className='rounded-lg p-1 bg-warning cursor-p'></div>
-          <div id='#46b29e' className='rounded-lg p-1 bg-warning cursor-p'></div>
-          <div id='#344e5c' className='rounded-lg p-1 bg-warning cursor-p'></div>
-          <div id='#344e5c' className='rounded-lg p-1 bg-warning cursor-p'></div>
-          <div id='#344e5c' className='rounded-lg p-1 bg-warning cursor-p'></div>
+          <div id='#ee3a59' className='rounded-lg p-1 label-red cursor-p'></div>
+          <div id='#e27b47' className='rounded-lg p-1 label-orange cursor-p'></div>
+          <div id='#efca58' className='rounded-lg p-1 label-yellow cursor-p'></div>
+          <div id='#46b29e' className='rounded-lg p-1 label-blue-l cursor-p'></div>
+          <div id='#344e5c' className='rounded-lg p-1 label-blue-d cursor-p'></div>
+          <div></div>
+          <div id='custom' className='rounded-lg p-1 bg-light cursor-p'></div>
         </div>
       </div>
       <div className='btn btn-light btn-narrow m text-bold'>
-        Create Board
+        Create Board ( success on not empty )
       </div>
     </div>
   )

@@ -1231,3 +1231,12 @@ aside {
 .trello-add-board-modal-content input {
   background: rgba(0, 0, 0, 0.2);
 }
+
+.trello-add-board-modal-content input:hover {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.trello-add-board-modal-content input:focus {
+  background: rgba(0, 0, 0, 0.7);
+  outline: none;
+}

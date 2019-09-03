@@ -27,7 +27,6 @@ const BoardNavbar = ({ board, setStar, setDescribtion, setTitle }) => {
   }
 
   const onSetDesc = () => {
-    console.log('in the comp')
     setDescribtion(descText, board.id);
     setIsSettingDesc(false);
   }

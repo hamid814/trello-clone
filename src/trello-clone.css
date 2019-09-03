@@ -1196,7 +1196,7 @@ aside {
 }
 
 .trello-alerts-wrapper {
-  z-index: 2;
+  z-index: 10;
   position: absolute;
   top: 2.5rem;
   right: 2.2rem;

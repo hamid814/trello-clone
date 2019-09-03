@@ -2,10 +2,12 @@ import React, { useState, useContext } from 'react';
 
 import UserContext from '../../context/user/userContext';
 import BoardContext from '../../context/board/boardContext';
+import AlertContext from '../../context/alert/alertContext';
 
 const AddBoardModal = () => {
   const { setModal } = useContext(UserContext);
   const { addBoard } = useContext(BoardContext);
+  const { setAlert } = useContext(AlertContext);
 
   const [bg, setBg] = useState('#ee3a59');
   const [text, setText] = useState('');
@@ -22,17 +24,17 @@ const AddBoardModal = () => {
     setText(e.target.value);
   }
 
-  const onBlur = () => {
-
-  }
-
-  const onKeyUp = () => {
-    
+  const onKeyUp = (e) => {
+    if(e.keyCode === 13) {
+      onAdd();
+    }
   }
 
   const onAdd = () => {
     if(text !== '') {
-      // addBoard();
+      addBoard(text, bg);
+      onClose();
+      setAlert(`board ${text} was created`, 'success', 4000);
     }
   }
 
@@ -50,6 +52,7 @@ const AddBoardModal = () => {
               placeholder='Add board title'
               value={text}
               onChange={onChange}
+              onKeyUp={onKeyUp}
               className='m-0 border-0 text-bold text-light pl-1 rounded'/>
           </div>
           <div>

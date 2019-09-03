@@ -3,7 +3,7 @@ import BoardTitle from './BoardTitle';
 
 import AlertContext from '../../../context/alert/alertContext';
 
-const BoardNavbar = ({ board, setStar, setDescription, setTitle }) => {
+const BoardNavbar = ({ board, setStar, setDescribtion, setTitle }) => {
   const { setAlert } = useContext(AlertContext);
 
   const [descText, setDescText] = useState('');
@@ -16,8 +16,8 @@ const BoardNavbar = ({ board, setStar, setDescription, setTitle }) => {
 
   const onDescClick =() => {
     setIsSettingDesc(true);
-    setDescText(board.description);
-    document.querySelector('#description-input').focus();
+    setDescText(board.describtion);
+    document.querySelector('#describtion-input').focus();
   }
 
   const onDescTextChange = (e) => {
@@ -27,7 +27,8 @@ const BoardNavbar = ({ board, setStar, setDescription, setTitle }) => {
   }
 
   const onSetDesc = () => {
-    setDescription(descText, board.id);
+    console.log('in the comp')
+    setDescribtion(descText, board.id);
     setIsSettingDesc(false);
   }
 
@@ -52,11 +53,11 @@ const BoardNavbar = ({ board, setStar, setDescription, setTitle }) => {
           { 
             board
             && !isSettingDesc
-              && (board.description ? board.description : 'no description')
+              && (board.describtion ? board.describtion : 'no describtion')
           }
         <input
           type='text'
-          id='description-input'
+          id='describtion-input'
           className={`m-0 rounded ${!isSettingDesc && 'd-n'}`}
           value={descText}
           onChange={onDescTextChange}

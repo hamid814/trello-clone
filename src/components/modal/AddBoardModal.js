@@ -1,11 +1,14 @@
 import React, { useState, useContext } from 'react';
 
 import UserContext from '../../context/user/userContext';
+import BoardContext from '../../context/board/boardContext';
 
 const AddBoardModal = () => {
   const { setModal } = useContext(UserContext);
+  const { addBoard } = useContext(BoardContext);
 
-  const [bg, setBg] = useState('#ee3a59')
+  const [bg, setBg] = useState('#ee3a59');
+  const [text, setText] = useState('');
 
   const onBgClicked = (e) => {
     setBg(e.target.id);
@@ -15,6 +18,24 @@ const AddBoardModal = () => {
     setModal('off');
   }
 
+  const onChange = (e) => {
+    setText(e.target.value);
+  }
+
+  const onBlur = () => {
+
+  }
+
+  const onKeyUp = () => {
+    
+  }
+
+  const onAdd = () => {
+    if(text !== '') {
+      // addBoard();
+    }
+  }
+
   const bgColor = {
     backgroundColor: bg
   }
@@ -22,11 +43,13 @@ const AddBoardModal = () => {
   return (
     <div className='modal-content trello-add-board-modal-content'>
       <div className='grid-3-1'>
-        <div className='p-1 grid-3-1' style={bgColor}>
+        <div className='p-1 grid-3-1 rounded-lg' style={bgColor}>
           <div>
             <input
               type='text'
               placeholder='Add board title'
+              value={text}
+              onChange={onChange}
               className='m-0 border-0 text-bold text-light pl-1 rounded'/>
           </div>
           <div>
@@ -45,8 +68,10 @@ const AddBoardModal = () => {
           <div id='custom' className='rounded-lg p-1 bg-light cursor-p'></div>
         </div>
       </div>
-      <div className='btn btn-light btn-narrow m text-bold'>
-        Create Board ( success on not empty )
+      <div
+        onClick={onAdd}
+        className={`btn btn-narrow m text-bold ${text !== '' && 'btn-success'}`}>
+          Create Board
       </div>
     </div>
   )

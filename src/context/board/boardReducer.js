@@ -1,13 +1,19 @@
 import {
+  ADD_BOARD,
   SET_TITLE,
   SET_STAR,
-  SET_DESCRIPTION,
+  SET_DESCRIBTION,
   ADD_LIST,
   ADD_CARD
  } from '../types';
 
 export default (state, action) => {
   switch (action.type) {
+    case ADD_BOARD:
+      return {
+        ...state,
+        boards: [...state.boards, action.payload]
+      }
     case SET_TITLE:
       return {
         ...state,
@@ -29,7 +35,7 @@ export default (state, action) => {
         }),
         listOfStarredBoardsIds: action.payload.newListOfStarredBoardsIds
       }
-    case SET_DESCRIPTION:
+    case SET_DESCRIBTION:
       return {
         ...state,
         boards: state.boards.map(b => {

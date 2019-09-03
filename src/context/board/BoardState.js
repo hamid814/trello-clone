@@ -3,9 +3,10 @@ import uuid from 'uuid';
 import BoardContext from './boardContext';
 import boardReducer from './boardReducer';
 import {
+  ADD_BOARD,
   SET_TITLE,
   SET_STAR,
-  SET_DESCRIPTION,
+  SET_DESCRIBTION,
   ADD_LIST,
   ADD_CARD
 } from '../types';
@@ -18,7 +19,7 @@ const BoardState = props => {
         id: 1,
         color: '#e27b47',
         starred: false,
-        description: 'board description goes here',
+        describtion: 'board describtion goes here',
         lists: [
           {
             title: 'todos',
@@ -201,6 +202,21 @@ const BoardState = props => {
     return list
   };
 
+  const addBoard = (title, color) => {
+    const newBaord = {
+      title,
+      id: uuid.v4(),
+      color,
+      starred: false,
+      describtion: '',
+      lists: []
+    }
+    dispatch({
+      type: ADD_BOARD,
+      payload: newBaord
+    });
+  }
+
   // get  recent used boards based on user state
   const getRecentBoards = (ids) => {
     const list = [];
@@ -253,10 +269,10 @@ const BoardState = props => {
     });
   }
 
-  // set board description
-  const setDescription = (text, id) => {
+  // set board describtion
+  const setDescribtion = (text, id) => {
     dispatch({
-      type: SET_DESCRIPTION,
+      type: SET_DESCRIBTION,
       payload: {
         id,
         text
@@ -301,13 +317,14 @@ const BoardState = props => {
     <BoardContext.Provider
       value={{
         boards: state.boards,
+        addBoard,
         getBoardsNames,
         getRecentBoards,
         getStarredBoards,
         getBoard,
         setTitle,
         setStar,
-        setDescription,
+        setDescribtion,
         addList,
         addCard
       }}

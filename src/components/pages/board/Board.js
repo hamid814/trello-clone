@@ -16,7 +16,7 @@ const Board = () => {
   const boardContext = useContext(BoardContext);
 
   const { currentBoardId } = userContext;
-  const { getBoard, setStar, setDescription, setTitle } = boardContext;
+  const { getBoard, setStar, setDescribtion, setTitle } = boardContext;
 
   useEffect(() => {
     setBoard(getBoard(currentBoardId));
@@ -32,7 +32,7 @@ const Board = () => {
       <BoardNavbar
         board={board}
         setStar={setStar}
-        setDescription={setDescription}
+        setDescribtion={setDescribtion}
         setTitle={setTitle} />
       <div className='trello-board-main-wrapper lighten-20 p' style={boardStyle}>
         <BoardMain boardFuncs={boardContext} board={board} />

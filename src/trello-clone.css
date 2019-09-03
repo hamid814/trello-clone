@@ -1170,3 +1170,30 @@ aside {
 .trello-board-add-list:hover {
   filter: brightness(110%)
 }
+
+.trello-alerts-wrapper {
+  z-index: 2;
+  position: absolute;
+  top: 2.5rem;
+  right: 3rem;
+}
+
+.trello-alert-item {
+  width: 18rem;
+  cursor: pointer;
+  position: relative;
+}
+
+.trello-alert-item:hover {
+  opacity: 1;
+}
+
+.trello-alert-item-msg {
+  width: 16rem;
+}
+
+.trello-alert-item-close {
+  position: absolute;
+  top: .5rem;
+  right: .8rem;
+}

@@ -1,11 +1,14 @@
 import React, { Fragment, useState, useContext } from 'react';
 
 import BoardContext from '../../../context/board/boardContext';
+import AlertContext from '../../../context/alert/alertContext';
 
 const AddList = ({ board }) => {
   const boardContext = useContext(BoardContext);
+  const alertContext = useContext(AlertContext);
 
   const { addList } = boardContext;
+  const { setAlert } = alertContext;
 
   const [isAdding, setIsAdding] = useState(false);
   const [text, setText] = useState('')
@@ -35,6 +38,7 @@ const AddList = ({ board }) => {
   const onAddList = () => {
     if(text !== '') {
       addList(text, board.id);
+      setAlert(`list ${text} added`, 'success');
       setText('');
     } else {
       console.log('alert');

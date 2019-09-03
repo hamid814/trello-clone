@@ -2,11 +2,14 @@ import React, { Fragment, useState, useContext } from 'react';
 import BoardListItem from './BoardListItem';
 
 import UserContext from '../../../context/user/userContext';
+import AlertContext from '../../../context/alert/alertContext';
 
 const BoardList = ({ list, boardFuncs /* all of board context */ }) => {
   const userContext = useContext(UserContext);
+  const alertContext = useContext(AlertContext);
 
   const { currentBoardId } = userContext;
+  const { setAlert } = alertContext;
 
   const [wantToAddCard, setWantToAddCard] = useState(false);
   const [newCardText, setNewCardText] = useState('');
@@ -42,6 +45,7 @@ const BoardList = ({ list, boardFuncs /* all of board context */ }) => {
     if(newCardText !== '') {
       // three parameters: 1.text 2.list id 3.board id
       boardFuncs.addCard(newCardText, list.id, currentBoardId);
+      setAlert('card added', 'success');
       setNewCardText('');
     }
   }

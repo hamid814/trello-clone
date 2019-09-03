@@ -1,11 +1,14 @@
 import React, { useState, useContext } from 'react';
 
 import UserContext from '../../../context/user/userContext';
+import AlertContext from '../../../context/alert/alertContext';
 
 const BoardTitle = ({ title, setTitle }) => {
   const userContext = useContext(UserContext);
+  const alertContext = useContext(AlertContext);
 
   const { currentBoardId } = userContext;
+  const { setAlert } = alertContext;
 
   const [text, setText] = useState('');
   const [isSettingTitle, setIsSettingTitle] = useState(false);
@@ -23,6 +26,7 @@ const BoardTitle = ({ title, setTitle }) => {
   const onBlur = () => {
     if(text !== '') {
       setTitle(text, currentBoardId);
+      setAlert('board title changed', 'success');
       setIsSettingTitle(false);
     } else {
       setIsSettingTitle(false);

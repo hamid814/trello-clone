@@ -11,6 +11,7 @@ const BoardNavbar = ({ board, setStar, setDescription, setTitle }) => {
   
   const onStarClick = () => {
     setStar(board.id);
+    setAlert(`${board.starred ? 'board added to favorites' : 'board removed from favorites'}`, `${board.starred ? 'success' : 'dark'}`, 2500);
   }
 
   const onDescClick =() => {
@@ -20,7 +21,7 @@ const BoardNavbar = ({ board, setStar, setDescription, setTitle }) => {
   }
 
   const onDescTextChange = (e) => {
-    e.target.value.length < 21
+    e.target.value.length < 51
       ? setDescText(e.target.value)
       : setAlert('describtion can not be longer than 50 chars!!!', 'warning', 4000)
   }

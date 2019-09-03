@@ -1,7 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import BoardTitle from './BoardTitle';
 
+import AlertContext from '../../../context/alert/alertContext';
+
 const BoardNavbar = ({ board, setStar, setDescription, setTitle }) => {
+  const { alerts, setAlert } = useContext(AlertContext);
+
+  console.log(alerts);
+
   const [descText, setDescText] = useState('');
   const [isSettingDesc, setIsSettingDesc] = useState(false);
   
@@ -16,8 +22,9 @@ const BoardNavbar = ({ board, setStar, setDescription, setTitle }) => {
   }
 
   const onDescTextChange = (e) => {
-    e.target.value.length < 51 && setDescText(e.target.value);
-    console.log('set alert for maximum length')
+    e.target.value.length < 21
+      ? setDescText(e.target.value)
+      : setAlert('describtion can not be longer than 50 chars!!!', 'warning', 4000)
   }
 
   const onSetDesc = () => {

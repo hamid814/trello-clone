@@ -7,6 +7,8 @@ export const ADD_LIST = 'ADD_LIST';
 export const ADD_CARD = 'ADD_CARD';
 
 // alert state
+export const SET_ALERT = 'SET_ALERT';
+export const DELETE_ALERT = 'DELETE_ALERT';
 
 // user state
 export const SET_CURRENT_BOARD_ID = 'SET_CURRENT_BOARD_ID';

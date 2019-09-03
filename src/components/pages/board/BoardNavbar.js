@@ -4,9 +4,7 @@ import BoardTitle from './BoardTitle';
 import AlertContext from '../../../context/alert/alertContext';
 
 const BoardNavbar = ({ board, setStar, setDescription, setTitle }) => {
-  const { alerts, setAlert } = useContext(AlertContext);
-
-  console.log(alerts);
+  const { setAlert } = useContext(AlertContext);
 
   const [descText, setDescText] = useState('');
   const [isSettingDesc, setIsSettingDesc] = useState(false);

@@ -30,6 +30,7 @@ const BoardTitle = ({ title, setTitle }) => {
       setIsSettingTitle(false);
     } else {
       setIsSettingTitle(false);
+      setAlert('board title can not be empty', 'danger');
     }
   }
 

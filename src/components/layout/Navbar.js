@@ -7,15 +7,15 @@ const Navbar = () => {
   const userContext = useContext(UserContext);
   const boardContext = useContext(BoardContext);
 
-  const { clearCurrentBoardId, currentBoardId, setModalStatus } = userContext;
+  const { clearCurrentBoardId, currentBoardId, setModal } = userContext;
   const { getBoard } = boardContext;
 
-  const homeClick =() => {
+  const homeClicked =() => {
     clearCurrentBoardId();
   }
 
-  const test = () => {
-    setModalStatus('on');
+  const addClicked = () => {
+    setModal('on', 'addBoardModal');
   }
 
   const navbarStyle = {
@@ -29,10 +29,10 @@ const Navbar = () => {
   return (
     <div className='trello-navbar' style={navbarStyle}>
       <div>
-        <div className='btn btn-square btn-light op-8 rounded' onClick={homeClick}>
+        <div className='btn btn-square btn-light op-8 rounded' onClick={homeClicked}>
           <i className='fa fa-home'></i>
         </div>
-        <div className='btn btn-narrow btn-light op-8 rounded' onClick={test}>
+        <div className='btn btn-narrow btn-light op-8 rounded'>
           <i className='mr-1 fa fa-notes-medical'></i>
           boards
         </div>
@@ -53,7 +53,7 @@ const Navbar = () => {
         </div>
       </div>
       <div>
-        <div className='btn btn-square btn-light op-8 rounded'>
+        <div className='btn btn-square btn-light op-8 rounded' onClick={addClicked}>
           <i className='fa fa-plus'></i>
         </div>
       </div>

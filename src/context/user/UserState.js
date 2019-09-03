@@ -84,8 +84,7 @@ const UserState = props => {
         modalType: state.modalType,
         setCurrentBoardId,
         clearCurrentBoardId,
-        setModalStatus,
-        setModalType
+        setModal
       }}
     >
       {props.children}

@@ -2,7 +2,7 @@ import {
   SET_CURRENT_BOARD_ID,
   CLEAR_CURRENT_BOARD_ID,
   SET_RECENT_IDS,
-  SET_MODAL_IS_ON,
+  SET_MODAL,
   SET_MODAL_TYPE
 } from '../types';
 

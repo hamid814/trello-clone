@@ -9,12 +9,15 @@ import UserContext from '../../context/user/userContext';
 const Modal = () => {
   const userContext = useContext(UserContext);
 
-  const { modalStatus, modalType, setModalStatus } = userContext;
+  const { modalStatus, modalType, setModal } = userContext;
 
   const [showModal, setShowModal] = useState('off');
   
   useEffect(() => {
-    setShowModal(modalStatus /* from useState */);
+    setShowModal(modalStatus/* from useState */);
+    // for development purposes
+    // setModal('on', 'addBoardModal');
+    // eslint-disable-next-line
   }, [modalStatus])
 
   const onClick = (e) => {
@@ -24,7 +27,7 @@ const Modal = () => {
   }
 
   const closeModal = () => {
-    setModalStatus('off');
+    setModal('off');
   }
 
   const modalDisplay = {
@@ -36,6 +39,18 @@ const Modal = () => {
       style={modalDisplay}
       className='modal'
       onClick={onClick}>
+      {
+        modalType === 'addBoardModal' && <AddBoardModal />
+      }
+      {
+        modalType === 'detailsModal' && <DetailsModal />
+      }
+      {
+        modalType === 'fastEditModal' && <FastEditModal />
+      }
+      {
+        modalType === 'optionsModal' && <OptionsModal />
+      }
       
     </div>
   )

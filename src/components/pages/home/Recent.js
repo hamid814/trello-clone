@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useContext } from 'react';
+import React, { Fragment, useContext } from 'react';
 import uuid from 'uuid';
 import HomeMainItem from './HomeMainItem';
 
@@ -11,11 +11,6 @@ const Recent = () => {
 
   const { getRecentBoards } = boardContext;
   const { recentIds } = userContext;
-
-  useEffect(() => {
-    console.log('if a board is in starred doesnt come in recent {or doesnt matter?}')
-    // eslint-disable-next-line
-  }, []);
 
   return (
     <Fragment>

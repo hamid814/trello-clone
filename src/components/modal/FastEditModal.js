@@ -2,7 +2,7 @@ import React from 'react';
 
 const FastEditModal = () => {
   return (
-    <div className='modal'>
+    <div>
       
     </div>
   )

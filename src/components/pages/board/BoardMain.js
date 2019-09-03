@@ -1,5 +1,6 @@
 import React from 'react';
 import BoardList from './BoardList';
+import AddList from './AddList';
 
 const BoardMain = ({ board, boardFuncs /* contains all of board context  */ }) => {
   const mainStyle = {
@@ -14,10 +15,8 @@ const BoardMain = ({ board, boardFuncs /* contains all of board context  */ }) =
             <BoardList list={l} boardFuncs={boardFuncs} />
           </div>
         )) }
-      <div className='trello-board-list'>
-        <div className='trello-board-add-list'>
-          { board && board.lists.length === 0 ? '+ Add a list' : '+ Add another list' }
-        </div>
+      <div className='trello-board-list-wrapper'>
+        <AddList board={board} />
       </div>
     </div>
   )

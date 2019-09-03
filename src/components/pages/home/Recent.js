@@ -13,7 +13,7 @@ const Recent = () => {
   const { recentIds } = userContext;
 
   useEffect(() => {
-    console.log('if a board is in starred doesnt come in recent')
+    console.log('if a board is in starred doesnt come in recent {or doesnt matter?}')
     // eslint-disable-next-line
   }, []);
 

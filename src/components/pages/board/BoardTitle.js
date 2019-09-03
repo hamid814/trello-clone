@@ -27,7 +27,6 @@ const BoardTitle = ({ title, setTitle }) => {
     } else {
       setIsSettingTitle(false);
     }
-    console.log('id must be setted ( from user State )')
   }
 
   const onKeyUp = (e) => {
@@ -39,7 +38,7 @@ const BoardTitle = ({ title, setTitle }) => {
   return (
     <div className="d-i-b">
       <div
-        className={`btn btn-light op-8 darken-20 btn-narrow m-0 ${isSettingTitle && 'd-n'}`}
+        className={`text-white m-0 ml-1 ${isSettingTitle && 'd-n'}`}
         onClick={onClick}>
         { title }
       </div>

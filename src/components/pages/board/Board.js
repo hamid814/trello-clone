@@ -29,14 +29,12 @@ const Board = () => {
 
   return (
     <Fragment>
-      <div className='trello-board-row trello-board-row-1' style={boardStyle}>
-        <BoardNavbar
-          board={board}
-          setStar={setStar}
-          setDescription={setDescription}
-          setTitle={setTitle} />
-      </div>
-      <div className='trello-board-main-wrapper bg-primary lighten-20 p' style={boardStyle}>
+      <BoardNavbar
+        board={board}
+        setStar={setStar}
+        setDescription={setDescription}
+        setTitle={setTitle} />
+      <div className='trello-board-main-wrapper lighten-20 p' style={boardStyle}>
         <BoardMain boardFuncs={boardContext} board={board} />
       </div>
     </Fragment>

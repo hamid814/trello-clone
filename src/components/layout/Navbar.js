@@ -12,15 +12,14 @@ const Navbar = () => {
 
   const homeClick =() => {
     clearCurrentBoardId();
-    console.log(titleStyle)
   }
 
   const navbarStyle = {
     background: getBoard(currentBoardId) && getBoard(currentBoardId).color
   }
 
-  const titleStyle = {
-    color: getBoard(currentBoardId) && getBoard(currentBoardId).color + ' !important'
+  const titleTextStyle = {
+    color: getBoard(currentBoardId) ? getBoard(currentBoardId).color : '#388d6a'
   }
 
   return (
@@ -42,7 +41,9 @@ const Navbar = () => {
           <div className='m mt-0 ml-0 mb-0'>
             trello
           </div>
-          <div className='bg-white text-primary d-i-b border-0 p pt-0 pb-0 pr-0' style={titleStyle}>
+          <div 
+            className='bg-white d-i-b border-0 p pt-0 pb-0 pr-0'
+            style={titleTextStyle}>
             clone
           </div>
         </div>

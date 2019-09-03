@@ -2,6 +2,7 @@ import {
   SET_TITLE,
   SET_STAR,
   SET_DESCRIPTION,
+  ADD_LIST,
   ADD_CARD
  } from '../types';
 
@@ -34,6 +35,16 @@ export default (state, action) => {
         boards: state.boards.map(b => {
           if(b.id === action.payload.id) {
             b.description = action.payload.text
+          }
+          return b
+        })
+      }
+    case ADD_LIST:
+      return {
+        ...state,
+        boards: state.boards.map(b => {
+          if(b.id === action.payload.id) {
+            b.lists.push(action.payload.newList)
           }
           return b
         })

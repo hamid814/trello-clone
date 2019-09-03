@@ -6,6 +6,7 @@ import {
   SET_TITLE,
   SET_STAR,
   SET_DESCRIPTION,
+  ADD_LIST,
   ADD_CARD
 } from '../types';
 
@@ -25,6 +26,7 @@ const BoardState = props => {
             items: [
               {
                 text: 'todo 1',
+                desc: 'one describtion',
                 id: uuid.v4(),
                 labels: [
                   'label 1',
@@ -174,20 +176,6 @@ const BoardState = props => {
             items: [
               
             ]
-          },
-          {
-            title: 'test for long',
-            id: uuid.v4(),
-            items: [
-              
-            ]
-          },
-          {
-            title: 'test for long',
-            id: uuid.v4(),
-            items: [
-              
-            ]
           }
         ]
       },
@@ -276,6 +264,22 @@ const BoardState = props => {
     });
   }
 
+  // add List to board
+  const addList = (text, id) => {
+    const newList = {
+      title: text,
+      id: uuid.v4(),
+      items: []
+    }
+    dispatch({
+      type: ADD_LIST,
+      payload: {
+        id,
+        newList
+      }
+    });
+  }
+
   // add card to list
   const addCard = (text, listId, boardId) => {
     const newCard = {
@@ -304,6 +308,7 @@ const BoardState = props => {
         setTitle,
         setStar,
         setDescription,
+        addList,
         addCard
       }}
     >

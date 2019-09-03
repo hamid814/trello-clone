@@ -1,11 +1,76 @@
-import React from 'react'
+import React, { Fragment, useState, useContext } from 'react';
+
+import BoardContext from '../../../context/board/boardContext';
 
 const AddList = ({ board }) => {
-  // console.log(board)
+  const boardContext = useContext(BoardContext);
+
+  const { addList } = boardContext;
+
+  const [isAdding, setIsAdding] = useState(false);
+  const [text, setText] = useState('')
+
+  const onClick = () => {
+    setIsAdding(true);
+  }
+
+  const onChange = (e) => {
+    setText(e.target.value);
+  }
+
+  const onBlur = () => {
+    if(text !== '') {
+      onAddList();
+    } else {
+      cancelAddList();
+    }
+  }
+
+  const onKeyUp = (e) => {
+    if(e.keyCode === 13) {
+      onAddList();
+    }
+  }
+
+  const onAddList = () => {
+    if(text !== '') {
+      addList(text, board.id);
+      setText('');
+    } else {
+      console.log('alert');
+    }
+  }
+
+  const cancelAddList = () => {
+    setIsAdding(false);
+    setText('');
+  }
+
   return (
-    <div className='trello-board-add-list'>
-      { board && board.lists.length === 0 ? '+ Add a list' : '+ Add another list' }
-    </div>
+    <Fragment>
+      <div
+        className={`trello-board-add-list-btn btn-light op-8 darken-20 text-dark ${isAdding && 'd-n'}`}
+        onClick={onClick}>
+          { board && board.lists.length === 0 ? '+ Add a list' : '+ Add another list' }
+      </div>
+      <div
+        className={`trello-board-add-list-form btn-light op-9 darken-20 text-dark ${!isAdding && 'd-n'}`}>
+          <input
+            type='text'
+            className='m-0 rounded-lg mb-1'
+            placeholder='Enter list name'
+            value={text}
+            onChange={onChange}
+            onBlur={onBlur}
+            onKeyUp={onKeyUp}/>
+          <div className='btn btn-success' onClick={onAddList}>
+            Add List
+          </div>
+          <div className='d-i-b cursor-p ml-1 text-lg lighten-60 hover' onClick={cancelAddList}>
+            &times;
+          </div>
+      </div>
+    </Fragment>
   )
 }
 

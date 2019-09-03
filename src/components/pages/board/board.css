@@ -5,7 +5,7 @@
 html,
 body {
   height: 100%;
-  overflow: none;
+  /* overflow: none; */
 }
 
 #root {
@@ -27,7 +27,7 @@ body {
   flex-direction: row;
   margin-bottom: .5rem;
   overflow-x: auto;
-  overflow-y: hidden;
+  /* overflow-y: hidden; */
   /* position: absolute;
   top: 0;
   bottom: 0;

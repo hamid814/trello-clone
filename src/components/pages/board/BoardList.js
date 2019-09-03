@@ -1,7 +1,13 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useContext } from 'react';
 import BoardListItem from './BoardListItem';
 
+import UserContext from '../../../context/user/userContext';
+
 const BoardList = ({ list, boardFuncs /* all of board context */ }) => {
+  const userContext = useContext(UserContext);
+
+  const { currentBoardId } = userContext;
+
   const [wantToAddCard, setWantToAddCard] = useState(false);
   const [newCardText, setNewCardText] = useState('');
 
@@ -25,18 +31,19 @@ const BoardList = ({ list, boardFuncs /* all of board context */ }) => {
   }
 
   const onKeyUp = (e) => {
-    if(e.keyCode === 13) {
+    if(e.keyCode === 13 && newCardText.length > 1) {
       addCard();
+    } else if(e.keyCode === 13 && newCardText.length === 1) {
+      setNewCardText('');
     }
   }
 
   const addCard = () => {
     if(newCardText !== '') {
-      // three parameters 1.text 2.list id 3.board id
-      boardFuncs.addCard(newCardText, list.id, 1);
+      // three parameters: 1.text 2.list id 3.board id
+      boardFuncs.addCard(newCardText, list.id, currentBoardId);
       setNewCardText('');
     }
-    console.log('get third id from user state');
   }
 
   const cancelAddCard = () => {

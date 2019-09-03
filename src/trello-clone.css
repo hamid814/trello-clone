@@ -24,7 +24,7 @@ body {
   line-height: 1;
   background-color: #fff;
   color: #333;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 a {
@@ -127,7 +127,7 @@ img {
 }
 
 .text-sm {
-  font-size: 0.2rem;
+  font-size: 0.75rem;
 }
 
 .text-lg {
@@ -1095,10 +1095,33 @@ aside {
   font-weight: 500;
   box-shadow: 0 1px 0 rgba(9,30,66,.25);
   cursor: pointer;
+  position: relative;
 }
 
 .trello-board-list-item:hover {
   background: #c7d3cd;
+}
+
+.trello-board-list-item-edit-btn {
+  background: transparent;
+  padding: 0.3rem 0.5rem;
+  float: right;
+  position: absolute;
+  top: 0;
+  right: 0.3rem;
+  opacity: 0;
+  transition: 150ms;
+  border-radius: 0.25rem;
+}
+
+.trello-board-list-item-edit-btn:hover {
+  background: rgb(196, 196, 196);
+  opacity: 0.2;
+}
+
+.trello-board-list-item:hover .trello-board-list-item-edit-btn {
+  opacity: 1;
+  top: 0.25rem;
 }
 
 .trello-board-card-compose:hover {
@@ -1128,13 +1151,20 @@ aside {
   font-weight: 400;
 }
 
-.trello-board-add-list {
-  background: var(--primary-color);
+.trello-board-add-list-btn {
   cursor: pointer;
   padding: .7rem 1rem;
   border-radius: .25rem;
-  opacity: 0.7;
-  color: #f4f4f4;
+}
+
+.trello-board-add-list-form {
+  border-radius: .25rem;
+  padding: 0.3rem .5rem;
+}
+
+.trello-board-add-list-form input {
+  font-size: 0.85rem;
+  border: 2px solid rgb(52, 52, 184);
 }
 
 .trello-board-add-list:hover {

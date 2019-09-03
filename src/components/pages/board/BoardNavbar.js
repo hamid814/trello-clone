@@ -32,7 +32,7 @@ const BoardNavbar = ({ board, setStar, setDescription, setTitle }) => {
   }
 
   const navbarStyle = {
-      background: board && board.color
+    background: board && board.color
   }
 
   return (

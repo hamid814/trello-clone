@@ -3,6 +3,7 @@ export const GET_BOARDS_NAMES = 'GET_BOARDS_NAMES';
 export const SET_TITLE = 'SET_TITLE';
 export const SET_STAR = 'SET_STAR';
 export const SET_DESCRIPTION = 'SET_DESCRIPTION';
+export const ADD_LIST = 'ADD_LIST';
 export const ADD_CARD = 'ADD_CARD';
 
 // alert state

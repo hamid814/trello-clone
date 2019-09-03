@@ -7,11 +7,15 @@ const Navbar = () => {
   const userContext = useContext(UserContext);
   const boardContext = useContext(BoardContext);
 
-  const { clearCurrentBoardId, currentBoardId } = userContext;
+  const { clearCurrentBoardId, currentBoardId, setModalStatus } = userContext;
   const { getBoard } = boardContext;
 
   const homeClick =() => {
     clearCurrentBoardId();
+  }
+
+  const test = () => {
+    setModalStatus('on');
   }
 
   const navbarStyle = {
@@ -28,7 +32,7 @@ const Navbar = () => {
         <div className='btn btn-square btn-light op-8 rounded' onClick={homeClick}>
           <i className='fa fa-home'></i>
         </div>
-        <div className='btn btn-narrow btn-light op-8 rounded'>
+        <div className='btn btn-narrow btn-light op-8 rounded' onClick={test}>
           <i className='mr-1 fa fa-notes-medical'></i>
           boards
         </div>

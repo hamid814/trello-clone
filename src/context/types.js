@@ -14,6 +14,8 @@ export const DELETE_ALERT = 'DELETE_ALERT';
 export const SET_CURRENT_BOARD_ID = 'SET_CURRENT_BOARD_ID';
 export const CLEAR_CURRENT_BOARD_ID = 'CLEAR_CURRENT_BOARD_ID';
 export const SET_RECENT_IDS = 'SET_RECENT_IDS';
+export const SET_MODAL_IS_ON = 'SET_MODAL_IS_ON';
+export const SET_MODAL_TYPE = 'SET_MODAL_TYPE';
 
 // 
 export const TEST = 'TEST';

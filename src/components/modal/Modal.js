@@ -1,21 +1,22 @@
 import React, { useState, useEffect, useContext } from 'react';
-import AddBoardModal from './AddBoardModal';
-import DetailsModal from './DetailsModal';
-import FastEditModal from './FastEditModal';
-import OptionsModal from './OptionsModal';
+// import AddBoardModal from './AddBoardModal';
+// import DetailsModal from './DetailsModal';
+// import FastEditModal from './FastEditModal';
+// import OptionsModal from './OptionsModal';
 
 import UserContext from '../../context/user/userContext';
 
 const Modal = () => {
   const userContext = useContext(UserContext);
 
-  const { modalIsOn, modalType } = userContext;
+  const { modalStatus, modalType, setModalStatus } = userContext;
 
-  const [modalOn, setModalOn] = useState(true);
+  const [showModal, setShowModal] = useState('off');
   
   useEffect(() => {
-    // setModalOn(ModalIsOn /* from useState */);
-  }, [])
+    console.log(modalStatus);
+    setShowModal(modalStatus /* from useState */);
+  }, [modalStatus])
 
   const onClick = (e) => {
     if(e.target.classList.contains('modal')) {
@@ -24,11 +25,11 @@ const Modal = () => {
   }
 
   const closeModal = () => {
-    setModalOn(false);
+    setShowModal('off');
   }
 
   const modalDisplay = {
-    display: modalOn ? 'block' : 'none'
+    display: showModal === 'on' ? 'block' : 'none'
   }
 
   return (

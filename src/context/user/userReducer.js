@@ -2,16 +2,12 @@ import {
   SET_CURRENT_BOARD_ID,
   CLEAR_CURRENT_BOARD_ID,
   SET_RECENT_IDS,
-  TEST
+  SET_MODAL_IS_ON,
+  SET_MODAL_TYPE
 } from '../types';
 
 export default (state, action) => {
   switch (action.type) {
-    case TEST:
-      return {
-        ...state,
-        test: action.payload
-      }
     case SET_CURRENT_BOARD_ID:
      return {
        ...state,
@@ -26,6 +22,16 @@ export default (state, action) => {
       return {
         ...state,
         recentIds: action.payload
+      }
+    case SET_MODAL_IS_ON:
+      return {
+        ...state,
+        modalStatus: action.payload
+      }
+    case SET_MODAL_TYPE:
+      return {
+        ...state,
+        modalType: action.payload
       }
     default:
       return state;

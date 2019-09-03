@@ -4,25 +4,20 @@ import userReducer from './userReducer';
 import { 
   SET_CURRENT_BOARD_ID,
   CLEAR_CURRENT_BOARD_ID,
-  SET_RECENT_IDS
+  SET_RECENT_IDS,
+  SET_MODAL_IS_ON,
+  SET_MODAL_TYPE
 } from '../types';
 
 const UserState = props => {
   const initialState = {
     currentBoardId: null,
-    recentIds: []
+    recentIds: [],
+    ModalStatus: 'on',
+    modalType: null
   };
 
   const [state, dispatch] = useReducer(userReducer, initialState);
-
-  // Get data
-  // eslint-disable-next-line
-  const getData = () => {
-    dispatch({
-      type: null,
-      payload: 'new test'
-    });
-  };
 
   const setCurrentBoardId = (id) => {
     dispatch({
@@ -54,13 +49,41 @@ const UserState = props => {
     });
   }
 
+  const setModalStatus = (status) => {
+    dispatch({
+      type: SET_MODAL_IS_ON,
+      payload: status
+    });
+    if(status === 'off') {
+      clearModalType();
+    }
+  }
+
+  const setModalType = (type) => {
+    dispatch({
+      type: SET_MODAL_TYPE,
+      payload: type
+    });
+  }
+
+  const clearModalType = () => {
+    dispatch({
+      type: SET_MODAL_TYPE,
+      payload: null
+    });
+  }
+
   return (
     <UserContext.Provider
       value={{
         currentBoardId: state.currentBoardId,
         recentIds: state.recentIds,
+        modalStatus: state.modalStatus,
+        modalType: state.modalType,
         setCurrentBoardId,
         clearCurrentBoardId,
+        setModalStatus,
+        setModalType
       }}
     >
       {props.children}

@@ -54,7 +54,6 @@ const BoardList = ({ list, boardFuncs /* all of board context */ }) => {
 
   const onListCLick = () => {
     setCurrentListId(list.id);
-    console.log(list.id)
   }
 
   return (

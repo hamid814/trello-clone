@@ -17,5 +17,13 @@
   outline: none;
 }
 
+@keyframes tempAnim {
+  from {
+    margin-left: -1rem;
+  }
+  to {
+    margin-left: 0;
+  }
+}
 
 

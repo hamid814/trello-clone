@@ -4,9 +4,8 @@ import UserContext from '../../context/user/userContext';
 import BoardContext from '../../context/board/boardContext';
 
 const FastEditModal = () => {
-  const { currentBoardId, CurrentListId, fastEditModalPos, currentCard, clearCurrentCard } = useContext(UserContext);
+  const { currentBoardId, currentListId, fastEditModalPos, currentCard, clearCurrentCard } = useContext(UserContext);
   const { updateCard } = useContext(BoardContext);
-  console.log(CurrentListId)
 
   const [text, setText] = useState('')
 
@@ -14,9 +13,20 @@ const FastEditModal = () => {
     position: 'absolute',
     top: fastEditModalPos.top + 'px',
     left: fastEditModalPos.left + 'px',
+    // width: fastEditModalPos.width + 'px',
+  }
+
+  const rightWidth = {
     width: fastEditModalPos.width + 'px',
     background: '#ccc',
-    padding: 10
+  }
+
+  const temp = {
+    animation: 'tempAnim 100ms ease-in',
+    background: '#ccc',
+    padding: '0.2rem 1rem',
+    display: 'inline-block',
+
   }
 
   const onChange = (e) => {
@@ -31,30 +41,34 @@ const FastEditModal = () => {
 
   const onUpdate = () => {
     const newCard = {
-      id: currentCard.id,
-      labels: currentCard.label,
-      text: currentCard.text
+      ...currentCard,
+      text
     }
-    updateCard(currentBoardId, CurrentListId, currentCard.id, newCard);
+    updateCard(currentBoardId, currentListId, currentCard.id, newCard);
     clearCurrentCard();
   }
 
   return (
-    <>
-      <div style={modalPos} className='modal-content'>
+    <div style={modalPos} className='modal-content grid-2'>
+      <div style={rightWidth} className='p-1 pb-3'>
         <input
+          className='m-0 border-0'
           type='text'
           value={text}
           onChange={onChange}
           onKeyUp={onKeyUp}/>
+      </div>
+      <div>
+        <div style={temp}>
+          set label
+        </div>
+      </div>
+      <div>
         <div className='btn btn-success' onClick={onUpdate}>
           Save
         </div>
       </div>
-      <div>
-        new item
-      </div>
-    </>
+    </div>
   )
 }
 

@@ -8,17 +8,14 @@ const BoardList = ({ list, boardFuncs /* all of board context */ }) => {
   const userContext = useContext(UserContext);
   const alertContext = useContext(AlertContext);
 
-  const { currentBoardId } = userContext;
+  const { setCurrentListId, currentBoardId } = userContext;
   const { setAlert } = alertContext;
 
   const [wantToAddCard, setWantToAddCard] = useState(false);
   const [newCardText, setNewCardText] = useState('');
 
   const onAddCardClick = () => {
-    setWantToAddCard(true);
-    setTimeout(() => {
-      document.querySelector('#card-compose-textarea').focus();
-    }, 100);
+    !wantToAddCard && setWantToAddCard(true);
   }
 
   const onChange = (e) => {
@@ -55,8 +52,13 @@ const BoardList = ({ list, boardFuncs /* all of board context */ }) => {
     setNewCardText('');
   }
 
+  const onListCLick = () => {
+    setCurrentListId(list.id);
+    console.log(list.id)
+  }
+
   return (
-    <div className='trello-board-list'>
+    <div className='trello-board-list' onClick={onListCLick}>
       <div className='trello-board-list-header'>
         { list.title }
       </div>
@@ -77,9 +79,11 @@ const BoardList = ({ list, boardFuncs /* all of board context */ }) => {
           </textarea>
         </div>
       </div>
-      <div className={`trello-board-footer ${!wantToAddCard && 'hover cursor-p'}`}>
+      <div
+        className={`trello-board-footer ${!wantToAddCard && 'hover cursor-p'}`}
+        onClick={onAddCardClick}>
         { !wantToAddCard
-          ?  (<div onClick={onAddCardClick}>
+          ?  (<div>
                 {list.items.length === 0 ? '+ Add a card' : '+ Add another card'}
               </div>) 
           : (

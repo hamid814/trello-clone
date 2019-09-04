@@ -1107,7 +1107,6 @@ aside {
   overflow-y: auto;
   margin-right: 0.3rem;
   flex-grow: 1;
-  height: 400px;
 }
 
 .trello-board-list-item {

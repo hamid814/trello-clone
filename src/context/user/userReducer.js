@@ -1,6 +1,8 @@
 import { 
   SET_CURRENT_BOARD_ID,
   CLEAR_CURRENT_BOARD_ID,
+  SET_CURRENT_LIST_ID,
+  CLEAR_CURRENT_LIST_ID,
   SET_CURRENT_CARD,
   CLEAR_CURRENT_CARD,
   SET_RECENT_IDS,
@@ -20,6 +22,16 @@ export default (state, action) => {
       return {
         ...state,
         currentBoardId: null
+      }
+    case SET_CURRENT_LIST_ID:
+      return {
+        ...state,
+        currentListId: action.payload
+      }
+    case CLEAR_CURRENT_LIST_ID:
+      return {
+        ...state,
+        currentListId: null
       }
     case SET_CURRENT_CARD:
       return {

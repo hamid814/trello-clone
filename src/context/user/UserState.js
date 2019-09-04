@@ -4,6 +4,8 @@ import userReducer from './userReducer';
 import { 
   SET_CURRENT_BOARD_ID,
   CLEAR_CURRENT_BOARD_ID,
+  SET_CURRENT_LIST_ID,
+  CLEAR_CURRENT_LIST_ID,
   SET_CURRENT_CARD,
   CLEAR_CURRENT_CARD,
   SET_RECENT_IDS,
@@ -15,6 +17,7 @@ import {
 const UserState = props => {
   const initialState = {
     currentBoardId: null,
+    currentListId: null,
     currentCard: null,
     recentIds: [],
     ModalStatus: 'off',
@@ -51,6 +54,19 @@ const UserState = props => {
   const clearCurrentBoardId = () => {
     dispatch({
       type: CLEAR_CURRENT_BOARD_ID
+    });
+  }
+
+  const setCurrentListId = (id) => {
+    dispatch({
+      type: SET_CURRENT_LIST_ID,
+      payload: id
+    });
+  }
+
+  const clearCurrentListId = () => {
+    dispatch({
+      type: CLEAR_CURRENT_LIST_ID
     });
   }
 
@@ -104,6 +120,7 @@ const UserState = props => {
     <UserContext.Provider
       value={{
         currentBoardId: state.currentBoardId,
+        currentListId: state.currentListId,
         currentCard: state.currentCard,
         recentIds: state.recentIds,
         modalStatus: state.modalStatus,
@@ -111,6 +128,8 @@ const UserState = props => {
         fastEditModalPos: state.fastEditModalPos,
         setCurrentBoardId,
         clearCurrentBoardId,
+        setCurrentListId,
+        clearCurrentListId,
         setCurrentCard,
         clearCurrentCard,
         setModal,

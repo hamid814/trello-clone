@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 
 import UserContext from '../../context/user/userContext';
 import BoardContext from '../../context/board/boardContext';
@@ -7,7 +7,12 @@ const FastEditModal = () => {
   const { currentBoardId, currentListId, fastEditModalPos, currentCard, clearCurrentCard } = useContext(UserContext);
   const { updateCard } = useContext(BoardContext);
 
-  const [text, setText] = useState('')
+  const [text, setText] = useState('');
+
+  useEffect(() => {
+    setText(currentCard.text);
+    // eslint-disable-next-line
+  }, []);
 
   const modalPos = {
     position: 'absolute',
@@ -19,14 +24,6 @@ const FastEditModal = () => {
   const rightWidth = {
     width: fastEditModalPos.width + 'px',
     background: '#ccc',
-  }
-
-  const temp = {
-    animation: 'tempAnim 100ms ease-in',
-    background: '#ccc',
-    padding: '0.2rem 1rem',
-    display: 'inline-block',
-
   }
 
   const onChange = (e) => {
@@ -49,7 +46,7 @@ const FastEditModal = () => {
   }
 
   return (
-    <div style={modalPos} className='modal-content grid-2'>
+    <div style={modalPos} className='modal-content grid-2 gap-half'>
       <div style={rightWidth} className='p-1 pb-3'>
         <input
           className='m-0 border-0'
@@ -58,9 +55,10 @@ const FastEditModal = () => {
           onChange={onChange}
           onKeyUp={onKeyUp}/>
       </div>
-      <div>
-        <div style={temp}>
-          set label
+      <div className='fast-edit-modal-action-container'>
+        <div className='fast-edit-modal-action'>
+        <i className='fas fa-tag mr'></i>
+          Edit label
         </div>
       </div>
       <div>

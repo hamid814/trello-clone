@@ -14,7 +14,7 @@ const HomeMainItem = ({ board }) => {
   const { setAlert } = alertContext;
 
   const itemStyle = {
-    background: board.color,
+    background: board.color
   }
 
   const onClick = (e) => {

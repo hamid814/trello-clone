@@ -30,7 +30,7 @@ const BoardListItem = ({ item }) => {
         </div>
       </div>
       <div className='func-e-btn trello-board-list-item-edit-btn' onClick={onEBtnClick}>
-        e
+        <i className="fas fa-pen"></i>
       </div>
     </div>
   )

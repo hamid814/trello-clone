@@ -11,7 +11,7 @@ const BoardNavbar = ({ board, setStar, setDescribtion, setTitle }) => {
   
   const onStarClick = () => {
     setStar(board.id);
-    setAlert(`${board.starred ? 'board added to favorites' : 'board removed from favorites'}`, `${board.starred ? 'success' : 'dark'}`, 2500);
+    setAlert(`${board.starred ? 'board added to favorites' : 'board removed from favorites'}`, `${board.starred ? 'success' : 'dark'}`, 2000);
   }
 
   const onDescClick =() => {

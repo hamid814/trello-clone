@@ -17,6 +17,26 @@
   outline: none;
 }
 
+.fast-edit-modal-action {
+  background: rgba(34, 34, 34, 0.8);
+  padding: 0.4rem 1rem;
+  display: inline-block;
+  color: #f4f4f4;
+  font-size: 0.9rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+.fast-edit-modal-action:hover {
+  margin-left: .3rem;
+  background: rgba(34, 34, 34, 1);
+}
+
+.fast-edit-modal-action-container {
+  animation: tempAnim 100ms ease-in;
+  margin-left: 0;
+}
+
 @keyframes tempAnim {
   from {
     margin-left: -1rem;

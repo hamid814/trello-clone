@@ -4,7 +4,8 @@ import {
   SET_STAR,
   SET_DESCRIBTION,
   ADD_LIST,
-  ADD_CARD
+  ADD_CARD,
+  UPDATE_CARD
  } from '../types';
 
 export default (state, action) => {

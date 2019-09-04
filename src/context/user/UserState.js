@@ -4,17 +4,22 @@ import userReducer from './userReducer';
 import { 
   SET_CURRENT_BOARD_ID,
   CLEAR_CURRENT_BOARD_ID,
+  SET_CURRENT_CARD,
+  CLEAR_CURRENT_CARD,
   SET_RECENT_IDS,
   SET_MODAL,
-  SET_MODAL_TYPE
+  SET_MODAL_TYPE,
+  SET_FAST_EDIT_MODAL_POS
 } from '../types';
 
 const UserState = props => {
   const initialState = {
     currentBoardId: null,
+    currentCard: null,
     recentIds: [],
     ModalStatus: 'off',
-    modalType: null
+    modalType: null,
+    fastEditModalPos: null
   };
 
   const [state, dispatch] = useReducer(userReducer, initialState);
@@ -49,6 +54,19 @@ const UserState = props => {
     });
   }
 
+  const setCurrentCard = (card) => {
+    dispatch({
+      type: SET_CURRENT_CARD,
+      payload: card
+    });
+  }
+
+  const clearCurrentCard = () => {
+    dispatch({
+      type: CLEAR_CURRENT_CARD
+    });
+  }
+
   const setModal = (status, type) => {
     dispatch({
       type: SET_MODAL,
@@ -75,16 +93,28 @@ const UserState = props => {
     });
   }
 
+  const setFastEditModalPos = (pos) => {
+    dispatch({
+      type: SET_FAST_EDIT_MODAL_POS,
+      payload: pos
+    });
+  }
+
   return (
     <UserContext.Provider
       value={{
         currentBoardId: state.currentBoardId,
+        currentCard: state.currentCard,
         recentIds: state.recentIds,
         modalStatus: state.modalStatus,
         modalType: state.modalType,
+        fastEditModalPos: state.fastEditModalPos,
         setCurrentBoardId,
         clearCurrentBoardId,
-        setModal
+        setCurrentCard,
+        clearCurrentCard,
+        setModal,
+        setFastEditModalPos,
       }}
     >
       {props.children}

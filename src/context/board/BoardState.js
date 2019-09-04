@@ -8,7 +8,8 @@ import {
   SET_STAR,
   SET_DESCRIBTION,
   ADD_LIST,
-  ADD_CARD
+  ADD_CARD,
+  UPDATE_CARD
 } from '../types';
 
 const BoardState = props => {
@@ -314,6 +315,16 @@ const BoardState = props => {
     });
   }
 
+  // update card
+  const updateCard = (boardId, listId, cardId, newCard) => {
+    dispatch({
+      type: UPDATE_CARD,
+      payload: {
+
+      }
+    })
+  }
+
   return (
     <BoardContext.Provider
       value={{
@@ -327,7 +338,8 @@ const BoardState = props => {
         setStar,
         setDescribtion,
         addList,
-        addCard
+        addCard,
+        updateCard
       }}
     >
       {props.children}

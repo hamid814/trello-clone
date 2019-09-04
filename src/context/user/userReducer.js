@@ -1,9 +1,12 @@
 import { 
   SET_CURRENT_BOARD_ID,
   CLEAR_CURRENT_BOARD_ID,
+  SET_CURRENT_CARD,
+  CLEAR_CURRENT_CARD,
   SET_RECENT_IDS,
   SET_MODAL,
-  SET_MODAL_TYPE
+  SET_MODAL_TYPE,
+  SET_FAST_EDIT_MODAL_POS
 } from '../types';
 
 export default (state, action) => {
@@ -17,6 +20,16 @@ export default (state, action) => {
       return {
         ...state,
         currentBoardId: null
+      }
+    case SET_CURRENT_CARD:
+      return {
+        ...state,
+        currentCard: action.payload
+      }
+    case CLEAR_CURRENT_CARD:
+      return {
+        ...state,
+        currentCard: null
       }
     case SET_RECENT_IDS:
       return {
@@ -32,6 +45,12 @@ export default (state, action) => {
       return {
         ...state,
         modalType: action.payload
+      }
+
+    case SET_FAST_EDIT_MODAL_POS:
+      return {
+        ...state,
+        fastEditModalPos: action.payload
       }
     default:
       return state;

@@ -17,7 +17,7 @@ const App = () => {
 
   // to display board page for development purposes
   useEffect(() => {
-    setCurrentBoardId(null);
+    setCurrentBoardId(1);
     // eslint-disable-next-line
   }, []);
 

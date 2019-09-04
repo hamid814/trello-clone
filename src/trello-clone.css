@@ -946,7 +946,6 @@ table th {
 
 .modal-content {
   margin: 0 auto;
-  background: #f4f4f4;
 }
 
 /* Mobile Styles */
@@ -1108,6 +1107,7 @@ aside {
   overflow-y: auto;
   margin-right: 0.3rem;
   flex-grow: 1;
+  height: 400px;
 }
 
 .trello-board-list-item {
@@ -1222,21 +1222,3 @@ aside {
   right: .8rem;
 }
 
-.trello-add-board-modal-content {
-  width: 30rem;
-  margin-top: 3.5rem;
-  background: transparent;
-}
-
-.trello-add-board-modal-content input {
-  background: rgba(0, 0, 0, 0.2);
-}
-
-.trello-add-board-modal-content input:hover {
-  background: rgba(0, 0, 0, 0.4);
-}
-
-.trello-add-board-modal-content input:focus {
-  background: rgba(0, 0, 0, 0.7);
-  outline: none;
-}

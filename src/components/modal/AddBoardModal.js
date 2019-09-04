@@ -4,6 +4,8 @@ import UserContext from '../../context/user/userContext';
 import BoardContext from '../../context/board/boardContext';
 import AlertContext from '../../context/alert/alertContext';
 
+import './modals.css';
+
 const AddBoardModal = () => {
   const { setModal } = useContext(UserContext);
   const { addBoard } = useContext(BoardContext);
@@ -45,7 +47,7 @@ const AddBoardModal = () => {
   }
 
   return (
-    <div className='modal-content trello-add-board-modal-content'>
+    <div className='modal-content add-board-modal-content'>
       <div className='grid-3-1'>
         <div className='p-1 grid-3-1 rounded-lg' style={bgColor}>
           <div>

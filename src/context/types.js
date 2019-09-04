@@ -6,6 +6,7 @@ export const SET_STAR = 'SET_STAR';
 export const SET_DESCRIBTION = 'SET_DESCRIBTION';
 export const ADD_LIST = 'ADD_LIST';
 export const ADD_CARD = 'ADD_CARD';
+export const UPDATE_CARD = 'UPDATE_CARD';
 
 // alert state
 export const SET_ALERT = 'SET_ALERT';
@@ -17,6 +18,9 @@ export const CLEAR_CURRENT_BOARD_ID = 'CLEAR_CURRENT_BOARD_ID';
 export const SET_RECENT_IDS = 'SET_RECENT_IDS';
 export const SET_MODAL = 'SET_MODAL';
 export const SET_MODAL_TYPE = 'SET_MODAL_TYPE';
+export const SET_FAST_EDIT_MODAL_POS = 'SET_FAST_EDIT_MODAL_POS';
+export const SET_CURRENT_CARD = 'SET_CURRENT_CARD';
+export const CLEAR_CURRENT_CARD = 'CLEAR_CURRENT_CARD';
 
 // 
 export const TEST = 'TEST';

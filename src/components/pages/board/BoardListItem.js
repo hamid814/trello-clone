@@ -1,14 +1,24 @@
-import React from 'react'
+import React, { useContext } from 'react'
+
+import UserContext from '../../../context/user/userContext';
 
 const BoardListItem = ({ item }) => {
+  const { setCurrentCard, setModal, setFastEditModalPos } = useContext(UserContext);
+
   const onClick = (e) => {
     if(!e.target.classList.contains('func-e-btn')) {
       console.log('open edit modal')
     }
   }
 
-  const onEBtnClick = () => {
-    console.log('fast edit clicked')
+  const onEBtnClick = (e) => {
+    setFastEditModalPos({
+      top: e.target.parentElement.getBoundingClientRect().top,
+      left: e.target.parentElement.getBoundingClientRect().left,
+      width: e.target.parentElement.getBoundingClientRect().width
+    });
+    setCurrentCard(item);
+    setModal('on', 'fastEditModal');
   }
 
   return (

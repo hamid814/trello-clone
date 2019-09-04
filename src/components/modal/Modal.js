@@ -6,6 +6,8 @@ import OptionsModal from './OptionsModal';
 
 import UserContext from '../../context/user/userContext';
 
+import './modals.css';
+
 const Modal = () => {
   const userContext = useContext(UserContext);
 

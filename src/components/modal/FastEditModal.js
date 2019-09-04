@@ -17,13 +17,12 @@ const FastEditModal = () => {
   const modalPos = {
     position: 'absolute',
     top: fastEditModalPos.top + 'px',
-    left: fastEditModalPos.left + 'px',
-    // width: fastEditModalPos.width + 'px',
+    left: fastEditModalPos.left + 'px'
   }
 
   const rightWidth = {
     width: fastEditModalPos.width + 'px',
-    background: '#ccc',
+    background: '#ccc'
   }
 
   const onChange = (e) => {
@@ -57,7 +56,19 @@ const FastEditModal = () => {
       </div>
       <div className='fast-edit-modal-action-container'>
         <div className='fast-edit-modal-action'>
-        <i className='fas fa-tag mr'></i>
+          <i className='fas fa-tag mr'></i>
+          Edit label
+        </div>
+        <div className='fast-edit-modal-action'>
+          <i className='fas fa-tag mr'></i>
+          Edit label
+        </div>
+        <div className='fast-edit-modal-action'>
+          <i className='fas fa-tag mr'></i>
+          Edit label
+        </div>
+        <div className='fast-edit-modal-action'>
+          <i className='fas fa-tag mr'></i>
           Edit label
         </div>
       </div>

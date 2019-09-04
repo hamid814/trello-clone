@@ -12,6 +12,7 @@ const BoardListItem = ({ item }) => {
   }
 
   const onEBtnClick = (e) => {
+    console.log(this);
     setFastEditModalPos({
       top: e.target.parentElement.getBoundingClientRect().top,
       left: e.target.parentElement.getBoundingClientRect().left,

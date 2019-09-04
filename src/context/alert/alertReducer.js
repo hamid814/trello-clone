@@ -8,7 +8,7 @@ export default (state, action) => {
     case SET_ALERT:
       return {
         ...state,
-        alerts: [...state.alerts, action.payload]
+        alerts: [action.payload]
       }
     case DELETE_ALERT:
       return {

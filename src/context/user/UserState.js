@@ -13,7 +13,7 @@ const UserState = props => {
   const initialState = {
     currentBoardId: null,
     recentIds: [],
-    ModalStatus: 'on',
+    ModalStatus: 'off',
     modalType: null
   };
 

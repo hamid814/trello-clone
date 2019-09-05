@@ -6,18 +6,26 @@ const BoardListItem = ({ item }) => {
   const { setCurrentCard, setModal, setFastEditModalPos } = useContext(UserContext);
 
   const onClick = (e) => {
-    if(!e.target.classList.contains('func-e-btn')) {
+    if(!e.target.classList.contains('func-e-btn') && !e.target.parentElement.classList.contains('func-e-btn')) {
       console.log('open edit modal')
     }
   }
 
   const onEBtnClick = (e) => {
-    console.log(this);
-    setFastEditModalPos({
-      top: e.target.parentElement.getBoundingClientRect().top,
-      left: e.target.parentElement.getBoundingClientRect().left,
-      width: e.target.parentElement.getBoundingClientRect().width
-    });
+    if(e.target.classList.contains('func-e-btn')) {
+      setFastEditModalPos({
+        top: e.target.parentElement.getBoundingClientRect().top,
+        left: e.target.parentElement.getBoundingClientRect().left,
+        width: e.target.parentElement.getBoundingClientRect().width
+      });
+    } else {
+      setFastEditModalPos({
+        top: e.target.parentElement.parentElement.getBoundingClientRect().top,
+        left: e.target.parentElement.parentElement.getBoundingClientRect().left,
+        width: e.target.parentElement.parentElement.getBoundingClientRect().width
+      });
+    }
+    
     setCurrentCard(item);
     setModal('on', 'fastEditModal');
   }
@@ -31,7 +39,7 @@ const BoardListItem = ({ item }) => {
         </div>
       </div>
       <div className='func-e-btn trello-board-list-item-edit-btn' onClick={onEBtnClick}>
-        <i className="fas fa-pen"></i>
+        <i className='fas fa-pen'></i>
       </div>
     </div>
   )

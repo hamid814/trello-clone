@@ -317,11 +317,13 @@ const BoardState = props => {
 
   // update card
   const updateCard = (boardId, listId, cardId, newCard) => {
-    console.log(boardId, listId, cardId, newCard);
     dispatch({
       type: UPDATE_CARD,
       payload: {
-
+        boardId,
+        listId,
+        cardId,
+        newCard
       }
     })
   }

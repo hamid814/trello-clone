@@ -71,6 +71,23 @@ export default (state, action) => {
           return b
         })
       }
+    case UPDATE_CARD:
+      return {
+        ...state,
+        boards: state.boards.map(board => {
+          if(board.id === action.payload.boardId) {
+            board.lists = board.lists.map(list => {
+              if(list.id === action.payload.listId) {
+                list.items = list.items.map(item => (
+                  item.id === action.payload.cardId ? action.payload.newCard : item
+                ))
+              }
+              return list
+            })
+          }
+          return board
+        })
+      }
     default:
       return state;
   }

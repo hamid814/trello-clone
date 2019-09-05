@@ -17,17 +17,41 @@
   outline: none;
 }
 
-.fast-edit-modal-action {
-  background: rgba(34, 34, 34, 0.8);
-  padding: 0.4rem 1rem;
-  display: block;
-  color: #f4f4f4;
-  font-size: 0.9rem;
+.fast-edit-modal-right {
+  height: 6.4rem !important;
+  padding: 0.2rem;
+  background: white;
   border-radius: 0.25rem;
-  cursor: pointer;
 }
 
-.fast-edit-modal-action:hover {
+.fast-edit-modal-right textarea {
+  font-family: 'Roboto', sans-serif;
+  height: 6rem !important;
+  resize: none;
+  font-size: 0.9rem;
+}
+
+.fast-edit-modal-right textarea:focus {
+  outline: none;
+}
+
+.fast-edit-modal-action {
+  display: block;
+  margin-bottom: 0.2rem
+}
+
+.fast-edit-modal-action-btn {
+  background: rgba(34, 34, 34, 0.8);
+  padding: 0.5rem 1rem;
+  display: inline-block;
+  color: #f4f4f4;
+  font-size: 0.9rem;
+  border-radius: 0.2rem;
+  cursor: pointer;
+  transition: 0.15s;
+}
+
+.fast-edit-modal-action-btn:hover {
   margin-left: .3rem;
   background: rgba(34, 34, 34, 1);
 }

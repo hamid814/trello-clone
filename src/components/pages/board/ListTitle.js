@@ -17,6 +17,7 @@ const ListTitle = ({ listId, title, setListTitle }) => {
   useEffect(() => {
     setText(title);
     document.querySelector(`#list-title-${listId}`).focus()
+    // eslint-disable-next-line
   }, [isSettingTitle])
 
   const onClick = () => {
@@ -57,15 +58,15 @@ const ListTitle = ({ listId, title, setListTitle }) => {
   return (
     <div className='d-i-b m-0'>
       <div
-        className={`text-white m-0 ml-1 ${isSettingTitle && 'd-n'}`}
+        className={`pt-1 mb pl m-0 ${isSettingTitle && 'd-n'}`}
         onClick={onClick}>
-        { title.charAt(0).toUpperCase() + title.slice(1) }
+        { title }
       </div>
       <input
         type='text'
         id={`list-title-${listId}`}
         value={text}
-        className={`m-0 p-0 rounded ${!isSettingTitle && 'd-n'}`}
+        className={`m-0 mt p-0 pt pb pl text-bold text-80 border-0 rounded ${!isSettingTitle && 'd-n'}`}
         onChange={onChange}
         onBlur={onBlur}
         onKeyUp={onKeyUp}/>

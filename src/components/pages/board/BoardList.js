@@ -69,7 +69,7 @@ const BoardList = ({ list, boardFuncs /* all of board context */ }) => {
         <div className={`trello-board-list-item trello-board-card-compose  ${!wantToAddCard && 'd-n'}`}>
           <textarea
             className='trello-board-card-compose-textarea'
-            id='card-compose-textarea'
+            autoFocus
             placeholder='Enter a title for this card'
             onBlur={onTextareaBlur}
             onKeyUp={onKeyUp}

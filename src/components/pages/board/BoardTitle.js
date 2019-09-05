@@ -12,10 +12,12 @@ const BoardTitle = ({ boardId, title, setTitle }) => {
 
   const [text, setText] = useState('');
   const [isSettingTitle, setIsSettingTitle] = useState(false);
+  const [textHasChanged, setTextHasChanged] = useState(false);
 
   useEffect(() => {
     setText(title);
     document.querySelector(`#board-title-${boardId}`).focus()
+    // eslint-disable-next-line
   }, [isSettingTitle])
 
   const onClick = () => {
@@ -24,22 +26,32 @@ const BoardTitle = ({ boardId, title, setTitle }) => {
 
   const onChange = (e) => {
     setText(e.target.value);
+    setTextHasChanged(true);
   }
 
   const onBlur = () => {
-    if(text !== '') {
-      setTitle(text, currentBoardId);
-      setAlert('board title changed', 'success');
-      setIsSettingTitle(false);
-    } else {
-      setIsSettingTitle(false);
-      setAlert('board title can not be empty', 'danger');
-    }
+    onSetTitle();
   }
 
   const onKeyUp = (e) => {
     if(e.keyCode === 13) {
-      onBlur();
+      onSetTitle();
+    }
+  }
+
+  const onSetTitle = () => {
+    if(textHasChanged) {
+      if(text !== '') {
+        setTitle(text, currentBoardId);
+        setAlert('board title changed', 'success');
+        setIsSettingTitle(false);
+      } else {
+        setIsSettingTitle(false);
+        setAlert('board title can not be empty', 'danger');
+      }
+    } else {
+      setIsSettingTitle(false);
+      setTextHasChanged(false);
     }
   }
 

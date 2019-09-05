@@ -2,7 +2,6 @@ import React, { useState, useEffect, useContext } from 'react';
 import AddBoardModal from './AddBoardModal';
 import DetailsModal from './DetailsModal';
 import FastEditModal from './FastEditModal';
-import OptionsModal from './OptionsModal';
 
 import UserContext from '../../context/user/userContext';
 
@@ -47,9 +46,6 @@ const Modal = () => {
       }
       {
         modalType === 'fastEditModal' && <FastEditModal />
-      }
-      {
-        modalType === 'optionsModal' && <OptionsModal />
       }
     </div>
   )

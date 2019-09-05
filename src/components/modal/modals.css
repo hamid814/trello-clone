@@ -17,6 +17,27 @@
   outline: none;
 }
 
+.details-modal-container {
+  width: 70%;
+  background: #f4f4f4;
+  padding: 1rem;
+  margin: 0 auto;
+  margin-top: 3.3rem;
+  border-radius: 0.2em;
+}
+
+.details-modal-header {
+  padding-bottom: 1rem;
+}
+
+.details-modal-header .close {
+  font-size: 2rem;
+}
+
+.details-modal-body {
+  padding-top: 1rem;
+}
+
 .fast-edit-modal-right {
   height: 6.4rem !important;
   padding: 0.2rem;
@@ -59,6 +80,36 @@
 .fast-edit-modal-action-container {
   animation: tempAnim 100ms ease-in;
   margin-left: 0;
+}
+
+/* optiosn modal */
+#options-modal {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9;
+}
+
+.options-modal-container {
+  position: absolute;
+  border-radius: 0.25rem;
+  background: white;
+  width: 300px;
+  padding: 0.6rem;
+}
+
+.options-modal-header {
+  font-size: 0.95rem;
+  border-bottom: 1px solid var(--light-color);
+  padding: 0.7rem 0.5rem;
+  padding-top: 0;
+  text-align: center;
+}
+
+.options-modal-body {
+  padding: 0.7rem;
 }
 
 @keyframes tempAnim {

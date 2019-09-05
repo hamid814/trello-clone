@@ -7,11 +7,13 @@ const BoardListItem = ({ item }) => {
 
   const onClick = (e) => {
     if(!e.target.classList.contains('func-e-btn') && !e.target.parentElement.classList.contains('func-e-btn')) {
-      console.log('open edit modal')
+      setModal('on', 'detailsModal');
     }
+    setCurrentCard(item);
   }
 
   const onEBtnClick = (e) => {
+    console.log('use useRef here for setFastEditModalPos')
     if(e.target.classList.contains('func-e-btn')) {
       setFastEditModalPos({
         top: e.target.parentElement.getBoundingClientRect().top,
@@ -25,8 +27,6 @@ const BoardListItem = ({ item }) => {
         width: e.target.parentElement.parentElement.getBoundingClientRect().width
       });
     }
-    
-    setCurrentCard(item);
     setModal('on', 'fastEditModal');
   }
 

@@ -7,7 +7,7 @@ import AlertContext from '../../context/alert/alertContext';
 import './modals.css';
 
 const AddBoardModal = () => {
-  const { setModal } = useContext(UserContext);
+  const { setModal, clearCurrentBoardId } = useContext(UserContext);
   const { addBoard } = useContext(BoardContext);
   const { setAlert } = useContext(AlertContext);
 
@@ -15,7 +15,9 @@ const AddBoardModal = () => {
   const [text, setText] = useState('');
 
   const onBgClicked = (e) => {
-    setBg(e.target.id);
+    if(!e.target.classList.contains('func-no-click') && !e.target.classList.contains('func-colors')) {
+      setBg(e.target.id);
+    }
   }
 
   const onClose = () => {
@@ -37,8 +39,7 @@ const AddBoardModal = () => {
       addBoard(text, bg);
       onClose();
       setAlert(`board ${text.charAt(0).toUpperCase() + text.slice(1)} was created`, 'success', 4000);
-    } else {
-      setAlert('board name is required', 'warning', 2500);
+      clearCurrentBoardId();
     }
   }
 
@@ -65,19 +66,19 @@ const AddBoardModal = () => {
             </div>
           </div>
         </div>
-        <div className='grid-3 gap-half' onClick={onBgClicked}>
+        <div className='func-colors grid-3 gap-half' onClick={onBgClicked}>
           <div id='#ee3a59' className='rounded-lg p-1 label-red cursor-p'></div>
           <div id='#e27b47' className='rounded-lg p-1 label-orange cursor-p'></div>
           <div id='#efca58' className='rounded-lg p-1 label-yellow cursor-p'></div>
           <div id='#46b29e' className='rounded-lg p-1 label-blue-l cursor-p'></div>
           <div id='#344e5c' className='rounded-lg p-1 label-blue-d cursor-p'></div>
-          <div></div>
+          <div className='func-no-click'></div>
           <div id='custom' className='rounded-lg p-1 bg-light cursor-p'></div>
         </div>
       </div>
       <div
         onClick={onAdd}
-        className={`btn btn-narrow m text-bold ${text !== '' && 'btn-success'}`}>
+        className={`btn btn-narrow m text-bold ${text !== '' ? 'btn-success' : 'cursor-not-allowed'}`}>
           Create Board
       </div>
     </div>

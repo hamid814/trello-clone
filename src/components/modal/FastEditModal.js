@@ -1,16 +1,18 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 
 import UserContext from '../../context/user/userContext';
 import BoardContext from '../../context/board/boardContext';
 
 const FastEditModal = () => {
+  const theTextarea = useRef(null);
+
   const {
     currentBoardId,
     currentListId,
     fastEditModalPos,
     currentCard,
     clearCurrentCard,
-    openOptions,
+    setOptionsModal,
     setModal } = useContext(UserContext);
   const { updateCard } = useContext(BoardContext);
 
@@ -18,6 +20,7 @@ const FastEditModal = () => {
 
   useEffect(() => {
     setText(currentCard.text);
+    theTextarea.current.focus();
     // eslint-disable-next-line
   }, []);
 
@@ -53,11 +56,9 @@ const FastEditModal = () => {
 
   const onAtionsClick = (e) => {
     if(e.target.classList.contains('fas')) {
-      openOptions(e.target.parentElement.id)
-      openOptions('on')
-    } else {
-      openOptions(e.target.id)
-      openOptions('on')
+      setOptionsModal('on', e.target.parentElement.id);
+    } else if(e.target.classList.contains('func-action-btn')) {
+      setOptionsModal('on', e.target.id);
     }
   }
 
@@ -65,10 +66,12 @@ const FastEditModal = () => {
     <div style={modalPos} className='modal-content grid-2 gap-half'>
       <div style={rightWidth} className='fast-edit-modal-right'>
         <textarea
+          ref={theTextarea}
           className='m-0 border-0'
           value={text}
           onChange={onChange}
-          onKeyUp={onKeyUp}/>
+          onKeyUp={onKeyUp}>
+        </textarea>
         <div className='btn btn-success mt-1' onClick={onUpdate}>
           Save
         </div>

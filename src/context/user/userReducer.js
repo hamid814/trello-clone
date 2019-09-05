@@ -8,6 +8,8 @@ import {
   SET_RECENT_IDS,
   SET_MODAL,
   SET_MODAL_TYPE,
+  SET_OPTIONS_MODAL,
+  SET_OPTIONS_MODAL_TYPE,
   SET_FAST_EDIT_MODAL_POS,
   SET_MOUSE_POS
 } from '../types';
@@ -59,7 +61,16 @@ export default (state, action) => {
         ...state,
         modalType: action.payload
       }
-
+    case SET_OPTIONS_MODAL:
+      return {
+        ...state,
+        optionsModalStatus: action.payload
+      }
+    case SET_OPTIONS_MODAL_TYPE:
+      return {
+        ...state,
+        optionsModalType: action.payload
+      }
     case SET_FAST_EDIT_MODAL_POS:
       return {
         ...state,

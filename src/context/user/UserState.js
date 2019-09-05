@@ -11,6 +11,8 @@ import {
   SET_RECENT_IDS,
   SET_MODAL,
   SET_MODAL_TYPE,
+  SET_OPTIONS_MODAL,
+  SET_OPTIONS_MODAL_TYPE,
   SET_FAST_EDIT_MODAL_POS,
   SET_MOUSE_POS
 } from '../types';
@@ -23,6 +25,8 @@ const UserState = props => {
     recentIds: [],
     ModalStatus: 'off',
     modalType: null,
+    optionsModalStatus: 'off',
+    optionsModaltype: null,
     fastEditModalPos: null,
     mosuePos: {},
   };
@@ -92,7 +96,7 @@ const UserState = props => {
     });
     if(status === 'off') {
       clearModalType();
-    } if(status === 'on') {
+    } else if(status === 'on') {
       setModalType(type);
     }
   }
@@ -107,6 +111,32 @@ const UserState = props => {
   const clearModalType = () => {
     dispatch({
       type: SET_MODAL_TYPE,
+      payload: null
+    });
+  }
+
+  const setOptionsModal = (status, type) => {
+    dispatch({
+      type: SET_OPTIONS_MODAL,
+      payload: status
+    });
+    if(status === 'off') {
+      clearOptionsModalType();
+    } else if(status === 'on') {
+      setOptionsModalType(type);
+    }
+  }
+
+  const setOptionsModalType = (type) => {
+    dispatch({
+      type: SET_OPTIONS_MODAL_TYPE,
+      payload: type
+    });
+  }
+
+  const clearOptionsModalType = () => {
+    dispatch({
+      type: SET_OPTIONS_MODAL_TYPE,
       payload: null
     });
   }
@@ -134,8 +164,10 @@ const UserState = props => {
         recentIds: state.recentIds,
         modalStatus: state.modalStatus,
         modalType: state.modalType,
-        mousePos: state.mousePos,
+        optionsModalStatus: state.optionsModalStatus,
+        optionsModalType: state.optionsModalType,
         fastEditModalPos: state.fastEditModalPos,
+        mousePos: state.mousePos,
         setCurrentBoardId,
         clearCurrentBoardId,
         setCurrentListId,
@@ -143,6 +175,7 @@ const UserState = props => {
         setCurrentCard,
         clearCurrentCard,
         setModal,
+        setOptionsModal,
         setFastEditModalPos,
         setMousePos
       }}

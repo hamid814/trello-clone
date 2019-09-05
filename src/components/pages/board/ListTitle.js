@@ -3,19 +3,20 @@ import React, { useState, useEffect, useContext } from 'react';
 import UserContext from '../../../context/user/userContext';
 import AlertContext from '../../../context/alert/alertContext';
 
-const BoardTitle = ({ boardId, title, setTitle }) => {
+const ListTitle = ({ listId, title, setListTitle }) => {
   const userContext = useContext(UserContext);
   const alertContext = useContext(AlertContext);
 
-  const { currentBoardId } = userContext;
+  const { currentBoardId, currentListId } = userContext;
   const { setAlert } = alertContext;
 
   const [text, setText] = useState('');
   const [isSettingTitle, setIsSettingTitle] = useState(false);
+  const [textHasChanged, setTextHasChanged] = useState(false);
 
   useEffect(() => {
     setText(title);
-    document.querySelector(`#board-title-${boardId}`).focus()
+    document.querySelector(`#list-title-${listId}`).focus()
   }, [isSettingTitle])
 
   const onClick = () => {
@@ -24,27 +25,37 @@ const BoardTitle = ({ boardId, title, setTitle }) => {
 
   const onChange = (e) => {
     setText(e.target.value);
+    setTextHasChanged(true);
   }
 
   const onBlur = () => {
-    if(text !== '') {
-      setTitle(text, currentBoardId);
-      setAlert('board title changed', 'success');
-      setIsSettingTitle(false);
-    } else {
-      setIsSettingTitle(false);
-      setAlert('board title can not be empty', 'danger');
-    }
+    onSetListTitle();
   }
 
   const onKeyUp = (e) => {
     if(e.keyCode === 13) {
-      onBlur();
+      onSetListTitle();
+    }
+  }
+
+  const onSetListTitle = () => {
+    if(textHasChanged) {
+      if(text !== '') {
+        setListTitle(currentBoardId, currentListId, text);
+        setAlert('list title changed', 'success');
+        setIsSettingTitle(false);
+      } else {
+        setIsSettingTitle(false);
+        setAlert('list title can not be empty', 'warning');
+      }
+    } else {
+      setIsSettingTitle(false);
+      setTextHasChanged(false);
     }
   }
 
   return (
-    <div className='d-i-b'>
+    <div className='d-i-b m-0'>
       <div
         className={`text-white m-0 ml-1 ${isSettingTitle && 'd-n'}`}
         onClick={onClick}>
@@ -52,14 +63,14 @@ const BoardTitle = ({ boardId, title, setTitle }) => {
       </div>
       <input
         type='text'
-        id={`board-title-${boardId}`}
-        className={`m-0 rounded ${!isSettingTitle && 'd-n'}`}
+        id={`list-title-${listId}`}
+        value={text}
+        className={`m-0 p-0 rounded ${!isSettingTitle && 'd-n'}`}
         onChange={onChange}
         onBlur={onBlur}
-        value={text}
         onKeyUp={onKeyUp}/>
     </div>
   )
 }
 
-export default BoardTitle
+export default ListTitle

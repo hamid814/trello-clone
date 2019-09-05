@@ -11,7 +11,8 @@ import {
   SET_RECENT_IDS,
   SET_MODAL,
   SET_MODAL_TYPE,
-  SET_FAST_EDIT_MODAL_POS
+  SET_FAST_EDIT_MODAL_POS,
+  SET_MOUSE_POS
 } from '../types';
 
 const UserState = props => {
@@ -22,7 +23,8 @@ const UserState = props => {
     recentIds: [],
     ModalStatus: 'off',
     modalType: null,
-    fastEditModalPos: null
+    fastEditModalPos: null,
+    mosuePos: {},
   };
 
   const [state, dispatch] = useReducer(userReducer, initialState);
@@ -116,6 +118,13 @@ const UserState = props => {
     });
   }
 
+  const setMousePos = (x, y) => {
+    dispatch({
+      type: SET_MOUSE_POS,
+      payload: {x, y}
+    });
+  }
+
   return (
     <UserContext.Provider
       value={{
@@ -125,6 +134,7 @@ const UserState = props => {
         recentIds: state.recentIds,
         modalStatus: state.modalStatus,
         modalType: state.modalType,
+        mousePos: state.mousePos,
         fastEditModalPos: state.fastEditModalPos,
         setCurrentBoardId,
         clearCurrentBoardId,
@@ -134,6 +144,7 @@ const UserState = props => {
         clearCurrentCard,
         setModal,
         setFastEditModalPos,
+        setMousePos
       }}
     >
       {props.children}

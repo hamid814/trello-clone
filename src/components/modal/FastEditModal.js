@@ -10,6 +10,7 @@ const FastEditModal = () => {
     fastEditModalPos,
     currentCard,
     clearCurrentCard,
+    openOptions,
     setModal } = useContext(UserContext);
   const { updateCard } = useContext(BoardContext);
 
@@ -50,6 +51,16 @@ const FastEditModal = () => {
     setModal('off');
   }
 
+  const onAtionsClick = (e) => {
+    if(e.target.classList.contains('fas')) {
+      openOptions(e.target.parentElement.id)
+      openOptions('on')
+    } else {
+      openOptions(e.target.id)
+      openOptions('on')
+    }
+  }
+
   return (
     <div style={modalPos} className='modal-content grid-2 gap-half'>
       <div style={rightWidth} className='fast-edit-modal-right'>
@@ -62,27 +73,27 @@ const FastEditModal = () => {
           Save
         </div>
       </div>
-      <div className='fast-edit-modal-action-container'>
+      <div className='fast-edit-modal-action-container' onClick={onAtionsClick}>
         <div className='fast-edit-modal-action'>
-          <div className="fast-edit-modal-action-btn">
+          <div className='func-action-btn fast-edit-modal-action-btn' id='label'>
             <i className='fas fa-tag mr'></i>
             Edit label
           </div>
         </div>
         <div className='fast-edit-modal-action'>
-          <div className="fast-edit-modal-action-btn">
+          <div className='func-action-btn fast-edit-modal-action-btn' id='members'>
             <i className='fas fa-user mr'></i>
             Change members
           </div>
         </div>
         <div className='fast-edit-modal-action'>
-          <div className="fast-edit-modal-action-btn">
+          <div className='func-action-btn fast-edit-modal-action-btn' id='move'>
             <i className='fas fa-arrow-right mr'></i>
             Move
           </div>
         </div>
         <div className='fast-edit-modal-action'>
-          <div className="fast-edit-modal-action-btn">
+          <div className='func-action-btn fast-edit-modal-action-btn' id='delete'>
             <i className='fas fa-trash mr'></i>
             Delete card
           </div>

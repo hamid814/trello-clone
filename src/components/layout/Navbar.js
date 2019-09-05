@@ -29,10 +29,10 @@ const Navbar = () => {
   return (
     <div className='trello-navbar' style={navbarStyle}>
       <div>
-        <div className='btn btn-square btn-light op-8 rounded' onClick={homeClicked}>
+        <div className='btn btn-square btn-transparent rounded' onClick={homeClicked}>
           <i className='fa fa-home'></i>
         </div>
-        <div className='btn btn-narrow btn-light op-8 rounded'>
+        <div className='btn btn-narrow btn-transparent rounded'>
           <i className='mr-1 fa fa-notes-medical'></i>
           boards
         </div>
@@ -53,7 +53,7 @@ const Navbar = () => {
         </div>
       </div>
       <div>
-        <div className='btn btn-square btn-light op-8 rounded' onClick={addClicked}>
+        <div className='btn btn-square btn-transparent rounded' onClick={addClicked}>
           <i className='fa fa-plus'></i>
         </div>
       </div>

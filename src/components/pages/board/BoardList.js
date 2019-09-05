@@ -1,4 +1,5 @@
 import React, { Fragment, useState, useContext } from 'react';
+import ListTitle from './ListTitle';
 import BoardListItem from './BoardListItem';
 
 import UserContext from '../../../context/user/userContext';
@@ -59,7 +60,7 @@ const BoardList = ({ list, boardFuncs /* all of board context */ }) => {
   return (
     <div className='trello-board-list' onClick={onListCLick}>
       <div className='trello-board-list-header'>
-        { list.title }
+        <ListTitle listId={list.id} title={list.title} setListTitle={boardFuncs.setListTitle} />
       </div>
       <div className='trello-board-list-items'>
         { list.items.map((i, index) => (

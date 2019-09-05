@@ -8,7 +8,8 @@ import {
   SET_RECENT_IDS,
   SET_MODAL,
   SET_MODAL_TYPE,
-  SET_FAST_EDIT_MODAL_POS
+  SET_FAST_EDIT_MODAL_POS,
+  SET_MOUSE_POS
 } from '../types';
 
 export default (state, action) => {
@@ -63,6 +64,11 @@ export default (state, action) => {
       return {
         ...state,
         fastEditModalPos: action.payload
+      }
+    case SET_MOUSE_POS:
+      return {
+        ...state,
+        mousePos: action.payload  
       }
     default:
       return state;

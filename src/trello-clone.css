@@ -177,6 +177,9 @@ img {
 .p-5 {
   padding: 5rem !important;
 }
+.pt {
+  padding-top: 0.5rem !important;
+}
 .pt-0 {
   padding-top: 0 !important;
 }
@@ -194,6 +197,9 @@ img {
 }
 .pt-5 {
   padding-top: 5rem !important;
+}
+.pb {
+  padding-bottom: 0.5rem !important;
 }
 .pb-0 {
   padding-bottom: 0 !important;
@@ -213,6 +219,9 @@ img {
 .pb-5 {
   padding-bottom: 5rem !important;
 }
+.pl {
+  padding-left: 0.5rem !important;
+}
 .pl-0 {
   padding-left: 0 !important;
 }
@@ -230,6 +239,9 @@ img {
 }
 .pl-5 {
   padding-left: 5rem !important;
+}
+.pr {
+  padding-right: 0.5rem !important;
 }
 .pr-0 {
   padding-right: 0 !important;
@@ -501,6 +513,16 @@ img {
 
 .btn-narrow {
   padding: 0.4rem;
+}
+
+.btn-transparent {
+  background: rgba(230, 230, 230, 0.4);
+  color: #f4f4f4
+}
+
+.btn-transparent:hover {
+  background: rgba(250, 250, 250, 0.4) !important;
+  filter: none !important;
 }
 
 .badge {
@@ -958,6 +980,7 @@ table th {
 
 .modal-content {
   margin: 0 auto;
+  z-index: 8;
 }
 
 /* Mobile Styles */

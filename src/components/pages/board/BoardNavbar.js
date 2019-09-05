@@ -44,8 +44,8 @@ const BoardNavbar = ({ board, setStar, setDescribtion, setTitle }) => {
   return (
     <div className='trello-board-navbar trello-navbar lighten-20' style={navbarStyle}>
       <div className='card border-0 m-0 p-0'>
-        { board && <BoardTitle title={board.title} setTitle={setTitle} /> }
-        <div className='btn btn-light op-8 btn-square rounded darken-20 ml-1' onClick={onStarClick}>
+        { board && <BoardTitle boardId={board.id} title={board.title} setTitle={setTitle} /> }
+        <div className='btn btn-transparent btn-square rounded ml-1' onClick={onStarClick}>
           <i className={`fa-star ${board && board.starred ? 'fas text-warning' : 'far'}`}></i>
         </div>
         <div className='ml-1 d-i-b text-white'>
@@ -63,9 +63,12 @@ const BoardNavbar = ({ board, setStar, setDescribtion, setTitle }) => {
           onBlur={onSetDesc}
           onKeyUp={onKeyUp} />
         </div>
-        <div className='btn btn-light op-8 darken-20 btn-square rounded ml-1' onClick={onDescClick}>
+        <div className='btn btn-transparent btn-square rounded ml-1' onClick={onDescClick}>
           <i className='fas fa-pen'></i>
         </div>
+      </div>
+      <div className='btn text-sm btn-narrow btn-transparent'>
+        Show Menu
       </div>
     </div>
   )

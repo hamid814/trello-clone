@@ -17,8 +17,6 @@ const Modal = () => {
   
   useEffect(() => {
     setShowModal(modalStatus/* from useState */);
-    // for development purposes
-    // setModal('on', 'addBoardModal');
     // eslint-disable-next-line
   }, [modalStatus])
 
@@ -53,7 +51,6 @@ const Modal = () => {
       {
         modalType === 'optionsModal' && <OptionsModal />
       }
-      
     </div>
   )
 }

@@ -8,6 +8,7 @@ import {
   SET_STAR,
   SET_DESCRIBTION,
   ADD_LIST,
+  SET_LIST_TITLE,
   ADD_CARD,
   UPDATE_CARD
 } from '../types';
@@ -18,7 +19,7 @@ const BoardState = props => {
       {
         title: 'my nice board',
         id: 1,
-        color: '#e27b47',
+        color: '#ee3a59',
         starred: false,
         describtion: 'board describtion goes here',
         lists: [
@@ -298,6 +299,17 @@ const BoardState = props => {
     });
   }
 
+  const setListTitle = (boardId, listId, newTitle) => {
+    dispatch({
+      type: SET_LIST_TITLE,
+      payload: {
+        boardId,
+        listId,
+        newTitle
+      }
+    });
+  }
+
   // add card to list
   const addCard = (text, listId, boardId) => {
     const newCard = {
@@ -341,6 +353,7 @@ const BoardState = props => {
         setStar,
         setDescribtion,
         addList,
+        setListTitle,
         addCard,
         updateCard
       }}

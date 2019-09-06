@@ -90,6 +90,7 @@
   left: 0;
   right: 0;
   z-index: 9;
+  transition: 0s;
 }
 
 .options-modal-container {
@@ -98,6 +99,7 @@
   background: white;
   width: 300px;
   padding: 0.6rem;
+  transition: 0s;
 }
 
 .options-modal-header {

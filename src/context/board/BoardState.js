@@ -284,10 +284,49 @@ const BoardState = props => {
         ]
       }
     ],
+    labels: [
+      {
+        id: 1,
+        color: '#61bd4f',
+        name: ''
+      },
+      {
+        id: 1,
+        color: '#f2d600',
+        name: ''
+      },
+      {
+        id: 1,
+        color: '#ff9f1a',
+        name: ''
+      },
+      {
+        id: 1,
+        color: '#eb5a46',
+        name: ''
+      },
+      {
+        id: 1,
+        color: '#c377e0',
+        name: ''
+      },
+      {
+        id: 1,
+        color: '#0079bf',
+        name: ''
+      }
+    ],
+    colors: [
+      
+    ],
     listOfStarredBoardsIds: []
   };
 
+
   const [state, dispatch] = useReducer(boardReducer, initialState);
+  console.log('use colors for just colors')
+  console.log('add options like add label delete label edit label( name and color )')
+  console.log(state.colors)
 
   // Get data
   const getBoardsNames = () => {

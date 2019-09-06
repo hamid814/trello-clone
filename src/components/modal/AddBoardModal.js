@@ -67,11 +67,11 @@ const AddBoardModal = () => {
           </div>
         </div>
         <div className='func-colors grid-3 gap-half' onClick={onBgClicked}>
-          <div id='#ee3a59' className='rounded-lg p-1 label-red cursor-p'></div>
-          <div id='#e27b47' className='rounded-lg p-1 label-orange cursor-p'></div>
-          <div id='#efca58' className='rounded-lg p-1 label-yellow cursor-p'></div>
-          <div id='#46b29e' className='rounded-lg p-1 label-blue-l cursor-p'></div>
-          <div id='#344e5c' className='rounded-lg p-1 label-blue-d cursor-p'></div>
+          <div id='#ee3a59' className='rounded-lg p-1 background-red cursor-p'></div>
+          <div id='#e27b47' className='rounded-lg p-1 background-orange cursor-p'></div>
+          <div id='#efca58' className='rounded-lg p-1 background-yellow cursor-p'></div>
+          <div id='#46b29e' className='rounded-lg p-1 background-blue-l cursor-p'></div>
+          <div id='#344e5c' className='rounded-lg p-1 background-blue-d cursor-p'></div>
           <div className='func-no-click'></div>
           <div id='custom' className='rounded-lg p-1 bg-light cursor-p'></div>
         </div>

@@ -19,7 +19,7 @@ const DeleteCard = () => {
         are you sure you want to delete this card?
         its permanent
       </div>
-      <div className='btn btn-danger btn-block' onClick={onClick}>
+      <div className='btn btn-danger btn-block hover-op-10 hover-lighten' onClick={onClick}>
         Delete
       </div>
     </div>

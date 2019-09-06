@@ -917,6 +917,10 @@ table th {
   color: var(--primary-color);
 }
 
+.hover-op-10:hover {
+  opacity: 1 !important;
+}
+
 .transition {
   transition: 0.3s;
 }
@@ -1087,27 +1091,29 @@ table th {
   border-bottom: none;
 }
 
-.label-red {
+/* color of labels */
+
+.background-red {
   background: #ee3a59;
   color: #f4f4f4
 }
 
-.label-orange {
+.background-orange {
   background: #e27b47;
   color: #f4f4f4
 }
 
-.label-yellow {
+.background-yellow {
   background: #efca58;
   color: #222
 }
 
-.label-blue-l {
+.background-blue-l {
   background: #46b29e;
   color: #f4f4f4
 }
 
-.label-blue-d {
+.background-blue-d {
   background: #344e5c;
   color: #f4f4f4
 }

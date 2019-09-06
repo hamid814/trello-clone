@@ -3,7 +3,7 @@ import React, { Fragment, useState, useContext } from 'react';
 import BoardContext from '../../../context/board/boardContext';
 import AlertContext from '../../../context/alert/alertContext';
 
-const AddList = ({ board }) => {
+const AddList = ({ board, setScrollIflonger }) => {
   const boardContext = useContext(BoardContext);
   const alertContext = useContext(AlertContext);
 
@@ -40,6 +40,7 @@ const AddList = ({ board }) => {
       addList(text, board.id);
       setAlert(`list ${text} added`, 'success');
       setText('');
+      setScrollIflonger();
     } else {
       setAlert(`list title can not be empty`, 'warning');
     }

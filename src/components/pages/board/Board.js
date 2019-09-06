@@ -35,7 +35,7 @@ const Board = () => {
         setDescribtion={setDescribtion}
         setTitle={setTitle} />
       <div className='trello-board-main-wrapper lighten-20 p' style={boardStyle}>
-        <BoardMain boardFuncs={boardContext} board={board} />
+        {board && <BoardMain boardFuncs={boardContext} board={board} />}
       </div>
     </Fragment>
   )

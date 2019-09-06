@@ -273,7 +273,13 @@ const BoardState = props => {
         color: '#4759a3',
         describtion: '',
         lists: [
-
+          {
+            title: 'test for one',
+            id: uuid.v4(),
+            items: [
+              
+            ]
+          }
         ]
       }
     ],

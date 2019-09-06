@@ -1159,8 +1159,6 @@ aside {
   border-radius: .25rem;
   background: #bbb;
   color: var(--dark-color);
-  display: flex;
-  flex-direction: column;
 }
 
 .trello-board-list:first-child {

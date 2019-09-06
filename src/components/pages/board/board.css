@@ -27,8 +27,6 @@ body {
 */
 
 .trello-board-main {
-  /* display: flex; */
-  /* flex-direction: row; */
   margin-bottom: .5rem;
   padding-bottom: 5rem;
   margin-right: .5rem;
@@ -47,4 +45,44 @@ body {
 
 .trello-board-list-wrapper {
   width: 270px !important;
+  margin-bottom: 10px;
+  height: 100%;
+}
+
+.trello-board-list {
+  margin-bottom: 10px;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative; 
+}
+
+.trello-board-list-header {
+  flex: 0 0 auto;
+  min-height: 20px;
+}
+
+.trello-board-list-items {
+  /* position: absolute; */
+  /* display: grid; */
+  flex: 1 1 auto;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  /* position: absolute; */
+  /* top: 0; */
+  /* bottom: 0; */
+  /* right: 0; */
+  /* left: 0; */
+  /* display: grid; */
+  /* grid-template-columns: 1fr; */
+  /* grid-template-rows: repeat(20, 1fr); */
+}
+
+.trello-board-list-item {
+  margin-top: 0 !important;
+  /* padding-bottom: 0 !important; */
+}
+
+.trello-board-list-footer {
+  height: initial
 }

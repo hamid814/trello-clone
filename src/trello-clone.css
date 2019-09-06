@@ -1058,17 +1058,20 @@ table th {
 }
 
 ::-webkit-scrollbar {
-  background: none;
-  width: .5rem;
+  background: rgba(110, 110, 110, 0.7);
+  border-radius: 0.25rem;
+  width: 10px;
+  height: 10px;
 }
 
 ::-webkit-scrollbar-button {
-  height: .9rem;
+  height: 0;
+  width: 0;
 }
 
 ::-webkit-scrollbar-thumb {
-  border-radius: 100vh;
-  background-color: #777;	
+  border-radius: 0.25rem;
+  background-color: rgba(209, 209, 209, 0.6);	
 }
 
 /* trello stuff */
@@ -1144,7 +1147,6 @@ aside {
 }
 
 .trello-board-list-wrapper {
-  width: 270px;
   display: inline-block;
   vertical-align: top;
   font-weight: bold;
@@ -1168,14 +1170,11 @@ aside {
 .trello-board-list-header {
   padding: 0 1rem;
   margin-bottom: -0.4rem;
-  min-height: 20px;
 }
 
 .trello-board-list-items {
   padding: .4rem .7rem .05rem;
-  overflow-y: auto;
   margin-right: 0.3rem;
-  flex-grow: 1;
 }
 
 .trello-board-list-item {

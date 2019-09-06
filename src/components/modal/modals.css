@@ -90,7 +90,6 @@
   left: 0;
   right: 0;
   z-index: 9;
-  transition: 0s !important;
 }
 
 .options-modal-container {

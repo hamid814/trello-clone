@@ -32,7 +32,7 @@ body {
   margin-right: .5rem;
   margin-left: .5rem;
   overflow-x: auto;
-  overflow-y: hidden;
+  overflow-y: auto;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -61,7 +61,6 @@ body {
 }
 
 .trello-board-list-items {
-  /* position: absolute; */
   /* display: grid; */
   /* overflow-x: hidden; */
   /* overflow-y: auto; */

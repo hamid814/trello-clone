@@ -96,7 +96,7 @@ const FastEditModal = () => {
           </div>
         </div>
         <div className='fast-edit-modal-action'>
-          <div className='func-action-btn fast-edit-modal-action-btn' id='delete'>
+          <div className='func-action-btn fast-edit-modal-action-btn' id='deleteCard'>
             <i className='fas fa-trash mr'></i>
             Delete card
           </div>

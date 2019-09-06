@@ -10,7 +10,8 @@ import {
   ADD_LIST,
   SET_LIST_TITLE,
   ADD_CARD,
-  UPDATE_CARD
+  UPDATE_CARD,
+  DELETE_CARD
 } from '../types';
 
 const BoardState = props => {
@@ -430,6 +431,17 @@ const BoardState = props => {
     })
   }
 
+  const deleteCard = (boardId, listId, cardId) => {
+    dispatch({
+      type: DELETE_CARD,
+      payload: {
+        boardId,
+        listId,
+        cardId
+      }
+    });
+  }
+
   return (
     <BoardContext.Provider
       value={{
@@ -445,7 +457,8 @@ const BoardState = props => {
         addList,
         setListTitle,
         addCard,
-        updateCard
+        updateCard,
+        deleteCard
       }}
     >
       {props.children}

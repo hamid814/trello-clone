@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useContext } from 'react';
+import DeleteCard from './options/DeleteCard';
 
 import UserContext from '../../context/user/userContext';
 
@@ -92,14 +93,19 @@ const OptionsModal = () => {
               optionsModalType === 'members' && 'Members'
             }
             {
-              optionsModalType === 'delete' && 'Delete card'
+              optionsModalType === 'deleteCard' && 'Delete card'
             }
             {
-              optionsModalType === 'listActions' && 'List Actions'
+              optionsModalType === 'deleteList' && 'Delete list?'
+            }
+            {
+              optionsModalType === 'listActions' && 'List actions'
             }
           </div>
           <div className='options-modal-body'>
-            {optionsModalType}
+            {
+              optionsModalType === 'deleteCard' && <DeleteCard />
+            }
           </div>
         </div>
     </div>

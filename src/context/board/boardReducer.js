@@ -6,7 +6,8 @@ import {
   ADD_LIST,
   SET_LIST_TITLE,
   ADD_CARD,
-  UPDATE_CARD
+  UPDATE_CARD,
+  DELETE_CARD
  } from '../types';
 
 export default (state, action) => {
@@ -102,6 +103,21 @@ export default (state, action) => {
             })
           }
           return board
+        })
+      }
+    case DELETE_CARD:
+      return {
+        ...state,
+        boards: state.boards.map(b => {
+          if(b.id === action.payload.boardId) {
+            b.lists = b.lists.map(l => {
+              if(l.id === action.payload.listId) {
+                l.items = l.items.filter(i => i.id !== action.payload.cardId)
+              }
+              return l
+            })
+          }
+          return b
         })
       }
     default:

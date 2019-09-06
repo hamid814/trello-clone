@@ -8,6 +8,7 @@ export const ADD_LIST = 'ADD_LIST';
 export const SET_LIST_TITLE = 'SET_LIST_TITLE';
 export const ADD_CARD = 'ADD_CARD';
 export const UPDATE_CARD = 'UPDATE_CARD';
+export const DELETE_CARD = 'DELETE_CARD';
 
 // alert state
 export const SET_ALERT = 'SET_ALERT';

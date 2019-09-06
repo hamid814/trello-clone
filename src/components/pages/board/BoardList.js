@@ -9,7 +9,7 @@ const BoardList = ({ list, boardFuncs /* all of board context */ }) => {
   const userContext = useContext(UserContext);
   const alertContext = useContext(AlertContext);
 
-  const { setCurrentListId, currentBoardId } = userContext;
+  const { setCurrentListId, currentBoardId, setOptionsModal } = userContext;
   const { setAlert } = alertContext;
 
   const [wantToAddCard, setWantToAddCard] = useState(false);
@@ -57,10 +57,17 @@ const BoardList = ({ list, boardFuncs /* all of board context */ }) => {
     setCurrentListId(list.id);
   }
 
+  const onlistOptionsClick = () => {
+    setOptionsModal('on', 'listActions');
+  }
+
   return (
     <div className='trello-board-list' onClick={onListCLick}>
       <div className='trello-board-list-header'>
         <ListTitle listId={list.id} title={list.title} setListTitle={boardFuncs.setListTitle} />
+        <div className='btn bg-transparent-with-hover btn-square float-right mt' onClick={onlistOptionsClick}>
+          <i className='fas fa-ellipsis-h'></i>
+        </div>
       </div>
       <div className='trello-board-list-items'>
         { list.items.map((i, index) => (

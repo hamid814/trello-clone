@@ -5,10 +5,14 @@
 html,
 body {
   height: 100%;
-  /* overflow: none; */
+  overflow: hidden;
 }
 
 #root {
+  height: 100%;
+}
+
+#all-wrapper {
   display: flex;
   flex-flow: column;
   height: 100%;
@@ -23,16 +27,22 @@ body {
 */
 
 .trello-board-main {
-  display: flex;
-  flex-direction: row;
+  /* display: flex; */
+  /* flex-direction: row; */
   margin-bottom: .5rem;
+  padding-bottom: 5rem;
+  margin-right: .5rem;
+  margin-left: .5rem;
   overflow-x: auto;
-  /* overflow-y: hidden; */
-  /* position: absolute;
+  overflow-y: hidden;
+  position: absolute;
   top: 0;
   bottom: 0;
   right: 0;
-  left: 0; */
+  left: 0;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: repeat(20, 1fr);
 }
 
 .trello-board-list-wrapper {

@@ -559,6 +559,19 @@ img {
   background: var(--light-color);
 }
 
+.bg-transparent {
+  background: rgba(0, 0, 0, 0);
+}
+
+.bg-transparent-with-hover {
+  background: rgba(0, 0, 0, 0);
+}
+
+.bg-transparent-with-hover:hover {
+  background: rgba(150, 150, 150, 0.3);
+  /* background: red; */
+}
+
 .btn-primary,
 .bg-primary,
 .badge-primary,
@@ -1005,7 +1018,7 @@ table th {
 
 /* Mobile Styles */
 @media (max-width: 700px) {
-  .hide-sm {
+  .hide-sm, .mobile-d-n {
     display: none;
   }
 

@@ -41,7 +41,7 @@ const AddList = ({ board }) => {
       setAlert(`list ${text} added`, 'success');
       setText('');
     } else {
-      console.log('alert');
+      setAlert(`list title can not be empty`, 'warning');
     }
   }
 

@@ -17,6 +17,7 @@ const DetailsModal = () => {
         <div className='close text-lg' onClick={onClose}>
           &times;
         </div>
+        <i className='fas fa-th-list mr-1'></i>
         { currentCard.text }
       </div>
       <div className='details-modal-body'>

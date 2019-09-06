@@ -22,7 +22,7 @@ const App = () => {
 
   // to display board page for development purposes
   useEffect(() => {
-    setCurrentBoardId(null);
+    setCurrentBoardId(2);
     // eslint-disable-next-line
   }, []);
 
@@ -33,7 +33,8 @@ const App = () => {
   }
 
   return (
-    <div onClick={onClick}>
+    <>
+    <div onClick={onClick} id='all-wrapper'>
       <Navbar />
       <Modal />
       <OptionsModal />
@@ -45,6 +46,7 @@ const App = () => {
       {/* <Home /> */}
       {/* <Board /> */}
     </div>
+    </>
   );
 }
 export default App

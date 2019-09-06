@@ -28,6 +28,7 @@ const BoardNavbar = ({ board, setStar, setDescribtion, setTitle }) => {
 
   const onSetDesc = () => {
     setDescribtion(descText, board.id);
+    setAlert('board describtion changed successfully', 'success');
     setIsSettingDesc(false);
   }
 
@@ -68,6 +69,7 @@ const BoardNavbar = ({ board, setStar, setDescribtion, setTitle }) => {
         </div>
       </div>
       <div className='btn text-sm btn-narrow btn-transparent'>
+        <i className="fas fa-ellipsis-h mr"></i>
         Show Menu
       </div>
     </div>

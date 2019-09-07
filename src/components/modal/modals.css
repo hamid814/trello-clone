@@ -78,7 +78,7 @@
 }
 
 .fast-edit-modal-action-container {
-  animation: tempAnim 100ms ease-in;
+  animation: actionsContainerAnim 100ms ease-in;
   margin-left: 0;
 }
 
@@ -114,7 +114,53 @@
   padding: 0.7rem;
 }
 
-@keyframes tempAnim {
+.label-color {
+  width: 100%;
+}
+
+.label-color-selected {
+  box-shadow: -8px 0 #b3bac5;
+}
+
+.laleb-color-green {
+  background: #61bd4f
+}
+.laleb-color-yellow {
+  background: #f2d600
+}
+.laleb-color-orange {
+  background: #ff9f1a
+}
+.laleb-color-red {
+  background: #eb5a46
+}
+.laleb-color-purple {
+  background: #c377e0
+}
+.laleb-color-blue {
+  background: #0079bf
+}
+
+.laleb-color-green-hover {
+  box-shadow: -8px 0 #b3bac5;
+}
+.laleb-color-yellow-hover {
+  box-shadow: -8px 0 #b3bac5;
+}
+.laleb-color-orange-hover {
+  box-shadow: -8px 0 #b3bac5;
+}
+.laleb-color-red-hover {
+  box-shadow: -8px 0 #b3bac5;
+}
+.laleb-color-purple-hover {
+  box-shadow: -8px 0 #b3bac5;
+}
+.laleb-color-blue-hover {
+  box-shadow: -8px 0 #b3bac5;
+}
+
+@keyframes actionsContainerAnim {
   from {
     margin-left: -1rem;
   }

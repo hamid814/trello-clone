@@ -288,31 +288,37 @@ const BoardState = props => {
       {
         id: 1,
         color: '#61bd4f',
-        name: ''
+        colorName: 'green',
+        name: 'label name'
       },
       {
-        id: 1,
+        id: 2,
         color: '#f2d600',
+        colorName: 'yellow',
         name: ''
       },
       {
-        id: 1,
+        id: 3,
         color: '#ff9f1a',
+        colorName: 'orange',
         name: ''
       },
       {
-        id: 1,
+        id: 4,
         color: '#eb5a46',
+        colorName: 'red',
         name: ''
       },
       {
-        id: 1,
+        id: 5,
         color: '#c377e0',
+        colorName: 'purple',
         name: ''
       },
       {
-        id: 1,
+        id: 6,
         color: '#0079bf',
+        colorName: 'blue',
         name: ''
       }
     ],
@@ -485,6 +491,8 @@ const BoardState = props => {
     <BoardContext.Provider
       value={{
         boards: state.boards,
+        labels: state.labels,
+        colors: state.colors,
         addBoard,
         getBoardsNames,
         getRecentBoards,

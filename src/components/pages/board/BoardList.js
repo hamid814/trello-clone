@@ -20,7 +20,9 @@ const BoardList = ({ list, boardFuncs /* all of board context */ }) => {
   }
 
   const onChange = (e) => {
-    setNewCardText(e.target.value);
+    if(e.keyCode !== 13) {
+      setNewCardText(e.target.value);
+    }
   }
 
   const onTextareaBlur = () => {

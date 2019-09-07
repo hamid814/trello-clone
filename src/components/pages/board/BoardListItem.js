@@ -1,8 +1,10 @@
-import React, { useContext } from 'react'
+import React, { useRef, useContext } from 'react'
 
 import UserContext from '../../../context/user/userContext';
 
 const BoardListItem = ({ item }) => {
+  const listItem = useRef(null);
+
   const { setCurrentCard, setModal, setFastEditModalPos } = useContext(UserContext);
 
   const onClick = (e) => {
@@ -34,27 +36,31 @@ const BoardListItem = ({ item }) => {
   const touchduration = 500;
 
   const onTouchStart = () => {
-    timer = setTimeout(onlongtouch, touchduration); 
+    timer = setTimeout(onlongtouch, touchduration);
+    setCurrentCard(item);
   }
 
   const onTouchEnd = () => {
     if (timer) {
-      clearTimeout(timer); // clearTimeout, not cleartimeout..
+      clearTimeout(timer);
     }
   }
 
-  const onlongtouch = (e) => {
-    setFastEditModalPos({
-      top: e.target.parentElement.getBoundingClientRect().top,
-      left: e.target.parentElement.getBoundingClientRect().left,
-      width: e.target.parentElement.getBoundingClientRect().width
-    });
-    setModal('on', 'fastEditModal');
+  const onlongtouch = () => {
+    if(listItem.current !== null) {
+      setFastEditModalPos({
+        top: listItem.current.getBoundingClientRect().top,
+        left: listItem.current.getBoundingClientRect().left,
+        width: listItem.current.getBoundingClientRect().width
+      });
+      setModal('on', 'fastEditModal');
+    }
   }
 
   return (
     <div
       className='trello-board-list-item'
+      ref={listItem}
       onClick={onClick}
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}>

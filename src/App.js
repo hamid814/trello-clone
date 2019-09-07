@@ -18,11 +18,14 @@ const App = () => {
     setCurrentBoardId,
     currentBoardId,
     setMousePos,
-    optionsModalStatus } = userContext
+    optionsModalStatus,
+    setOptionsModal } = userContext
 
   // to display board page for development purposes
   useEffect(() => {
     setCurrentBoardId(1);
+    setOptionsModal('on', 'editLabels');
+    console.log('change all e.target to useRef because e.target doesnt work on touch events')
     // eslint-disable-next-line
   }, []);
 

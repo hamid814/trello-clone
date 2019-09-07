@@ -44,7 +44,12 @@ const BoardListItem = ({ item }) => {
   }
 
   const onlongtouch = () => {
-    alert('long touch');
+    setFastEditModalPos({
+      top: e.target.parentElement.getBoundingClientRect().top,
+      left: e.target.parentElement.getBoundingClientRect().left,
+      width: e.target.parentElement.getBoundingClientRect().width
+    });
+    setModal('on', 'fastEditModal');
   }
 
   return (

@@ -43,7 +43,7 @@ const BoardListItem = ({ item }) => {
     }
   }
 
-  const onlongtouch = () => {
+  const onlongtouch = (e) => {
     setFastEditModalPos({
       top: e.target.parentElement.getBoundingClientRect().top,
       left: e.target.parentElement.getBoundingClientRect().left,
@@ -64,7 +64,7 @@ const BoardListItem = ({ item }) => {
             { item.desc && item.desc }
           </div>
         </div>
-        <div className='func-e-btn trello-board-list-item-edit-btn mobile-d-n' onClick={onEBtnClick}>
+        <div className='func-e-btn trello-board-list-item-edit-btn' onClick={onEBtnClick}>
           <i className='fas fa-pen'></i>
         </div>
     </div>

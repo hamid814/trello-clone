@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef, useContext } from 'react';
 
+import ListItemLabels from '../pages/board/ListItemLabels';
+
 import UserContext from '../../context/user/userContext';
 import BoardContext from '../../context/board/boardContext';
 
@@ -65,6 +67,7 @@ const FastEditModal = () => {
   return (
     <div style={modalPos} className='modal-content grid-2 gap-half'>
       <div style={rightWidth} className='fast-edit-modal-right'>
+        <ListItemLabels labels={currentCard.labels} />
         <textarea
           ref={theTextarea}
           className='m-0 border-0'

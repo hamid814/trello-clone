@@ -55,84 +55,84 @@ const BoardState = props => {
                 text: 'todo 2',
                 id: uuid.v4(),
                 labels: [
-                  'label 2'
+                  2
                 ]
               },
               {
                 text: 'todo 2',
                 id: uuid.v4(),
                 labels: [
-                  'label 2'
+                  2
                 ]
               },
               {
                 text: 'todo 2',
                 id: uuid.v4(),
                 labels: [
-                  'label 2'
+                  2
                 ]
               },
               {
                 text: 'todo 2',
                 id: uuid.v4(),
                 labels: [
-                  'label 2'
+                  2
                 ]
               },
               {
                 text: 'todo 2',
                 id: uuid.v4(),
                 labels: [
-                  'label 2'
+                  2
                 ]
               },
               {
                 text: 'todo 2',
                 id: uuid.v4(),
                 labels: [
-                  'label 2'
+                  2
                 ]
               },
               {
                 text: 'todo 2',
                 id: uuid.v4(),
                 labels: [
-                  'label 2'
+                  2
                 ]
               },
               {
                 text: 'todo 2',
                 id: uuid.v4(),
                 labels: [
-                  'label 2'
+                  2
                 ]
               },
               {
                 text: 'todo 2',
                 id: uuid.v4(),
                 labels: [
-                  'label 2'
+                  2
                 ]
               },
               {
                 text: 'todo 2',
                 id: uuid.v4(),
                 labels: [
-                  'label 2'
+                  2
                 ]
               },
               {
                 text: 'todo 2',
                 id: uuid.v4(),
                 labels: [
-                  'label 2'
+                  2
                 ]
               },
               {
                 text: 'todo 2',
                 id: uuid.v4(),
                 labels: [
-                  'label 2'
+                  2
                 ]
               },
             ]
@@ -154,7 +154,11 @@ const BoardState = props => {
                 id: uuid.v4(),
                 labels: [
                   4,
-                  5
+                  5,
+                  6,
+                  1,
+                  3,
+                  2 
                 ]
               },
               {

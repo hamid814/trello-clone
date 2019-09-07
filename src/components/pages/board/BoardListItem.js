@@ -66,7 +66,7 @@ const BoardListItem = ({ item }) => {
       onClick={onClick}
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}>
-        <ListItemLabels />
+        <ListItemLabels labels={item.labels} />
         <div>
           { item.text }
           <div className='text-sm'>

@@ -6,7 +6,7 @@ import UserContext from '../../../context/user/userContext';
 import BoardContext from '../../../context/board/boardContext';
 
 const EditLabels = () => {
-  const { currentBoardId, currentListId, currentCard, setModal, setOptionsModal } = useContext(UserContext);
+  const { currentBoardId, currentListId, currentCard } = useContext(UserContext);
   const { updateCard, labels } = useContext(BoardContext);
 
 
@@ -20,9 +20,11 @@ const EditLabels = () => {
       }
     } else {
       // card has this id / remove the id
+      console.log('here')
+      console.log(currentCard.labels)
       newCard = {
         ...currentCard,
-        labels: currentCard.labels.filter(l => l.id !== id)
+        labels: currentCard.labels.filter(l => l !== id)
       }
     }
 

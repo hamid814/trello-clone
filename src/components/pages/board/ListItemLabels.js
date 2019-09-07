@@ -1,9 +1,12 @@
-import React from 'react'
+import React from 'react';
+import CardLabel from './CardLabel';
 
-const ListItemLabels = () => {
+const ListItemLabels = ({ labels }) => {
   return (
-    <div>
-      label
+    <div className='card-labels-container m-0 p-0'>
+      {
+        labels.map(l => <CardLabel key={l} label={l} />)
+      }
     </div>
   )
 }

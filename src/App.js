@@ -22,7 +22,7 @@ const App = () => {
 
   // to display board page for development purposes
   useEffect(() => {
-    setCurrentBoardId(null);
+    setCurrentBoardId(1);
     console.log('change all e.target to useRef because e.target doesnt work on touch events')
     console.log('change word item to card in context and stuff')
     console.log('setState in LabelItem in options')

@@ -6,7 +6,7 @@ import UserContext from '../../../context/user/userContext';
 import BoardContext from '../../../context/board/boardContext';
 
 const EditLabels = () => {
-  const { currentBoardId, currentListId, currentCard } = useContext(UserContext);
+  const { currentBoardId, currentListId, currentCard, setCurrentCard } = useContext(UserContext);
   const { updateCard, labels } = useContext(BoardContext);
 
 
@@ -29,6 +29,7 @@ const EditLabels = () => {
     }
 
     updateCard(currentBoardId, currentListId, currentCard.id, newCard);
+    setCurrentCard(newCard);
   }
 
   return (

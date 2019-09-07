@@ -30,17 +30,38 @@ const BoardListItem = ({ item }) => {
     setModal('on', 'fastEditModal');
   }
 
+  let timer;
+  const touchduration = 500;
+
+  const onTouchStart = () => {
+    timer = setTimeout(onlongtouch, touchduration); 
+  }
+
+  const onTouchEnd = () => {
+    if (timer) {
+      clearTimeout(timer); // clearTimeout, not cleartimeout..
+    }
+  }
+
+  const onlongtouch = () => {
+    alert('long touch');
+  }
+
   return (
-    <div className='trello-board-list-item' onClick={onClick}>
-      <div>
-        { item.text }
-        <div className='text-sm'>
-          { item.desc && item.desc }
+    <div
+      className='trello-board-list-item'
+      onClick={onClick}
+      onTouchStart={onTouchStart}
+      onTouchEnd={onTouchEnd}>
+        <div>
+          { item.text }
+          <div className='text-sm'>
+            { item.desc && item.desc }
+          </div>
         </div>
-      </div>
-      <div className='func-e-btn trello-board-list-item-edit-btn mobile-d-n' onClick={onEBtnClick}>
-        <i className='fas fa-pen'></i>
-      </div>
+        <div className='func-e-btn trello-board-list-item-edit-btn mobile-d-n' onClick={onEBtnClick}>
+          <i className='fas fa-pen'></i>
+        </div>
     </div>
   )
 }

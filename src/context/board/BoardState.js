@@ -33,22 +33,22 @@ const BoardState = props => {
                 desc: 'one describtion',
                 id: uuid.v4(),
                 labels: [
-                  'label 1',
-                  'label 2'
+                  1,
+                  2
                 ]
               },
               {
                 text: 'todo 2',
                 id: uuid.v4(),
                 labels: [
-                  'label 2'
+                  3
                 ]
               },
               {
                 text: 'todo 2',
                 id: uuid.v4(),
                 labels: [
-                  'label 2'
+                  2
                 ]
               },
               {
@@ -145,24 +145,24 @@ const BoardState = props => {
                 text: 'doing 1',
                 id: uuid.v4(),
                 labels: [
-                  'label 3',
-                  'label 2'
+                  5,
+                  3
                 ]
               },
               {
                 text: 'doing 2',
                 id: uuid.v4(),
                 labels: [
-                  'label 3',
-                  'label 4'
+                  4,
+                  5
                 ]
               },
               {
                 text: 'doing 3',
                 id: uuid.v4(),
                 labels: [
-                  'label 4',
-                  'label 2'
+                  6,
+                  4
                 ]
               }
             ]

@@ -108,56 +108,61 @@
   padding: 0.7rem 0.5rem;
   padding-top: 0;
   text-align: center;
+  cursor: default;
 }
 
 .options-modal-body {
   padding: 0.7rem;
 }
 
+.label-item {
+  display: flex;
+  flex-flow: row
+}
+
 .label-color {
-  width: 100%;
+  flex-grow: 1;
+  margin-right: 0.4rem;
+  vertical-align: middle;
+  cursor: pointer;
 }
 
-.label-color-selected {
-  box-shadow: -8px 0 #b3bac5;
-}
-
-.laleb-color-green {
+.label-color-green {
   background: #61bd4f
 }
-.laleb-color-yellow {
+.label-color-yellow {
   background: #f2d600
 }
-.laleb-color-orange {
+.label-color-orange {
   background: #ff9f1a
 }
-.laleb-color-red {
+.label-color-red {
   background: #eb5a46
 }
-.laleb-color-purple {
+.label-color-purple {
   background: #c377e0
 }
-.laleb-color-blue {
+.label-color-blue {
   background: #0079bf
 }
 
-.laleb-color-green-hover {
-  box-shadow: -8px 0 #b3bac5;
+.label-color-green-hover {
+  box-shadow: -8px 0 #519839;
 }
-.laleb-color-yellow-hover {
-  box-shadow: -8px 0 #b3bac5;
+.label-color-yellow-hover {
+  box-shadow: -8px 0 #d9b51c;
 }
-.laleb-color-orange-hover {
-  box-shadow: -8px 0 #b3bac5;
+.label-color-orange-hover {
+  box-shadow: -8px 0 #cd8313;
 }
-.laleb-color-red-hover {
-  box-shadow: -8px 0 #b3bac5;
+.label-color-red-hover {
+  box-shadow: -8px 0 #b04632;
 }
-.laleb-color-purple-hover {
-  box-shadow: -8px 0 #b3bac5;
+.label-color-purple-hover {
+  box-shadow: -8px 0 #89609e;
 }
-.laleb-color-blue-hover {
-  box-shadow: -8px 0 #b3bac5;
+.label-color-blue-hover {
+  box-shadow: -8px 0 #055a8c;
 }
 
 @keyframes actionsContainerAnim {

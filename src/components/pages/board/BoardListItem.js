@@ -1,4 +1,6 @@
-import React, { useRef, useContext } from 'react'
+import React, { useRef, useContext } from 'react';
+
+import ListItemLabels from './ListItemLabels';
 
 import UserContext from '../../../context/user/userContext';
 
@@ -64,6 +66,7 @@ const BoardListItem = ({ item }) => {
       onClick={onClick}
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}>
+        <ListItemLabels />
         <div>
           { item.text }
           <div className='text-sm'>

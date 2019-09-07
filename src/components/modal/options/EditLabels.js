@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 
-import LabelItem from './LabelItem';
+import EditLabelItem from './EditLabelItem';
 
 import UserContext from '../../../context/user/userContext';
 import BoardContext from '../../../context/board/boardContext';
@@ -37,7 +37,7 @@ const EditLabels = () => {
       <input type='text' placeholder='search labels...' className='mt mb-1'/>
       {
         labels.map(l => (
-          <LabelItem key={l.id} label={l} setLabelId={setLabel} />
+          <EditLabelItem key={l.id} label={l} setLabelId={setLabel} />
         ))
       }
       <div className="btn btn-block mt-1">

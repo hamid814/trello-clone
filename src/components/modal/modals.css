@@ -39,10 +39,9 @@
 }
 
 .fast-edit-modal-right {
-  height: 7.4rem !important;
-  padding: 0.2rem;
-  background: white;
+  padding: 0.3rem 0.55rem;
   border-radius: 0.25rem;
+  background: white;
 }
 
 .fast-edit-modal-right textarea {

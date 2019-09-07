@@ -66,16 +66,18 @@ const FastEditModal = () => {
 
   return (
     <div style={modalPos} className='modal-content grid-2 gap-half'>
-      <div style={rightWidth} className='fast-edit-modal-right'>
-        <ListItemLabels labels={currentCard.labels} />
-        <textarea
-          ref={theTextarea}
-          className='m-0 border-0'
-          value={text}
-          onChange={onChange}
-          onKeyUp={onKeyUp}>
-        </textarea>
-        <div className='btn btn-success mt-1' onClick={onUpdate}>
+      <div style={rightWidth} className='fast-edit-modal-right-container'>
+        <div className='fast-edit-modal-right'>
+          <ListItemLabels labels={currentCard.labels} />
+          <textarea
+            ref={theTextarea}
+            className='m-0 border-0 p-0'
+            value={text}
+            onChange={onChange}
+            onKeyUp={onKeyUp}>
+          </textarea>
+        </div>
+        <div className='btn btn-success mt' onClick={onUpdate}>
           Save
         </div>
       </div>

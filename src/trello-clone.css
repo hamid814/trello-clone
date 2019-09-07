@@ -1219,7 +1219,7 @@ aside {
   background: var(--light-color);
   font-size: 0.9rem;
   margin: 0.5rem 0;
-  padding: 0.6rem 0.55rem;
+  padding: 0.3rem 0.55rem 0.6rem 0.55rem;
   border-radius: 0.25rem;
   font-weight: 500;
   box-shadow: 0 1px 0 rgba(9,30,66,.25);

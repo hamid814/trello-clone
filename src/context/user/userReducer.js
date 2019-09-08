@@ -15,6 +15,7 @@ import {
   TOGGLE_BIG_LABELS,
   SET_OPTIONS_MODAL_STEP,
   SET_OPTIONS_MODAL_STEP_TYPE,
+  SET_OPTIONS_MODAL_STEP_DATA,
 } from '../types';
 
 export default (state, action) => {
@@ -83,6 +84,11 @@ export default (state, action) => {
       return {
         ...state,
         optionsModalStepType: action.payload
+      }
+    case SET_OPTIONS_MODAL_STEP_DATA:
+      return {
+        ...state,
+        optionsModalStepData: action.payload
       }
     case SET_FAST_EDIT_MODAL_POS:
       return {

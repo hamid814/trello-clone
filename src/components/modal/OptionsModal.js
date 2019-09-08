@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useContext } from 'react';
 import DeleteCard from './options/DeleteCard';
 import EditCardLabels from './options/EditCardLabels';
+import EditLabel from './options/EditLabel';
 
 import UserContext from '../../context/user/userContext';
 
@@ -105,13 +106,16 @@ const OptionsModal = () => {
               optionsModalType === 'members' && 'Members'
             }
             {
-              optionsModalType === 'deleteCard' && 'Delete card'
+              optionsModalType === 'deleteCard' && 'Delete Card'
             }
             {
-              optionsModalType === 'deleteList' && 'Delete list?'
+              optionsModalType === 'deleteList' && 'Delete List?'
             }
             {
-              optionsModalType === 'listActions' && 'List actions'
+              optionsModalType === 'listActions' && 'List Actions'
+            }
+            {
+              optionsModalType === 'editLabel' && 'Change Label'
             }
           </div>
           <div className='options-modal-body'>
@@ -120,6 +124,9 @@ const OptionsModal = () => {
             }
             {
               optionsModalType === 'editCardLabels' && <EditCardLabels />
+            }
+            {
+              optionsModalType === 'editLabel' && <EditLabel />
             }
           </div>
         </div>

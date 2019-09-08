@@ -15,7 +15,8 @@ const FastEditModal = () => {
     currentCard,
     clearCurrentCard,
     setOptionsModal,
-    setModal } = useContext(UserContext);
+    setModal,
+    bigLabels } = useContext(UserContext);
   const { updateCard } = useContext(BoardContext);
 
   const [text, setText] = useState('');
@@ -68,7 +69,7 @@ const FastEditModal = () => {
     <div style={modalPos} className='modal-content grid-2 gap-half'>
       <div style={rightWidth} className='fast-edit-modal-right-container'>
         <div className='fast-edit-modal-right'>
-          <ListItemLabels father='fastEditModal' labels={currentCard.labels} />
+          <ListItemLabels father='fastEditModal' bigLabels={bigLabels} labels={currentCard.labels} />
           <textarea
             ref={theTextarea}
             className='m-0 border-0 p-0'

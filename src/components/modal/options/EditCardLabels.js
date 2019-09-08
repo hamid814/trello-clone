@@ -1,13 +1,13 @@
 import React, { useContext } from 'react';
 
-import EditLabelItem from './EditLabelItem';
+import EditCardLabelItem from './EditCardLabelItem';
 
 import UserContext from '../../../context/user/userContext';
 import BoardContext from '../../../context/board/boardContext';
 
 const EditCardLabels = () => {
   const { currentBoardId, currentListId, currentCard, setCurrentCard, setOptionsModal, setOptionsModalStep } = useContext(UserContext);
-  const { updateCard, labels, colors } = useContext(BoardContext);
+  const { updateCard, labels } = useContext(BoardContext);
 
 
   const setLabel = (id) => {
@@ -30,8 +30,8 @@ const EditCardLabels = () => {
     setCurrentCard(newCard);
   }
 
-  const setState = () => {
-    setOptionsModalStep('on', 'editCardLabels');
+  const setState = (label) => {
+    setOptionsModalStep('on', 'editCardLabels', label);
     setOptionsModal('on', 'members');
   }
 
@@ -43,7 +43,7 @@ const EditCardLabels = () => {
       </div>
       {
         labels.map(l => (
-          <EditLabelItem key={l.id} label={l} setState={setState} setLabelId={setLabel} currentCard={currentCard} />
+          <EditCardLabelItem key={l.id} label={l} setState={setState} setLabelId={setLabel} currentCard={currentCard} />
         ))
       }
       <div className="btn btn-block mt-1">

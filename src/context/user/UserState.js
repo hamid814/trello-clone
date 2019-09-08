@@ -15,6 +15,7 @@ import {
   SET_OPTIONS_MODAL_TYPE,
   SET_OPTIONS_MODAL_STEP,
   SET_OPTIONS_MODAL_STEP_TYPE,
+  SET_OPTIONS_MODAL_STEP_DATA,
   SET_FAST_EDIT_MODAL_POS,
   SET_MOUSE_POS,
   TOGGLE_BIG_LABELS,
@@ -32,6 +33,7 @@ const UserState = props => {
     optionsModaltype: null,
     optionsModalStepStatus: 'off',
     optionsModalStepType: null,
+    optionsModalStepData: null,
     fastEditModalPos: null,
     mosuePos: {},
     bigLabels: false,
@@ -148,7 +150,7 @@ const UserState = props => {
   }
 
   // two prams 1. has step or not (on or off) 2. the last step
-  const setOptionsModalStep = (status, step) => {
+  const setOptionsModalStep = (status, step, data) => {
     dispatch({
       type: SET_OPTIONS_MODAL_STEP,
       payload: status
@@ -158,6 +160,25 @@ const UserState = props => {
     } else if(status === 'on') {
       setOptionsModalStepType(step);
     }
+    if(data) {
+      setOptionsModalStepData(data);
+    } else {
+      clearOptionsModalStepData();
+    }
+  }
+
+  const setOptionsModalStepData = (data) => {
+    dispatch({
+      type: SET_OPTIONS_MODAL_STEP_DATA,
+      paylaod: data
+    });
+  }
+
+  const clearOptionsModalStepData = () => {
+    dispatch({
+      type: SET_OPTIONS_MODAL_STEP_DATA,
+      paylaod: null
+    });
   }
 
   const setOptionsModalStepType = (step) => {
@@ -207,6 +228,7 @@ const UserState = props => {
         optionsModalType: state.optionsModalType,
         optionsModalStepStatus: state.optionsModalStepStatus,
         optionsModalStepType: state.optionsModalStepType,
+        optionsModalStepData: state.optionsModalStepData,
         fastEditModalPos: state.fastEditModalPos,
         mousePos: state.mousePos,
         bigLabels: state.bigLabels,

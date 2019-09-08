@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const EditLabelItem = ({ label, setLabelId, setState, currentCard }) => {
+const EditCardLabelItem = ({ label, setLabelId, setState, currentCard }) => {
   const [hover, setHover] = useState(false);
 
   const onClick = () => {
@@ -16,7 +16,7 @@ const EditLabelItem = ({ label, setLabelId, setState, currentCard }) => {
   }
 
   const onPenClick = () => {
-    setState('edit', label.id);
+    setState(label);
   }
 
   return (
@@ -41,4 +41,4 @@ const EditLabelItem = ({ label, setLabelId, setState, currentCard }) => {
   )
 }
 
-export default EditLabelItem
+export default EditCardLabelItem

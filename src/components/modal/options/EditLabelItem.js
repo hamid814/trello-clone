@@ -16,7 +16,7 @@ const EditLabelItem = ({ label, setLabelId, setState, currentCard }) => {
   }
 
   const onPenClick = () => {
-    setState('edit');
+    setState('edit', label.id);
   }
 
   return (

@@ -13,6 +13,8 @@ import {
   SET_FAST_EDIT_MODAL_POS,
   SET_MOUSE_POS,
   TOGGLE_BIG_LABELS,
+  SET_OPTIONS_MODAL_STEP,
+  SET_OPTIONS_MODAL_STEP_TYPE,
 } from '../types';
 
 export default (state, action) => {
@@ -68,6 +70,16 @@ export default (state, action) => {
         optionsModalStatus: action.payload
       }
     case SET_OPTIONS_MODAL_TYPE:
+      return {
+        ...state,
+        optionsModalType: action.payload
+      }
+    case SET_OPTIONS_MODAL_STEP:
+      return {
+        ...state,
+        optionsModalType: action.payload
+      }
+    case SET_OPTIONS_MODAL_STEP_TYPE:
       return {
         ...state,
         optionsModalType: action.payload

@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import CardLabel from './CardLabel';
 
-const ListItemLabels = ({ labels, toggleBigLabels, bigLabels }) => {
+const ListItemLabels = ({ labels, toggleBigLabels, bigLabels, father }) => {
   const [hover, setHover] = useState(false);
 
   const onClick = () => {
-    toggleBigLabels();
+    father === 'boardListItem' && toggleBigLabels();
   }
 
   const onMouseEnter = () => {
-    setHover(true);
+    father === 'boardListItem' && setHover(true);
   }
 
   const onMouseLeave = () => {

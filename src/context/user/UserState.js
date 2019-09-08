@@ -13,8 +13,11 @@ import {
   SET_MODAL_TYPE,
   SET_OPTIONS_MODAL,
   SET_OPTIONS_MODAL_TYPE,
+  SET_OPTIONS_MODAL_STEP,
+  SET_OPTIONS_MODAL_STEP_TYPE,
   SET_FAST_EDIT_MODAL_POS,
-  SET_MOUSE_POS
+  SET_MOUSE_POS,
+  TOGGLE_BIG_LABELS,
 } from '../types';
 
 const UserState = props => {
@@ -27,9 +30,11 @@ const UserState = props => {
     modalType: null,
     optionsModalStatus: 'off',
     optionsModaltype: null,
+    optionsModalStepStatus: 'off',
+    optionsModalStepType: null,
     fastEditModalPos: null,
     mosuePos: {},
-    bigLabels: true,
+    bigLabels: false,
   };
 
   const [state, dispatch] = useReducer(userReducer, initialState);
@@ -142,6 +147,33 @@ const UserState = props => {
     });
   }
 
+  // two prams 1. has step or not (on or off) 2. the last step
+  const setOptionsModalStep = (status, step) => {
+    dispatch({
+      type: SET_OPTIONS_MODAL_STEP,
+      payload: status
+    });
+    if(status === 'off') {
+      clearOptionsModalStepType();
+    } else if(status === 'on') {
+      setOptionsModalStepType(step);
+    }
+  }
+
+  const setOptionsModalStepType = (step) => {
+    dispatch({
+      type: SET_OPTIONS_MODAL_STEP_TYPE,
+      payload: step
+    });
+  }
+
+  const clearOptionsModalStepType = () => {
+    dispatch({
+      type: SET_OPTIONS_MODAL_STEP_TYPE,
+      payload: null
+    });
+  }
+
   const setFastEditModalPos = (pos) => {
     dispatch({
       type: SET_FAST_EDIT_MODAL_POS,
@@ -184,6 +216,7 @@ const UserState = props => {
         clearCurrentCard,
         setModal,
         setOptionsModal,
+        setOptionsModalStep,
         setFastEditModalPos,
         setMousePos,
         toggleBigLabels,

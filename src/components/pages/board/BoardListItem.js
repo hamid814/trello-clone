@@ -66,7 +66,7 @@ const BoardListItem = ({ item }) => {
       onClick={onClick}
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}>
-        <ListItemLabels labels={item.labels} bigLabels={bigLabels} toggleBigLabels={toggleBigLabels} />
+        <ListItemLabels father='boardListItem' labels={item.labels} bigLabels={bigLabels} toggleBigLabels={toggleBigLabels} />
         <div>
           { item.text }
           <div className='text-sm'>

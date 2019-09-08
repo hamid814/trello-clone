@@ -14,17 +14,17 @@ const OptionsModal = () => {
   const {
     optionsModalStatus,
     optionsModalType,
+    optionsModalStepStatus,
+    optionsModalStepType,
     mousePos,
-    setOptionsModal} = userContext;
+    setOptionsModal,
+    setOptionsModalStep} = userContext;
 
   const [showModal, setShowModal] = useState('off');
   const [pos, setPos] = useState({});
   
   useEffect(() => {
     setShowModal(optionsModalStatus/* from useState */);
-    setTimeout(() => {
-      // console.log(container.current ? container.current.getBoundingClientRect() : null)
-    }, 0);
     setOptionsPos();
     // eslint-disable-next-line
   }, [optionsModalStatus, mousePos])
@@ -35,12 +35,13 @@ const OptionsModal = () => {
     }
   }
 
-  const closeModal = () => {
-    setOptionsModal('off');
+  const onBack = () => {
+    setOptionsModal('on', optionsModalStepType);
+    setOptionsModalStep('off');
   }
 
-  const modalDisplay = {
-    display: showModal === 'on' ? 'block' : 'none'
+  const closeModal = () => {
+    setOptionsModal('off');
   }
 
   const setOptionsPos = () => {
@@ -74,6 +75,10 @@ const OptionsModal = () => {
     }, 0);
   }
 
+  const modalDisplay = {
+    display: showModal === 'on' ? 'block' : 'none'
+  }
+
   return (
     <div 
       style={modalDisplay}
@@ -81,6 +86,12 @@ const OptionsModal = () => {
       onClick={onClick}>
         <div ref={container} className='options-modal-container' style={pos}>
           <div className='options-modal-header'>
+            {
+              optionsModalStepStatus === 'on'
+                && <div className='back d-i-b float-left cursor-p lighten-30 hover-darken' onClick={onBack}>
+                      <i className='fas fa-angle-left'></i>
+                    </div>
+            }
             <div className="close" onClick={closeModal}>
               &times;
             </div>

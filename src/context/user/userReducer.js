@@ -11,7 +11,8 @@ import {
   SET_OPTIONS_MODAL,
   SET_OPTIONS_MODAL_TYPE,
   SET_FAST_EDIT_MODAL_POS,
-  SET_MOUSE_POS
+  SET_MOUSE_POS,
+  TOGGLE_BIG_LABELS,
 } from '../types';
 
 export default (state, action) => {
@@ -80,6 +81,11 @@ export default (state, action) => {
       return {
         ...state,
         mousePos: action.payload  
+      }
+    case TOGGLE_BIG_LABELS:
+      return {
+        ...state,
+        bigLabels: !state.bigLabels
       }
     default:
       return state;

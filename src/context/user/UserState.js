@@ -29,6 +29,7 @@ const UserState = props => {
     optionsModaltype: null,
     fastEditModalPos: null,
     mosuePos: {},
+    bigLabels: true,
   };
 
   const [state, dispatch] = useReducer(userReducer, initialState);
@@ -155,6 +156,12 @@ const UserState = props => {
     });
   }
 
+  const toggleBigLabels = () => {
+    dispatch({
+      type: TOGGLE_BIG_LABELS
+    });
+  }
+
   return (
     <UserContext.Provider
       value={{
@@ -168,6 +175,7 @@ const UserState = props => {
         optionsModalType: state.optionsModalType,
         fastEditModalPos: state.fastEditModalPos,
         mousePos: state.mousePos,
+        bigLabels: state.bigLabels,
         setCurrentBoardId,
         clearCurrentBoardId,
         setCurrentListId,
@@ -177,7 +185,8 @@ const UserState = props => {
         setModal,
         setOptionsModal,
         setFastEditModalPos,
-        setMousePos
+        setMousePos,
+        toggleBigLabels,
       }}
     >
       {props.children}

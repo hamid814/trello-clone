@@ -135,6 +135,16 @@ export default (state, action) => {
     case DELETE_LABEL:
       return {
         ...state,
+        boards: state.boards.map(b => {
+          b.lists = b.lists.map(l => {
+            l.items = l.items.map(i => {
+              i.labels = i.labels.filter(l => l !== action.payload)
+              return i
+            })
+            return l
+          })
+          return b
+        }),
         labels: state.labels.filter(l => l.id !== action.payload)
       }
     default:

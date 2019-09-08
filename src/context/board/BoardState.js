@@ -532,7 +532,7 @@ const BoardState = props => {
   const addLabel = (name, colorName) => {
     let is = false;
     const newLabel = {
-      id: state.labels.length + 1,
+      id: uuid.v4(),
       colorName,
       name,
       color: state.colors.filter(c => c.name === colorName)[0].color

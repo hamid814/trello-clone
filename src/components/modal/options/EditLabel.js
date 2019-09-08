@@ -2,14 +2,16 @@ import React, { useState, useEffect, useContext } from 'react';
 
 import UserContext from '../../../context/user/userContext';
 import BoardContext from '../../../context/board/boardContext';
+import AlertContext from '../../../context/alert/alertContext';
 
 const EditLabel = () => {
   const [text, setText] = useState('');
   const [colorName, setColorName] = useState(null);
   const [wantToDelete, setWantToDelete] = useState(false);
 
-  const { optionsModalStepData: data } = useContext(UserContext);
+  const { setOptionsModal, setOptionsModalStep, optionsModalStepData: data } = useContext(UserContext);
   const { colors, addLabel, updateLabel, deleteLabel } = useContext(BoardContext);
+  const { setAlert } = useContext(AlertContext);
 
   useEffect(() => {
     data.type === 'edit' && setText(data.label.name);
@@ -35,6 +37,9 @@ const EditLabel = () => {
 
   const onDelete = () => {
     data.type === 'edit' && deleteLabel(data.label.id);
+    setOptionsModal('on', 'editCardLabels');
+    setOptionsModalStep('off');
+    setAlert('Label deleted', 'dark');
   }
 
   return (
@@ -57,7 +62,11 @@ const EditLabel = () => {
       </div>
       <div>
         <div className='btn btn-success' onClick={onSave}>
-          Save
+          {
+            data.type === 'edit'
+              ? 'Save'
+              : 'Create'
+          }
         </div>
         {
           data.type === 'edit'

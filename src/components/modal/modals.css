@@ -157,6 +157,34 @@
 .label-color-blue-hover {
   box-shadow: -8px 0 #055a8c;
 }
+.label-color-sky-hover {
+  box-shadow: -8px 0 #0098b7;
+}
+.label-color-lime-hover {
+  box-shadow: -8px 0 #4bbf6b;
+}
+.label-color-pink-hover {
+  box-shadow: -8px 0 #c9558f;
+}
+.label-color-black-hover {
+  box-shadow: -8px 0 #091e42;
+}
+
+.color-for-select {
+  width: 45px;
+  height: 45px;
+  margin: .15rem .2rem;
+  display: inline-block;
+  border-radius: .27rem;
+  position: relative;
+  cursor: pointer;
+}
+
+.color-for-select i {
+  position: absolute;
+  top: 14px;
+  left: 15px;
+}
 
 @keyframes actionsContainerAnim {
   from {

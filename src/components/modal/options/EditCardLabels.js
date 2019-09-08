@@ -30,7 +30,7 @@ const EditCardLabels = () => {
     setCurrentCard(newCard);
   }
 
-  const setState = (label) => {
+  const goToEditLabel = (label) => {
     setOptionsModalStep('on', 'editCardLabels', label);
     setOptionsModal('on', 'editLabel');
   }
@@ -43,10 +43,10 @@ const EditCardLabels = () => {
       </div>
       {
         labels.map(l => (
-          <EditCardLabelItem key={l.id} label={l} setState={setState} setLabelId={setLabel} currentCard={currentCard} />
+          <EditCardLabelItem key={l.id} label={l} goToEditLabel={goToEditLabel} setLabelId={setLabel} currentCard={currentCard} />
         ))
       }
-      <div className="btn btn-block mt-1">
+      <div className='btn btn-block mt-1 text-85 mt mb'>
         create new label
       </div>
     </div>

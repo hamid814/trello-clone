@@ -9,6 +9,9 @@ export const SET_LIST_TITLE = 'SET_LIST_TITLE';
 export const ADD_CARD = 'ADD_CARD';
 export const UPDATE_CARD = 'UPDATE_CARD';
 export const DELETE_CARD = 'DELETE_CARD';
+export const ADD_LABEL = 'ADD_LABEL';
+export const UPDATE_LABEL = 'UPDATE_LABEL';
+export const DELETE_LABEL = 'DELETE_LABEL';
 
 // alert state
 export const SET_ALERT = 'SET_ALERT';

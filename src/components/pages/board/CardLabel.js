@@ -13,7 +13,7 @@ const CardLabel = ({ label, onClick, onMouseEnter, onMouseLeave, bigLabels }) =>
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
       className={`func-card-label d-i-b label label-color-${thisLabel.colorName} ${bigLabels ? 'label-lg' : 'label-sm'}`}>
-      
+      <div className='label-text m-0'>{ bigLabels && thisLabel.name }</div>
     </div>
   )
 }

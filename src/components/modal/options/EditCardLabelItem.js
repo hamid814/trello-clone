@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const EditCardLabelItem = ({ label, setLabelId, setState, currentCard }) => {
+const EditCardLabelItem = ({ label, setLabelId, goToEditLabel, currentCard }) => {
   const [hover, setHover] = useState(false);
 
   const onClick = () => {
@@ -16,7 +16,7 @@ const EditCardLabelItem = ({ label, setLabelId, setState, currentCard }) => {
   }
 
   const onPenClick = () => {
-    setState(label);
+    goToEditLabel(label);
   }
 
   return (

@@ -1113,8 +1113,14 @@ table th {
 }
 
 .label-lg {
-  width: 48px;
+  min-width: 48px;
+  padding: 0.05rem .3rem;;
   height: 13px;
+}
+
+.label-text {
+  font-size: 0.7rem;
+  color: rgb(214, 210, 210);
 }
 
 .label-color-green {
@@ -1134,6 +1140,18 @@ table th {
 }
 .label-color-blue {
   background: #0079bf
+}
+.label-color-sky {
+  background: #00c2e0
+}
+.label-color-lime {
+  background: #51e898
+}
+.label-color-pink {
+  background: #ff78cb
+}
+.label-color-black {
+  background: #344563
 }
 
 .background-red {
@@ -1260,6 +1278,10 @@ aside {
 .trello-board-list-item:hover .trello-board-list-item-edit-btn {
   opacity: 1;
   right: .3rem;
+}
+
+.trello-board-list-item-labels-container {
+  vertical-align: top;
 }
 
 .trello-board-card-compose:hover {

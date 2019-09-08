@@ -11,7 +11,10 @@ import {
   SET_LIST_TITLE,
   ADD_CARD,
   UPDATE_CARD,
-  DELETE_CARD
+  DELETE_CARD,
+  ADD_LABEL,
+  UPDATE_LABEL,
+  DELETE_LABEL
 } from '../types';
 
 const BoardState = props => {
@@ -327,7 +330,46 @@ const BoardState = props => {
       }
     ],
     colors: [
-      
+      {
+        name: 'green',
+        color: '#61bd4f'
+      },
+      {
+        name: 'yellow',
+        color: '#f2d600'
+      },
+      {
+        name: 'orange',
+        color: '#ff9f1a'
+      },
+      {
+        name: 'red',
+        color: '#eb5a46'
+      },
+      {
+        name: 'purple',
+        color: '#c377e0'
+      },
+      {
+        name: 'blue',
+        color: '#0079bf'
+      },
+      {
+        name: 'sky',
+        color: '#00c2e0'
+      },
+      {
+        name: 'lime',
+        color: '#51e898'
+      },
+      {
+        name: 'pink',
+        color: '#ff78cb'
+      },
+      {
+        name: 'black',
+        color: '#344563'
+      }
     ],
     listOfStarredBoardsIds: []
   };
@@ -509,7 +551,10 @@ const BoardState = props => {
         setListTitle,
         addCard,
         updateCard,
-        deleteCard
+        deleteCard,
+        addLabel,
+        updateLabel,
+        deleteLabel,
       }}
     >
       {props.children}

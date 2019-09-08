@@ -7,7 +7,10 @@ import {
   SET_LIST_TITLE,
   ADD_CARD,
   UPDATE_CARD,
-  DELETE_CARD
+  DELETE_CARD,
+  ADD_LABEL,
+  UPDATE_LABEL,
+  DELETE_LABEL
  } from '../types';
 
 export default (state, action) => {

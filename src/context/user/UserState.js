@@ -170,14 +170,14 @@ const UserState = props => {
   const setOptionsModalStepData = (data) => {
     dispatch({
       type: SET_OPTIONS_MODAL_STEP_DATA,
-      paylaod: data
+      payload: data
     });
   }
 
   const clearOptionsModalStepData = () => {
     dispatch({
       type: SET_OPTIONS_MODAL_STEP_DATA,
-      paylaod: null
+      payload: null
     });
   }
 

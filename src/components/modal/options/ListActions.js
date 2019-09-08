@@ -1,15 +1,13 @@
 import React, { useContext } from 'react';
 
-import BoardContext from '../../../context/board/boardContext';
 import UserContext from '../../../context/user/userContext';
 
 const ListActions = () => {
-  // const { deleteList } = useContext(BoardContext);
-  const { currentListId } = useContext(UserContext);
+  const { setOptionsModal, setOptionsModalStep } = useContext(UserContext);
 
   const onDeleteClicked = () => {
-    // deleteList(currentListId);
-    console.log(currentListId);
+    setOptionsModal('on', 'deleteList');
+    setOptionsModalStep('on', 'listActions');
   }
 
   return (

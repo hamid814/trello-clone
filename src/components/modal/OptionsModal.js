@@ -3,6 +3,7 @@ import DeleteCard from './options/DeleteCard';
 import EditCardLabels from './options/EditCardLabels';
 import EditLabel from './options/EditLabel';
 import ListActions from './options/ListActions';
+import DeleteList from './options/DeleteList';
 
 import UserContext from '../../context/user/userContext';
 
@@ -44,6 +45,7 @@ const OptionsModal = () => {
 
   const closeModal = () => {
     setOptionsModal('off');
+    setOptionsModalStep('off');
   }
 
   const setOptionsPos = () => {
@@ -101,6 +103,9 @@ const OptionsModal = () => {
               optionsModalType === 'editCardLabels' && 'Labels'
             }
             {
+              optionsModalType === 'editLabel' && 'Change Label'
+            }
+            {
               optionsModalType === 'move' && 'Move card'
             }
             {
@@ -110,13 +115,10 @@ const OptionsModal = () => {
               optionsModalType === 'deleteCard' && 'Delete Card'
             }
             {
-              optionsModalType === 'deleteList' && 'Delete List?'
-            }
-            {
               optionsModalType === 'listActions' && 'List Actions'
             }
             {
-              optionsModalType === 'editLabel' && 'Change Label'
+              optionsModalType === 'deleteList' && 'Delete List'
             }
           </div>
           <div className='options-modal-body'>
@@ -131,6 +133,9 @@ const OptionsModal = () => {
             }
             {
               optionsModalType === 'listActions' && <ListActions />
+            }
+            {
+              optionsModalType === 'deleteList' && <DeleteList />
             }
           </div>
         </div>

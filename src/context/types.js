@@ -5,6 +5,7 @@ export const SET_TITLE = 'SET_TITLE';
 export const SET_STAR = 'SET_STAR';
 export const SET_DESCRIBTION = 'SET_DESCRIBTION';
 export const ADD_LIST = 'ADD_LIST';
+export const DELETE_LIST = 'DELETE_LIST';
 export const SET_LIST_TITLE = 'SET_LIST_TITLE';
 export const ADD_CARD = 'ADD_CARD';
 export const UPDATE_CARD = 'UPDATE_CARD';

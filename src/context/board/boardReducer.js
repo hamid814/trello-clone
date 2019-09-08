@@ -4,6 +4,7 @@ import {
   SET_STAR,
   SET_DESCRIBTION,
   ADD_LIST,
+  DELETE_LIST,
   SET_LIST_TITLE,
   ADD_CARD,
   UPDATE_CARD,
@@ -61,6 +62,16 @@ export default (state, action) => {
           return b
         })
       }
+    case DELETE_LIST:
+      return {
+        ...state,
+        boards: state.boards.map(board => {
+          if(board.id === action.payload.boardId) {
+            board.lists = board.lists.filter(list => list.id !== action.payload.listId);
+          }
+          return board
+        })
+      }
     case ADD_CARD:
       return {
         ...state,
@@ -76,6 +87,7 @@ export default (state, action) => {
           return b
         })
       }
+    
     case SET_LIST_TITLE:
       return {
         ...state,

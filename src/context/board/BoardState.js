@@ -8,6 +8,7 @@ import {
   SET_STAR,
   SET_DESCRIBTION,
   ADD_LIST,
+  DELETE_LIST,
   SET_LIST_TITLE,
   ADD_CARD,
   UPDATE_CARD,
@@ -477,6 +478,16 @@ const BoardState = props => {
     });
   }
 
+  const deleteList = (boardId, listId) => {
+    dispatch({
+      type: DELETE_LIST,
+      payload: {
+        boardId,
+        listId
+      }
+    });
+  }
+
   const setListTitle = (boardId, listId, newTitle) => {
     dispatch({
       type: SET_LIST_TITLE,
@@ -588,6 +599,7 @@ const BoardState = props => {
         setStar,
         setDescribtion,
         addList,
+        deleteList,
         setListTitle,
         addCard,
         updateCard,

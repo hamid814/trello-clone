@@ -374,11 +374,7 @@ const BoardState = props => {
     listOfStarredBoardsIds: []
   };
 
-
   const [state, dispatch] = useReducer(boardReducer, initialState);
-  console.log('use colors for just colors')
-  console.log('add options like add label delete label edit label( name and color )')
-  console.log(state.colors)
 
   // Get data
   const getBoardsNames = () => {
@@ -531,6 +527,20 @@ const BoardState = props => {
         cardId
       }
     });
+  }
+
+  const addLabel = (name, colorName) => {
+    const newLabel = {
+      id: state.labels.length
+    }
+  }
+
+  const updateLabel = () => {
+    
+  }
+
+  const deleteLabel = () => {
+    
   }
 
   return (

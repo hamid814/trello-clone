@@ -7,10 +7,10 @@ import UserContext from '../../../context/user/userContext';
 const BoardListItem = ({ item }) => {
   const listItem = useRef(null);
 
-  const { setCurrentCard, setModal, setFastEditModalPos } = useContext(UserContext);
+  const { setCurrentCard, setModal, setFastEditModalPos, toggleBigLabels, bigLabels } = useContext(UserContext);
 
   const onClick = (e) => {
-    if(!e.target.classList.contains('func-e-btn') && !e.target.parentElement.classList.contains('func-e-btn')) {
+    if(!e.target.classList.contains('func-e-btn') && !e.target.parentElement.classList.contains('func-e-btn') && !e.target.classList.contains('func-card-label')) {
       setModal('on', 'detailsModal');
     }
     setCurrentCard(item);
@@ -66,7 +66,7 @@ const BoardListItem = ({ item }) => {
       onClick={onClick}
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}>
-        <ListItemLabels labels={item.labels} />
+        <ListItemLabels labels={item.labels} bigLabels={bigLabels} toggleBigLabels={toggleBigLabels} />
         <div>
           { item.text }
           <div className='text-sm'>

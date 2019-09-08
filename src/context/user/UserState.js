@@ -29,7 +29,6 @@ const UserState = props => {
     optionsModaltype: null,
     fastEditModalPos: null,
     mosuePos: {},
-    labelsAreBig: false,
   };
 
   const [state, dispatch] = useReducer(userReducer, initialState);
@@ -154,10 +153,6 @@ const UserState = props => {
       type: SET_MOUSE_POS,
       payload: {x, y}
     });
-  }
-
-  const toggleLabelsBig = () => {
-
   }
 
   return (

@@ -124,6 +124,19 @@
   margin-right: 0.4rem;
   vertical-align: middle;
   cursor: pointer;
+  position: relative;
+}
+
+.label-color-check {
+  position: absolute;
+  top: 9px;
+  right: 9px;
+}
+
+.label-color-text {
+  position: absolute;
+  top: 8px;
+  left: 7px;
 }
 
 .label-color-green-hover {

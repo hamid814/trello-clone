@@ -1103,10 +1103,18 @@ table th {
 /* color of labels */
 
 .label {
+  margin: 0 5px 5px 0;
+  border-radius: 0.2rem;
+}
+
+.label-sm {
   width: 37px;
   height: 7px;
-  border-radius: 1000px;
-  margin: 0 5px 5px 0;
+}
+
+.label-lg {
+  width: 48px;
+  height: 13px;
 }
 
 .label-color-green {

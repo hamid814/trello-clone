@@ -34,10 +34,13 @@ const EditLabels = () => {
 
   return (
     <div>
-      <input type='text' placeholder='search labels...' className='mt mb-1'/>
+      <input type='text' placeholder='search labels...' className='mt mb-1 text-85 p'/>
+      <div className='text-85 mb'>
+        Labels
+      </div>
       {
         labels.map(l => (
-          <EditLabelItem key={l.id} label={l} setLabelId={setLabel} />
+          <EditLabelItem key={l.id} label={l} setLabelId={setLabel} currentCard={currentCard} />
         ))
       }
       <div className="btn btn-block mt-1">

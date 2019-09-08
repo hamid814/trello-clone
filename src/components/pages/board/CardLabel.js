@@ -2,13 +2,17 @@ import React, { useContext } from 'react';
 
 import BoardContext from '../../../context/board/boardContext';
 
-const CardLabel = ({ label }) => {
+const CardLabel = ({ label, onClick, onMouseEnter, onMouseLeave, bigLabels }) => {
   const { labels } = useContext(BoardContext);
 
   const thisLabel = labels.filter(l => l.id === label)[0];
 
   return (
-    <div className={`d-i-b label label-color-${thisLabel.colorName}`}>
+    <div
+      onClick={onClick}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+      className={`func-card-label d-i-b label label-color-${thisLabel.colorName} ${bigLabels ? 'label-lg' : 'label-sm'}`}>
       
     </div>
   )

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useContext } from 'react';
 import DeleteCard from './options/DeleteCard';
-import EditLabels from './options/EditLabels';
+import EditCardLabels from './options/EditCardLabels';
 
 import UserContext from '../../context/user/userContext';
 
@@ -96,7 +96,7 @@ const OptionsModal = () => {
               &times;
             </div>
             {
-              optionsModalType === 'editLabels' && 'Labels'
+              optionsModalType === 'editCardLabels' && 'Labels'
             }
             {
               optionsModalType === 'move' && 'Move card'
@@ -119,7 +119,7 @@ const OptionsModal = () => {
               optionsModalType === 'deleteCard' && <DeleteCard />
             }
             {
-              optionsModalType === 'editLabels' && <EditLabels />
+              optionsModalType === 'editCardLabels' && <EditCardLabels />
             }
           </div>
         </div>

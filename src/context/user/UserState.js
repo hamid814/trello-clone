@@ -205,6 +205,8 @@ const UserState = props => {
         modalType: state.modalType,
         optionsModalStatus: state.optionsModalStatus,
         optionsModalType: state.optionsModalType,
+        optionsModalStepStatus: state.optionsModalStepStatus,
+        optionsModalStepType: state.optionsModalStepType,
         fastEditModalPos: state.fastEditModalPos,
         mousePos: state.mousePos,
         bigLabels: state.bigLabels,

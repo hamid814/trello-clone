@@ -83,7 +83,7 @@ const FastEditModal = () => {
       </div>
       <div className='fast-edit-modal-action-container' onClick={onAtionsClick}>
         <div className='fast-edit-modal-action'>
-          <div className='func-action-btn fast-edit-modal-action-btn' id='editLabels'>
+          <div className='func-action-btn fast-edit-modal-action-btn' id='editCardLabels'>
             <i className='fas fa-tag mr'></i>
             Edit labels
           </div>

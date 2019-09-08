@@ -77,12 +77,12 @@ export default (state, action) => {
     case SET_OPTIONS_MODAL_STEP:
       return {
         ...state,
-        optionsModalType: action.payload
+        optionsModalStepStatus: action.payload
       }
     case SET_OPTIONS_MODAL_STEP_TYPE:
       return {
         ...state,
-        optionsModalType: action.payload
+        optionsModalStepType: action.payload
       }
     case SET_FAST_EDIT_MODAL_POS:
       return {

@@ -5,7 +5,7 @@ import EditLabelItem from './EditLabelItem';
 import UserContext from '../../../context/user/userContext';
 import BoardContext from '../../../context/board/boardContext';
 
-const EditLabels = () => {
+const EditCardLabels = () => {
   const { currentBoardId, currentListId, currentCard, setCurrentCard, setOptionsModal, setOptionsModalStep } = useContext(UserContext);
   const { updateCard, labels, colors } = useContext(BoardContext);
 
@@ -31,7 +31,7 @@ const EditLabels = () => {
   }
 
   const setState = () => {
-    setOptionsModalStep('on', 'editLabels');
+    setOptionsModalStep('on', 'editCardLabels');
     setOptionsModal('on', 'members');
   }
 
@@ -53,4 +53,4 @@ const EditLabels = () => {
   )
 }
 
-export default EditLabels
+export default EditCardLabels

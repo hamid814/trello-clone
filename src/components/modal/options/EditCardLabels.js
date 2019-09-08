@@ -32,7 +32,7 @@ const EditCardLabels = () => {
 
   const setState = (label) => {
     setOptionsModalStep('on', 'editCardLabels', label);
-    setOptionsModal('on', 'members');
+    setOptionsModal('on', 'editLabel');
   }
 
   return (

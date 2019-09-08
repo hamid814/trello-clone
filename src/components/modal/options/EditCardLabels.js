@@ -31,7 +31,12 @@ const EditCardLabels = () => {
   }
 
   const goToEditLabel = (label) => {
-    setOptionsModalStep('on', 'editCardLabels', label);
+    setOptionsModalStep('on', 'editCardLabels', {label, type: 'edit'});
+    setOptionsModal('on', 'editLabel');
+  }
+
+  const onCreateClick = () => {
+    setOptionsModalStep('on', 'editCardLabels', {type: 'create'});
     setOptionsModal('on', 'editLabel');
   }
 
@@ -46,7 +51,7 @@ const EditCardLabels = () => {
           <EditCardLabelItem key={l.id} label={l} goToEditLabel={goToEditLabel} setLabelId={setLabel} currentCard={currentCard} />
         ))
       }
-      <div className='btn btn-block mt-1 text-85 mt mb'>
+      <div className='btn btn-block mt-1 text-85 mt mb' onClick={onCreateClick}>
         create new label
       </div>
     </div>

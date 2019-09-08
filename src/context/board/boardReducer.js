@@ -123,6 +123,20 @@ export default (state, action) => {
           return b
         })
       }
+    case ADD_LABEL:
+      return {
+        ...state,
+        labels: [...state.labels, action.payload]
+      }
+    case UPDATE_LABEL:
+      return {
+        ...state
+      }
+    case DELETE_LABEL:
+      return {
+        ...state,
+        labels: state.labels.filter(l => l.id !== action.payload)
+      }
     default:
       return state;
   }

@@ -23,7 +23,7 @@ const BoardState = props => {
       {
         title: 'my nice board',
         id: 1,
-        color: '#ee3a59',
+        color: '#46b29e',
         starred: false,
         describtion: 'board describtion goes here',
         lists: [
@@ -530,8 +530,27 @@ const BoardState = props => {
   }
 
   const addLabel = (name, colorName) => {
+    let is = false;
     const newLabel = {
-      id: state.labels.length
+      id: state.labels.length + 1,
+      colorName,
+      name,
+      color: state.colors.filter(c => c.name === colorName)[0].color
+    };
+
+    state.labels.forEach(label => {
+      if(label.colorName === colorName) {
+        if(label.name === name) {
+          is = true
+        }
+      }
+    });
+
+    if(!is) {
+      dispatch({
+        type : ADD_LABEL,
+        payload: newLabel
+      });
     }
   }
 
@@ -539,8 +558,11 @@ const BoardState = props => {
     
   }
 
-  const deleteLabel = () => {
-    
+  const deleteLabel = (id) => {
+    dispatch({
+      type: DELETE_LABEL,
+      payload: id
+    });
   }
 
   return (

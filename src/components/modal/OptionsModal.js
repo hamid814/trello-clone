@@ -51,17 +51,17 @@ const OptionsModal = () => {
         let rect;
         rect = container.current.getBoundingClientRect();
 
-        if(window.innerWidth - mousePos.x < rect.width && window.innerHeight - mousePos.y > rect.height) {
+        if(window.innerWidth - mousePos.x - 10 < rect.width && window.innerHeight - mousePos.y > rect.height) {
           setPos({
             right: 10,
             top: mousePos.y + 10 + 'px'
           });
-        } else if(window.innerHeight - mousePos.y < rect.height && window.innerWidth - mousePos.x > rect.width) {
+        } else if(window.innerHeight - mousePos.y - 10 < rect.height && window.innerWidth - mousePos.x > rect.width) {
           setPos({
             left: mousePos.x + 10 + 'px',
             bottom: 10
           })
-        } else if(window.innerHeight - mousePos.y < rect.height && window.innerWidth - mousePos.x < rect.width) {
+        } else if(window.innerHeight - mousePos.y - 10 < rect.height && window.innerWidth - mousePos.x - 10 < rect.width) {
             setPos({
             right: 10,
             bottom: 10

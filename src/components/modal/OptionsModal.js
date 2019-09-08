@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, useContext } from 'react';
 import DeleteCard from './options/DeleteCard';
 import EditCardLabels from './options/EditCardLabels';
 import EditLabel from './options/EditLabel';
+import ListActions from './options/ListActions';
 
 import UserContext from '../../context/user/userContext';
 
@@ -127,6 +128,9 @@ const OptionsModal = () => {
             }
             {
               optionsModalType === 'editLabel' && <EditLabel />
+            }
+            {
+              optionsModalType === 'listActions' && <ListActions />
             }
           </div>
         </div>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
+import uuid from 'uuid';
 
 import UserContext from '../../../context/user/userContext';
 import BoardContext from '../../../context/board/boardContext';
@@ -7,10 +8,16 @@ import AlertContext from '../../../context/alert/alertContext';
 const EditLabel = () => {
   const [text, setText] = useState('');
   const [colorName, setColorName] = useState(null);
-  const [wantToDelete, setWantToDelete] = useState(false);
 
-  const { setOptionsModal, setOptionsModalStep, optionsModalStepData: data } = useContext(UserContext);
-  const { colors, addLabel, updateLabel, deleteLabel } = useContext(BoardContext);
+  const {
+    setOptionsModal,
+    setOptionsModalStep,
+    currentCard,
+    currentBoardId,
+    currentListId,
+    setCurrentCard,
+    optionsModalStepData: data } = useContext(UserContext);
+  const { labels, colors, updateCard, addLabel, updateLabel, deleteLabel } = useContext(BoardContext);
   const { setAlert } = useContext(AlertContext);
 
   useEffect(() => {
@@ -29,14 +36,44 @@ const EditLabel = () => {
 
   const onSave = () => {
     if(data.type === 'edit') {
-      console.log('edit this label')
+      updateLabel(text, colorName, data.label.id);
+      setOptionsModal('on', 'editCardLabels');
+      setOptionsModalStep('off');
+      setAlert('Label updated', 'success');
     } else if(data.type === 'create') {
-      addLabel(text, colorName);
+      let is = false;
+      
+      labels.forEach(label => {
+        if(label.colorName === colorName) {
+          if(label.name === text) {
+            is = true
+          }
+        }
+      });
+
+      if(!is) {
+        const newId = uuid.v4();
+        // add to list of labels in board state
+        addLabel(text, colorName, newId);
+        const newCard = {
+          ...currentCard,
+          labels: [...currentCard.labels, newId]
+        }
+        // add label to current board
+        updateCard(currentBoardId, currentListId, currentCard.id, newCard);
+        setCurrentCard(newCard);
+        setAlert('Label created', 'success');
+      } else {
+        setAlert('Label already exits', 'light');
+      }
+
+      setOptionsModal('on', 'editCardLabels');
+      setOptionsModalStep('off');
     }
   }
 
   const onDelete = () => {
-    data.type === 'edit' && deleteLabel(data.label.id);
+    deleteLabel(data.label.id);
     setOptionsModal('on', 'editCardLabels');
     setOptionsModalStep('off');
     setAlert('Label deleted', 'dark');

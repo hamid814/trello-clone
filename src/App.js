@@ -27,6 +27,8 @@ const App = () => {
     console.log('change all e.target to useRef because e.target doesnt work on touch events')
     console.log('change word item to card in context and stuff')
     console.log('setState in LabelItem in options')
+    console.log('copy card')
+    console.log('sort the list actions ( put them in [dasteh] )')
     // eslint-disable-next-line
   }, []);
 

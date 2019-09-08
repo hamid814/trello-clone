@@ -529,10 +529,10 @@ const BoardState = props => {
     });
   }
 
-  const addLabel = (name, colorName) => {
+  const addLabel = (name, colorName, id) => {
     let is = false;
     const newLabel = {
-      id: uuid.v4(),
+      id,
       colorName,
       name,
       color: state.colors.filter(c => c.name === colorName)[0].color
@@ -554,8 +554,16 @@ const BoardState = props => {
     }
   }
 
-  const updateLabel = () => {
-    
+  const updateLabel = (name, colorName, id) => {
+    dispatch({
+      type: UPDATE_LABEL,
+      payload: {
+        name,
+        colorName,
+        color: state.colors.filter(c => c.name === colorName)[0].color,
+        id
+      }
+    });
   }
 
   const deleteLabel = (id) => {

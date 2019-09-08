@@ -186,6 +186,21 @@
   left: 17px;
 }
 
+.list-action-item {
+  width: 100%;
+  background: rgba(180, 255, 230, 0);
+  padding: 0.5rem 0.3rem;
+  cursor: pointer;
+}
+
+.list-action-item:hover {
+  background: rgba(180, 180, 180, 0.137);
+}
+
+.delete-list:hover {
+  color: var(--danger-color);
+}
+
 @keyframes actionsContainerAnim {
   from {
     margin-left: -1rem;

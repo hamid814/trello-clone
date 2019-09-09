@@ -1,4 +1,5 @@
 import React, { useReducer } from 'react';
+import uuid from 'uuid';
 import uniqid from 'uniqid';
 import BoardContext from './boardContext';
 import boardReducer from './boardReducer';
@@ -30,7 +31,7 @@ const BoardState = props => {
         lists: [
           {
             title: 'todos',
-            id: uniqid(),
+            id: uuid.v4(),
             items: [
               {
                 text: 'todo 1',

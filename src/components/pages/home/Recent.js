@@ -1,5 +1,5 @@
 import React, { Fragment, useContext } from 'react';
-import uuid from 'uuid';
+import uniqid from 'uniqid';
 import HomeMainItem from './HomeMainItem';
 
 import BoardContext from '../../../context/board/boardContext';
@@ -20,7 +20,7 @@ const Recent = () => {
               Recent borads
               <div className="">
                 { getRecentBoards(recentIds).map(r => (
-                      <HomeMainItem key={uuid.v4()} board={r} />
+                      <HomeMainItem key={uniqid()} board={r} />
                     ))
                 }
               </div>

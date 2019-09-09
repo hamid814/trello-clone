@@ -1,5 +1,5 @@
 import React, { useReducer } from 'react';
-import uuid from 'uuid';
+import uniqid from 'uniqid';
 import AlertContext from './alertContext';
 import alertReducer from './alertReducer';
 import { 
@@ -20,7 +20,7 @@ const AlertState = props => {
     if(listOfMsgs.indexOf(msg) === -1) {
       const newAlert = {
         msg,
-        id: uuid.v4(),
+        id: uniqid(),
         type,
       }
 

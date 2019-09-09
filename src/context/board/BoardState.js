@@ -1,5 +1,5 @@
 import React, { useReducer } from 'react';
-import uuid from 'uuid';
+import uniqid from 'uniqid';
 import BoardContext from './boardContext';
 import boardReducer from './boardReducer';
 import {
@@ -30,12 +30,12 @@ const BoardState = props => {
         lists: [
           {
             title: 'todos',
-            id: uuid.v4(),
+            id: uniqid(),
             items: [
               {
                 text: 'todo 1',
                 desc: 'one describtion',
-                id: uuid.v4(),
+                id: uniqid(),
                 labels: [
                   1,
                   2
@@ -43,98 +43,98 @@ const BoardState = props => {
               },
               {
                 text: 'todo 2',
-                id: uuid.v4(),
+                id: uniqid(),
                 labels: [
                   3
                 ]
               },
               {
                 text: 'todo 2',
-                id: uuid.v4(),
+                id: uniqid(),
                 labels: [
                   2
                 ]
               },
               {
                 text: 'todo 2',
-                id: uuid.v4(),
+                id: uniqid(),
                 labels: [
                   2
                 ]
               },
               {
                 text: 'todo 2',
-                id: uuid.v4(),
+                id: uniqid(),
                 labels: [
                   2
                 ]
               },
               {
                 text: 'todo 2',
-                id: uuid.v4(),
+                id: uniqid(),
                 labels: [
                   2
                 ]
               },
               {
                 text: 'todo 2',
-                id: uuid.v4(),
+                id: uniqid(),
                 labels: [
                   2
                 ]
               },
               {
                 text: 'todo 2',
-                id: uuid.v4(),
+                id: uniqid(),
                 labels: [
                   2
                 ]
               },
               {
                 text: 'todo 2',
-                id: uuid.v4(),
+                id: uniqid(),
                 labels: [
                   2
                 ]
               },
               {
                 text: 'todo 2',
-                id: uuid.v4(),
+                id: uniqid(),
                 labels: [
                   2
                 ]
               },
               {
                 text: 'todo 2',
-                id: uuid.v4(),
+                id: uniqid(),
                 labels: [
                   2
                 ]
               },
               {
                 text: 'todo 2',
-                id: uuid.v4(),
+                id: uniqid(),
                 labels: [
                   2
                 ]
               },
               {
                 text: 'todo 2',
-                id: uuid.v4(),
+                id: uniqid(),
                 labels: [
                   2
                 ]
               },
               {
                 text: 'todo 2',
-                id: uuid.v4(),
+                id: uniqid(),
                 labels: [
                   2
                 ]
               },
               {
                 text: 'todo 2',
-                id: uuid.v4(),
+                id: uniqid(),
                 labels: [
                   2
                 ]
@@ -143,11 +143,11 @@ const BoardState = props => {
           },
           {
             title: 'doing',
-            id: uuid.v4(),
+            id: uniqid(),
             items: [
               {
                 text: 'doing 1',
-                id: uuid.v4(),
+                id: uniqid(),
                 labels: [
                   5,
                   3
@@ -155,7 +155,7 @@ const BoardState = props => {
               },
               {
                 text: 'doing 2',
-                id: uuid.v4(),
+                id: uniqid(),
                 labels: [
                   4,
                   5,
@@ -167,7 +167,7 @@ const BoardState = props => {
               },
               {
                 text: 'doing 3',
-                id: uuid.v4(),
+                id: uniqid(),
                 labels: [
                   6,
                   4
@@ -177,98 +177,98 @@ const BoardState = props => {
           },
           {
             title: 'new list',
-            id: uuid.v4(),
+            id: uniqid(),
             items: [
 
             ]
           },
           {
             title: 'test for long',
-            id: uuid.v4(),
+            id: uniqid(),
             items: [
               
             ]
           },
           {
             title: 'test for long',
-            id: uuid.v4(),
+            id: uniqid(),
             items: [
               
             ]
           },
           {
             title: 'test for long',
-            id: uuid.v4(),
+            id: uniqid(),
             items: [
               
             ]
           },
           {
             title: 'test for long',
-            id: uuid.v4(),
+            id: uniqid(),
             items: [
               
             ]
           },
           {
             title: 'test for long',
-            id: uuid.v4(),
+            id: uniqid(),
             items: [
               
             ]
           },
           {
             title: 'test for long',
-            id: uuid.v4(),
+            id: uniqid(),
             items: [
               
             ]
           },
           {
             title: 'test for long',
-            id: uuid.v4(),
+            id: uniqid(),
             items: [
               
             ]
           },
           {
             title: 'test for long',
-            id: uuid.v4(),
+            id: uniqid(),
             items: [
               
             ]
           },
           {
             title: 'test for long',
-            id: uuid.v4(),
+            id: uniqid(),
             items: [
               
             ]
           },
           {
             title: 'test for long',
-            id: uuid.v4(),
+            id: uniqid(),
             items: [
               
             ]
           },
           {
             title: 'test for long',
-            id: uuid.v4(),
+            id: uniqid(),
             items: [
               
             ]
           },
           {
             title: 'test for long',
-            id: uuid.v4(),
+            id: uniqid(),
             items: [
               
             ]
           },
           {
             title: 'test for long',
-            id: uuid.v4(),
+            id: uniqid(),
             items: [
               
             ]
@@ -284,7 +284,7 @@ const BoardState = props => {
         lists: [
           {
             title: 'test for one',
-            id: uuid.v4(),
+            id: uniqid(),
             items: [
               
             ]
@@ -387,7 +387,7 @@ const BoardState = props => {
   const addBoard = (title, color) => {
     const newBaord = {
       title,
-      id: uuid.v4(),
+      id: uniqid(),
       color,
       starred: false,
       describtion: '',
@@ -466,7 +466,7 @@ const BoardState = props => {
   const addList = (text, id) => {
     const newList = {
       title: text,
-      id: uuid.v4(),
+      id: uniqid(),
       items: []
     }
     dispatch({
@@ -503,7 +503,7 @@ const BoardState = props => {
   const addCard = (text, listId, boardId) => {
     const newCard = {
       text,
-      id: uuid.v4(),
+      id: uniqid(),
       labels: []
     }
     dispatch({

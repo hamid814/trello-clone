@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import uuid from 'uuid';
+import uniqid from 'uniqid';
 
 import UserContext from '../../../context/user/userContext';
 import BoardContext from '../../../context/board/boardContext';
@@ -52,7 +52,7 @@ const EditLabel = () => {
       });
 
       if(!is) {
-        const newId = uuid.v4();
+        const newId = uniqid();
         // add to list of labels in board state
         addLabel(text, colorName, newId);
         const newCard = {

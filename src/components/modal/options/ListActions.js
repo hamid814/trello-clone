@@ -3,16 +3,21 @@ import React, { useContext } from 'react';
 import UserContext from '../../../context/user/userContext';
 
 const ListActions = () => {
-  const { setOptionsModal, setOptionsModalStep } = useContext(UserContext);
+  const { currentListId, setOptionsModal, setOptionsModalStep } = useContext(UserContext);
 
   const onDeleteClicked = () => {
     setOptionsModal('on', 'deleteList');
     setOptionsModalStep('on', 'listActions');
   }
 
+
+  const test = () => {
+    console.log(currentListId)
+  }
+
   return (
     <div>
-      <div className='list-action-item'>
+      <div className='list-action-item' onClick={test}>
         add card...
       </div>
       <div className='list-action-item'>

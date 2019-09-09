@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import UserContext from '../../../context/user/userContext';
 
 const ListActions = () => {
-  const { currentListId, setOptionsModal, setOptionsModalStep } = useContext(UserContext);
+  const { setOptionsModal, setOptionsModalStep } = useContext(UserContext);
 
   const onDeleteClicked = () => {
     setOptionsModal('on', 'deleteList');
@@ -11,13 +11,14 @@ const ListActions = () => {
   }
 
 
-  const test = () => {
-    console.log(currentListId)
+  const onCopyClicked = () => {
+    setOptionsModal('on', 'copyList');
+    setOptionsModalStep('on', 'listActions');
   }
 
   return (
     <div>
-      <div className='list-action-item' onClick={test}>
+      <div className='list-action-item'>
         add card...
       </div>
       <div className='list-action-item'>
@@ -29,7 +30,7 @@ const ListActions = () => {
       <div className='list-action-item'>
         delete all cards in this list
       </div>
-      <div className='list-action-item'>
+      <div className='list-action-item' onClick={onCopyClicked}>
         copy list
       </div>
       <div className='list-action-item'>

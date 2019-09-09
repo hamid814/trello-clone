@@ -6,6 +6,7 @@ import {
   ADD_LIST,
   DELETE_LIST,
   SET_LIST_TITLE,
+  COPY_LIST,
   ADD_CARD,
   UPDATE_CARD,
   DELETE_CARD,
@@ -61,6 +62,17 @@ export default (state, action) => {
           }
           return b
         })
+      }
+    case COPY_LIST:
+      // console.log(state.boards[0].lists.findIndex(l => l.id === action.payload.listId))
+      return {
+        ...state,
+        // boards: state.boards.map(b => {
+        //   if(b.id === action.payload.boardId) {
+        //     b.lists.splice(b.lists.findIndex(l => l.id === action.payload.listId), 0, action.payload.newList)
+        //   }
+        //   return b
+        // })
       }
     case DELETE_LIST:
       return {

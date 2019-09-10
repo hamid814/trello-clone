@@ -62,6 +62,8 @@ const FastEditModal = () => {
       setOptionsModal('on', e.target.parentElement.id);
     } else if(e.target.classList.contains('func-action-btn')) {
       setOptionsModal('on', e.target.id);
+    } else {
+      setModal('off');
     }
   }
 

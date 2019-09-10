@@ -21,24 +21,26 @@ const ListActions = () => {
       <div className='list-action-item'>
         add card...
       </div>
+      <div className='list-action-item' onClick={onCopyClicked}>
+        copy list
+      </div>
       <div className='list-action-item'>
         move list
       </div>
+      <div className='list-action-item'>
+        watch
+      </div>
+      <hr />
       <div className='list-action-item'>
         move all cards in this list list
       </div>
       <div className='list-action-item'>
         delete all cards in this list
       </div>
-      <div className='list-action-item' onClick={onCopyClicked}>
-        copy list
-      </div>
       <div className='list-action-item'>
         sort...
       </div>
-      <div className='list-action-item'>
-        watch
-      </div>
+      <hr />
       <div className='list-action-item delete-list' onClick={onDeleteClicked}>
         delete this list
       </div>

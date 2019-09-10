@@ -130,6 +130,7 @@ const UserState = props => {
     });
     if(status === 'off') {
       clearOptionsModalType();
+      setOptionsModalStep('off');
     } else if(status === 'on') {
       setOptionsModalType(type);
     }

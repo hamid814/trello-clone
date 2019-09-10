@@ -46,7 +46,6 @@ const OptionsModal = () => {
 
   const closeModal = () => {
     setOptionsModal('off');
-    setOptionsModalStep('off');
   }
 
   const setOptionsPos = () => {

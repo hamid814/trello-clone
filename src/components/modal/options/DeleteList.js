@@ -7,12 +7,11 @@ import AlertContext from '../../../context/alert/alertContext';
 const DeleteList = () => {
   const { deleteList } = useContext(BoardContext);
   const { setAlert } = useContext(AlertContext);
-  const { currentBoardId, currentListId, setOptionsModal, setOptionsModalStep } = useContext(UserContext);
+  const { currentBoardId, currentListId, setOptionsModal } = useContext(UserContext);
 
   const onClick = () => {
     deleteList(currentBoardId, currentListId);
     setOptionsModal('off');
-    setOptionsModalStep('off');
     setAlert('list deleted', 'dark');
   }
 

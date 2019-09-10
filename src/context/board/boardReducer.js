@@ -64,15 +64,14 @@ export default (state, action) => {
         })
       }
     case COPY_LIST:
-      // console.log(state.boards[0].lists.findIndex(l => l.id === action.payload.listId))
       return {
         ...state,
-        // boards: state.boards.map(b => {
-        //   if(b.id === action.payload.boardId) {
-        //     b.lists.splice(b.lists.findIndex(l => l.id === action.payload.listId), 0, action.payload.newList)
-        //   }
-        //   return b
-        // })
+        boards: state.boards.map(b => {
+          if(b.id === action.payload.boardId) {
+            b.lists.splice(b.lists.findIndex(l => l.id === action.payload.listId) + 1, 0, action.payload.newList)
+          }
+          return b
+        })
       }
     case DELETE_LIST:
       return {

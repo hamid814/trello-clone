@@ -6,7 +6,7 @@ import BoardContext from '../../../context/board/boardContext';
 const CopyList = () => {
   const [name, setName] = useState('');
   
-  const { currentBoardId, currentListId } = useContext(UserContext);
+  const { currentBoardId, currentListId, setOptionsModal } = useContext(UserContext);
   const { getList, copyList } = useContext(BoardContext);
 
   useEffect(() => {
@@ -16,6 +16,7 @@ const CopyList = () => {
 
   const onCLick = () => {
     copyList(currentBoardId, currentListId, name);
+    setOptionsModal('off');
   }
 
   const onChange = (e) => {

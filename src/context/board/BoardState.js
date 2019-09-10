@@ -355,30 +355,30 @@ const BoardState = props => {
     });
   }
 
-  // const copyList = (boardId, listId, name) => {
-  //   let newList;
+  const copyList = (boardId, listId, name) => {
+    let theList;
 
-  //   state.boards.forEach(b => b.id === boardId && b.lists.forEach(l => {
-  //     if(l.id === listId) {
-  //       console.log('here')
-  //       newList = l
-  //     }
-  //   }))
+    state.boards.forEach(b => b.id === boardId && b.lists.forEach(l => {
+      if(l.id === listId) {
+        theList = l
+      }
+    }))
     
-  //   newList.title = name;
-  //   newList.id = uniqid();
+    const newList = {
+      ...theList,
+      title: name,
+      id: uniqid()
+    }
 
-  //   console.log(state.boards[0].lists)
-
-  //   dispatch({
-  //     type: COPY_LIST,
-  //     payload: {
-  //       boardId,
-  //       listId,
-  //       newList
-  //     }
-  //   });
-  // }
+    dispatch({
+      type: COPY_LIST,
+      payload: {
+        boardId,
+        listId,
+        newList
+      }
+    });
+  }
 
   // add card to list
   const addCard = (text, listId, boardId) => {

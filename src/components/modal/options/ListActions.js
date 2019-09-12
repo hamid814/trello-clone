@@ -1,9 +1,17 @@
 import React, { useContext } from 'react';
 
 import UserContext from '../../../context/user/userContext';
+import BoardContext from '../../../context/board/boardContext';
 
 const ListActions = () => {
-  const { currentListId, setOptionsModal, setOptionsModalStep, setAddCardFromListActions } = useContext(UserContext);
+  const {
+    currentBoardId,
+    currentListId,
+    setOptionsModal,
+    setOptionsModalStep,
+    setAddCardFromListActions
+  } = useContext(UserContext);
+  const { getList, setWatching } = useContext(BoardContext);
 
   const onAddCardClicked = () => {
     setAddCardFromListActions(currentListId);
@@ -17,6 +25,23 @@ const ListActions = () => {
 
   const onMoveClicked = () => {
     setOptionsModal('on', 'moveList');
+    setOptionsModalStep('on', 'listActions');
+  }
+
+  const onWatchClicked = () => {
+    setWatching(currentBoardId, currentListId);
+  }
+
+  const onMoveAllCardsClicked = () => {
+    console.log('move all')
+  }
+
+  const onSortClicked = () => {
+    console.log('sort')
+  }
+
+  const onDeleteAllCardsClicked = () => {
+    setOptionsModal('on', 'deleteAllCards');
     setOptionsModalStep('on', 'listActions');
   }
 
@@ -36,20 +61,24 @@ const ListActions = () => {
       <div className='list-action-item' onClick={onMoveClicked}>
         move list
       </div>
-      <div className='list-action-item'>
+      <div className='list-action-item' onClick={onWatchClicked}>
         watch
+        {
+          getList(currentBoardId, currentListId).watching
+            && <i className='fas fa-check ml text-85'></i>
+        }
       </div>
       <hr />
-      <div className='list-action-item'>
-        move all cards in this list list
+      <div className='list-action-item' onClick={onMoveAllCardsClicked}>
+        move all cards in this list
       </div>
-      <div className='list-action-item'>
-        delete all cards in this list
-      </div>
-      <div className='list-action-item'>
+      <div className='list-action-item' onClick={onSortClicked}>
         sort...
       </div>
       <hr />
+      <div className='list-action-item delete-list' onClick={onDeleteAllCardsClicked}>
+        delete all cards in this list
+      </div>
       <div className='list-action-item delete-list' onClick={onDeleteClicked}>
         delete this list
       </div>

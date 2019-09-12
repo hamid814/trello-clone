@@ -2,9 +2,11 @@ import {
   ADD_BOARD,
   SET_TITLE,
   SET_STAR,
+  SET_WATCHING,
   SET_DESCRIBTION,
   ADD_LIST,
   DELETE_LIST,
+  DELETE_ALL_CARDS,
   SET_LIST_TITLE,
   COPY_LIST,
   MOVE_LIST,
@@ -44,6 +46,21 @@ export default (state, action) => {
         }),
         listOfStarredBoardsIds: action.payload.newListOfStarredBoardsIds
       }
+    case SET_WATCHING:
+      return {
+        ...state,
+        boards: state.boards.map(b => {
+          if(b.id === action.payload.boardId) {
+            b.lists.map(l => {
+              if(l.id === action.payload.listId) {
+                l.watching = !l.watching
+              }
+              return l
+            })
+          }
+          return b
+        })
+      }
     case SET_DESCRIBTION:
       return {
         ...state,
@@ -75,10 +92,17 @@ export default (state, action) => {
         })
       }
     case MOVE_LIST:
-      console.log(action.payload)
       return {
         ...state,
-        
+        boards: state.boards.map(board => {
+          if(board.id === action.payload.firstBoardId) {
+            board.lists.splice(action.payload.firstIndex, 1)
+          }
+          if(board.id === action.payload.destBoardId) {
+            board.lists.splice(action.payload.destIndex, 0, action.payload.list)
+          }
+          return board
+        })
       }
     case DELETE_LIST:
       return {
@@ -88,6 +112,21 @@ export default (state, action) => {
             board.lists = board.lists.filter(list => list.id !== action.payload.listId);
           }
           return board
+        })
+      }
+    case DELETE_ALL_CARDS:
+      return {
+        ...state,
+        boards: state.boards.map(b => {
+          if(b.id === action.payload.boardId) {
+            b.lists.map(l => {
+              if(l.id === action.payload.listId) {
+                l.items = []
+              }
+              return l
+            })
+          }
+          return b
         })
       }
     case ADD_CARD:

@@ -6,6 +6,7 @@ import ListActions from './options/ListActions';
 import DeleteList from './options/DeleteList';
 import CopyList from './options/CopyList';
 import MoveList from './options/MoveList';
+import DeleteAllCards from './options/DeleteAllCards';
 
 import UserContext from '../../context/user/userContext';
 
@@ -127,6 +128,9 @@ const OptionsModal = () => {
             {
               optionsModalType === 'moveList' && 'Move List'
             }
+            {
+              optionsModalType === 'deleteAllCards' && 'Empty the List'
+            }
           </div>
           <div className='options-modal-body'>
             {
@@ -149,6 +153,9 @@ const OptionsModal = () => {
             }
             {
               optionsModalType === 'moveList' && <MoveList />
+            }
+            {
+              optionsModalType === 'deleteAllCards' && <DeleteAllCards />
             }
           </div>
         </div>

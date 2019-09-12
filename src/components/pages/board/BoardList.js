@@ -82,6 +82,12 @@ const BoardList = ({ list, boardFuncs /* all of board context */ }) => {
         <div className='btn bg-transparent-with-hover btn-square float-right mt' onClick={onlistOptionsClick}>
           <i className='fas fa-ellipsis-h'></i>
         </div>
+        {
+          list.watching &&
+          <div className='text-85 bg-transparent btn-square float-right mt'>
+            <i className='fas fa-eye'></i>
+          </div>
+        }
       </div>
       <div className='trello-board-list-items'>
         { list.items.map((i, index) => (

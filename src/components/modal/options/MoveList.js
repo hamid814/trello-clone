@@ -18,6 +18,7 @@ const MoveList = () => {
     setDestBoardId(currentBoardId);
     setDestPos(getBoard(currentBoardId).lists.findIndex(l => l.id === currentListId));
     boardsSelect.current.value = currentBoardId;
+    // eslint-disable-next-line
   }, [currentBoardId, currentListId]);
 
   const onBoardDestChange = (e) => {
@@ -31,12 +32,10 @@ const MoveList = () => {
   }
 
   const onMove = () => {
-    const indexOfList = getBoard(currentBoardId).lists.findIndex(l => l.id === currentListId);
-
     if(changed) {
-      moveList(currentBoardId, indexOfList, destBoardId, desPos);
+      moveList(currentBoardId, currentListId, destBoardId, desPos);
     }
-    
+
     setOptionsModal('off');
   }
 
@@ -60,6 +59,11 @@ const MoveList = () => {
           destBoardId && getBoard(destBoardId).lists.map((list, index) => (
             <option key={list.id} value={index + 1}>{ index + 1 }{ list.id === currentListId && '(current)' }</option>
           ))
+        }
+        {
+          destBoardId
+            && (destBoardId !== currentBoardId)
+             && <option value={getBoard(destBoardId).lists.length + 1}>{ getBoard(destBoardId).lists.length + 1 }</option>
         }
       </select>
       <div className='btn btn-success' onClick={onMove}>

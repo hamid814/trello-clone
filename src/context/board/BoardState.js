@@ -6,9 +6,11 @@ import {
   ADD_BOARD,
   SET_TITLE,
   SET_STAR,
+  SET_WATCHING,
   SET_DESCRIBTION,
   ADD_LIST,
   DELETE_LIST,
+  DELETE_ALL_CARDS,
   SET_LIST_TITLE,
   COPY_LIST,
   MOVE_LIST,
@@ -33,6 +35,7 @@ const BoardState = props => {
           {
             title: 'todos',
             id: 'k0gdyqai',
+            watching: false,
             items: [
               {
                 text: 'todo 1',
@@ -84,6 +87,7 @@ const BoardState = props => {
           {
             title: 'doing',
             id: uniqid(),
+            watching: true,
             items: [
               {
                 text: 'doing 1',
@@ -308,6 +312,16 @@ const BoardState = props => {
     });
   }
 
+  const setWatching = (boardId, listId) => {
+    dispatch({
+      type: SET_WATCHING,
+      payload: {
+        boardId,
+        listId
+      }
+    });
+  }
+
   // set board describtion
   const setDescribtion = (text, id) => {
     dispatch({
@@ -338,6 +352,16 @@ const BoardState = props => {
   const deleteList = (boardId, listId) => {
     dispatch({
       type: DELETE_LIST,
+      payload: {
+        boardId,
+        listId
+      }
+    });
+  }
+
+  const deleteAllCards = (boardId, listId) => {
+    dispatch({
+      type: DELETE_ALL_CARDS,
       payload: {
         boardId,
         listId
@@ -381,15 +405,20 @@ const BoardState = props => {
     });
   }
 
-  // takes infour prams: (first board id, first index, destination board id, destionation index)
-  const moveList = (firstBoardId, firstIndex, destBoardId, destIndex) => {
+  // takes in four prams: (first board id, first list id, destination board id, destionation index)
+  const moveList = (firstBoardId, firstListId, destBoardId, destIndex) => {
+    const firstIndex = getBoard(firstBoardId).lists.findIndex(l => l.id === firstListId);
+
+    const list = getList(firstBoardId, firstListId);
+
     dispatch({
       type: MOVE_LIST,
       payload: {
         firstBoardId,
         firstIndex,
         destBoardId,
-        destIndex
+        destIndex,
+        list
       }
     });
   }
@@ -493,9 +522,11 @@ const BoardState = props => {
         getList,
         setTitle,
         setStar,
+        setWatching,
         setDescribtion,
         addList,
         deleteList,
+        deleteAllCards,
         setListTitle,
         copyList,
         moveList,

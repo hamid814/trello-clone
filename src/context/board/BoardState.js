@@ -29,14 +29,14 @@ const BoardState = props => {
     boards: [
       {
         title: 'my nice board',
-        id: 'k0f0psnk',
+        id: 'b1',
         color: '#344e5c',
         starred: false,
         describtion: 'board describtion goes here',
         lists: [
           {
             title: 'todos',
-            id: 'k0gdyqai',
+            id: 'b1-l1',
             watching: false,
             items: [
               {
@@ -88,7 +88,7 @@ const BoardState = props => {
           },
           {
             title: 'doing',
-            id: uniqid(),
+            id: 'b1-l2',
             watching: true,
             items: [
               {
@@ -123,7 +123,7 @@ const BoardState = props => {
           },
           {
             title: 'new list',
-            id: uniqid(),
+            id: 'b1-l3',
             items: [
 
             ]
@@ -132,14 +132,14 @@ const BoardState = props => {
       },
       {
         title: 'test empty',
-        id: 'k0f0psn2',
+        id: 'b2',
         starred: false,
         color: '#4759a3',
         describtion: '',
         lists: [
           {
             title: 'test for one',
-            id: uniqid(),
+            id: 'b2-l1',
             items: [
               
             ]

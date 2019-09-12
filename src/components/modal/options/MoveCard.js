@@ -10,7 +10,7 @@ const MoveCard = () => {
   
   const [destBoardId, setDestBoardId] = useState('');
   const [destListId, setDestListId] = useState('');
-  const [desPos, setDestPos] = useState(0);
+  const [destPos, setDestPos] = useState(0);
 
   const { currentBoardId, currentListId, currentCard } = useContext(UserContext);
   const { boards, getBoard, getList, moveCard } = useContext(BoardContext);
@@ -19,14 +19,12 @@ const MoveCard = () => {
     setDestBoardId(currentBoardId);
     setDestListId(currentListId);
     setDestPos(getList(currentBoardId, currentListId).items.findIndex(i => i.id === currentCard.id) + 1);
-    // boardsSelect.current.value = currentBoardId;
-    // listSelect.current.value = currentListId;
-    // posSelect.current.value = getList(currentBoardId, currentListId).items;
     // eslint-disable-next-line
   }, [currentBoardId, currentListId]);
 
   const onBoardDestChange = (e) => {
     setDestBoardId(e.target.value);
+    setDestListId(getBoard(e.target.value).lists[0].id)
   }
 
   const onListDestChange = (e) => {
@@ -38,7 +36,7 @@ const MoveCard = () => {
   }
 
   const onMove = () => {
-    // moveCard();
+    moveCard();
   }
 
   return (
@@ -51,6 +49,7 @@ const MoveCard = () => {
         <select ref={boardsSelect} value={destBoardId} onChange={onBoardDestChange} className='mb'>
           {
             boards.map(board => (
+              board.lists.length !== 0 &&
               <option key={board.id} value={board.id}>{ board.title }{ board.id === currentBoardId && ' (current)' }</option>
             ))
           }
@@ -74,7 +73,7 @@ const MoveCard = () => {
         <div className="p">
           position
         </div>
-        <select ref={posSelect} value={desPos} onChange={onPosDestChange} className='mb'>
+        <select ref={posSelect} value={destPos} onChange={onPosDestChange} className='mb'>
           {
             destBoardId
               && destListId
@@ -88,16 +87,6 @@ const MoveCard = () => {
             && (destListId !== currentListId)
             &&  <option value={getList(destBoardId, destListId).items.length + 1}>{ getList         (destBoardId, destListId).items.length + 1 }</option>
           }
-          {/* {
-            destBoardId && getBoard(destBoardId).lists.map((list, index) => (
-              <option key={list.id} value={index + 1}>{ index + 1 }{ list.id === currentListId && ' (current)' }</option>
-            ))
-          }
-          {
-            destBoardId
-              && (destBoardId !== currentBoardId)
-              && <option value={getBoard(destBoardId).lists.length + 1}>{ getBoard(destBoardId).lists.length + 1 }</option>
-          } */}
         </select>
       </section>
       <div className='btn btn-success' onClick={onMove}>

@@ -30,7 +30,7 @@ const BoardState = props => {
       {
         title: 'my nice board',
         id: 'k0f0psnk',
-        color: '#46b29e',
+        color: '#344e5c',
         starred: false,
         describtion: 'board describtion goes here',
         lists: [

@@ -39,6 +39,7 @@ const ListActions = () => {
 
   const onSortClicked = () => {
     sortList(currentBoardId, currentListId);
+    setOptionsModal('off');
   }
 
   const onDeleteAllCardsClicked = () => {

@@ -102,68 +102,28 @@ const OptionsModal = () => {
             <div className="close" onClick={closeModal}>
               &times;
             </div>
-            {
-              optionsModalType === 'editCardLabels' && 'Labels'
-            }
-            {
-              optionsModalType === 'editLabel' && 'Change Label'
-            }
-            {
-              optionsModalType === 'move' && 'Move card'
-            }
-            {
-              optionsModalType === 'members' && 'Members'
-            }
-            {
-              optionsModalType === 'deleteCard' && 'Delete Card'
-            }
-            {
-              optionsModalType === 'listActions' && 'List Actions'
-            }
-            {
-              optionsModalType === 'deleteList' && 'Delete List'
-            }
-            {
-              optionsModalType === 'copyList' && 'Copy List'
-            }
-            {
-              optionsModalType === 'moveList' && 'Move List'
-            }
-            {
-              optionsModalType === 'deleteAllCards' && 'Empty the List'
-            }
-            {
-              optionsModalType === 'moveAllCards' && 'select board'
-            }
+            { optionsModalType === 'editCardLabels' && 'Labels' }
+            { optionsModalType === 'editLabel' && 'Change Label' }
+            { optionsModalType === 'moveCard' && 'Move card' }
+            { optionsModalType === 'members' && 'Members' }
+            { optionsModalType === 'deleteCard' && 'Delete Card' }
+            { optionsModalType === 'listActions' && 'List Actions' }
+            { optionsModalType === 'deleteList' && 'Delete List' }
+            { optionsModalType === 'copyList' && 'Copy List' }
+            { optionsModalType === 'moveList' && 'Move List' }
+            { optionsModalType === 'deleteAllCards' && 'Empty the List' }
+            { optionsModalType === 'moveAllCards' && 'select board' }
           </div>
           <div className='options-modal-body'>
-            {
-              optionsModalType === 'deleteCard' && <DeleteCard />
-            }
-            {
-              optionsModalType === 'editCardLabels' && <EditCardLabels />
-            }
-            {
-              optionsModalType === 'editLabel' && <EditLabel />
-            }
-            {
-              optionsModalType === 'listActions' && <ListActions />
-            }
-            {
-              optionsModalType === 'deleteList' && <DeleteList />
-            }
-            {
-              optionsModalType === 'copyList' && <CopyList />
-            }
-            {
-              optionsModalType === 'moveList' && <MoveList />
-            }
-            {
-              optionsModalType === 'deleteAllCards' && <DeleteAllCards />
-            }
-            {
-              optionsModalType === 'moveAllCards' && <MoveAllCards />
-            }
+            { optionsModalType === 'deleteCard' && <DeleteCard /> }
+            { optionsModalType === 'editCardLabels' && <EditCardLabels /> }
+            { optionsModalType === 'editLabel' && <EditLabel /> }
+            { optionsModalType === 'listActions' && <ListActions /> }
+            { optionsModalType === 'deleteList' && <DeleteList /> }
+            { optionsModalType === 'copyList' && <CopyList /> }
+            { optionsModalType === 'moveList' && <MoveList /> }
+            { optionsModalType === 'deleteAllCards' && <DeleteAllCards /> }
+            { optionsModalType === 'moveAllCards' && <MoveAllCards /> }
           </div>
         </div>
     </div>

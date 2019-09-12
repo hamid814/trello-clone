@@ -37,6 +37,7 @@ const UserState = props => {
     fastEditModalPos: null,
     mosuePos: {},
     bigLabels: false,
+    addCardFromListActions: null,
   };
 
   const [state, dispatch] = useReducer(userReducer, initialState);
@@ -216,6 +217,14 @@ const UserState = props => {
     });
   }
 
+  //  add card will be addeed to the list with the id that its passed in
+  const setAddCardFromListActions = (id) => {
+    dispatch({
+      type: 'setAddCardFromListActions',
+      payload: id
+    });
+  }
+
   return (
     <UserContext.Provider
       value={{
@@ -233,6 +242,7 @@ const UserState = props => {
         fastEditModalPos: state.fastEditModalPos,
         mousePos: state.mousePos,
         bigLabels: state.bigLabels,
+        addCardFromListActions: state.addCardFromListActions,
         setCurrentBoardId,
         clearCurrentBoardId,
         setCurrentListId,
@@ -245,6 +255,7 @@ const UserState = props => {
         setFastEditModalPos,
         setMousePos,
         toggleBigLabels,
+        setAddCardFromListActions,
       }}
     >
       {props.children}

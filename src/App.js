@@ -22,11 +22,12 @@ const App = () => {
 
   // to display board page for development purposes
   useEffect(() => {
-    setCurrentBoardId(1);
+    setCurrentBoardId('k0f0psnk');
     console.log('focus on inputs')
     console.log('change the word "item" to card in context and stuff')
     console.log('sort the list actions ( put them in [dasteh] )')
     console.log('setScrollIfLonger if board copied')
+    console.log('newCardActions in boardList does nothing yet ( add card must be editted to send an object to the context not a text )')
     // eslint-disable-next-line
   }, []);
 

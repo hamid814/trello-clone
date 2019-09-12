@@ -7,6 +7,7 @@ import {
   DELETE_LIST,
   SET_LIST_TITLE,
   COPY_LIST,
+  MOVE_LIST,
   ADD_CARD,
   UPDATE_CARD,
   DELETE_CARD,
@@ -72,6 +73,12 @@ export default (state, action) => {
           }
           return b
         })
+      }
+    case MOVE_LIST:
+      console.log(action.payload)
+      return {
+        ...state,
+        
       }
     case DELETE_LIST:
       return {

@@ -105,6 +105,11 @@ export default (state, action) => {
         ...state,
         bigLabels: !state.bigLabels
       }
+    case 'setAddCardFromListActions':
+      return {
+        ...state,
+        addCardFromListActions: action.payload
+      }
     default:
       return state;
   }

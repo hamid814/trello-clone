@@ -11,6 +11,7 @@ import {
   DELETE_LIST,
   SET_LIST_TITLE,
   COPY_LIST,
+  MOVE_LIST,
   ADD_CARD,
   UPDATE_CARD,
   DELETE_CARD,
@@ -24,14 +25,14 @@ const BoardState = props => {
     boards: [
       {
         title: 'my nice board',
-        id: 1,
+        id: 'k0f0psnk',
         color: '#46b29e',
         starred: false,
         describtion: 'board describtion goes here',
         lists: [
           {
             title: 'todos',
-            id: 1,
+            id: 'k0gdyqai',
             items: [
               {
                 text: 'todo 1',
@@ -125,7 +126,7 @@ const BoardState = props => {
       },
       {
         title: 'test empty',
-        id: 2,
+        id: 'k0f0psn2',
         starred: false,
         color: '#4759a3',
         describtion: '',
@@ -380,6 +381,19 @@ const BoardState = props => {
     });
   }
 
+  // takes infour prams: (first board id, first index, destination board id, destionation index)
+  const moveList = (firstBoardId, firstIndex, destBoardId, destIndex) => {
+    dispatch({
+      type: MOVE_LIST,
+      payload: {
+        firstBoardId,
+        firstIndex,
+        destBoardId,
+        destIndex
+      }
+    });
+  }
+
   // add card to list
   const addCard = (text, listId, boardId) => {
     const newCard = {
@@ -484,6 +498,7 @@ const BoardState = props => {
         deleteList,
         setListTitle,
         copyList,
+        moveList,
         addCard,
         updateCard,
         deleteCard,

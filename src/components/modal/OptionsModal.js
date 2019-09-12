@@ -5,6 +5,7 @@ import EditLabel from './options/EditLabel';
 import ListActions from './options/ListActions';
 import DeleteList from './options/DeleteList';
 import CopyList from './options/CopyList';
+import MoveList from './options/MoveList';
 
 import UserContext from '../../context/user/userContext';
 
@@ -123,6 +124,9 @@ const OptionsModal = () => {
             {
               optionsModalType === 'copyList' && 'Copy List'
             }
+            {
+              optionsModalType === 'moveList' && 'Move List'
+            }
           </div>
           <div className='options-modal-body'>
             {
@@ -142,6 +146,9 @@ const OptionsModal = () => {
             }
             {
               optionsModalType === 'copyList' && <CopyList />
+            }
+            {
+              optionsModalType === 'moveList' && <MoveList />
             }
           </div>
         </div>

@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useContext } from 'react';
+import React, { Fragment, useState, useEffect, useContext } from 'react';
 import ListTitle from './ListTitle';
 import BoardListItem from './BoardListItem';
 
@@ -6,14 +6,22 @@ import UserContext from '../../../context/user/userContext';
 import AlertContext from '../../../context/alert/alertContext';
 
 const BoardList = ({ list, boardFuncs /* all of board context */ }) => {
+
   const userContext = useContext(UserContext);
   const alertContext = useContext(AlertContext);
 
-  const { setCurrentListId, currentBoardId, setOptionsModal } = userContext;
+  const { setCurrentListId, currentBoardId, setOptionsModal, addCardFromListActions } = userContext;
   const { setAlert } = alertContext;
 
   const [wantToAddCard, setWantToAddCard] = useState(false);
   const [newCardText, setNewCardText] = useState('');
+
+  useEffect(() => {
+    if(addCardFromListActions === list.id) {
+      setWantToAddCard(true);
+    }
+    // eslint-disable-next-line
+  }, [addCardFromListActions]);
 
   const onAddCardClick = () => {
     !wantToAddCard && setWantToAddCard(true);
@@ -63,6 +71,10 @@ const BoardList = ({ list, boardFuncs /* all of board context */ }) => {
     setOptionsModal('on', 'listActions');
   }
 
+  const onNewCardOptionsClick = () => {
+    setOptionsModal('on', 'newCardActions');
+  }
+
   return (
     <div className='trello-board-list' onClick={onListCLick}>
       <div className='trello-board-list-header'>
@@ -78,7 +90,6 @@ const BoardList = ({ list, boardFuncs /* all of board context */ }) => {
         <div className={`trello-board-list-item trello-board-card-compose  ${!wantToAddCard && 'd-n'}`}>
           <textarea
             className='trello-board-card-compose-textarea'
-            autoFocus
             placeholder='Enter a title for this card'
             onBlur={onTextareaBlur}
             onKeyUp={onKeyUp}
@@ -102,6 +113,9 @@ const BoardList = ({ list, boardFuncs /* all of board context */ }) => {
               </div>
               <div className='d-i-b cursor-p ml-1 text-lg lighten-60 hover' onClick={cancelAddCard}>
                 &times;
+              </div>
+              <div className='btn bg-transparent-with-hover btn-square float-right'          onClick={onNewCardOptionsClick}>
+                  <i className='fas fa-ellipsis-h'></i>
               </div>
             </Fragment>
           )  

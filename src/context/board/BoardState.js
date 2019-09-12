@@ -14,6 +14,7 @@ import {
   MOVE_ALL_CARDS,
   SET_LIST_TITLE,
   COPY_LIST,
+  SORT_LIST,
   MOVE_LIST,
   ADD_CARD,
   UPDATE_CARD,
@@ -39,7 +40,7 @@ const BoardState = props => {
             watching: false,
             items: [
               {
-                text: 'todo 1',
+                text: 'codo 1',
                 desc: 'one describtion',
                 id: uniqid(),
                 labels: [
@@ -49,35 +50,35 @@ const BoardState = props => {
                 ]
               },
               {
-                text: 'todo 2',
+                text: 'aodo 2',
                 id: uniqid(),
                 labels: [
                   3
                 ]
               },
               {
-                text: 'todo 2',
+                text: 'dodo 2',
                 id: uniqid(),
                 labels: [
                   2
                 ]
               },
               {
-                text: 'todo 2',
+                text: 'codo 2',
                 id: uniqid(),
                 labels: [
                   2
                 ]
               },
               {
-                text: 'todo 2',
+                text: 'bodo 2',
                 id: uniqid(),
                 labels: [
                   2
                 ]
               },
               {
-                text: 'todo 2',
+                text: 'eodo 2',
                 id: uniqid(),
                 labels: [
                   2
@@ -433,6 +434,21 @@ const BoardState = props => {
     });
   }
 
+  const sortList = (boardId, listId) => {
+    const newItems = getList(boardId, listId).items;
+
+    newItems.sort((a, b) => a.text < b.text ? -1 : a.text > b.text ? 1 : 0);
+
+    dispatch({
+      type: SORT_LIST,
+      payload: {
+        boardId,
+        listId,
+        newItems
+      }
+    });
+  }
+
   // takes in four prams: (first board id, first list id, destination board id, destionation index)
   const moveList = (firstBoardId, firstListId, destBoardId, destIndex) => {
     const firstIndex = getBoard(firstBoardId).lists.findIndex(l => l.id === firstListId);
@@ -558,6 +574,7 @@ const BoardState = props => {
         moveAllCards,
         setListTitle,
         copyList,
+        sortList,
         moveList,
         addCard,
         updateCard,

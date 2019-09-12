@@ -4,12 +4,13 @@ import UserContext from '../../../context/user/userContext';
 import BoardContext from '../../../context/board/boardContext';
 
 const MoveAllCards = () => {
-  const { currentBoardId, currentListId } = useContext(UserContext);
+  const { currentBoardId, currentListId, setOptionsModal } = useContext(UserContext);
   const { getBoard, moveAllCards } = useContext(BoardContext);
 
   const onClick = (e) => {
     if(!e.target.classList.contains('func-not')) {
       moveAllCards(currentBoardId, currentListId, e.target.id);
+      setOptionsModal('off');
     }
   }
 

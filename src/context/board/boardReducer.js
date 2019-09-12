@@ -10,6 +10,7 @@ import {
   MOVE_ALL_CARDS,
   SET_LIST_TITLE,
   COPY_LIST,
+  SORT_LIST,
   MOVE_LIST,
   ADD_CARD,
   UPDATE_CARD,
@@ -92,6 +93,21 @@ export default (state, action) => {
           return b
         })
       }
+    case SORT_LIST:
+     return {
+       ...state,
+       boards: state.boards.map(b => {
+         if(b.id === action.payload.boardId) {
+           b.lists = b.lists.map(l => {
+            if(l.id === action.payload.listId) {
+              l.items = action.payload.newItems
+            }
+            return l
+           })
+         }
+         return b
+       })
+     }
     case MOVE_LIST:
       return {
         ...state,

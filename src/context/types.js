@@ -11,6 +11,7 @@ export const DELETE_ALL_CARDS = 'DELETE_ALL_CARDS';
 export const MOVE_ALL_CARDS = 'MOVE_ALL_CARDS';
 export const SET_LIST_TITLE = 'SET_LIST_TITLE';
 export const COPY_LIST = 'COPY_LIST';
+export const SORT_LIST = 'SORT_LIST';
 export const MOVE_LIST = 'MOVE_LIST';
 export const ADD_CARD = 'ADD_CARD';
 export const UPDATE_CARD = 'UPDATE_CARD';

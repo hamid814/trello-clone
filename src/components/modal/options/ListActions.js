@@ -11,7 +11,7 @@ const ListActions = () => {
     setOptionsModalStep,
     setAddCardFromListActions
   } = useContext(UserContext);
-  const { getList, setWatching } = useContext(BoardContext);
+  const { getList, setWatching, sortList } = useContext(BoardContext);
 
   const onAddCardClicked = () => {
     setAddCardFromListActions(currentListId);
@@ -38,7 +38,7 @@ const ListActions = () => {
   }
 
   const onSortClicked = () => {
-    console.log('sort')
+    sortList(currentBoardId, currentListId);
   }
 
   const onDeleteAllCardsClicked = () => {

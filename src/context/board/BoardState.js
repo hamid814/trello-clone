@@ -11,6 +11,7 @@ import {
   ADD_LIST,
   DELETE_LIST,
   DELETE_ALL_CARDS,
+  MOVE_ALL_CARDS,
   SET_LIST_TITLE,
   COPY_LIST,
   MOVE_LIST,
@@ -369,6 +370,33 @@ const BoardState = props => {
     });
   }
 
+  const moveAllCards = (boardId, firstListId, destListId) => {
+    let newItems = [];
+
+    getList(boardId, firstListId).items.forEach(item => {
+      newItems.push(item);
+    });
+
+    newItems = newItems.map(i => {
+      return {
+        ...i,
+        id: uniqid()
+      }
+    })
+
+    // now newItems is equal to an array of items with new ids
+
+    dispatch({
+      type: MOVE_ALL_CARDS,
+      payload: {
+        boardId,
+        firstListId,
+        destListId,
+        newItems
+      }
+    });
+  }
+
   const setListTitle = (boardId, listId, newTitle) => {
     dispatch({
       type: SET_LIST_TITLE,
@@ -527,6 +555,7 @@ const BoardState = props => {
         addList,
         deleteList,
         deleteAllCards,
+        moveAllCards,
         setListTitle,
         copyList,
         moveList,

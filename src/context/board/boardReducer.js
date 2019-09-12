@@ -7,6 +7,7 @@ import {
   ADD_LIST,
   DELETE_LIST,
   DELETE_ALL_CARDS,
+  MOVE_ALL_CARDS,
   SET_LIST_TITLE,
   COPY_LIST,
   MOVE_LIST,
@@ -122,6 +123,24 @@ export default (state, action) => {
             b.lists.map(l => {
               if(l.id === action.payload.listId) {
                 l.items = []
+              }
+              return l
+            })
+          }
+          return b
+        })
+      }
+    case MOVE_ALL_CARDS:
+      return {
+        ...state,
+        boards: state.boards.map(b => {
+          if(b.id === action.payload.boardId) {
+            b.lists = b.lists.map(l => {
+              if(l.id === action.payload.firstListId) {
+                l.items = []
+              }
+              if(l.id === action.payload.destListId) {
+                l.items = l.items.concat(action.payload.newItems)
               }
               return l
             })

@@ -191,10 +191,20 @@
   background: rgba(180, 255, 230, 0);
   padding: 0.5rem 0.3rem;
   cursor: pointer;
+  margin-bottom: 0.2rem;
 }
 
 .list-action-item:hover {
   background: rgba(180, 180, 180, 0.137);
+}
+
+.item-choosen {
+  background: rgba(180, 180, 180, 0.3);
+  cursor: default
+}
+
+.item-choosen:hover {
+  background: rgba(180, 180, 180, 0.3);
 }
 
 .delete-list:hover {

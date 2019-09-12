@@ -33,7 +33,8 @@ const ListActions = () => {
   }
 
   const onMoveAllCardsClicked = () => {
-    console.log('move all')
+    setOptionsModal('on', 'moveAllCards');
+    setOptionsModalStep('on', 'listActions');
   }
 
   const onSortClicked = () => {

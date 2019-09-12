@@ -211,12 +211,12 @@
   color: var(--danger-color);
 }
 
-.move-list-modal select {
+.move-list-modal select, .move-card-modal select {
   border: none;
   background: #e7f5eb;
 }
 
-.move-list-modal section {
+.move-list-modal section, .move-card-modal section {
   padding: 0.25rem 1.2rem;;
   background: #e7f5eb;
   border-radius: 0.35rem;

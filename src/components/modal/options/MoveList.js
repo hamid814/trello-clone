@@ -42,7 +42,7 @@ const MoveList = () => {
         <select ref={boardsSelect} onChange={onBoardDestChange} className='mb'>
           {
             boards.map(board => (
-              <option key={board.id} value={board.id}>{ board.title }{ board.id === currentBoardId && '(current)' }</option>
+              <option key={board.id} value={board.id}>{ board.title }{ board.id === currentBoardId && ' (current)' }</option>
             ))
           }
         </select>
@@ -54,7 +54,7 @@ const MoveList = () => {
         <select ref={PosSelect} value={desPos} onChange={onListDestChange} className='mb'>
           {
             destBoardId && getBoard(destBoardId).lists.map((list, index) => (
-              <option key={list.id} value={index + 1}>{ index + 1 }{ list.id === currentListId && '(current)' }</option>
+              <option key={list.id} value={index + 1}>{ index + 1 }{ list.id === currentListId && ' (current)' }</option>
             ))
           }
           {

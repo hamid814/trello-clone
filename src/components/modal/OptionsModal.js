@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef, useContext } from 'react';
 import DeleteCard from './options/DeleteCard';
+import MoveCard from './options/MoveCard';
 import EditCardLabels from './options/EditCardLabels';
 import EditLabel from './options/EditLabel';
 import ListActions from './options/ListActions';
@@ -105,6 +106,7 @@ const OptionsModal = () => {
             { optionsModalType === 'editCardLabels' && 'Labels' }
             { optionsModalType === 'editLabel' && 'Change Label' }
             { optionsModalType === 'moveCard' && 'Move card' }
+            { optionsModalType === 'copyCard' && 'Copy card' }
             { optionsModalType === 'members' && 'Members' }
             { optionsModalType === 'deleteCard' && 'Delete Card' }
             { optionsModalType === 'listActions' && 'List Actions' }
@@ -115,8 +117,9 @@ const OptionsModal = () => {
             { optionsModalType === 'moveAllCards' && 'select board' }
           </div>
           <div className='options-modal-body'>
-            { optionsModalType === 'deleteCard' && <DeleteCard /> }
             { optionsModalType === 'editCardLabels' && <EditCardLabels /> }
+            { optionsModalType === 'moveCard' && <MoveCard /> }
+            { optionsModalType === 'deleteCard' && <DeleteCard /> }
             { optionsModalType === 'editLabel' && <EditLabel /> }
             { optionsModalType === 'listActions' && <ListActions /> }
             { optionsModalType === 'deleteList' && <DeleteList /> }

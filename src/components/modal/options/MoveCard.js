@@ -36,7 +36,9 @@ const MoveCard = () => {
   }
 
   const onMove = () => {
-    moveCard();
+    if(false) {
+      moveCard();
+    }
   }
 
   return (
@@ -83,9 +85,9 @@ const MoveCard = () => {
           }
           {
             destBoardId
-            && destListId
-            && (destListId !== currentListId)
-            &&  <option value={getList(destBoardId, destListId).items.length + 1}>{ getList         (destBoardId, destListId).items.length + 1 }</option>
+              && destListId
+                && (destListId !== currentListId)
+                  &&  <option value={getList(destBoardId, destListId).items.length + 1}>{ getList(destBoardId, destListId).items.length + 1 }</option>
           }
         </select>
       </section>

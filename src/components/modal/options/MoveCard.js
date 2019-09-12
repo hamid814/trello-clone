@@ -45,7 +45,7 @@ const MoveCard = () => {
     <div className='move-card-modal text-85'>
       {/* board select */}
       <section>
-        <div className="p">
+        <div className='p'>
           board
         </div>
         <select ref={boardsSelect} value={destBoardId} onChange={onBoardDestChange} className='mb'>
@@ -59,7 +59,7 @@ const MoveCard = () => {
       </section>
       {/* list select */}
       <section>
-        <div className="p">
+        <div className='p'>
           list
         </div>
         <select ref={listSelect} value={destListId} onChange={onListDestChange} className='mb'>
@@ -72,7 +72,7 @@ const MoveCard = () => {
       </section>
       {/* posotion select */}
       <section>
-        <div className="p">
+        <div className='p'>
           position
         </div>
         <select ref={posSelect} value={destPos} onChange={onPosDestChange} className='mb'>
@@ -99,3 +99,5 @@ const MoveCard = () => {
 }
 
 export default MoveCard
+
+cant select last pos

@@ -16,6 +16,7 @@ export const MOVE_LIST = 'MOVE_LIST';
 export const ADD_CARD = 'ADD_CARD';
 export const UPDATE_CARD = 'UPDATE_CARD';
 export const DELETE_CARD = 'DELETE_CARD';
+export const MOVE_CARD = 'MOVE_CARD';
 export const ADD_LABEL = 'ADD_LABEL';
 export const UPDATE_LABEL = 'UPDATE_LABEL';
 export const DELETE_LABEL = 'DELETE_LABEL';

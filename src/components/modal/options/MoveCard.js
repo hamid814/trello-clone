@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, useContext } from 'react';
 
 import UserContext from '../../../context/user/userContext';
 import BoardContext from '../../../context/board/boardContext';
+import AlertContext from '../../../context/alert/alertContext';
 
 const MoveCard = () => {
   const boardsSelect = useRef(null);
@@ -12,8 +13,9 @@ const MoveCard = () => {
   const [destListId, setDestListId] = useState('');
   const [destPos, setDestPos] = useState(0);
 
-  const { currentBoardId, currentListId, currentCard } = useContext(UserContext);
+  const { currentBoardId, currentListId, currentCard, setModal, setOptionsModal } = useContext(UserContext);
   const { boards, getBoard, getList, moveCard } = useContext(BoardContext);
+  const { setAlert } = useContext(AlertContext);
 
   useEffect(() => {
     setDestBoardId(currentBoardId);
@@ -36,14 +38,15 @@ const MoveCard = () => {
   }
 
   const onMove = () => {
-    if(false) {
-      moveCard();
-    }
+    moveCard(currentBoardId, currentListId, currentCard.id, destBoardId, destListId, destPos, currentCard);
+    setOptionsModal('off');
+    setModal('off');
+    setAlert('card was moved', 'success');
   }
 
   return (
     <div className='move-card-modal text-85'>
-      {/* board select */}
+      {/* board selectList */}
       <section>
         <div className='p'>
           board
@@ -57,7 +60,7 @@ const MoveCard = () => {
           }
         </select>
       </section>
-      {/* list select */}
+      {/* list selectList */}
       <section>
         <div className='p'>
           list
@@ -70,7 +73,7 @@ const MoveCard = () => {
           }
         </select>
       </section>
-      {/* posotion select */}
+      {/* posotion selectList */}
       <section>
         <div className='p'>
           position
@@ -99,5 +102,3 @@ const MoveCard = () => {
 }
 
 export default MoveCard
-
-cant select last pos

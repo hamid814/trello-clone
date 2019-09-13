@@ -19,6 +19,7 @@ import {
   ADD_CARD,
   UPDATE_CARD,
   DELETE_CARD,
+  MOVE_CARD,
   ADD_LABEL,
   UPDATE_LABEL,
   DELETE_LABEL
@@ -508,6 +509,25 @@ const BoardState = props => {
     });
   }
 
+  const moveCard = (firstBoardId,firstListId,cardId,destBoardId,destListId,destIndex,card) => {
+    deleteCard(firstBoardId, firstListId, cardId);
+
+    const cardWithNewId = {
+      ...card,
+      id: uniqid()
+    }
+
+    dispatch({
+      type: MOVE_CARD,
+      payload: {
+        destBoardId,
+        destListId,
+        destIndex,
+        card: cardWithNewId
+      }
+    });
+  }
+
   const addLabel = (name, colorName, id) => {
     let is = false;
     const newLabel = {
@@ -579,6 +599,7 @@ const BoardState = props => {
         addCard,
         updateCard,
         deleteCard,
+        moveCard,
         addLabel,
         updateLabel,
         deleteLabel,

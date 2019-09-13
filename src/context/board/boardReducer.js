@@ -15,6 +15,7 @@ import {
   ADD_CARD,
   UPDATE_CARD,
   DELETE_CARD,
+  MOVE_CARD,
   ADD_LABEL,
   UPDATE_LABEL,
   DELETE_LABEL
@@ -220,6 +221,21 @@ export default (state, action) => {
             b.lists = b.lists.map(l => {
               if(l.id === action.payload.listId) {
                 l.items = l.items.filter(i => i.id !== action.payload.cardId)
+              }
+              return l
+            })
+          }
+          return b
+        })
+      }
+    case MOVE_CARD:
+      return {
+        ...state,
+        boards: state.boards.map(b => {
+          if(b.id === action.payload.destBoardId) {
+            b.lists = b.lists.map(l => {
+              if(l.id === action.payload.destListId) {
+                l.items.splice(action.payload.destIndex, 0, action.payload.card)
               }
               return l
             })

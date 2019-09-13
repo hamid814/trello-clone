@@ -11,6 +11,7 @@ const Checklist = ({ checklist }) => {
 
   const [text, setText] = useState('')
   const [isAdding, setIsAdding] = useState(false)
+  const [hideDone, setHideDone] = useState(false)
 
   const onChange = (e) => {
     setText(e.target.value);
@@ -59,17 +60,42 @@ const Checklist = ({ checklist }) => {
     }
   }
 
+  const getNumberOfDones = () => {
+    let num = 0;
+
+    checklist.items.forEach(i => {
+      if(i.done) {
+        num++
+      }
+    })
+
+    return num
+  }
+
+  const progress = {
+    width: `${Math.floor(getNumberOfDones() / checklist.items.length * 100)}%`
+  }
+
   return (
     <div>
-    <div className='text-85 mb mt'>
-      { checklist.title }
-      <div className='float-right'>
-        <div className='btn text-85 mr-0' onClick={onDeleteList}>
-          Delete
+      <div className='text-85 mb mt'>
+        { checklist.title }
+        <div className='float-right'>
+          <div className='btn text-85 mr-0' onClick={onDeleteList}>
+            Delete
+          </div>
         </div>
       </div>
-    </div>
-      <div className='mt-1'>
+      <div className="grid-1-10 width-100">
+        <div className='text-85 mt'>
+          { `${Math.floor(getNumberOfDones() / checklist.items.length * 100)}%` }
+        </div>
+        <div className='progress-bar'>
+          <div style={progress} className='progress'></div>
+        </div>
+      </div>
+      
+      <div className='mt'>
         {
           checklist.items.map(i => (
             <CheckListItem key={i.id} item={i} clId={checklist.id} />

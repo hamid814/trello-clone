@@ -1388,3 +1388,9 @@ aside {
   right: .8rem;
 }
 
+.grid-1-10 {
+  display: grid;
+  grid-template-columns: 1fr 15fr;
+  grid-gap: 2rem;
+  align-content: top;
+}

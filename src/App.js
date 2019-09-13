@@ -32,6 +32,7 @@ const App = () => {
     console.log('search labels')
     console.log('add members to details modal next to labels')
     console.log('style checkboxes')
+    console.log('scroll of details modal')
     console.clear()
     console.log('there are alot notes above this line')
     // eslint-disable-next-line

@@ -16,6 +16,7 @@ import {
   SET_OPTIONS_MODAL_STEP,
   SET_OPTIONS_MODAL_STEP_TYPE,
   SET_OPTIONS_MODAL_STEP_DATA,
+  SET_DATA,
 } from '../types';
 
 export default (state, action) => {
@@ -109,6 +110,11 @@ export default (state, action) => {
       return {
         ...state,
         addCardFromListActions: action.payload
+      }
+    case SET_DATA:
+      return {
+        ...state,
+        data: action.payload
       }
     default:
       return state;

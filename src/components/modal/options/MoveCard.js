@@ -13,7 +13,7 @@ const MoveCard = () => {
   const [destListId, setDestListId] = useState('');
   const [destPos, setDestPos] = useState(0);
 
-  const { currentBoardId, currentListId, currentCard, setModal, setOptionsModal } = useContext(UserContext);
+  const { currentBoardId, currentListId, currentCard, modalType, setModal, setOptionsModal } = useContext(UserContext);
   const { boards, getBoard, getList, moveCard } = useContext(BoardContext);
   const { setAlert } = useContext(AlertContext);
 
@@ -40,7 +40,9 @@ const MoveCard = () => {
   const onMove = () => {
     moveCard(currentBoardId, currentListId, currentCard.id, destBoardId, destListId, destPos, currentCard);
     setOptionsModal('off');
-    setModal('off');
+    if(modalType === 'fastEditModal') {
+      setModal('off');
+    }
     setAlert('card was moved', 'success');
   }
 

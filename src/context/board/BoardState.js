@@ -37,29 +37,68 @@ const BoardState = props => {
         lists: [
           {
             title: 'todos',
-            id: 'b1-l1',
+            id: uniqid(),
             watching: false,
             items: [
               {
                 text: 'codo 1',
                 desc: 'one describtion',
                 id: uniqid(),
+                watching: false,
                 labels: [
                   1,
                   3,
                   6
+                ],
+                checklists: [
+                  {
+                    title: 'my checklist',
+                    id: uniqid(),
+                    items: [
+                      {
+                        text: 'Do 1',
+                        id: uniqid(),
+                        done: false
+                      },
+                      {
+                        text: 'Do 2',
+                        id: uniqid(),
+                        done: true
+                      }
+                    ]
+                  }
                 ]
               },
               {
                 text: 'aodo 2',
+                watching: true,
                 id: uniqid(),
                 labels: [
                   3
+                ],
+                checklists: [
+                  {
+                    title: 'my checklist',
+                    id: uniqid(),
+                    items: [
+                      {
+                        text: 'Do 1',
+                        id: uniqid(),
+                        done: false
+                      },
+                      {
+                        text: 'Do 2',
+                        id: uniqid(),
+                        done: true
+                      }
+                    ]
+                  }
                 ]
               },
               {
                 text: 'dodo 2',
                 id: uniqid(),
+                checklists: [],
                 labels: [
                   2
                 ]
@@ -67,6 +106,7 @@ const BoardState = props => {
               {
                 text: 'codo 2',
                 id: uniqid(),
+                checklists: [],
                 labels: [
                   2
                 ]
@@ -74,6 +114,7 @@ const BoardState = props => {
               {
                 text: 'bodo 2',
                 id: uniqid(),
+                checklists: [],
                 labels: [
                   2
                 ]
@@ -81,6 +122,7 @@ const BoardState = props => {
               {
                 text: 'eodo 2',
                 id: uniqid(),
+                checklists: [],
                 labels: [
                   2
                 ]
@@ -89,12 +131,13 @@ const BoardState = props => {
           },
           {
             title: 'doing',
-            id: 'b1-l2',
+            id: uniqid(),
             watching: true,
             items: [
               {
                 text: 'doing 1',
                 id: uniqid(),
+                checklists: [],
                 labels: [
                   5,
                   3
@@ -103,6 +146,7 @@ const BoardState = props => {
               {
                 text: 'doing 2',
                 id: uniqid(),
+                checklists: [],
                 labels: [
                   4,
                   5,
@@ -115,6 +159,7 @@ const BoardState = props => {
               {
                 text: 'doing 3',
                 id: uniqid(),
+                checklists: [],
                 labels: [
                   6,
                   4
@@ -124,7 +169,7 @@ const BoardState = props => {
           },
           {
             title: 'new list',
-            id: 'b1-l3',
+            id: uniqid(),
             items: [
 
             ]
@@ -133,14 +178,14 @@ const BoardState = props => {
       },
       {
         title: 'test empty',
-        id: 'b2',
+        id: uniqid(),
         starred: false,
         color: '#4759a3',
         describtion: '',
         lists: [
           {
             title: 'test for one',
-            id: 'b2-l1',
+            id: uniqid(),
             items: [
               
             ]

@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef, useContext } from 'react';
 import DeleteCard from './options/DeleteCard';
 import MoveCard from './options/MoveCard';
+import AddChecklist from './options/AddChecklist';
+import DeleteChecklist from './options/DeleteChecklist';
 import EditCardLabels from './options/EditCardLabels';
 import EditLabel from './options/EditLabel';
 import ListActions from './options/ListActions';
@@ -104,21 +106,25 @@ const OptionsModal = () => {
               &times;
             </div>
             { optionsModalType === 'editCardLabels' && 'Labels' }
-            { optionsModalType === 'editLabel' && 'Change Label' }
+            { optionsModalType === 'editLabel' && 'Edit Label' }
             { optionsModalType === 'moveCard' && 'Move card' }
             { optionsModalType === 'copyCard' && 'Copy card' }
             { optionsModalType === 'members' && 'Members' }
-            { optionsModalType === 'deleteCard' && 'Delete Card' }
+            { optionsModalType === 'addChecklist' && 'Add Cheklist' }
+            { optionsModalType === 'deleteChecklist' && 'Delete Cheklist?' }
+            { optionsModalType === 'deleteCard' && 'Delete Card?' }
             { optionsModalType === 'listActions' && 'List Actions' }
-            { optionsModalType === 'deleteList' && 'Delete List' }
+            { optionsModalType === 'deleteList' && 'Delete List?' }
             { optionsModalType === 'copyList' && 'Copy List' }
             { optionsModalType === 'moveList' && 'Move List' }
-            { optionsModalType === 'deleteAllCards' && 'Empty the List' }
+            { optionsModalType === 'deleteAllCards' && 'Empty the List?' }
             { optionsModalType === 'moveAllCards' && 'select board' }
           </div>
           <div className='options-modal-body'>
             { optionsModalType === 'editCardLabels' && <EditCardLabels /> }
             { optionsModalType === 'moveCard' && <MoveCard /> }
+            { optionsModalType === 'addChecklist' && <AddChecklist /> }
+            { optionsModalType === 'deleteChecklist' && <DeleteChecklist /> }
             { optionsModalType === 'deleteCard' && <DeleteCard /> }
             { optionsModalType === 'editLabel' && <EditLabel /> }
             { optionsModalType === 'listActions' && <ListActions /> }

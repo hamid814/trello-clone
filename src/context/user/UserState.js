@@ -19,6 +19,7 @@ import {
   SET_FAST_EDIT_MODAL_POS,
   SET_MOUSE_POS,
   TOGGLE_BIG_LABELS,
+  SET_DATA,
 } from '../types';
 
 const UserState = props => {
@@ -38,6 +39,7 @@ const UserState = props => {
     mosuePos: {},
     bigLabels: false,
     addCardFromListActions: null,
+    data: null,
   };
 
   const [state, dispatch] = useReducer(userReducer, initialState);
@@ -224,6 +226,20 @@ const UserState = props => {
       payload: id
     });
   }
+  
+  const setData = (data) => {
+    if(data) {
+      dispatch({
+        type: SET_DATA,
+        payload: data
+      });
+    } else {
+      dispatch({
+        type: SET_DATA,
+        payload: null
+      });
+    }
+  }
 
   return (
     <UserContext.Provider
@@ -243,6 +259,7 @@ const UserState = props => {
         mousePos: state.mousePos,
         bigLabels: state.bigLabels,
         addCardFromListActions: state.addCardFromListActions,
+        data: state.data,
         setCurrentBoardId,
         clearCurrentBoardId,
         setCurrentListId,
@@ -256,6 +273,7 @@ const UserState = props => {
         setMousePos,
         toggleBigLabels,
         setAddCardFromListActions,
+        setData,
       }}
     >
       {props.children}

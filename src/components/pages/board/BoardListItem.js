@@ -69,9 +69,16 @@ const BoardListItem = ({ item }) => {
         <ListItemLabels father='boardListItem' labels={item.labels} bigLabels={bigLabels} toggleBigLabels={toggleBigLabels} />
         <div>
           { item.text }
-          <div className='text-sm'>
-            { item.desc && item.desc }
-          </div>
+        </div>
+        <div className='text-sm mt'>
+          {
+            item.desc &&
+              <i className="fas fa-align-left mr"></i>
+          }
+          {
+            item.watching &&
+              <i className="fas fa-eye mr"></i>
+          }
         </div>
         <div className='func-e-btn trello-board-list-item-edit-btn' onClick={onEBtnClick}>
           <i className='fas fa-pen'></i>

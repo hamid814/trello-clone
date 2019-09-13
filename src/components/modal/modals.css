@@ -36,6 +36,7 @@
 
 .details-modal-body {
   padding-top: 1rem;
+  min-height: 64vh;
 }
 
 .fast-edit-modal-right {
@@ -221,6 +222,111 @@
   background: #e7f5eb;
   border-radius: 0.35rem;
   margin-bottom: 0.4rem;
+}
+
+.details-label {
+  width: 40px;
+  height: 40px;
+  margin: 0.2rem;
+  border-radius: 0.2rem;
+  cursor: pointer;
+  position: relative;
+  border: none !important;
+}
+
+.details-label:first-child {
+  margin-left: 0 !important;
+}
+
+.details-label i {
+  position: absolute;
+  top: 9px;
+  left: 10px;
+  opacity: 0.7;
+}
+
+.details-desc {
+  width: 100%;
+  padding: 0.5rem;
+  margin: 0.2rem;
+  margin-top: 0.8rem;
+  font-size: 0.9rem;
+  background: #dee7e9;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  min-height: 4rem;
+}
+
+.details-desc:hover {
+  background: #d7dadb;
+}
+
+.details-desc-compose-area {
+  width: 100%;
+  padding: 0.5rem;
+  margin: 0.2rem;
+  margin-top: 0.8rem;
+  font-size: 0.9rem;
+}
+
+.details-desc-compose-area textarea {
+  resize: none;
+  font-size: 0.9rem;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Noto Sans,Ubuntu,Droid Sans,Helvetica Neue,sans-serif;
+  padding: 0.3rem 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.details-right-panel > section > h5 {
+  padding: .3rem;
+  margin-bottom: 0.4rem;
+}
+
+.details-right-panel > section:last-child {
+  margin-top: 1.5rem;
+}
+
+.details-right-panel > section > div {
+  background: rgba(173, 181, 226, 0.308);
+  cursor: pointer;
+  padding: 0.4rem 0.4rem;
+  margin-bottom: 0.3rem;
+  border-radius: 0.25rem;
+}
+
+.details-right-panel > section > div:hover {
+  background: rgba(136, 144, 180, 0.308);
+}
+
+.details-right-panel > section > div:active {
+  background: rgba(41, 194, 255, 0.308);
+}
+
+.details-right-panel > section > div > i {
+  margin-right: 0.45rem;
+}
+
+.watching-check {
+  position: absolute;
+  top: 0.25rem;
+  right: 0;
+}
+
+.checklist-item {
+  margin: 0.3rem;
+  width: 99%;
+  padding: 0.3rem 0.4rem;
+  border-radius: 0.2rem;
+}
+
+.checklist-item:hover {
+  background: #dee7e9;
+}
+
+.checklist-item input {
+  margin-left: -1.6rem !important; 
+  margin-right: 1rem !important;
+  border: 0;
 }
 
 @keyframes actionsContainerAnim {

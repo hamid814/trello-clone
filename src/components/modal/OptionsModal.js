@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useContext } from 'react';
 import DeleteCard from './options/DeleteCard';
 import MoveCard from './options/MoveCard';
+import CopyCard from './options/CopyCard';
 import AddChecklist from './options/AddChecklist';
 import DeleteChecklist from './options/DeleteChecklist';
 import ChecklistItemActions from './options/ChecklistItemActions';
@@ -125,6 +126,7 @@ const OptionsModal = () => {
           <div className='options-modal-body'>
             { optionsModalType === 'editCardLabels' && <EditCardLabels /> }
             { optionsModalType === 'moveCard' && <MoveCard /> }
+            { optionsModalType === 'copyCard' && <CopyCard /> }
             { optionsModalType === 'addChecklist' && <AddChecklist /> }
             { optionsModalType === 'deleteChecklist' && <DeleteChecklist /> }
             { optionsModalType === 'checklistItemActions' && <ChecklistItemActions /> }

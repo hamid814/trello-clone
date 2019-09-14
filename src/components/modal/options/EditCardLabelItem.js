@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const EditCardLabelItem = ({ label, setLabelId, goToEditLabel, currentCard }) => {
+const EditCardLabelItem = ({ label, searchText, setLabelId, goToEditLabel, currentCard }) => {
   const [hover, setHover] = useState(false);
 
   const onClick = () => {
@@ -20,7 +20,7 @@ const EditCardLabelItem = ({ label, setLabelId, goToEditLabel, currentCard }) =>
   }
 
   return (
-    <div className='label-item mb width-100'>
+    <div className={`label-item mb width-100 ${label.name.indexOf(searchText) === -1 && 'd-n'}`}>
       <div
         className={`rounded-lg d-i-b text-sm label-color label-color-${label.colorName} ${hover && `label-color-${label.colorName}-hover`}`}
         onMouseEnter={onMouseEnter}

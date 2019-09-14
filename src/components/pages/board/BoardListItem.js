@@ -34,31 +34,6 @@ const BoardListItem = ({ item }) => {
     setModal('on', 'fastEditModal');
   }
 
-  let timer;
-  const touchduration = 500;
-
-  const onTouchStart = () => {
-    timer = setTimeout(onlongtouch, touchduration);
-    setCurrentCard(item);
-  }
-
-  const onTouchEnd = () => {
-    if (timer) {
-      clearTimeout(timer);
-    }
-  }
-
-  const onlongtouch = () => {
-    if(listItem.current !== null) {
-      setFastEditModalPos({
-        top: listItem.current.getBoundingClientRect().top,
-        left: listItem.current.getBoundingClientRect().left,
-        width: listItem.current.getBoundingClientRect().width
-      });
-      setModal('on', 'fastEditModal');
-    }
-  }
-
   const getNumberOfChecklistItems = () => {
     let num = 0;
     item.checklists.forEach(c => {
@@ -85,9 +60,7 @@ const BoardListItem = ({ item }) => {
     <div
       className='trello-board-list-item'
       ref={listItem}
-      onClick={onClick}
-      onTouchStart={onTouchStart}
-      onTouchEnd={onTouchEnd}>
+      onClick={onClick}>
         <ListItemLabels father='boardListItem' labels={item.labels} bigLabels={bigLabels} toggleBigLabels={toggleBigLabels} />
         <div>
           { item.text }

@@ -54,6 +54,7 @@ const BoardState = props => {
                   {
                     title: 'my checklist',
                     id: uniqid(),
+                    hideDone: false,
                     items: [
                       {
                         text: 'Do 1',
@@ -80,6 +81,7 @@ const BoardState = props => {
                   {
                     title: 'my checklist',
                     id: uniqid(),
+                    hideDone: false,
                     items: [
                       {
                         text: 'Do 1',
@@ -517,8 +519,11 @@ const BoardState = props => {
   const addCard = (text, listId, boardId) => {
     const newCard = {
       text,
+      desc: '',
       id: uniqid(),
-      labels: []
+      watching: false,
+      labels: [],
+      checklists: []
     }
     dispatch({
       type: ADD_CARD,

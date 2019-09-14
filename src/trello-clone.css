@@ -1287,6 +1287,16 @@ aside {
   background: #c7d3cd;
 }
 
+.trello-board-list-item .checklist-btn {
+  display: inline-block;
+  border-radius: 0.2rem;
+  padding: 0.25rem;
+}
+
+.trello-board-list-item .checklist-btn i {
+  margin-right: 0.1rem;
+}
+
 .trello-board-list-item-edit-btn {
   font-size: 0.8rem;
   background: transparent;

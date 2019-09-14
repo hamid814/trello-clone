@@ -316,8 +316,9 @@
 .checklist-item {
   margin: 0.3rem;
   width: 99%;
-  padding: 0.3rem 0.4rem;
+  padding: 0.5rem 0.4rem;
   border-radius: 0.2rem;
+  position: relative;
 }
 
 .checklist-item:hover {
@@ -330,10 +331,21 @@
   border: 0;
 }
 
+.checklist-item .btn {
+  position: absolute;
+  top: 0.18rem;
+  right: 0.1rem;
+  display: none;
+}
+
+.checklist-item:hover .btn {
+  display: block;
+}
+
 .progress-bar {
   height: .4rem;
   width: 100%;
-  background: #0098b7;
+  background: var(--light-color);
   border-radius: 10rem;
   margin-top: 1.2rem;
 }
@@ -341,7 +353,7 @@
 .progress {
   height: .4rem;
   border-radius: 10rem;
-  background: #091e42;
+  background: var(--success-color);
 }
 
 @keyframes actionsContainerAnim {

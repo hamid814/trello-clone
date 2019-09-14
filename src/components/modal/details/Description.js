@@ -44,7 +44,7 @@ const Description = () => {
   }
 
   return (
-    <div className='pos-rel mt-2'>
+    <div className='pos-rel mb-2'>
       <i className='fas fa-align-left top-0'></i>
       <div className="ml-2">
         <div className='text-85 mb'>

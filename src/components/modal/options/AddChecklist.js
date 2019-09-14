@@ -18,6 +18,7 @@ const AddChecklist = () => {
     const newChecklist = {
       title: text,
       id: uniqid(),
+      hideDone: false,
       items: []
     }
 

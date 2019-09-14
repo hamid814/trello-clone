@@ -11,7 +11,6 @@ const Checklist = ({ checklist }) => {
 
   const [text, setText] = useState('')
   const [isAdding, setIsAdding] = useState(false)
-  const [hideDone, setHideDone] = useState(false)
 
   const onChange = (e) => {
     setText(e.target.value);
@@ -26,6 +25,19 @@ const Checklist = ({ checklist }) => {
   const onDeleteList = () => {
     setOptionsModal('on', 'deleteChecklist');
     setData(checklist.id);
+  }
+
+  const onToggleHideDone = () => {
+    const newCard = {
+      ...currentCard,
+      checklists: currentCard.checklists.map(c => {
+        if(c.id === checklist.id) {
+          c.hideDone = !c.hideDone
+        }
+        return c
+      })
+    }
+    updateCard(currentBoardId, currentListId, currentCard.id, newCard);
   }
 
   const onStartAdd = () => {
@@ -81,12 +93,15 @@ const Checklist = ({ checklist }) => {
       <div className='text-85 mb mt'>
         { checklist.title }
         <div className='float-right'>
-          <div className='btn text-85 mr-0' onClick={onDeleteList}>
+          <div className='btn btn-narrow text-85 mr' onClick={onToggleHideDone}>
+            { checklist.hideDone ? `show checked items (${getNumberOfDones()})` : 'hide compelted items' }
+          </div>
+          <div className='btn btn-narrow text-85 mr-0' onClick={onDeleteList}>
             Delete
           </div>
         </div>
       </div>
-      <div className="grid-1-10 width-100">
+      <div className={`grid-1-10 width-100 ${checklist.items.length === 0 && 'd-n'}`}>
         <div className='text-85 mt'>
           { `${Math.floor(getNumberOfDones() / checklist.items.length * 100)}%` }
         </div>
@@ -94,11 +109,13 @@ const Checklist = ({ checklist }) => {
           <div style={progress} className='progress'></div>
         </div>
       </div>
-      
+      <div className={`mt ml text-85 ${!(checklist.hideDone && getNumberOfDones() === checklist.items.length) && 'd-n'}`}>
+        Everything in this checklist is complete!
+      </div>
       <div className='mt'>
         {
           checklist.items.map(i => (
-            <CheckListItem key={i.id} item={i} clId={checklist.id} />
+            <CheckListItem key={i.id} item={i} clId={checklist.id} hideDone={checklist.hideDone} />
           ))
         }
       </div>

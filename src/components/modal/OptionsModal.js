@@ -3,6 +3,7 @@ import DeleteCard from './options/DeleteCard';
 import MoveCard from './options/MoveCard';
 import AddChecklist from './options/AddChecklist';
 import DeleteChecklist from './options/DeleteChecklist';
+import ChecklistItemActions from './options/ChecklistItemActions';
 import EditCardLabels from './options/EditCardLabels';
 import EditLabel from './options/EditLabel';
 import ListActions from './options/ListActions';
@@ -112,6 +113,7 @@ const OptionsModal = () => {
             { optionsModalType === 'members' && 'Members' }
             { optionsModalType === 'addChecklist' && 'Add Cheklist' }
             { optionsModalType === 'deleteChecklist' && 'Delete Cheklist?' }
+            { optionsModalType === 'checklistItemActions' && 'Item Actions' }
             { optionsModalType === 'deleteCard' && 'Delete Card?' }
             { optionsModalType === 'listActions' && 'List Actions' }
             { optionsModalType === 'deleteList' && 'Delete List?' }
@@ -125,6 +127,7 @@ const OptionsModal = () => {
             { optionsModalType === 'moveCard' && <MoveCard /> }
             { optionsModalType === 'addChecklist' && <AddChecklist /> }
             { optionsModalType === 'deleteChecklist' && <DeleteChecklist /> }
+            { optionsModalType === 'checklistItemActions' && <ChecklistItemActions /> }
             { optionsModalType === 'deleteCard' && <DeleteCard /> }
             { optionsModalType === 'editLabel' && <EditLabel /> }
             { optionsModalType === 'listActions' && <ListActions /> }

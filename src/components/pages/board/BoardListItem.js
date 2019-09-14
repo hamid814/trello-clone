@@ -59,6 +59,28 @@ const BoardListItem = ({ item }) => {
     }
   }
 
+  const getNumberOfChecklistItems = () => {
+    let num = 0;
+    item.checklists.forEach(c => {
+      c.items.forEach(i => {
+        num++
+      })
+    })
+
+    return num
+  }
+
+  const getNumberOfDoneChecklistItems = () => {
+    let num = 0;
+    item.checklists.forEach(c => {
+      c.items.forEach(i => {
+        i.done && num++
+      })
+    })
+
+    return num
+  }
+
   return (
     <div
       className='trello-board-list-item'
@@ -73,11 +95,24 @@ const BoardListItem = ({ item }) => {
         <div className='text-sm mt'>
           {
             item.desc &&
-              <i className="fas fa-align-left mr"></i>
+              <i className='fas fa-align-left mr'></i>
           }
           {
             item.watching &&
-              <i className="fas fa-eye mr"></i>
+              <i className='fas fa-eye mr'></i>
+          }
+          {
+            item.checklists.length > 0 &&
+              <div className={`checklist-btn ${getNumberOfDoneChecklistItems() === getNumberOfChecklistItems() && getNumberOfChecklistItems() !== 0 ? 'btn-success' : 'btn-dark'}`}>
+                <i className='fas fa-check-square'></i>
+                {
+                  getNumberOfDoneChecklistItems()
+                }
+                /
+                {
+                  getNumberOfChecklistItems()
+                }
+              </div>
           }
         </div>
         <div className='func-e-btn trello-board-list-item-edit-btn' onClick={onEBtnClick}>

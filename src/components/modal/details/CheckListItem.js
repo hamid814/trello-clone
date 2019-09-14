@@ -3,8 +3,8 @@ import React, { useContext } from 'react';
 import UserContext from '../../../context/user/userContext';
 import BoardContext from '../../../context/board/boardContext';
 
-const CheckListItem = ({ item, clId }) => {
-  const { currentBOardid, currentListId,currentCard } = useContext(UserContext);
+const CheckListItem = ({ item, clId, hideDone }) => {
+  const { currentBoardId, currentListId, currentCard, setOptionsModal, setData } = useContext(UserContext);
   const { updateCard } = useContext(BoardContext);
 
   const onChange = () => {
@@ -23,7 +23,15 @@ const CheckListItem = ({ item, clId }) => {
       })
     }
 
-    updateCard(currentBOardid, currentListId, currentCard.id, newCard)
+    updateCard(currentBoardId, currentListId, currentCard.id, newCard)
+  }
+
+  const onOptionsClicked = () => {
+    setOptionsModal('on', 'checklistItemActions');
+    setData({
+      item,
+      checklistId: clId
+    });
   }
 
   const  ifDone = {
@@ -31,10 +39,13 @@ const CheckListItem = ({ item, clId }) => {
   }
   
   return (
-    <div className='checklist-item'>
-      <input type="checkbox" defaultChecked={item.done} onChange={onChange} className='mt-0 mb-0'/>
+    <div className={`checklist-item ${(hideDone && item.done) && 'd-n'}`}>
+      <input type='checkbox' defaultChecked={item.done} onChange={onChange} className='mt-0 mb-0'/>
       <div style={ifDone} className='d-i-b text-85'>
         { item.text }
+      </div>
+      <div className='btn btn-narrow text-sm mt-0' onClick={onOptionsClicked}>
+        <i className='fas fa-ellipsis-h'></i>
       </div>
     </div>
   )

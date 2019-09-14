@@ -11,7 +11,7 @@ const Labels = ({ labels }) => {
   }
 
   return (
-    <div className={`pos-rel ${labels.length === 0 && 'd-n'}`}>
+    <div className={`mb-2 pos-rel ${labels.length === 0 && 'd-n'}`}>
       <i className='fas fa-tag top-0'></i>
       <div className='ml-2'>
         <div className='text-85 mb'>

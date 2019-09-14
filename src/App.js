@@ -22,7 +22,7 @@ const App = () => {
 
   // to display board page for development purposes
   useEffect(() => {
-    // setCurrentBoardId('b1');
+    setCurrentBoardId('b1');
     console.log('focus on inputs')
     console.log('change the word "item" to card in context and stuff')
     console.log('sort the list actions ( put them in [dasteh] )')

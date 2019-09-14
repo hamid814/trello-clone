@@ -90,11 +90,15 @@ const Checklist = ({ checklist }) => {
 
   return (
     <div>
-      <div className='text-85 mb mt'>
-        { checklist.title }
+      <div className='text-85 mb mt-1'>
+        <b>{ checklist.title }</b>
         <div className='float-right'>
-          <div className='btn btn-narrow text-85 mr' onClick={onToggleHideDone}>
-            { checklist.hideDone ? `show checked items (${getNumberOfDones()})` : 'hide compelted items' }
+          <div
+            className={`btn btn-narrow text-85 mr ${getNumberOfDones() === 0 && 'd-n'}`}
+            onClick={onToggleHideDone}>
+              { checklist.hideDone
+                  ? `show checked items (${getNumberOfDones()})`
+                  : 'hide compelted items' }
           </div>
           <div className='btn btn-narrow text-85 mr-0' onClick={onDeleteList}>
             Delete

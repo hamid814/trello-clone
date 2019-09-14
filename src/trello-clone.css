@@ -1404,3 +1404,20 @@ aside {
   grid-gap: 2rem;
   align-content: top;
 }
+
+.drag-board {
+  display: none;
+  background: #bbb;
+  border-radius: 0.25rem;
+  box-shadow: inset 0px 0px 5px 1px rgba(27, 68, 107, 0.75);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.dragging .drag-board {
+  display: block;
+}

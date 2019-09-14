@@ -2,17 +2,66 @@ import React, { useRef, useContext } from 'react';
 import ListItemLabels from './ListItemLabels';
 
 import UserContext from '../../../context/user/userContext';
+import BoardContext from '../../../context/board/boardContext';
 
-const BoardListItem = ({ item }) => {
+const BoardListItem = ({ item, listId }) => {
   const listItem = useRef(null);
 
-  const { setCurrentCard, setModal, setFastEditModalPos, toggleBigLabels, bigLabels } = useContext(UserContext);
+  const { currentBoardId, setCurrentCard, setModal, setFastEditModalPos, toggleBigLabels, bigLabels, setData, data } = useContext(UserContext);
+  const { getList, moveCard } = useContext(BoardContext);
 
   const onClick = (e) => {
     if(!e.target.classList.contains('func-e-btn') && !e.target.parentElement.classList.contains('func-e-btn') && !e.target.classList.contains('func-card-label')) {
       setModal('on', 'detailsModal');
     }
     setCurrentCard(item);
+  }
+
+  const onDragStart = (e) => {
+    const thisE = e.target;
+    setTimeout(() => {
+      thisE.classList.add('dragging')
+    }, 0);
+  }
+
+  const onDragOver = e => {
+    e.preventDefault();
+  }
+
+  const onDragEnd = (e) => {
+    e.target.classList.remove('dragging')
+
+    if(data) {
+      const destCardIndex = getList(currentBoardId, data.destListId).items.findIndex(i => i.id === data.destItemId)
+
+      moveCard(currentBoardId, listId, item.id, currentBoardId, data.destListId, destCardIndex, item);
+
+      setData(null)
+    }
+  }
+
+  const onDrop = e=> {
+    let elem;
+    if(e.target.classList.contains('func-item')) {
+      elem = e.target
+    }
+    if(e.target.parentElement.classList.contains('func-item')) {
+      elem = e.target.parentElement
+    }
+    if(e.target.parentElement.parentElement.classList.contains('func-item')) {
+      elem = e.target.parentElement.parentElement
+    }
+    if(e.target.parentElement.parentElement.parentElement.classList.contains('func-item')) {
+      elem = e.target.parentElement.parentElement.parentElement
+    }
+
+    const destListId = elem.firstElementChild.innerText;
+
+    setData({
+      destItemId: item.id,
+      destListId,
+      correctDrop: true
+    });
   }
 
   const onEBtnClick = (e) => {
@@ -48,9 +97,17 @@ const BoardListItem = ({ item }) => {
 
   return (
     <div
-      className='trello-board-list-item'
+      className='func-item trello-board-list-item'
+      draggable='true'
       ref={listItem}
+      onDragStart={onDragStart}
+      onDragOver={onDragOver}
+      onDragEnd={onDragEnd}
+      onDrop={onDrop}
       onClick={onClick}>
+        {/* this element  has to be the exact first child of func-item */}
+        <div className='d-n'>{listId}</div>
+        <div className='drag-board'></div>
         <ListItemLabels father='boardListItem' labels={item.labels} bigLabels={bigLabels} toggleBigLabels={toggleBigLabels} />
         <div>
           { item.text }

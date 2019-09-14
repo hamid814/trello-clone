@@ -76,7 +76,7 @@ const BoardList = ({ list, boardFuncs /* all of board context */ }) => {
   }
 
   return (
-    <div className='trello-board-list' onClick={onListCLick}>
+    <div className='trello-board-list' onMouseDown={onListCLick}>
       <div className='trello-board-list-header'>
         <ListTitle listId={list.id} title={list.title} setListTitle={boardFuncs.setListTitle} />
         <div className='btn bg-transparent-with-hover btn-square float-right mt' onClick={onlistOptionsClick}>
@@ -91,7 +91,7 @@ const BoardList = ({ list, boardFuncs /* all of board context */ }) => {
       </div>
       <div className='trello-board-list-items'>
         { list.items.map((i, index) => (
-          <BoardListItem key={i.id} item={i} />
+          <BoardListItem listId={list.id} key={i.id} item={i} />
         )) }
         <div className={`trello-board-list-item trello-board-card-compose  ${!wantToAddCard && 'd-n'}`}>
           <textarea

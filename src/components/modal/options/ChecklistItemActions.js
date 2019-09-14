@@ -4,7 +4,7 @@ import UserContext from '../../../context/user/userContext';
 import BoardContext from '../../../context/board/boardContext';
 
 const ChecklistItemActions = () => {
-  const { currentBoardId, currentListId, currentCard, setOptionsModal,  data } = useContext(UserContext)
+  const { currentBoardId, currentListId, currentCard, setOptionsModal, data, setData } = useContext(UserContext)
   const { addCard, updateCard } = useContext(BoardContext)
 
   const onDelete = () => {
@@ -20,12 +20,15 @@ const ChecklistItemActions = () => {
 
     updateCard(currentBoardId, currentListId, currentCard.id, newCard);
     setOptionsModal('off');
+
+    setData(null);
   }
 
   const onConvertToCard = () => {
     onDelete();
     addCard(data.item.text, currentListId, currentBoardId);
     setOptionsModal('off');
+    setData(null);
   }
 
   return (

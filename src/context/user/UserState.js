@@ -107,6 +107,7 @@ const UserState = props => {
     });
     if(status === 'off') {
       clearModalType();
+
     } else if(status === 'on') {
       setModalType(type);
     }
@@ -134,6 +135,7 @@ const UserState = props => {
     if(status === 'off') {
       clearOptionsModalType();
       setOptionsModalStep('off');
+      setData(null);
     } else if(status === 'on') {
       setOptionsModalType(type);
     }

@@ -60,7 +60,7 @@ body {
   min-height: 20px;
 }
 
-.trello-board-list-items {
+/* .trello-board-list-items { */
   /* display: grid; */
   /* overflow-x: hidden; */
   /* overflow-y: auto; */
@@ -72,11 +72,11 @@ body {
   /* display: grid; */
   /* grid-template-columns: 1fr; */
   /* grid-template-rows: repeat(20, 1fr); */
-}
+/* } */
 
-.trello-board-list-item {
+/* .trello-board-list-item { */
   /* margin-top: 0 !important; */
-}
+/* } */
 
 .trello-board-list-footer {
   height: initial;

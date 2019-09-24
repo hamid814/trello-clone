@@ -11,17 +11,11 @@ const Starred = () => {
   const { boards, getBoard } = boardContext;
 
   useEffect(() => {
-    const listInDev = []
-    
-    boards.forEach(b => {
-      if(b.starred) {
-        listInDev.push(b);
-      }
-    })
+    const l = boards.filter(b => b.starred);
 
-    console.log(listInDev)
+    console.log(l)
 
-    setList(listInDev)
+    setList(l)
 
     // eslint-disable-next-line
   }, [])
@@ -29,12 +23,12 @@ const Starred = () => {
   return (
     <Fragment>
       { list.length !== 0
-        &&  <div className="card border-top-0 border-right-0 border-left-0 pb-2">
-              <i className="fa fa-star mr-1"></i>
+        &&  <div className='card border-top-0 border-right-0 border-left-0 pb-2'>
+              <i className='fa fa-star mr-1'></i>
               favorite borads
-              <div className="">
-                { list.map(s => (
-                    <HomeMainItem key={s} board={getBoard(s)} />
+              <div>
+                { list.map(b => (
+                    <HomeMainItem key={b.id} board={b} />
                   ))
                 }
               </div>

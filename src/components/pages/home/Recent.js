@@ -15,10 +15,10 @@ const Recent = () => {
   return (
     <Fragment>
       { recentIds.length !== 0
-        &&  <div className="card border-top-0 border-right-0 border-left-0 pb-2">
-              <i className="fa fa-clock mr-1"></i>
+        &&  <div className='card border-top-0 border-right-0 border-left-0 pb-2'>
+              <i className='fa fa-clock mr-1'></i>
               Recent borads
-              <div className="">
+              <div>
                 { recentIds.map(r => (
                       <HomeMainItem key={uniqid()} board={getBoard(r)} />
                     ))

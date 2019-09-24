@@ -36,11 +36,6 @@ export default (state, action) => {
         boards: [...state.boards, action.payload]
       }
     case DELETE_BOARD:
-      console.log(state.boards.filter(b => b.id !== action.payload))
-      // return {
-        // ...state,
-        // boards: state.boards.filter(b => b.id !== action.payload)
-      // }
       return {
         ...state,
         boards: state.boards.filter(b => b.id !== action.payload)
@@ -59,12 +54,11 @@ export default (state, action) => {
       return {
         ...state,
         boards: state.boards.map(b => {
-          if(b.id === action.payload.id) {
+          if(b.id === action.payload) {
             b.starred = !b.starred
           }
           return b
-        }),
-        listOfStarredBoardsIds: action.payload.newListOfStarredBoardsIds
+        })
       }
     case SET_WATCHING:
       return {

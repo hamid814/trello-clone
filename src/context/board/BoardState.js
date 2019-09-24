@@ -276,8 +276,7 @@ const BoardState = props => {
         name: 'black',
         color: '#344563'
       }
-    ],
-    listOfStarredBoardsIds: []
+    ]
   };
 
   const [state, dispatch] = useReducer(boardReducer, initialState);
@@ -286,6 +285,40 @@ const BoardState = props => {
   const getData = () => {
     const boards = JSON.parse(localStorage.getItem('boards'));
     const labels = JSON.parse(localStorage.getItem('labels'));
+
+    if(boards && labels) {
+      dispatch({
+        type: SET_DATA_FROM_LS,
+        payload: {
+          boards,
+          labels
+        }
+      });
+    } else if(boards && labels === null) {
+      dispatch({
+        type: SET_DATA_FROM_LS,
+        payload: {
+          boards,
+          labels: []
+        }
+      });
+    } else if(boards === null && labels === null) {
+      dispatch({
+        type: SET_DATA_FROM_LS,
+        payload: {
+          boards,
+          labels
+        }
+      });
+    } else if(boards === null && labels) {
+      dispatch({
+        type: SET_DATA_FROM_LS,
+        payload: {
+          boards: [],
+          labels
+        }
+      });
+    }
 
     dispatch({
       type: SET_DATA_FROM_LS,
@@ -346,18 +379,9 @@ const BoardState = props => {
 
   // set board starred or unstarred
   const setStar = (id) => {
-    let newListOfStarredBoardsIds = state.listOfStarredBoardsIds;
-    if(state.listOfStarredBoardsIds.indexOf(id) !== -1) {
-      newListOfStarredBoardsIds.splice(state.listOfStarredBoardsIds.indexOf(id), 1);
-    } else {
-      newListOfStarredBoardsIds.push(id);
-    }
     dispatch({
       type: SET_STAR,
-      payload: {
-        id,
-        newListOfStarredBoardsIds
-      }
+      payload: id
     });
   }
 
@@ -631,7 +655,6 @@ const BoardState = props => {
         boards: state.boards,
         labels: state.labels,
         colors: state.colors,
-        listOfStarredBoardsIds: state.listOfStarredBoardsIds,
         getData,
         addBoard,
         deleteBoard,

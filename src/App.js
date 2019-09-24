@@ -23,7 +23,7 @@ const App = () => {
 
   // to display board page for development purposes
   useEffect(() => {
-    setCurrentBoardId('b1');
+    // setCurrentBoardId('b1');
     // console.log('focus on inputs')
     // console.log('setScrollIfLonger if board copied')
     // console.log('newCardActions in boardList does nothing yet ( add card must be editted to send an object to the context not a text )')
@@ -32,9 +32,12 @@ const App = () => {
     // console.log('style checkboxes')
     // console.log('NewCardOptions to be done (its half done)')
     console.log('notes ↑')
-    getData();
     // eslint-disable-next-line
   }, []);
+  
+  useEffect(() => {
+    getData()
+  }, [])
 
   useEffect(() => {
     const stiringed = JSON.stringify(boards)

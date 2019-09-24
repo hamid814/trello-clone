@@ -6,11 +6,12 @@ import AlertContext from '../../../context/alert/alertContext';
 
 const DeleteBoard = () => {
   const { getBoard, deleteBoard } = useContext(boardContext)
-  const { currentBoardId, clearCurrentBoardId, setModal, setOptionsModal } = useContext(userContext)
+  const { currentBoardId, clearCurrentBoardId, setModal, setOptionsModal, deleteFromRecent } = useContext(userContext)
   const { setAlert } = useContext(AlertContext);
 
   const onClick = () => {
     deleteBoard(currentBoardId)
+    deleteFromRecent(currentBoardId);
     setOptionsModal('off');
     setModal('off');
     setAlert(`board ${getBoard(currentBoardId).title} was deleted`, 'dark');

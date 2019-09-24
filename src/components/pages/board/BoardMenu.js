@@ -18,9 +18,12 @@ const BoardMenu = () => {
       <div className='close' onClick={onClose}>
         &times;
       </div>
-      <div className="board-menu-list">
+      <div className='board-menu-list'>
         <div className='board-menu-item'>
           board menu
+        </div>
+        <div className='board-menu-item'>
+          board color
         </div>
         <div className='board-menu-item hover-danger' onClick={onDelete}>
           delete board

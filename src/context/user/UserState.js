@@ -72,6 +72,18 @@ const UserState = props => {
     localStorage.setItem('recentIds', JSON.stringify(newRecentIds))
   }
 
+  const deleteFromRecent = (id) => {
+    const newRecentIds = state.recentIds.filter(i => i !== id);
+
+    dispatch({
+      type: SET_RECENT_IDS,
+      payload: newRecentIds
+    });
+
+    // set recents to local storage
+    localStorage.setItem('recentIds', JSON.stringify(newRecentIds))
+  }
+
   // also can be done with "setCurrentBoardId(null)"
   const clearCurrentBoardId = () => {
     dispatch({
@@ -298,6 +310,7 @@ const UserState = props => {
         setAddCardFromListActions,
         setData,
         setShowMenu,
+        deleteFromRecent,
       }}
     >
       {props.children}

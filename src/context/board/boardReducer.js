@@ -2,6 +2,7 @@ import {
   SET_BOARDS,
   ADD_BOARD,
   DELETE_BOARD,
+  CLEAR_BOARD,
   SET_TITLE,
   SET_STAR,
   SET_WATCHING,
@@ -40,6 +41,16 @@ export default (state, action) => {
       return {
         ...state,
         boards: state.boards.filter(b => b.id !== action.payload)
+      }
+    case CLEAR_BOARD:
+      return {
+        ...state,
+        boards: state.boards.map(b => {
+          if(b.id === action.payload) {
+            b.lists = []
+          }
+          return b
+        })
       }
     case SET_TITLE:
       return {

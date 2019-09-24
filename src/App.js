@@ -30,6 +30,7 @@ const App = () => {
     // console.log('add members to details modal next to labels')
     // console.log('style checkboxes')
     // console.log('NewCardOptions to be done (its half done)')
+    // console.log('clear all boards to boards list in the navbar')
     console.log('notes ↑')
     // eslint-disable-next-line
   }, []);

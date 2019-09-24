@@ -6,6 +6,7 @@ import {
   SET_BOARDS,
   ADD_BOARD,
   DELETE_BOARD,
+  CLEAR_BOARD,
   SET_TITLE,
   SET_STAR,
   SET_WATCHING,
@@ -161,6 +162,13 @@ const BoardState = props => {
     const board = state.boards.filter(b => b.id === id);
 
     return board[0]
+  }
+
+  const clearBoard = (id) => {
+    dispatch({
+      type: CLEAR_BOARD,
+      payload: id
+    });
   }
 
   const getList = (boardId, ListId) => {
@@ -464,6 +472,7 @@ const BoardState = props => {
         addBoard,
         deleteBoard,
         getBoard,
+        clearBoard,
         getList,
         setTitle,
         setStar,

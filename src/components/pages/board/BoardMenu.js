@@ -9,6 +9,10 @@ const BoardMenu = () => {
     setShowMenu()
   }
 
+  const onClearBoard = () => {
+    setOptionsModal('on', 'clearBoard')
+  }
+
   const onDelete = () => {
     setOptionsModal('on', 'deleteBoard')
   }
@@ -24,6 +28,9 @@ const BoardMenu = () => {
         </div>
         <div className='board-menu-item'>
           board color
+        </div>
+        <div className='board-menu-item' onClick={onClearBoard}>
+          clear baord
         </div>
         <div className='board-menu-item hover-danger' onClick={onDelete}>
           delete board

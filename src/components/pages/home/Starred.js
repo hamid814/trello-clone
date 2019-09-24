@@ -8,17 +8,13 @@ const Starred = () => {
 
   const boardContext = useContext(BoardContext);
 
-  const { boards, getBoard } = boardContext;
+  const { boards } = boardContext;
 
   useEffect(() => {
     const l = boards.filter(b => b.starred);
-
-    console.log(l)
-
     setList(l)
-
     // eslint-disable-next-line
-  }, [])
+  }, [boards])
 
   return (
     <Fragment>

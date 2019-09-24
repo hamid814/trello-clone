@@ -13,17 +13,16 @@ import './trello-clone.css';
 
 const App = () => {
   const {
-    setCurrentBoardId,
     currentBoardId,
     setMousePos,
     bigLabels,
+    getUserdata,
     optionsModalStatus } = useContext(userContext);
 
-  const { boards, labels, getData } = useContext(boardContext)
+  const { boards, labels, getBoardsData } = useContext(boardContext)
 
   // to display board page for development purposes
   useEffect(() => {
-    // setCurrentBoardId('b1');
     // console.log('focus on inputs')
     // console.log('setScrollIfLonger if board copied')
     // console.log('newCardActions in boardList does nothing yet ( add card must be editted to send an object to the context not a text )')
@@ -36,7 +35,8 @@ const App = () => {
   }, []);
   
   useEffect(() => {
-    getData()
+    getBoardsData()
+    getUserdata()
     // eslint-disable-next-line
   }, [])
 

@@ -18,7 +18,7 @@ import {
   SET_OPTIONS_MODAL_STEP_DATA,
   SET_FAST_EDIT_MODAL_POS,
   SET_MOUSE_POS,
-  TOGGLE_BIG_LABELS,
+  SET_BIG_LABELS,
   SET_DATA,
   SET_SHOW_MENU,
 } from '../types';
@@ -45,6 +45,24 @@ const UserState = props => {
   };
 
   const [state, dispatch] = useReducer(userReducer, initialState);
+
+  const getUserdata = () => {
+    const bigLabels = JSON.parse(localStorage.getItem('bigLabels'));
+    const recentIds = JSON.parse(localStorage.getItem('recentIds'));
+
+    if(bigLabels) {
+      dispatch({
+        type: SET_BIG_LABELS,
+        payload: bigLabels
+      });
+    }
+    if(recentIds) {
+      dispatch({
+        type: SET_RECENT_IDS,
+        payload: recentIds
+      });
+    }
+  }
 
   const setCurrentBoardId = (id) => {
     dispatch({
@@ -235,7 +253,8 @@ const UserState = props => {
 
   const toggleBigLabels = () => {
     dispatch({
-      type: TOGGLE_BIG_LABELS
+      type: SET_BIG_LABELS,
+      payload: !state.bigLabels
     });
   }
 
@@ -295,6 +314,7 @@ const UserState = props => {
         addCardFromListActions: state.addCardFromListActions,
         data: state.data,
         showMenu: state.showMenu,
+        getUserdata,
         setCurrentBoardId,
         clearCurrentBoardId,
         setCurrentListId,

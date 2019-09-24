@@ -3,7 +3,7 @@ import uniqid from 'uniqid';
 import BoardContext from './boardContext';
 import boardReducer from './boardReducer';
 import {
-  SET_DATA_FROM_LS,
+  SET_BOARDS,
   ADD_BOARD,
   DELETE_BOARD,
   SET_TITLE,
@@ -22,6 +22,7 @@ import {
   UPDATE_CARD,
   DELETE_CARD,
   MOVE_CARD,
+  SET_LABELS,
   ADD_LABEL,
   UPDATE_LABEL,
   DELETE_LABEL
@@ -29,174 +30,7 @@ import {
 
 const BoardState = props => {
   const initialState = {
-    boards: [
-      {
-        title: 'my nice board',
-        id: 'b1',
-        color: '#344e5c',
-        starred: false,
-        describtion: 'board describtion goes here',
-        lists: [
-          {
-            title: 'todos',
-            id: uniqid(),
-            watching: false,
-            items: [
-              {
-                text: 'codo 1',
-                desc: 'one describtion',
-                id: uniqid(),
-                watching: false,
-                labels: [
-                  1,
-                  3,
-                  6
-                ],
-                checklists: [
-                  {
-                    title: 'my checklist',
-                    id: uniqid(),
-                    hideDone: false,
-                    items: [
-                      {
-                        text: 'Do 1',
-                        id: uniqid(),
-                        done: false
-                      },
-                      {
-                        text: 'Do 2',
-                        id: uniqid(),
-                        done: true
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                text: 'aodo 2',
-                watching: true,
-                id: uniqid(),
-                labels: [
-                  3
-                ],
-                checklists: [
-                  {
-                    title: 'my checklist',
-                    id: uniqid(),
-                    hideDone: false,
-                    items: [
-                      {
-                        text: 'Do 1',
-                        id: uniqid(),
-                        done: false
-                      },
-                      {
-                        text: 'Do 2',
-                        id: uniqid(),
-                        done: true
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                text: 'dodo 2',
-                id: uniqid(),
-                checklists: [],
-                labels: [
-                  2
-                ]
-              },
-              {
-                text: 'codo 2',
-                id: uniqid(),
-                checklists: [],
-                labels: [
-                  2
-                ]
-              },
-              {
-                text: 'bodo 2',
-                id: uniqid(),
-                checklists: [],
-                labels: [
-                  2
-                ]
-              },
-              {
-                text: 'eodo 2',
-                id: uniqid(),
-                checklists: [],
-                labels: [
-                  2
-                ]
-              },
-            ]
-          },
-          {
-            title: 'doing',
-            id: uniqid(),
-            watching: true,
-            items: [
-              {
-                text: 'doing 1',
-                id: uniqid(),
-                checklists: [],
-                labels: [
-                  5,
-                  3
-                ]
-              },
-              {
-                text: 'doing 2',
-                id: uniqid(),
-                checklists: [],
-                labels: [
-                  4,
-                  5,
-                  6,
-                  1,
-                  3,
-                  2 
-                ]
-              },
-              {
-                text: 'doing 3',
-                id: uniqid(),
-                checklists: [],
-                labels: [
-                  6,
-                  4
-                ]
-              }
-            ]
-          },
-          {
-            title: 'new list',
-            id: uniqid(),
-            items: [
-
-            ]
-          }
-        ]
-      },
-      {
-        title: 'test empty',
-        id: uniqid(),
-        starred: false,
-        color: '#4759a3',
-        describtion: '',
-        lists: [
-          {
-            title: 'test for one',
-            id: uniqid(),
-            items: [
-              
-            ]
-          }
-        ]
-      }
-    ],
+    boards: [],
     labels: [
       {
         id: 1,
@@ -282,51 +116,22 @@ const BoardState = props => {
   const [state, dispatch] = useReducer(boardReducer, initialState);
 
   // Get data from local storage
-  const getData = () => {
+  const getBoardsData = () => {
     const boards = JSON.parse(localStorage.getItem('boards'));
     const labels = JSON.parse(localStorage.getItem('labels'));
 
-    if(boards && labels) {
+    if(boards) {
       dispatch({
-        type: SET_DATA_FROM_LS,
-        payload: {
-          boards,
-          labels
-        }
-      });
-    } else if(boards && labels === null) {
-      dispatch({
-        type: SET_DATA_FROM_LS,
-        payload: {
-          boards,
-          labels: []
-        }
-      });
-    } else if(boards === null && labels === null) {
-      dispatch({
-        type: SET_DATA_FROM_LS,
-        payload: {
-          boards,
-          labels
-        }
-      });
-    } else if(boards === null && labels) {
-      dispatch({
-        type: SET_DATA_FROM_LS,
-        payload: {
-          boards: [],
-          labels
-        }
+        type: SET_BOARDS,
+        payload: boards
       });
     }
-
-    dispatch({
-      type: SET_DATA_FROM_LS,
-      payload: {
-        boards,
-        labels
-      }
-    });
+    if(labels) {
+      dispatch({
+        type: SET_LABELS,
+        payload: labels
+      });
+    }
   };
 
   const addBoard = (title, color, id) => {
@@ -655,7 +460,7 @@ const BoardState = props => {
         boards: state.boards,
         labels: state.labels,
         colors: state.colors,
-        getData,
+        getBoardsData,
         addBoard,
         deleteBoard,
         getBoard,

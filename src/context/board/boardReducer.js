@@ -1,5 +1,5 @@
 import {
-  SET_DATA_FROM_LS,
+  SET_BOARDS,
   ADD_BOARD,
   DELETE_BOARD,
   SET_TITLE,
@@ -18,6 +18,7 @@ import {
   UPDATE_CARD,
   DELETE_CARD,
   MOVE_CARD,
+  SET_LABELS,
   ADD_LABEL,
   UPDATE_LABEL,
   DELETE_LABEL
@@ -25,11 +26,11 @@ import {
 
 export default (state, action) => {
   switch (action.type) {
-    case SET_DATA_FROM_LS:
-      return {
-        ...state,
-        boards: action.payload.boards
-      }
+    case SET_BOARDS:
+     return {
+       ...state,
+       boards: action.payload
+     }
     case ADD_BOARD:
       return {
         ...state,
@@ -253,6 +254,11 @@ export default (state, action) => {
           }
           return b
         })
+      }
+    case SET_LABELS:
+      return {
+        ...state,
+        labels: action.payload
       }
     case ADD_LABEL:
       return {

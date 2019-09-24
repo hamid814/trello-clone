@@ -12,7 +12,7 @@ import {
   SET_OPTIONS_MODAL_TYPE,
   SET_FAST_EDIT_MODAL_POS,
   SET_MOUSE_POS,
-  TOGGLE_BIG_LABELS,
+  SET_BIG_LABELS,
   SET_OPTIONS_MODAL_STEP,
   SET_OPTIONS_MODAL_STEP_TYPE,
   SET_OPTIONS_MODAL_STEP_DATA,
@@ -102,10 +102,10 @@ export default (state, action) => {
         ...state,
         mousePos: action.payload  
       }
-    case TOGGLE_BIG_LABELS:
+    case SET_BIG_LABELS:
       return {
         ...state,
-        bigLabels: !state.bigLabels
+        bigLabels: action.payload
       }
     case 'setAddCardFromListActions':
       return {

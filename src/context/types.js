@@ -1,5 +1,5 @@
 // board state
-export const SET_DATA_FROM_LS = 'SET_DATA_FROM_LS';
+export const SET_BOARDS = 'SET_BOARDS';
 export const ADD_BOARD = 'ADD_BOARD';
 export const DELETE_BOARD = 'DELETE_BOARD';
 export const GET_BOARDS_NAMES = 'GET_BOARDS_NAMES';
@@ -19,6 +19,7 @@ export const ADD_CARD = 'ADD_CARD';
 export const UPDATE_CARD = 'UPDATE_CARD';
 export const DELETE_CARD = 'DELETE_CARD';
 export const MOVE_CARD = 'MOVE_CARD';
+export const SET_LABELS = 'SET_LABELS';
 export const ADD_LABEL = 'ADD_LABEL';
 export const UPDATE_LABEL = 'UPDATE_LABEL';
 export const DELETE_LABEL = 'DELETE_LABEL';
@@ -40,8 +41,8 @@ export const SET_OPTIONS_MODAL_TYPE = 'SET_OPTIONS_MODAL_TYPE';
 export const SET_FAST_EDIT_MODAL_POS = 'SET_FAST_EDIT_MODAL_POS';
 export const SET_CURRENT_CARD = 'SET_CURRENT_CARD';
 export const CLEAR_CURRENT_CARD = 'CLEAR_CURRENT_CARD';
-export const SET_MOUSE_POS = 'SET_MOUSE_POS';
-export const TOGGLE_BIG_LABELS = 'TOGGLE_BIG_LABELS';
+export const SET_MOUSE_POS = 'S`ET_MOUSE_POS';
+export const SET_BIG_LABELS = 'SET_BIG_LABELS';
 export const SET_OPTIONS_MODAL_STEP = 'SET_OPTIONS_MODAL_STEP';
 export const SET_OPTIONS_MODAL_STEP_TYPE = 'SET_OPTIONS_MODAL_STEP_TYPE';
 export const SET_OPTIONS_MODAL_STEP_DATA = 'SET_OPTIONS_MODAL_STEP_DATA';

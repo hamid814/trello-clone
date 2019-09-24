@@ -11,7 +11,7 @@ const BoardListItem = ({ item, listId }) => {
   const { getList, moveCard } = useContext(BoardContext);
 
   const onClick = (e) => {
-    if(!e.target.classList.contains('func-e-btn') && !e.target.parentElement.classList.contains('func-e-btn') && !e.target.classList.contains('func-card-label')) {
+    if(!e.target.classList.contains('func-e-btn') && !e.target.parentElement.classList.contains('func-e-btn') && !e.target.classList.contains('func-card-label') && !e.target.classList.contains('func-label-text')) {
       setModal('on', 'detailsModal');
     }
     setCurrentCard(item);

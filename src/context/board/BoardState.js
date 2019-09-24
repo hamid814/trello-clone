@@ -3,7 +3,9 @@ import uniqid from 'uniqid';
 import BoardContext from './boardContext';
 import boardReducer from './boardReducer';
 import {
+  SET_DATA_FROM_LS,
   ADD_BOARD,
+  DELETE_BOARD,
   SET_TITLE,
   SET_STAR,
   SET_WATCHING,
@@ -280,11 +282,19 @@ const BoardState = props => {
 
   const [state, dispatch] = useReducer(boardReducer, initialState);
 
-  // Get data
-  const getBoardsNames = () => {
-    const list = state.boards.map(b => b.title);
-    
-    return list
+  // Get data from local storage
+  const getData = () => {
+    const boards = JSON.parse(localStorage.getItem('boards'));
+    const labels = JSON.parse(localStorage.getItem('labels'));
+
+    console.log(boards)
+
+    dispatch({
+      type: SET_DATA_FROM_LS,
+      payload: {
+        boards
+      }
+    });
   };
 
   const addBoard = (title, color, id) => {
@@ -302,21 +312,11 @@ const BoardState = props => {
     });
   }
 
-  // get  recent used boards based on user state
-  const getRecentBoards = (ids) => {
-    const list = [];
-
-    ids && ids.forEach(id => list.push(getBoard(id)));
-
-    return list
-  }
-
-  // get boards with starred = true
-  const getStarredBoards = () => {
-    const list = [];
-    state.listOfStarredBoardsIds.forEach(id => list.push(getBoard(id)));
-
-    return list;
+  const deleteBoard = (id) => {
+    dispatch({
+      type: DELETE_BOARD,
+      payload: id
+    });
   }
 
   // send a single board to board page (returns an array with one object)
@@ -632,10 +632,10 @@ const BoardState = props => {
         boards: state.boards,
         labels: state.labels,
         colors: state.colors,
+        listOfStarredBoardsIds: state.listOfStarredBoardsIds,
+        getData,
         addBoard,
-        getBoardsNames,
-        getRecentBoards,
-        getStarredBoards,
+        deleteBoard,
         getBoard,
         getList,
         setTitle,

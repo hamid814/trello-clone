@@ -1,5 +1,7 @@
 import {
+  SET_DATA_FROM_LS,
   ADD_BOARD,
+  DELETE_BOARD,
   SET_TITLE,
   SET_STAR,
   SET_WATCHING,
@@ -23,6 +25,11 @@ import {
 
 export default (state, action) => {
   switch (action.type) {
+    case SET_DATA_FROM_LS:
+      return {
+        ...state,
+        boards: action.payload.boards
+      }
     case ADD_BOARD:
       return {
         ...state,

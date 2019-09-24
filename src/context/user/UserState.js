@@ -67,6 +67,9 @@ const UserState = props => {
       type: SET_RECENT_IDS,
       payload: newRecentIds
     });
+
+    // set recents to local storage
+    localStorage.setItem('recentIds', JSON.stringify(newRecentIds))
   }
 
   // also can be done with "setCurrentBoardId(null)"

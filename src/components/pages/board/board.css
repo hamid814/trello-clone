@@ -97,6 +97,22 @@ body {
   animation: boardMenuAnim 0.3s ease-in;
 }
 
+.board-menu-list {
+  margin-top: 1.5rem;
+}
+
+.board-menu-item {
+  padding: 0.4rem 0.7rem;
+  border: 1px solid #aaa;
+  border-radius: 0.25rem;
+  margin-bottom: .3rem;
+  cursor: pointer;
+}
+
+.board-menu-item:hover {
+  background: #aaa
+}
+
 @keyframes boardMenuAnim {
   from {
     margin-right: -50px;

@@ -3,24 +3,30 @@ import React, { useContext } from 'react';
 import userContext from '../../../context/user/userContext';
 
 const BoardMenu = () => {
-  const { setShowMenu } = useContext(userContext)
+  const { setOptionsModal, setShowMenu } = useContext(userContext)
 
   const onClose = () => {
     setShowMenu()
   }
 
+  const onDelete = () => {
+    setOptionsModal('on', 'deleteBoard')
+  }
+
   return (
-    <div>
+    <>
       <div className='close' onClick={onClose}>
         &times;
       </div>
-      <div>
-        board menu
+      <div className="board-menu-list">
+        <div className='board-menu-item'>
+          board menu
+        </div>
+        <div className='board-menu-item hover-danger' onClick={onDelete}>
+          delete board
+        </div>
       </div>
-      <div>
-        list
-      </div>
-    </div>
+    </>
   )
 }
 

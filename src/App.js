@@ -31,7 +31,7 @@ const App = () => {
     // console.log('add members to details modal next to labels')
     // console.log('style checkboxes')
     // console.log('NewCardOptions to be done (its half done)')
-    console.log('there are alot notes above this line')
+    console.log('notes ↑')
     getData();
     // eslint-disable-next-line
   }, []);

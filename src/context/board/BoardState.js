@@ -287,12 +287,11 @@ const BoardState = props => {
     const boards = JSON.parse(localStorage.getItem('boards'));
     const labels = JSON.parse(localStorage.getItem('labels'));
 
-    console.log(boards)
-
     dispatch({
       type: SET_DATA_FROM_LS,
       payload: {
-        boards
+        boards,
+        labels
       }
     });
   };

@@ -35,6 +35,16 @@ export default (state, action) => {
         ...state,
         boards: [...state.boards, action.payload]
       }
+    case DELETE_BOARD:
+      console.log(state.boards.filter(b => b.id !== action.payload))
+      // return {
+        // ...state,
+        // boards: state.boards.filter(b => b.id !== action.payload)
+      // }
+      return {
+        ...state,
+        boards: state.boards.filter(b => b.id !== action.payload)
+      }
     case SET_TITLE:
       return {
         ...state,

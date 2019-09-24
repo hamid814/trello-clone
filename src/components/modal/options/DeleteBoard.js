@@ -10,7 +10,7 @@ const DeleteBoard = () => {
   const { setAlert } = useContext(AlertContext);
 
   const onClick = () => {
-    // deleteBoard(currentBoardId)
+    deleteBoard(currentBoardId)
     setOptionsModal('off');
     setModal('off');
     setAlert(`board ${getBoard(currentBoardId).title} was deleted`, 'dark');

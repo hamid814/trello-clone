@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect, useContext } from 'react';
+import React, { Fragment, useContext } from 'react';
 import BoardNavbar from './BoardNavbar';
 import BoardMain from './BoardMain';
 
@@ -10,30 +10,23 @@ import BoardContext from '../../../context/board/boardContext';
 import './board.css';
 
 const Board = () => {
-  const [board, setBoard] = useState(null);
-
   const { currentBoardId } = useContext(UserContext);
   const boardContext = useContext(BoardContext);
 
   const { getBoard, setStar, setDescribtion } = boardContext;
 
-  useEffect(() => {
-    setBoard(getBoard(currentBoardId));
-    // eslint-disable-next-line
-  }, [currentBoardId]);
-
   const boardStyle = {
-    background: board && board.color
+    background: getBoard(currentBoardId).color
   }
 
   return (
     <Fragment>
       <BoardNavbar
-        board={board}
+        board={getBoard(currentBoardId)}
         setStar={setStar}
         setDescribtion={setDescribtion} />
       <div className='trello-board-main-wrapper lighten-20 p' style={boardStyle}>
-        {board && <BoardMain boardFuncs={boardContext} board={board} />}
+        <BoardMain boardFuncs={boardContext} board={getBoard(currentBoardId)} />
       </div>
     </Fragment>
   )

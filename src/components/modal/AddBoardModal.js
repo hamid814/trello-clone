@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react';
+import uniqid from 'uniqid';
 
 import UserContext from '../../context/user/userContext';
 import BoardContext from '../../context/board/boardContext';
@@ -7,7 +8,7 @@ import AlertContext from '../../context/alert/alertContext';
 import './modals.css';
 
 const AddBoardModal = () => {
-  const { setModal, clearCurrentBoardId } = useContext(UserContext);
+  const { setModal, setCurrentBoardId, clearCurrentBoardId } = useContext(UserContext);
   const { addBoard } = useContext(BoardContext);
   const { setAlert } = useContext(AlertContext);
 
@@ -36,10 +37,12 @@ const AddBoardModal = () => {
 
   const onAdd = () => {
     if(text !== '') {
-      addBoard(text, bg);
+      const id = uniqid();
+      addBoard(text, bg, id);
       onClose();
       setAlert(`board ${text.charAt(0).toUpperCase() + text.slice(1)} was created`, 'success', 4000);
       clearCurrentBoardId();
+      setCurrentBoardId(id);
     }
   }
 

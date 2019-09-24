@@ -12,16 +12,15 @@ import './board.css';
 const Board = () => {
   const [board, setBoard] = useState(null);
 
-  const userContext = useContext(UserContext);
+  const { currentBoardId } = useContext(UserContext);
   const boardContext = useContext(BoardContext);
 
-  const { currentBoardId } = userContext;
   const { getBoard, setStar, setDescribtion, setTitle } = boardContext;
 
   useEffect(() => {
     setBoard(getBoard(currentBoardId));
     // eslint-disable-next-line
-  }, []);
+  }, [currentBoardId]);
 
   const boardStyle = {
     background: board && board.color

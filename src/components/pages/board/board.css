@@ -1,5 +1,5 @@
 /*
- *** all this file is to let main panel in  baore page get the remaining height of the page
+ *** styles to let main panel in  baore page get the remaining height of the page
 */
 
 html,
@@ -81,3 +81,5 @@ body {
 .trello-board-list-footer {
   height: initial;
 }
+
+/* styles for board menu */

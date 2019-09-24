@@ -287,10 +287,10 @@ const BoardState = props => {
     return list
   };
 
-  const addBoard = (title, color) => {
+  const addBoard = (title, color, id) => {
     const newBaord = {
       title,
-      id: uniqid(),
+      id,
       color,
       starred: false,
       describtion: '',

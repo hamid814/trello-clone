@@ -72,7 +72,7 @@ const BoardList = ({ list, boardFuncs /* all of board context */ }) => {
   }
 
   const onNewCardOptionsClick = () => {
-    setOptionsModal('on', 'newCardActions');
+    setOptionsModal('on', 'newCardOptions');
   }
 
   return (

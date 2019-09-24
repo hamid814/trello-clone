@@ -1,8 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import BoardList from './BoardList';
 import AddList from './AddList';
+import BoardMenu from './BoardMenu';
+
+import userContext from '../../../context/user/userContext';
 
 const BoardMain = ({ board, boardFuncs /* contains all of board context  */ }) => {
+  const { showMenu } = useContext(userContext)
+
   const [style, setStyle] = useState({});
 
   useEffect(() => {
@@ -31,6 +36,9 @@ const BoardMain = ({ board, boardFuncs /* contains all of board context  */ }) =
         )) }
       <div className='trello-board-list-wrapper'>
         <AddList board={board} setScrollIflonger={setScrollIflonger} />
+      </div>
+      <div className={`board-menu ${!showMenu && 'd-n'}`}>
+        <BoardMenu />
       </div>
     </div>
   )

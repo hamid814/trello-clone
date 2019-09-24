@@ -388,6 +388,7 @@ const BoardState = props => {
     const newList = {
       title: text,
       id: uniqid(),
+      watching: false,
       items: []
     }
     dispatch({

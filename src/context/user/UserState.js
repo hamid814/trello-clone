@@ -20,6 +20,7 @@ import {
   SET_MOUSE_POS,
   TOGGLE_BIG_LABELS,
   SET_DATA,
+  SET_SHOW_MENU,
 } from '../types';
 
 const UserState = props => {
@@ -40,6 +41,7 @@ const UserState = props => {
     bigLabels: false,
     addCardFromListActions: null,
     data: null,
+    showMenu: false,
   };
 
   const [state, dispatch] = useReducer(userReducer, initialState);
@@ -72,6 +74,7 @@ const UserState = props => {
     dispatch({
       type: CLEAR_CURRENT_BOARD_ID
     });
+    setShowMenu('there is a command');
   }
 
   const setCurrentListId = (id) => {
@@ -243,6 +246,20 @@ const UserState = props => {
     }
   }
 
+  const setShowMenu = (command) => {
+    if(command) {
+      dispatch({
+        type: SET_SHOW_MENU,
+        payload: false
+      }); 
+    } else {
+      dispatch({
+        type: SET_SHOW_MENU,
+        payload: !state.showMenu
+      });
+    }
+  }
+
   return (
     <UserContext.Provider
       value={{
@@ -262,6 +279,7 @@ const UserState = props => {
         bigLabels: state.bigLabels,
         addCardFromListActions: state.addCardFromListActions,
         data: state.data,
+        showMenu: state.showMenu,
         setCurrentBoardId,
         clearCurrentBoardId,
         setCurrentListId,
@@ -276,6 +294,7 @@ const UserState = props => {
         toggleBigLabels,
         setAddCardFromListActions,
         setData,
+        setShowMenu,
       }}
     >
       {props.children}

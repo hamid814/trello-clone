@@ -17,6 +17,7 @@ import {
   SET_OPTIONS_MODAL_STEP_TYPE,
   SET_OPTIONS_MODAL_STEP_DATA,
   SET_DATA,
+  SET_SHOW_MENU,
 } from '../types';
 
 export default (state, action) => {
@@ -115,6 +116,11 @@ export default (state, action) => {
       return {
         ...state,
         data: action.payload
+      }
+    case SET_SHOW_MENU:
+      return {
+        ...state,
+        showMenu: action.payload
       }
     default:
       return state;

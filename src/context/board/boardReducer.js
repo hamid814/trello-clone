@@ -31,7 +31,7 @@ export default (state, action) => {
     case SET_TITLE:
       return {
         ...state,
-        baords: state.boards.map(b => {
+        boards: state.boards.map(b => {
           if(b.id === action.payload.id) {
             b.title = action.payload.text
           }

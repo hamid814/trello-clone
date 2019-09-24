@@ -2,9 +2,11 @@ import React, { useState, useContext } from 'react';
 import BoardTitle from './BoardTitle';
 
 import AlertContext from '../../../context/alert/alertContext';
+import userContext from '../../../context/user/userContext';
 
-const BoardNavbar = ({ board, setStar, setDescribtion, setTitle }) => {
+const BoardNavbar = ({ board, setStar, setDescribtion }) => {
   const { setAlert } = useContext(AlertContext);
+  const { setShowMenu } = useContext(userContext);
 
   const [descText, setDescText] = useState('');
   const [isSettingDesc, setIsSettingDesc] = useState(false);
@@ -38,6 +40,10 @@ const BoardNavbar = ({ board, setStar, setDescribtion, setTitle }) => {
     }
   }
 
+  const onShowMenu = () => {
+    setShowMenu();
+  }
+
   const navbarStyle = {
     background: board && board.color
   }
@@ -45,7 +51,7 @@ const BoardNavbar = ({ board, setStar, setDescribtion, setTitle }) => {
   return (
     <div className='trello-board-navbar trello-navbar lighten-20' style={navbarStyle}>
       <div className='card border-0 m-0 p-0'>
-        { board && <BoardTitle boardId={board.id} title={board.title} setTitle={setTitle} /> }
+        { board && <BoardTitle /> }
         <div className='btn btn-transparent btn-square rounded ml-1' onClick={onStarClick}>
           <i className={`fa-star ${board && board.starred ? 'fas text-warning' : 'far'}`}></i>
         </div>
@@ -68,7 +74,7 @@ const BoardNavbar = ({ board, setStar, setDescribtion, setTitle }) => {
           <i className='fas fa-pen'></i>
         </div>
       </div>
-      <div className='btn text-sm btn-narrow btn-transparent'>
+      <div className='btn text-sm btn-narrow btn-transparent' onClick={onShowMenu}>
         <i className="fas fa-ellipsis-h mr"></i>
         Show Menu
       </div>

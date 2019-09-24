@@ -6,18 +6,19 @@ import Modal from './components/modal/Modal';
 import OptionsModal from './components/modal/OptionsModal';
 import Alerts from './components/alert/Alerts';
 
-import UserContext from './context/user/userContext';
+import userContext from './context/user/userContext';
+import boardContext from './context/board/boardContext';
 
 import './trello-clone.css';
 
 const App = () => {
-  const userContext = useContext(UserContext);
-
   const {
     setCurrentBoardId,
     currentBoardId,
     setMousePos,
-    optionsModalStatus } = userContext
+    optionsModalStatus } = useContext(userContext);
+
+  const { boards } = useContext(boardContext)
 
   // to display board page for development purposes
   useEffect(() => {
@@ -33,6 +34,12 @@ const App = () => {
     console.log('there are alot notes above this line')
     // eslint-disable-next-line
   }, []);
+
+  useEffect(() => {
+    const stringOfBoards = JSON.stringify(boards)
+    
+    localStorage.setItem('boards', stringOfBoards);
+  }, [boards]);
 
   const onClick = (e) => {
     if(optionsModalStatus === 'off') {

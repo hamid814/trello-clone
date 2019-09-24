@@ -83,3 +83,25 @@ body {
 }
 
 /* styles for board menu */
+
+.board-menu {
+  position: absolute;
+  right: 0;
+  background: #ccc;
+  padding: 2rem;
+  top: 0;
+  bottom: 0;
+  width: 32%;
+  min-width: 320px;
+  max-width: 400px;
+  animation: boardMenuAnim 0.3s ease-in;
+}
+
+@keyframes boardMenuAnim {
+  from {
+    margin-right: -50px;
+  }
+  to {
+    margin-right: 0px;
+  }
+}

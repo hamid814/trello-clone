@@ -1,24 +1,20 @@
-import React, { useRef, useContext } from 'react';
+import React, { useContext } from 'react';
 
 import userContext from '../../context/user/userContext';
 
 const ListOfBoards = () => {
-  const list = useRef(null);
-
-  const { showBoards,keepBoards, toggleKeepBoards, toggleShowBoards } = useContext(userContext);
+  const { showBoardsList,keepBoardsList, toggleKeepBoardsList, toggleShowBoardsList } = useContext(userContext);
 
   const onKeepClicked = () => {
-    toggleKeepBoards();
+    toggleKeepBoardsList();
   }
 
-  list.current && console.log(list.current.classList)
-
   return (
-    <div ref={list} className={`list-of-boards ${showBoards ? 'show' : ''} ${keepBoards ? 'keep' : ''}`}>
+    <div className={`list-of-boards ${showBoardsList ? 'show' : ''} ${keepBoardsList ? 'keep' : ''}`}>
       my list <br />
       <span onClick={onKeepClicked}>always keep this menu open</span><br />
-      show boards: { showBoards ? 'true' : 'false' } <br />
-      keep boards: { keepBoards ? 'true' : 'false' }
+      show boards List: { showBoardsList ? 'true' : 'false' } <br />
+      keep boards List: { keepBoardsList ? 'true' : 'false' }
     </div>
   )
 }

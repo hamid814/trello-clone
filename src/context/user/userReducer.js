@@ -127,12 +127,12 @@ export default (state, action) => {
     case TOGGLE_KEEP_BOARDS:
       return {
         ...state,
-        keepBoards: !state.keepBoards
+        keepBoardsList: !state.keepBoardsList
       }
     case TOGGLE_SHOW_BOARDS:
       return {
         ...state,
-        showBoards: !state.showBoards
+        showBoardsList: !state.showBoardsList
       }
     default:
       return state;

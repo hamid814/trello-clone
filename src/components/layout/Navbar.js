@@ -7,7 +7,7 @@ const Navbar = () => {
   const userContext = useContext(UserContext);
   const boardContext = useContext(BoardContext);
 
-  const { clearCurrentBoardId, currentBoardId, setModal, toggleShowBoards } = userContext;
+  const { clearCurrentBoardId, currentBoardId, setModal, toggleShowBoardsList } = userContext;
   const { getBoard } = boardContext;
 
   const homeClicked =() => {
@@ -19,7 +19,7 @@ const Navbar = () => {
   }
 
   const onBoardsClicked = () => {
-    toggleShowBoards();
+    toggleShowBoardsList();
   }
 
   const navbarStyle = {

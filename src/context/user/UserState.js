@@ -44,8 +44,8 @@ const UserState = props => {
     addCardFromListActions: null,
     data: null,
     showMenu: false,
-    showBoards: false,
-    keepBoards: false,
+    showBoardsList: false,
+    keepBoardsList: false,
   };
 
   const [state, dispatch] = useReducer(userReducer, initialState);
@@ -298,13 +298,13 @@ const UserState = props => {
     }
   }
 
-  const toggleKeepBoards = () => {
+  const toggleKeepBoardsList = () => {
     dispatch({
       type: TOGGLE_KEEP_BOARDS
     });
   }
 
-  const toggleShowBoards = () => {
+  const toggleShowBoardsList = () => {
     dispatch({
       type: TOGGLE_SHOW_BOARDS
     });
@@ -330,8 +330,8 @@ const UserState = props => {
         addCardFromListActions: state.addCardFromListActions,
         data: state.data,
         showMenu: state.showMenu,
-        showBoards: state.showBoards,
-        keepBoards: state.keepBoards,
+        showBoardsList: state.showBoardsList,
+        keepBoardsList: state.keepBoardsList,
         getUserdata,
         setCurrentBoardId,
         clearCurrentBoardId,
@@ -349,8 +349,8 @@ const UserState = props => {
         setData,
         setShowMenu,
         deleteFromRecent,
-        toggleKeepBoards,
-        toggleShowBoards,
+        toggleKeepBoardsList,
+        toggleShowBoardsList,
       }}
     >
       {props.children}

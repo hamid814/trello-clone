@@ -9,8 +9,12 @@ const ListOfBoards = () => {
     toggleKeepBoardsList();
   }
 
+  const thisStyle = {
+    top: keepBoardsList ? 0 : 40
+  }
+
   return (
-    <div className={`list-of-boards ${showBoardsList ? 'show' : ''} ${keepBoardsList ? 'keep' : ''}`}>
+    <div style={thisStyle} className={`list-of-boards ${showBoardsList ? 'show' : ''} ${keepBoardsList ? 'keep' : ''}`}>
       my list <br />
       <span onClick={onKeepClicked}>always keep this menu open</span><br />
       show boards List: { showBoardsList ? 'true' : 'false' } <br />

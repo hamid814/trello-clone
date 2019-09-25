@@ -7,7 +7,7 @@ const Navbar = () => {
   const userContext = useContext(UserContext);
   const boardContext = useContext(BoardContext);
 
-  const { clearCurrentBoardId, currentBoardId, setModal, toggleShowBoardsList } = userContext;
+  const { clearCurrentBoardId, currentBoardId, setModal, toggleShowBoardsList, keepBoardsList } = userContext;
   const { getBoard } = boardContext;
 
   const homeClicked =() => {
@@ -36,7 +36,7 @@ const Navbar = () => {
         <div className='btn btn-square btn-transparent rounded' onClick={homeClicked}>
           <i className='fa fa-home'></i>
         </div>
-        <div className='btn btn-narrow btn-transparent rounded' onClick={onBoardsClicked}>
+        <div className={`btn btn-narrow btn-transparent rounded ${keepBoardsList && 'd-n'}`} onClick={onBoardsClicked}>
           <i className='mr-1 fa fa-notes-medical'></i>
           boards
         </div>

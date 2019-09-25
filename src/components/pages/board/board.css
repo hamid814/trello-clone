@@ -12,7 +12,7 @@ body {
   height: 100%;
 }
 
-#all-wrapper {
+.all-wrapper {
   display: flex;
   flex-flow: column;
   height: 100%;

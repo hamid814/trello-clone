@@ -18,6 +18,7 @@ const App = () => {
     setMousePos,
     bigLabels,
     getUserdata,
+    keepBoardsList,
     optionsModalStatus } = useContext(userContext);
 
   const { boards, labels, getBoardsData } = useContext(boardContext)
@@ -68,18 +69,22 @@ const App = () => {
 
   return (
     <>
-    <div onClick={onClick} id='all-wrapper'>
-      <Navbar />
+    <div onClick={onClick} className='all-wrapper'>
       <Modal />
       <OptionsModal />
       <Alerts />
-      <ListOfBoards />
-      { !currentBoardId
-          ? <Home />
-          : <Board />
-      }
-      {/* <Home /> */}
-      {/* <Board /> */}
+      <div className={`all-wrapper ${keepBoardsList ? 'grid-1-4 gap-none' : ''}`}>
+        <div className='all-wrapper'>
+          <ListOfBoards />
+        </div>
+        <div className='all-wrapper'>
+          <Navbar />
+          { !currentBoardId
+              ? <Home />
+              : <Board />
+          }
+        </div>
+      </div>
     </div>
     </>
   );

@@ -79,7 +79,7 @@ const UserState = props => {
   // set new board to recent
   const setRecentBaord = (id) => {
     const newRecentIds = state.recentIds;
-    if(newRecentIds.length === 5 && id !== null) {
+    if(newRecentIds.length === 6 && id !== null) {
       newRecentIds.shift();
       newRecentIds.push(id);
     } else if(id !== null) {

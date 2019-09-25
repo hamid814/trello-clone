@@ -21,6 +21,7 @@ import {
   SET_BIG_LABELS,
   SET_DATA,
   SET_SHOW_MENU,
+  TOGGLE_SHOW_BOARDS, 
   TOGGLE_KEEP_BOARDS, 
 } from '../types';
 
@@ -43,6 +44,7 @@ const UserState = props => {
     addCardFromListActions: null,
     data: null,
     showMenu: false,
+    showBoards: false,
     keepBoards: false,
   };
 
@@ -298,8 +300,13 @@ const UserState = props => {
 
   const toggleKeepBoards = () => {
     dispatch({
-      type: TOGGLE_KEEP_BOARDS,
-      payload: !state.keepBoards
+      type: TOGGLE_KEEP_BOARDS
+    });
+  }
+
+  const toggleShowBoards = () => {
+    dispatch({
+      type: TOGGLE_SHOW_BOARDS
     });
   }
 
@@ -323,6 +330,8 @@ const UserState = props => {
         addCardFromListActions: state.addCardFromListActions,
         data: state.data,
         showMenu: state.showMenu,
+        showBoards: state.showBoards,
+        keepBoards: state.keepBoards,
         getUserdata,
         setCurrentBoardId,
         clearCurrentBoardId,
@@ -341,6 +350,7 @@ const UserState = props => {
         setShowMenu,
         deleteFromRecent,
         toggleKeepBoards,
+        toggleShowBoards,
       }}
     >
       {props.children}

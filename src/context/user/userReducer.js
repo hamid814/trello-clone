@@ -18,6 +18,7 @@ import {
   SET_OPTIONS_MODAL_STEP_DATA,
   SET_DATA,
   SET_SHOW_MENU,
+  TOGGLE_SHOW_BOARDS,
   TOGGLE_KEEP_BOARDS,
 } from '../types';
 
@@ -122,6 +123,16 @@ export default (state, action) => {
       return {
         ...state,
         showMenu: action.payload
+      }
+    case TOGGLE_KEEP_BOARDS:
+      return {
+        ...state,
+        keepBoards: !state.keepBoards
+      }
+    case TOGGLE_SHOW_BOARDS:
+      return {
+        ...state,
+        showBoards: !state.showBoards
       }
     default:
       return state;

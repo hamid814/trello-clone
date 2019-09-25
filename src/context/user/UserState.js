@@ -21,6 +21,7 @@ import {
   SET_BIG_LABELS,
   SET_DATA,
   SET_SHOW_MENU,
+  TOGGLE_KEEP_BOARDS, 
 } from '../types';
 
 const UserState = props => {
@@ -42,6 +43,7 @@ const UserState = props => {
     addCardFromListActions: null,
     data: null,
     showMenu: false,
+    keepBoards: false,
   };
 
   const [state, dispatch] = useReducer(userReducer, initialState);
@@ -294,6 +296,13 @@ const UserState = props => {
     }
   }
 
+  const toggleKeepBoards = () => {
+    dispatch({
+      type: TOGGLE_KEEP_BOARDS,
+      payload: !state.keepBoards
+    });
+  }
+
   return (
     <UserContext.Provider
       value={{
@@ -331,6 +340,7 @@ const UserState = props => {
         setData,
         setShowMenu,
         deleteFromRecent,
+        toggleKeepBoards,
       }}
     >
       {props.children}

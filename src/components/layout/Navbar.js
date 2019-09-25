@@ -36,9 +36,6 @@ const Navbar = () => {
           <i className='mr-1 fa fa-notes-medical'></i>
           boards
         </div>
-        <div className='d-i-b rounded'>
-          <input type='text' className='m-0 bg-light op-8 border-0 rounded' id='search-input'/>
-        </div>
       </div>
       <div className='mr-5'>
         <div className='text-white text-bold cursor-p border border-white border-bottom-0'>

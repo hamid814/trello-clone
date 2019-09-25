@@ -18,6 +18,7 @@ import {
   SET_OPTIONS_MODAL_STEP_DATA,
   SET_DATA,
   SET_SHOW_MENU,
+  TOGGLE_KEEP_BOARDS,
 } from '../types';
 
 export default (state, action) => {

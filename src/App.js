@@ -1,5 +1,6 @@
 import React, { useEffect, useContext } from 'react';
 import Navbar from './components/layout/Navbar';
+import ListOfBoards from './components/layout/ListOfBoards';
 import Home from './components/pages/home/Home';
 import Board from './components/pages/board/Board';
 import Modal from './components/modal/Modal';
@@ -72,6 +73,7 @@ const App = () => {
       <Modal />
       <OptionsModal />
       <Alerts />
+      <ListOfBoards />
       { !currentBoardId
           ? <Home />
           : <Board />

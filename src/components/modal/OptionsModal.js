@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useContext } from 'react';
 import DeleteBoard from './options/DeleteBoard';
 import ClearBoard from './options/ClearBoard';
+import SetBoardWatching from './options/SetBoardWatching';
 import DeleteCard from './options/DeleteCard';
 import MoveCard from './options/MoveCard';
 import CopyCard from './options/CopyCard';
@@ -112,6 +113,7 @@ const OptionsModal = () => {
             </div>
             { optionsModalType === 'deleteBoard' && 'Delete board?' }
             { optionsModalType === 'clearBoard' && 'Clear board?' }
+            { optionsModalType === 'setBoardWatching' && 'Stop watching?' }
             { optionsModalType === 'editCardLabels' && 'Labels' }
             { optionsModalType === 'editLabel' && 'Edit Label' }
             { optionsModalType === 'moveCard' && 'Move card' }
@@ -131,6 +133,7 @@ const OptionsModal = () => {
           </div>
           <div className='options-modal-body'>
             { optionsModalType === 'deleteBoard' && <DeleteBoard /> }
+            { optionsModalType === 'setBoardWatching' && <SetBoardWatching /> }
             { optionsModalType === 'clearBoard' && <ClearBoard /> }
             { optionsModalType === 'editCardLabels' && <EditCardLabels /> }
             { optionsModalType === 'moveCard' && <MoveCard /> }

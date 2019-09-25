@@ -3,17 +3,17 @@ import BoardNavbar from './BoardNavbar';
 import BoardMain from './BoardMain';
 
 // context
-import UserContext from '../../../context/user/userContext';
-import BoardContext from '../../../context/board/boardContext';
+import userContext from '../../../context/user/userContext';
+import boardContext from '../../../context/board/boardContext';
 
 // css
 import './board.css';
 
 const Board = () => {
-  const { currentBoardId } = useContext(UserContext);
-  const boardContext = useContext(BoardContext);
+  const { currentBoardId } = useContext(userContext);
+  const BoardContext = useContext(boardContext);
 
-  const { getBoard, setStar, setDescribtion } = boardContext;
+  const { getBoard } = BoardContext;
 
   const boardStyle = {
     background: getBoard(currentBoardId).color
@@ -21,12 +21,9 @@ const Board = () => {
 
   return (
     <Fragment>
-      <BoardNavbar
-        board={getBoard(currentBoardId)}
-        setStar={setStar}
-        setDescribtion={setDescribtion} />
+      <BoardNavbar board={getBoard(currentBoardId)} />
       <div className='trello-board-main-wrapper lighten-20 p' style={boardStyle}>
-        <BoardMain boardFuncs={boardContext} board={getBoard(currentBoardId)} />
+        <BoardMain boardFuncs={BoardContext} board={getBoard(currentBoardId)} />
       </div>
     </Fragment>
   )

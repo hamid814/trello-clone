@@ -3,10 +3,12 @@ import BoardTitle from './BoardTitle';
 
 import AlertContext from '../../../context/alert/alertContext';
 import userContext from '../../../context/user/userContext';
+import boardContext from '../../../context/board/boardContext';
 
-const BoardNavbar = ({ board, setStar, setDescribtion }) => {
+const BoardNavbar = ({ board }) => {
   const { setAlert } = useContext(AlertContext);
-  const { setShowMenu } = useContext(userContext);
+  const { setOptionsModal, setShowMenu } = useContext(userContext);
+  const { setStar, setDescribtion } = useContext(boardContext);
 
   const [descText, setDescText] = useState('');
   const [isSettingDesc, setIsSettingDesc] = useState(false);
@@ -44,6 +46,10 @@ const BoardNavbar = ({ board, setStar, setDescribtion }) => {
     setShowMenu();
   }
 
+  const onSetWatching = () => {
+    setOptionsModal('on', 'setBoardWatching');
+  }
+
   const navbarStyle = {
     background: board && board.color
   }
@@ -74,9 +80,15 @@ const BoardNavbar = ({ board, setStar, setDescribtion }) => {
           <i className='fas fa-pen'></i>
         </div>
       </div>
-      <div className='btn text-sm btn-narrow btn-transparent' onClick={onShowMenu}>
-        <i className="fas fa-ellipsis-h mr"></i>
-        Show Menu
+      <div>
+        <div className={`btn text-sm btn-narrow btn-transparent ${!board.watching && 'd-n'}`} onClick={onSetWatching}>
+          <i className='fas fa-eye mr'></i>
+          watching
+        </div>
+        <div className='btn text-sm btn-narrow btn-transparent' onClick={onShowMenu}>
+          <i className='fas fa-ellipsis-h mr'></i>
+          Show Menu
+        </div>
       </div>
     </div>
   )

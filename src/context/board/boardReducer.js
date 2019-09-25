@@ -5,6 +5,7 @@ import {
   CLEAR_BOARD,
   SET_TITLE,
   SET_STAR,
+  SET_BOARD_WATCHING,
   SET_WATCHING,
   SET_DESCRIBTION,
   ADD_LIST,
@@ -68,6 +69,17 @@ export default (state, action) => {
         boards: state.boards.map(b => {
           if(b.id === action.payload) {
             b.starred = !b.starred
+          }
+          return b
+        })
+      }
+
+    case SET_BOARD_WATCHING:
+      return {
+        ...state,
+        boards: state.boards.map(b => {
+          if(b.id === action.payload) {
+            b.watching = !b.watching
           }
           return b
         })

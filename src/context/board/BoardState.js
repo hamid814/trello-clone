@@ -9,6 +9,7 @@ import {
   CLEAR_BOARD,
   SET_TITLE,
   SET_STAR,
+  SET_BOARD_WATCHING,
   SET_WATCHING,
   SET_DESCRIBTION,
   ADD_LIST,
@@ -37,7 +38,7 @@ const BoardState = props => {
         id: 1,
         color: '#61bd4f',
         colorName: 'green',
-        name: 'label name'
+        name: ''
       },
       {
         id: 2,
@@ -141,6 +142,7 @@ const BoardState = props => {
       id,
       color,
       starred: false,
+      watching: false,
       describtion: '',
       lists: []
     }
@@ -167,6 +169,13 @@ const BoardState = props => {
   const clearBoard = (id) => {
     dispatch({
       type: CLEAR_BOARD,
+      payload: id
+    });
+  }
+
+  const setBoardWatching = (id) => {
+    dispatch({
+      type: SET_BOARD_WATCHING,
       payload: id
     });
   }
@@ -198,6 +207,7 @@ const BoardState = props => {
     });
   }
 
+  // set watching for a list
   const setWatching = (boardId, listId) => {
     dispatch({
       type: SET_WATCHING,
@@ -294,7 +304,7 @@ const BoardState = props => {
     });
   }
 
-  const copyList = (boardId, listId, name) => {
+  const copyList = (boardId, listId, title) => {
     let theList;
 
     state.boards.forEach(b => b.id === boardId && b.lists.forEach(l => {
@@ -305,7 +315,7 @@ const BoardState = props => {
     
     const newList = {
       ...theList,
-      title: name,
+      title,
       id: uniqid()
     }
 
@@ -476,6 +486,7 @@ const BoardState = props => {
         getList,
         setTitle,
         setStar,
+        setBoardWatching,
         setWatching,
         setDescribtion,
         addList,

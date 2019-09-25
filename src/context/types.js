@@ -6,6 +6,7 @@ export const CLEAR_BOARD = 'CLEAR_BOARD';
 export const GET_BOARDS_NAMES = 'GET_BOARDS_NAMES';
 export const SET_TITLE = 'SET_TITLE';
 export const SET_STAR = 'SET_STAR';
+export const SET_BOARD_WATCHING = 'SET_BOARD_WATCHING';
 export const SET_WATCHING = 'SET_WATCHING';
 export const SET_DESCRIBTION = 'SET_DESCRIBTION';
 export const ADD_LIST = 'ADD_LIST';

@@ -31,7 +31,7 @@ const BoardMain = ({ board, boardFuncs /* contains all of board context  */ }) =
     <div className='trello-board-main' style={style}>
       { board.lists.map(l => (
           <div key={l.id} className='trello-board-list-wrapper'>
-            <BoardList list={l} boardFuncs={boardFuncs} />
+            <BoardList key={l.id} list={l} boardFuncs={boardFuncs} />
           </div>
         )) }
       <div className='trello-board-list-wrapper'>

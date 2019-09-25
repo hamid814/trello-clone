@@ -12,7 +12,7 @@ const HomeMain = () => {
   }
 
   return (
-    <main className='text-bold'>
+    <main className='trello-home-main text-bold'>
       <Starred />
       <Recent />
       <div className='card border-0'>

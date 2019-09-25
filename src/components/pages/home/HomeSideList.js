@@ -7,10 +7,10 @@ const HomeSideList = () => {
   const { boards } = useContext(BoardContext);
 
   return (
-    <aside>
-      <button className="btn btn-block btn-primary text-left rounded-lg">
-        <i className="fa fa-notes-medical mr-1"></i>
-        <div className="text-bold d-i-b">Boards</div>
+    <aside className='trello-aside'>
+      <button className='btn btn-block btn-primary text-left rounded-lg'>
+        <i className='fa fa-notes-medical mr-1'></i>
+        <div className='text-bold d-i-b'>Boards</div>
       </button>
       { boards.map(b => (
         <SideListItem key={b.id} board={b} />

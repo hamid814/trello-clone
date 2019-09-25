@@ -31,7 +31,7 @@ const Navbar = () => {
   }
 
   return (
-    <div className='trello-navbar' style={navbarStyle}>
+    <div className='trello-navbar' id='main-navbar' style={navbarStyle}>
       <div>
         <div className='btn btn-square btn-transparent rounded' onClick={homeClicked}>
           <i className='fa fa-home'></i>

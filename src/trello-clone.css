@@ -1444,16 +1444,80 @@ table th {
 .list-of-boards {
   z-index: 2;
   background: #f1f1f1;
-  display: none;  
+  display: none;
+  min-width: 280px;
+  max-width: 280px;
+  max-height: 100%;
 }
 
 .list-of-boards.show {
   position: absolute;
   display: block;
+  height: 93% !important;
 }
 
 .list-of-boards.keep {
   position: initial;
   display: block;
-  min-width: 300px;
+  height: 100%;
+}
+
+.list-of-boards .header {
+  padding: 0.75rem 1rem;
+  background: #d7d7d7;
+}
+
+.list-of-boards .main {
+  margin: 0.3rem;
+  overflow: auto;
+  padding: 0.75rem 1rem;
+  max-height: 100%;
+  background: #f1f1f1;
+}
+
+.list-of-boards .item {
+  border-radius: 0.25rem;
+  padding: 0;
+  font-size: 0.9rem;
+  font-weight: 800;
+  margin: 0.35rem 0;
+  position: relative;
+  cursor: pointer;
+}
+
+.list-of-boards .item .left {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+}
+
+.list-of-boards .item .right {
+  background: rgba(200, 200, 200, 0.6);
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  left: 30px;
+  padding: 6.5px;
+}
+
+.list-of-boards .item .star {
+  position: absolute;
+  top: 9px;
+  right: 0;
+  opacity: 0;
+  transition: 0.1s;
+}
+
+.list-of-boards .item:hover .star {
+  opacity: 1;
+  right: 9px;
+}
+
+.list-of-boards .item .star.stay {
+  position: absolute;
+  top: 9px;
+  right: 9px;
+  opacity: 1;
 }

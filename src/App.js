@@ -19,20 +19,23 @@ const App = () => {
     bigLabels,
     getUserdata,
     keepBoardsList,
+    showBoardsList,
+    toggleShowBoardsList,
     optionsModalStatus } = useContext(userContext);
 
   const { boards, labels, getBoardsData } = useContext(boardContext)
 
   // to display board page for development purposes
   useEffect(() => {
-    // console.log('focus on inputs')
-    // console.log('setScrollIfLonger if board copied')
-    // console.log('newCardActions in boardList does nothing yet ( add card must be editted to send an object to the context not a text )')
-    // console.log('in final deploy, must change the add functions, ex. => i have prop on cards, but in addCard func, there is no "whatchin: false" so it must be changed as the other, add label (probalbely not), addList, add Board, and ...')
-    // console.log('add members to details modal next to labels')
-    // console.log('style checkboxes')
-    // console.log('NewCardOptions to be done (its half done)')
-    // console.log('clear all boards to boards list in the navbar')
+    // focus on inputs
+    // setScrollIfLonger if board copied
+    // newCardActions in boardList does nothing yet ( add card must be editted to send an object to the context not a text )
+    // in final deploy, must change the add functions, ex. => i have prop on cards, but in addCard func, there is no "whatchin: false" so it must be changed as the other, add label (probalbely not), addList, add Board, and ...
+    // add members to details modal next to labels
+    // style checkboxes
+    // NewCardOptions to be done (its half done)
+    // clear all boards to boards list in the navbar
+    // cahnge board color
     console.log('notes ↑')
     // eslint-disable-next-line
   }, []);
@@ -67,6 +70,14 @@ const App = () => {
     }
   }
 
+  const CloseListOfBoards = (e) => {
+    if(!keepBoardsList) {
+      if(showBoardsList) {
+        toggleShowBoardsList();
+      }
+    }
+  }
+
   return (
     <>
     <div onClick={onClick} className='all-wrapper'>
@@ -77,7 +88,7 @@ const App = () => {
         <div className='all-wrapper'>
           <ListOfBoards />
         </div>
-        <div className='all-wrapper'>
+        <div className='all-wrapper' onClick={CloseListOfBoards}>
           <Navbar />
           { !currentBoardId
               ? <Home />

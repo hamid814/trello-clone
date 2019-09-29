@@ -34,19 +34,24 @@ const BoardMenu = () => {
       <hr/>
       <div className='board-menu-list'>
         <div className='board-menu-item'>
+          <i className="fas fa-align-left mr"></i>
           board menu
         </div>
         <div className='board-menu-item' onClick={onWatcingClicked}>
+          <i className="fas fa-eye mr"></i>
           watch
           <i className={`fas fa-check text-sm ml ${!getBoard(currentBoardId).watching && 'd-n'}`}></i>
         </div>
         <div className='board-menu-item'>
+          <i className="fas fa-paint-brush mr"></i>
           change board color
         </div>
-        <div className='board-menu-item' onClick={onClearBoard}>
+        <div className='board-menu-item hover-danger' onClick={onClearBoard}>
+          <i className="fas fa-eraser mr"></i>
           clear baord
         </div>
         <div className='board-menu-item hover-danger' onClick={onDelete}>
+          <i className="fas fa-trash mr"></i>
           delete board
         </div>
       </div>

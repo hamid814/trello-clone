@@ -9,7 +9,20 @@ const ListOfBoards = () => {
   const [text, setText] = useState('');
   const [topDistance, setTopDistance] = useState(0);
   
-  const { showBoardsList, keepBoardsList, toggleKeepBoardsList, toggleShowBoardsList, setModal } = useContext(userContext);
+  const {
+    showBoardsList,
+    keepBoardsList,
+    toggleKeepBoardsList,
+    toggleShowBoardsList,
+    setOptionsModal,
+    setModal } = useContext(userContext);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setTopDistance(document.querySelector('#main-navbar').getBoundingClientRect().height);
+    }, 100);
+    // eslint-disable-next-line
+  }, []);
 
   const onChange = (e) => {
     setText(e.target.value);
@@ -26,12 +39,9 @@ const ListOfBoards = () => {
     setModal('on', 'addBoardModal');
   }
 
-  useEffect(() => {
-    setTimeout(() => {
-      setTopDistance(document.querySelector('#main-navbar').getBoundingClientRect().height);
-    }, 100);
-    // eslint-disable-next-line
-  }, []);
+  const onDeleteClicked = () => {
+    setOptionsModal('on', 'deleteAllBoards');
+  }
 
   const thisStyle = {
     top: !keepBoardsList && topDistance
@@ -63,15 +73,17 @@ const ListOfBoards = () => {
         <RecentInList searchText={text} />
         <Boards searchText={text} />
         <div className='text-85 underline m cursor-p mt-1' onClick={onCreateNewBordClicked}>
-          createnew board
+          Create new board
         </div>
         <div className='text-85 underline m cursor-p' onClick={onKeepClicked}>
           {
             keepBoardsList
-              ? 'dont keep this menu open'
-              : 'always keep this menu open'
+              ? 'Dont keep this menu open'
+              : 'Always keep this menu open'
           }
-          
+        </div>
+        <div className='text-85 underline m cursor-p hover-danger' onClick={onDeleteClicked}>
+          Delete All Boards
         </div>
       </div>
     </div>

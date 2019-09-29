@@ -1502,7 +1502,7 @@ table th {
   padding: 6.5px;
 }
 
-.list-of-boards .item .star {
+.list-of-boards .item .star, .list-of-boards .item .close {
   position: absolute;
   top: 9px;
   right: 0;
@@ -1513,6 +1513,13 @@ table th {
 .list-of-boards .item:hover .star {
   opacity: 1;
   right: 9px;
+}
+
+.list-of-boards .item:hover .close {
+  opacity: 1;
+  right: 24px;
+  top: 11px;
+  font-size: 1.33rem;
 }
 
 .list-of-boards .item .star.stay {

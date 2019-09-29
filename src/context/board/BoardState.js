@@ -3,6 +3,7 @@ import uniqid from 'uniqid';
 import BoardContext from './boardContext';
 import boardReducer from './boardReducer';
 import {
+  DELETE_ALL_BOARDS,
   SET_BOARDS,
   ADD_BOARD,
   DELETE_BOARD,
@@ -27,7 +28,7 @@ import {
   SET_LABELS,
   ADD_LABEL,
   UPDATE_LABEL,
-  DELETE_LABEL
+  DELETE_LABEL,
 } from '../types';
 
 const BoardState = props => {
@@ -135,6 +136,12 @@ const BoardState = props => {
       });
     }
   };
+
+  const deleteAllBoards = () => {
+    dispatch({
+      type: DELETE_ALL_BOARDS
+    });
+  }
 
   const addBoard = (title, color, id) => {
     const newBaord = {
@@ -479,6 +486,7 @@ const BoardState = props => {
         labels: state.labels,
         colors: state.colors,
         getBoardsData,
+        deleteAllBoards,
         addBoard,
         deleteBoard,
         getBoard,

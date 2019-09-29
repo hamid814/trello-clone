@@ -1,4 +1,5 @@
 import {
+  DELETE_ALL_BOARDS,
   SET_BOARDS,
   ADD_BOARD,
   DELETE_BOARD,
@@ -28,6 +29,11 @@ import {
 
 export default (state, action) => {
   switch (action.type) {
+    case DELETE_ALL_BOARDS:
+      return {
+        ...state,
+        boards: []
+      }
     case SET_BOARDS:
      return {
        ...state,

@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef, useContext } from 'react';
+import DeleteAllBoards from './options/DeleteAllBoards';
+import ConfirmDeleteAllBoards from './options/ConfirmDeleteAllBoards';
 import DeleteBoard from './options/DeleteBoard';
 import ClearBoard from './options/ClearBoard';
 import SetBoardWatching from './options/SetBoardWatching';
@@ -111,6 +113,8 @@ const OptionsModal = () => {
             <div className="close" onClick={closeModal}>
               &times;
             </div>
+            { optionsModalType === 'deleteAllBoards' && 'Are you sure?' }
+            { optionsModalType === 'confirmDeleteAllBoards' && 'CONFIRM' }
             { optionsModalType === 'deleteBoard' && 'Delete board?' }
             { optionsModalType === 'clearBoard' && 'Clear board?' }
             { optionsModalType === 'setBoardWatching' && 'Stop watching?' }
@@ -132,6 +136,8 @@ const OptionsModal = () => {
             { optionsModalType === 'newCardOptions' && 'Card options' }
           </div>
           <div className='options-modal-body'>
+            { optionsModalType === 'deleteAllBoards' && <DeleteAllBoards /> }
+            { optionsModalType === 'confirmDeleteAllBoards' && <ConfirmDeleteAllBoards /> }
             { optionsModalType === 'deleteBoard' && <DeleteBoard /> }
             { optionsModalType === 'setBoardWatching' && <SetBoardWatching /> }
             { optionsModalType === 'clearBoard' && <ClearBoard /> }

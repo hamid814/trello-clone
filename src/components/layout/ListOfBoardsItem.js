@@ -6,11 +6,11 @@ import userContext from '../../context/user/userContext';
 const ListOfBoardsItem = ({ board, isRecent }) => {
   isRecent && console.log('add X btn if its recent to delte from recent')
 
-  const { setCurrentBoardId, keepBoardsList, toggleShowBoardsList } = useContext(userContext)
+  const { setCurrentBoardId, keepBoardsList, toggleShowBoardsList, deleteFromRecent } = useContext(userContext)
   const { setStar } = useContext(boardContext)
 
   const onClick = (e) => {
-    if(!e.target.classList.contains('func-icon') && !e.target.classList.contains('func-star')) {
+    if(!e.target.classList.contains('func-icon') && !e.target.classList.contains('func-star') && !e.target.classList.contains('func-recent-x')) {
       setCurrentBoardId(board.id);
       !keepBoardsList && toggleShowBoardsList()
     }
@@ -18,6 +18,10 @@ const ListOfBoardsItem = ({ board, isRecent }) => {
 
   const onStarCLick = () => {
     setStar(board.id);
+  }
+
+  const onDeleteFromRecentClick = () => {
+    deleteFromRecent(board.id);
   }
 
   const thisStyle = {
@@ -37,6 +41,11 @@ const ListOfBoardsItem = ({ board, isRecent }) => {
         
         </i>
       </div>
+      {
+        isRecent && <div className={`func-recent-x close`} onClick={onDeleteFromRecentClick}>
+                      &times;
+                    </div>
+      }
     </div>
   )
 }

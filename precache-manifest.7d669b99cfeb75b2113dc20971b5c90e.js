@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "4daa892066829bf28aa94b08a98725fa",
+    "revision": "5851ae456d985339874f64ca773bc68e",
     "url": "/trello-clone/index.html"
   },
   {
-    "revision": "61f73205b6539643abd6",
+    "revision": "f8a928c6acca6ae03e9b",
     "url": "/trello-clone/static/css/main.80b12ef2.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/trello-clone/static/js/2.66247fa1.chunk.js"
   },
   {
-    "revision": "61f73205b6539643abd6",
-    "url": "/trello-clone/static/js/main.932dada9.chunk.js"
+    "revision": "f8a928c6acca6ae03e9b",
+    "url": "/trello-clone/static/js/main.cf29c0e7.chunk.js"
   },
   {
     "revision": "a7969dd5f4de691f9b43",

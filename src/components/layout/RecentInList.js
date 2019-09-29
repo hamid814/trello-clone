@@ -16,7 +16,7 @@ const RecentInList = ({ searchText }) => {
   }
 
   return (
-    <div className={`mt-1 mb ${recentIds.length === 0 && 'd-n'}`}>
+    <div className={`mt-1 mb ${recentIds.length === 0 && 'd-n'} ${searchText !== '' && 'd-n'}`}>
       <div className='mb-1'>
         <i className='fas fa-clock mr'></i>
         recent boards

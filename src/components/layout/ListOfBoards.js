@@ -24,6 +24,10 @@ const ListOfBoards = () => {
     // eslint-disable-next-line
   }, []);
 
+  useEffect(() => {
+    setText('');
+  }, [showBoardsList])
+
   const onChange = (e) => {
     setText(e.target.value);
   }

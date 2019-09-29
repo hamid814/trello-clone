@@ -17,7 +17,7 @@ const StarredInList = ({ searchText }) => {
   boards.forEach(b => b.starred && listOfStarred.push(b.id))
 
   return (
-    <div className={`mt-1 mb ${listOfStarred.length === 0 && 'd-n'}`}>
+    <div className={`mt-1 mb ${listOfStarred.length === 0 && 'd-n'} ${searchText !== '' && 'd-n'}`}>
       <div className='mb-1'>
         <i className='fas fa-star mr'></i>
         favorite boards

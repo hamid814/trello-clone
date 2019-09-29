@@ -23,7 +23,7 @@ const Boards = ({ searchText }) => {
       </div>
       { !collapse &&
           boards.map(b => (
-            <ListOfBoardsItem key={b.id} board={b} />
+            <ListOfBoardsItem isFromBoards={true} searchText={searchText} key={b.id} board={b} />
           ))
       }
     </div>

@@ -3,9 +3,7 @@ import React, { useContext } from 'react';
 import boardContext from '../../context/board/boardContext';
 import userContext from '../../context/user/userContext';
 
-const ListOfBoardsItem = ({ board, isRecent }) => {
-  isRecent && console.log('add X btn if its recent to delte from recent')
-
+const ListOfBoardsItem = ({ board, searchText, isRecent, isFromBoards }) => {
   const { setCurrentBoardId, keepBoardsList, toggleShowBoardsList, deleteFromRecent } = useContext(userContext)
   const { setStar } = useContext(boardContext)
 
@@ -29,7 +27,7 @@ const ListOfBoardsItem = ({ board, isRecent }) => {
   }
 
   return (
-    <div style={thisStyle} className='item hover' onClick={onClick}>
+    <div style={thisStyle} className={`item hover ${(board.title.indexOf(searchText) === -1 && isFromBoards) && 'd-n'}`} onClick={onClick}>
       <div className='left'>
       
       </div>

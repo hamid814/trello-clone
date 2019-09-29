@@ -1,10 +1,16 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import ListOfBoardsItem from './ListOfBoardsItem';
 
 import boardContext from '../../context/board/boardContext';
 
 const Boards = ({ searchText }) => {
-  const [collapse, setCollapse] = useState(false)
+  const [collapse, setCollapse] = useState(false);
+
+  useEffect(() => {
+    if(searchText !== '') {
+      setCollapse(false);
+    }
+  }, [searchText]);
 
   const { boards } = useContext(boardContext);
 

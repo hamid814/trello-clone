@@ -10,6 +10,7 @@ export const SET_STAR = 'SET_STAR';
 export const SET_BOARD_WATCHING = 'SET_BOARD_WATCHING';
 export const SET_WATCHING = 'SET_WATCHING';
 export const SET_DESCRIBTION = 'SET_DESCRIBTION';
+export const SET_COLOR = 'SET_COLOR';
 export const ADD_LIST = 'ADD_LIST';
 export const DELETE_LIST = 'DELETE_LIST';
 export const DELETE_ALL_CARDS = 'DELETE_ALL_CARDS';

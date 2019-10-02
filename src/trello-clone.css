@@ -686,6 +686,12 @@ input {
   color: #888;
 }
 
+.normal-textarea {
+  font-family: 'Roboto', sans-serif;
+  font-size: .9rem;
+  resize: none;
+}
+
 input[type='text'],
 input[type='email'],
 input[type='password'],
@@ -927,6 +933,20 @@ table th {
 }
 
 .close:hover {
+  text-decoration: none;
+  opacity: .95;
+}
+
+.back {
+  float: left;
+  font-size: 1.3rem;
+  line-height: 1;
+  color: #000;
+  opacity: .6;
+  cursor: pointer;
+}
+
+.back:hover {
   text-decoration: none;
   opacity: .95;
 }

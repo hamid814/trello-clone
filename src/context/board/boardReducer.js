@@ -8,6 +8,7 @@ import {
   SET_STAR,
   SET_BOARD_WATCHING,
   SET_WATCHING,
+  SET_COLOR,
   SET_DESCRIBTION,
   ADD_LIST,
   DELETE_LIST,
@@ -111,6 +112,16 @@ export default (state, action) => {
         boards: state.boards.map(b => {
           if(b.id === action.payload.id) {
             b.describtion = action.payload.text
+          }
+          return b
+        })
+      }
+    case SET_COLOR:
+      return {
+        ...state,
+        boards: state.boards.map(b => {
+          if(b.id === action.payload.id) {
+            b.color = action.payload.color
           }
           return b
         })

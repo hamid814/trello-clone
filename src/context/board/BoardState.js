@@ -13,6 +13,7 @@ import {
   SET_BOARD_WATCHING,
   SET_WATCHING,
   SET_DESCRIBTION,
+  SET_COLOR,
   ADD_LIST,
   DELETE_LIST,
   DELETE_ALL_CARDS,
@@ -232,6 +233,17 @@ const BoardState = props => {
       payload: {
         id,
         text
+      }
+    });
+  }
+
+  // set board color
+  const setColor = (color, id) => {
+    dispatch({
+      type: SET_COLOR,
+      payload: {
+        id,
+        color
       }
     });
   }
@@ -497,6 +509,7 @@ const BoardState = props => {
         setBoardWatching,
         setWatching,
         setDescribtion,
+        setColor,
         addList,
         deleteList,
         deleteAllCards,

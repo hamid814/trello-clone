@@ -1,17 +1,20 @@
-import React, { useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import SearchResultItem from './SearchResultItem';
 
 import boardContext from '../../context/board/boardContext';
 
 const SearchResults = ({ text }) => {
+  const [list, setList] = useState([]);
+
   const { boards } = useContext(boardContext);
 
+  useEffect(() => {
+    
+  }, [text]);
+
   return (
-    <div calssName='search-result'>
-      {text ? text : 'hamid'}<br />
-      {text ? text : 'hamid'}<br />
-      {text ? text : 'hamid'}<br />
-      {text ? text : 'hamid'}<br />
-      {text ? text : 'hamid'}<br />
+    <div className='search-result'>
+      hamid
     </div>
   )
 }

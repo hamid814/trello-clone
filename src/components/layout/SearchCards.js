@@ -22,7 +22,7 @@ const SearchCards = () => {
   }
 
   return (
-    <div className='pos-rel search-box-wrapper'>
+    <div id='search-cards' className='pos-rel search-box-wrapper'>
       <input
         type='text'
         placeholder='seach cards'

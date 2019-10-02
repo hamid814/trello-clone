@@ -31,8 +31,6 @@ const Navbar = () => {
     color: getBoard(currentBoardId) ? getBoard(currentBoardId).color : '#388d6a'
   }
 
-  console.log(currentBoardId)
-
   return (
     <div className='trello-navbar' id='main-navbar' style={navbarStyle}>
       <div>

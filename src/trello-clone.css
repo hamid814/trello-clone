@@ -1258,6 +1258,7 @@ table th {
 
 .trello-board-navbar {
   padding-top: 0.5rem;
+  z-index: 0;
 }
 
 .trello-board-list-wrapper {
@@ -1529,14 +1530,13 @@ table th {
 }
 
 .search-box-wrapper {
-  /* z-index: 14; */
+  z-index: 14;
 }
 
 .search-result-panel {
-  background: #e7e7e7;
+  background: #f7f7f7;
   position: absolute;
   top: 1rem;
-  left: 1rem;
+  left: 0;
   padding: 0.5rem;
-  /* z-index: 15; */
 }

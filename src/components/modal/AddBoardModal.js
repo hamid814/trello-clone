@@ -9,10 +9,10 @@ import './modals.css';
 
 const AddBoardModal = () => {
   const { setModal, setCurrentBoardId, clearCurrentBoardId } = useContext(UserContext);
-  const { addBoard } = useContext(BoardContext);
+  const { boardColors, addBoard } = useContext(BoardContext);
   const { setAlert } = useContext(AlertContext);
 
-  const [bg, setBg] = useState('#ee3a59');
+  const [bg, setBg] = useState('#0079bf');
   const [text, setText] = useState('');
 
   const onBgClicked = (e) => {
@@ -70,13 +70,20 @@ const AddBoardModal = () => {
           </div>
         </div>
         <div className='func-colors grid-3 gap-half' onClick={onBgClicked}>
-          <div id='#ee3a59' className='rounded-lg p-1 background-red cursor-p'></div>
+          {
+            boardColors.map((c, index) => (
+              <div
+                id={c}
+                style={{background: c}}
+                  className='rounded-lg p-1 cursor-p'>
+              </div>
+            ))
+          }
+          {/* <div id='#ee3a59' className='rounded-lg p-1 background-red cursor-p'></div>
           <div id='#e27b47' className='rounded-lg p-1 background-orange cursor-p'></div>
           <div id='#efca58' className='rounded-lg p-1 background-yellow cursor-p'></div>
           <div id='#46b29e' className='rounded-lg p-1 background-blue-l cursor-p'></div>
-          <div id='#344e5c' className='rounded-lg p-1 background-blue-d cursor-p'></div>
-          <div className='func-no-click'></div>
-          <div id='custom' className='rounded-lg p-1 bg-light cursor-p'></div>
+          <div id='#344e5c' className='rounded-lg p-1 background-blue-d cursor-p'></div> */}
         </div>
       </div>
       <div

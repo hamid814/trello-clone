@@ -13,7 +13,9 @@ const BoardMenu = () => {
   const { getBoard, setBoardWatching } = useContext(boardContext)
 
   const onClose = () => {
-    setShowMenu()
+    setShowMenu();
+    setStep(false);
+    setStepType('');
   }
 
   const onBack = () => {

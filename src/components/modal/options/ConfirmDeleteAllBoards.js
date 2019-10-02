@@ -6,8 +6,7 @@ import alertContext from '../../../context/alert/alertContext';
 
 const ConfirmDeleteAllBoards = () => {
   const {
-    recentIds,
-    deleteFromRecent,
+    clearRecent,
     setOptionsModal,
     keepBoardsList,
     toggleShowBoardsList,
@@ -17,10 +16,12 @@ const ConfirmDeleteAllBoards = () => {
 
   const onClick = () => {
     // delete all recent ids to prevent error
-    recentIds.forEach(i => deleteFromRecent(i));
+    clearRecent();
 
     // clear the state
-    deleteAllBoards();
+    setTimeout(() => {
+      deleteAllBoards();
+    }, 100);
 
     setOptionsModal('off');
 

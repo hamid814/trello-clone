@@ -1222,29 +1222,8 @@ table th {
   background: #344563
 }
 
-.background-red {
-  background: #ee3a59;
-  color: #f4f4f4
-}
-
-.background-orange {
-  background: #e27b47;
-  color: #f4f4f4
-}
-
-.background-yellow {
-  background: #efca58;
-  color: #222
-}
-
-.background-blue-l {
-  background: #46b29e;
-  color: #f4f4f4
-}
-
-.background-blue-d {
-  background: #344e5c;
-  color: #f4f4f4
+.board-color {
+  height: 5rem; 
 }
 
 .trello-aside {

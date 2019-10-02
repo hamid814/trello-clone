@@ -106,6 +106,15 @@ const UserState = props => {
     localStorage.setItem('recentIds', JSON.stringify(newRecentIds))
   }
 
+  const clearRecent = () => {
+    dispatch({
+      type: SET_RECENT_IDS,
+      payload: []
+    });
+
+    localStorage.setItem('recentIds', '[]')
+  }
+
   // also can be done with "setCurrentBoardId(null)"
   const clearCurrentBoardId = () => {
     dispatch({
@@ -349,6 +358,7 @@ const UserState = props => {
         setData,
         setShowMenu,
         deleteFromRecent,
+        clearRecent,
         toggleKeepBoardsList,
         toggleShowBoardsList,
       }}

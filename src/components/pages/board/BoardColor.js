@@ -1,17 +1,30 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 
 import userContext from '../../../context/user/userContext'
 import boardContext from '../../../context/board/boardContext'
 
 const BoardColor = () => {
   const { currentBoardId } = useContext(userContext);
-  const { getBoard, setColor } = useContext(boardContext);
+  const { boardColors, setColor } = useContext(boardContext);
 
-  const [newColor, setNewColor] = useState(null)
+  const onClick = (e) => {
+    setColor(e.target.id, currentBoardId);
+  }
 
   return (
-    <div className='p-1'>
-      color
+    <div className='mt-1'>
+      <div className='grid-2 gap-half' onClick={onClick}>
+        {
+          boardColors.map(c => (
+            <div
+              id={c}
+              key={c}
+              style={{background: c}}
+              className='board-color rounded-lg hover cursor-p'>
+            </div>
+          ))
+        }
+      </div>
     </div>
   )
 }

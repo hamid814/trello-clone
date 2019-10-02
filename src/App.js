@@ -28,7 +28,6 @@ const App = () => {
   // to display board page for development purposes
   useEffect(() => {
     // focus on inputs
-    // setScrollIfLonger if board copied
     // newCardActions in boardList does nothing yet ( add card must be editted to send an object to the context not a text )
     // in final deploy, must change the add functions, ex. => i have prop on cards, but in addCard func, there is no "whatchin: false" so it must be changed as the other, add label (probalbely not), addList, add Board, and ...
     // add members to details modal next to labels

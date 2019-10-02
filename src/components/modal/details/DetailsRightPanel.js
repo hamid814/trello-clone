@@ -12,10 +12,6 @@ const DetailsRightPanel = () => {
     setOptionsModal('on', 'editCardLabels');
   }
 
-  const onMemberClick = () => {
-    setOptionsModal('on', 'members');
-  }
-
   const onChecklistClick = () => {
     setOptionsModal('on', 'addChecklist');
   }
@@ -51,10 +47,6 @@ const DetailsRightPanel = () => {
         <div onClick={onLabelClick}>
           <i className='fas fa-tag'></i>
           Label
-        </div>
-        <div onClick={onMemberClick}>
-          <i className='fas fa-user'></i>
-          Memeber
         </div>
         <div onClick={onChecklistClick}>
           <i className='fas fa-check-square'></i>

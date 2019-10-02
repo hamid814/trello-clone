@@ -114,7 +114,7 @@ const BoardListItem = ({ item, listId }) => {
         </div>
         <div className='text-sm mt'>
           {
-            item.desc &&
+            item.desc !== '' &&
               <i className='fas fa-align-left mr'></i>
           }
           {

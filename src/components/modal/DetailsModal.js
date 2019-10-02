@@ -39,7 +39,6 @@ const DetailsModal = () => {
         {/* left column */}
         <div>
           <Labels labels={currentCard.labels} />
-          {/* <Members /> */}
           <Description />
           <Checklists checklists={currentCard.checklists} />
         </div>

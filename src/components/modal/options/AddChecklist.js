@@ -8,7 +8,7 @@ const AddChecklist = () => {
   const { currentBoardId, currentListId, currentCard, setCurrentCard, setOptionsModal } = useContext(UserContext)
   const { updateCard } = useContext(BoardContext)
 
-  const [text, setText] = useState('checklist');
+  const [text, setText] = useState('new checklist');
 
   const onChange = (e) => {
     setText(e.target.value);

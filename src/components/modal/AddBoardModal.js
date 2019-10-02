@@ -74,8 +74,9 @@ const AddBoardModal = () => {
             boardColors.map((c, index) => (
               <div
                 id={c}
+                key={c}
                 style={{background: c}}
-                  className='rounded-lg p-1 cursor-p'>
+                className='rounded-lg p-1 cursor-p'>
               </div>
             ))
           }

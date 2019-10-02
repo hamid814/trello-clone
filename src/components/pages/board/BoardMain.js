@@ -13,7 +13,7 @@ const BoardMain = ({ board, boardFuncs /* contains all of board context  */ }) =
   useEffect(() => {
     setScrollIflonger();
     // eslint-disable-next-line
-  }, [board]);
+  }, [board.lists]);
 
   const setScrollIflonger = () => {
     const boardWidth = (board.lists.length + 1) * 270;

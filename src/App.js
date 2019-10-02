@@ -34,7 +34,9 @@ const App = () => {
     // style checkboxes
     // NewCardOptions to be done (its half done)
     // clear all boards to boards list in the navbar
+    // search result scroll if longer
     // cahnge board color
+    // save keepBoardsList to local storage
     console.log('notes ↑')
     // eslint-disable-next-line
   }, []);

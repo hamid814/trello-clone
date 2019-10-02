@@ -71,10 +71,6 @@ const BoardList = ({ list, boardFuncs /* all of board context */ }) => {
     setOptionsModal('on', 'listActions');
   }
 
-  const onNewCardOptionsClick = () => {
-    setOptionsModal('on', 'newCardOptions');
-  }
-
   return (
     <div className='trello-board-list' onMouseDown={onListCLick}>
       <div className='trello-board-list-header'>
@@ -91,7 +87,7 @@ const BoardList = ({ list, boardFuncs /* all of board context */ }) => {
       </div>
       <div className='trello-board-list-items'>
         { list.items.map((i, index) => (
-          <BoardListItem listId={list.id} key={i.id} item={i} />
+          <BoardListItem key={i.id} item={i} />
         )) }
         <div className={`trello-board-list-item trello-board-card-compose  ${!wantToAddCard && 'd-n'}`}>
           <textarea
@@ -119,9 +115,6 @@ const BoardList = ({ list, boardFuncs /* all of board context */ }) => {
               </div>
               <div className='d-i-b cursor-p ml-1 text-lg lighten-60 hover' onClick={cancelAddCard}>
                 &times;
-              </div>
-              <div className='btn bg-transparent-with-hover btn-square float-right'          onClick={onNewCardOptionsClick}>
-                  <i className='fas fa-ellipsis-h'></i>
               </div>
             </Fragment>
           )  

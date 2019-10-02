@@ -22,8 +22,6 @@ const AddChecklist = () => {
       items: []
     }
 
-    console.log(currentCard)
-
     const newCard = {
       ...currentCard,
       checklists: [...currentCard.checklists, newChecklist]

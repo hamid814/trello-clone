@@ -18,7 +18,6 @@ import CopyList from './options/CopyList';
 import MoveList from './options/MoveList';
 import DeleteAllCards from './options/DeleteAllCards';
 import MoveAllCards from './options/MoveAllCards';
-import NewCardOptions from './options/NewCardOptions';
 
 import UserContext from '../../context/user/userContext';
 
@@ -133,7 +132,6 @@ const OptionsModal = () => {
             { optionsModalType === 'moveList' && 'Move List' }
             { optionsModalType === 'deleteAllCards' && 'Empty the List?' }
             { optionsModalType === 'moveAllCards' && 'select board' }
-            { optionsModalType === 'newCardOptions' && 'Card options' }
           </div>
           <div className='options-modal-body'>
             { optionsModalType === 'deleteAllBoards' && <DeleteAllBoards /> }
@@ -155,7 +153,6 @@ const OptionsModal = () => {
             { optionsModalType === 'moveList' && <MoveList /> }
             { optionsModalType === 'deleteAllCards' && <DeleteAllCards /> }
             { optionsModalType === 'moveAllCards' && <MoveAllCards /> }
-            { optionsModalType === 'newCardOptions' && <NewCardOptions /> }
           </div>
         </div>
     </div>

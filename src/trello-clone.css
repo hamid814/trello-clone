@@ -494,8 +494,18 @@ img {
   grid-gap: 2rem;
 }
 
+.grid-2-row {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 2rem;
+}
+
 .gap-half {
   grid-gap: 0.5rem;
+}
+
+.gap-none {
+  grid-gap: 0;
 }
 
 .gap-none {
@@ -1424,7 +1434,7 @@ table th {
   align-content: top;
 }
 
-.drag-board {
+.drag-cover {
   display: none;
   background: #bbb;
   border-radius: 0.25rem;
@@ -1437,7 +1447,7 @@ table th {
   z-index: 1;
 }
 
-.dragging .drag-board {
+.dragging .drag-cover {
   display: block;
 }
 
@@ -1536,7 +1546,7 @@ table th {
 .search-result-panel {
   background: #f7f7f7;
   position: absolute;
-  top: 1rem;
   left: 0;
-  padding: 0.5rem;
+  padding: 1rem 1.7rem;
+  width: 500px;
 }

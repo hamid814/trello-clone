@@ -3,6 +3,12 @@ import React, { useContext } from 'react';
 import UserContext from '../../../context/user/userContext';
 // import BoardContext from '../../../context/board/boardContext';
 
+/*
+
+    *** this component is not used ***
+
+*/
+
 const NewCardOptions = () => {
   const { setOptionsModalStep } = useContext(UserContext);
   // const {  } = useContext(BoardContext);

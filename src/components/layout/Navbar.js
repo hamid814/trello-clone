@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import SearchCards from './SearchCards';
 
 import UserContext from '../../context/user/userContext';
 import BoardContext from '../../context/board/boardContext';
@@ -30,6 +31,8 @@ const Navbar = () => {
     color: getBoard(currentBoardId) ? getBoard(currentBoardId).color : '#388d6a'
   }
 
+  console.log(currentBoardId)
+
   return (
     <div className='trello-navbar' id='main-navbar' style={navbarStyle}>
       <div>
@@ -39,6 +42,9 @@ const Navbar = () => {
         <div className={`btn btn-narrow btn-transparent rounded ${keepBoardsList && 'd-n'}`} onClick={onBoardsClicked}>
           <i className='mr-1 fa fa-notes-medical'></i>
           boards
+        </div>
+        <div className='d-i-b'>
+          <SearchCards />
         </div>
       </div>
       <div className='mr-5'>

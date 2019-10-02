@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useContext } from 'react';
 
-import UserContext from '../../../context/user/userContext';
-import BoardContext from '../../../context/board/boardContext';
+import userContext from '../../../context/user/userContext';
+import boardContext from '../../../context/board/boardContext';
 
 const Description = () => {
-  const { currentBoardId, currentListId, currentCard } = useContext(UserContext);
-  const { updateCard } = useContext(BoardContext);
+  const { setCurrentCard,currentBoardId, currentListId, currentCard } = useContext(userContext);
+  const { updateCard } = useContext(boardContext);
 
   const [text, setText] = useState('');
   const [isEditing, setIsEditing] = useState(false)
@@ -38,6 +38,8 @@ const Description = () => {
         desc: text
       }
       updateCard(currentBoardId, currentListId, currentCard.id, newCard);
+
+      setCurrentCard(newCard);
     }
 
     setIsEditing(false);

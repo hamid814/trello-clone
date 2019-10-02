@@ -262,17 +262,18 @@ const BoardState = props => {
   }
 
   // add List to board
-  const addList = (text, id) => {
+  const addList = (text, boardId) => {
     const newList = {
       title: text,
       id: uniqid(),
+      boardId,
       watching: false,
       items: []
     }
     dispatch({
       type: ADD_LIST,
       payload: {
-        id,
+        id: boardId,
         newList
       }
     });
@@ -305,14 +306,14 @@ const BoardState = props => {
       newItems.push(item);
     });
 
+    // make newItems equal to an array of items with new ids
     newItems = newItems.map(i => {
       return {
         ...i,
-        id: uniqid()
+        id: uniqid(),
+        listId: destListId
       }
     })
-
-    // now newItems is equal to an array of items with new ids
 
     dispatch({
       type: MOVE_ALL_CARDS,
@@ -382,6 +383,11 @@ const BoardState = props => {
 
     const list = getList(firstBoardId, firstListId);
 
+    const newList = {
+      ...list,
+      boardId: destBoardId,
+    }
+
     dispatch({
       type: MOVE_LIST,
       payload: {
@@ -389,7 +395,7 @@ const BoardState = props => {
         firstIndex,
         destBoardId,
         destIndex,
-        list
+        list: newList
       }
     });
   }
@@ -398,11 +404,13 @@ const BoardState = props => {
   const addCard = (text, listId, boardId) => {
     const newCard = {
       text,
-      desc: '',
       id: uniqid(),
+      listId,
+      boardId,
+      desc: '',
       watching: false,
       labels: [],
-      checklists: []
+      checklists: [],
     }
     dispatch({
       type: ADD_CARD,
@@ -446,7 +454,9 @@ const BoardState = props => {
 
     const cardWithNewId = {
       ...card,
-      id: uniqid()
+      id: uniqid(),
+      boardId: destBoardId,
+      listId: destListId,
     }
 
     dispatch({

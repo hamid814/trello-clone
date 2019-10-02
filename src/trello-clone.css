@@ -1527,3 +1527,16 @@ table th {
   right: 9px;
   opacity: 1;
 }
+
+.search-box-wrapper {
+  /* z-index: 14; */
+}
+
+.search-result-panel {
+  background: #e7e7e7;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  padding: 0.5rem;
+  /* z-index: 15; */
+}

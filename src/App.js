@@ -37,6 +37,8 @@ const App = () => {
     // search result scroll if longer
     // cahnge board color
     // save keepBoardsList to local storage
+    // saech blur doesnt work
+    // add demo btn
     console.log('notes ↑')
     // eslint-disable-next-line
   }, []);

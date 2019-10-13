@@ -9,7 +9,8 @@ const SearchCards = () => {
   const input = useRef(null)
 
   const [text, setText] = useState('');
-  const [searching, setSearching] = useState(false)
+  const [searching, setSearching] = useState(false);
+  const [destCard, setDestCard] = useState(null);
 
   useEffect(() => {
     setSearching(false);
@@ -19,13 +20,16 @@ const SearchCards = () => {
     setText(e.target.value);
   }
 
-  const onClick = () => {
+  const onDivFocus = () => {
     setSearching(true);
   }
 
-  const onBlur = () => {
-    // setSearching(false);
-    // setText('');
+  const onDivBlur = () => {
+    setSearching(false);
+  }
+
+  const clickedACard = () => {
+    setText('');
   }
 
   const thisStyle = {
@@ -37,19 +41,21 @@ const SearchCards = () => {
   }
 
   return (
-    <div id='search-cards' className='pos-rel search-box-wrapper'>
+    <div id='search-cards'
+      tabIndex='0'
+      onFocus={onDivFocus}
+      onBlur={onDivBlur}
+      className='pos-rel search-box-wrapper'>
       <input
         type='text'
         placeholder='seach cards'
         ref={input}
         className={`m-0 border-0 rounded ${searching ? 'op-9' : 'op-7'}`}
         onChange={onChange}
-        onClick={onClick}
-        onBlur={onBlur}
         style={thisStyle}
         value={text}/>
       <div style={thisStyle1} className={`search-result-panel rounded-lg ${!searching && 'd-n'}`}>
-        <SearchResults text={text} />
+        <SearchResults text={text} clickedACard={clickedACard} />
       </div>
     </div>
   )

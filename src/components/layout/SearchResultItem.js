@@ -2,12 +2,15 @@ import React, { useContext } from 'react';
 import BoardListItem from '../pages/board/BoardListItem';
 
 import boardContext from '../../context/board/boardContext';
+import userContext from '../../context/user/userContext';
 
-const SearchResultItem = ({ card }) => {
+const SearchResultItem = ({ card, clickedACard }) => {
   const { getBoard, getList } = useContext(boardContext)
+  const { setCurrentBoardId } = useContext(userContext)
 
   const onClick = () => {
-    console.log(card)
+    setCurrentBoardId(card.boardId);
+    clickedACard();
   }
   
   return (

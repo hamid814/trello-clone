@@ -1549,4 +1549,10 @@ table th {
   left: 0;
   padding: 1rem 1.7rem;
   width: 500px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.search-box-wrapper:focus {
+  outline: 0;
 }

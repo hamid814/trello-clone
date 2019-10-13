@@ -3,7 +3,7 @@ import SearchResultItem from './SearchResultItem';
 
 import boardContext from '../../context/board/boardContext';
 
-const SearchResults = ({ text }) => {
+const SearchResults = ({ text, clickedACard }) => {
   const [resultInCardText, setResultInCardText] = useState([])
   const [resultInCardDesc, setResultInCardDesc] = useState([])
 
@@ -49,7 +49,7 @@ const SearchResults = ({ text }) => {
       }
       {
         resultInCardText.map(card => (
-          <SearchResultItem key={card.id} card={card} />
+          <SearchResultItem key={card.id} card={card} clickedACard={clickedACard} />
         ))
       }
       {
@@ -60,7 +60,7 @@ const SearchResults = ({ text }) => {
       }
       {
         resultInCardDesc.map(card => (
-          <SearchResultItem key={card.id} card={card} />
+          <SearchResultItem key={card.id} card={card} clickedACard={clickedACard} />
         ))
       }
       {

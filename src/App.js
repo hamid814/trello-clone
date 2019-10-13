@@ -28,10 +28,8 @@ const App = () => {
   // to display board page for development purposes
   useEffect(() => {
     // focus on inputs
-    // in final deploy, must change the add functions, ex. => i have prop on cards, but in addCard func, there is no "whatchin: false" so it must be changed as the other, add label (probalbely not), addList, add Board, and ...
     // style checkboxes
     // save keepBoardsList to local storage
-    // search blur doesnt work
     // add demo btn
     console.log('notes ↑')
     // eslint-disable-next-line

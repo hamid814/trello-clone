@@ -1,4 +1,5 @@
 // board state
+export const SET_DEMO = 'SET_DEMO';
 export const DELETE_ALL_BOARDS = 'DELETE_ALL_BOARDS';
 export const SET_BOARDS = 'SET_BOARDS';
 export const ADD_BOARD = 'ADD_BOARD';

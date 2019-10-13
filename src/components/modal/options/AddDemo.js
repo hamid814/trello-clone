@@ -4,15 +4,13 @@ import userContext from '../../../context/user/userContext';
 import boardContext from '../../../context/board/boardContext';
 
 const AddDemo = () => {
-  const { clearCurrentBoardId, setOptionsModal } = useContext(userContext)
+  const { clearCurrentBoardId, setOptionsModal, clearRecent } = useContext(userContext)
   const { setDemoBoards } = useContext(boardContext)
 
   const onAdd = () => {
     setOptionsModal('off');
     clearCurrentBoardId();
-
-
-
+    clearRecent();
 
     setDemoBoards();
   }

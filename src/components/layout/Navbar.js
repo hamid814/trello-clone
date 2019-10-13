@@ -64,7 +64,7 @@ const Navbar = () => {
       <div>
         <div className='btn btn-square btn-transparent rounded' onClick={addDemoClicked}>
           <i className='fa fa-cubes mr'></i>
-          add demo 
+          add demo
         </div>
         <div className='btn btn-square btn-transparent rounded' onClick={addClicked}>
           <i className='fa fa-plus'></i>

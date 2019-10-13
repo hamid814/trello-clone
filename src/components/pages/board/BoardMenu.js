@@ -89,7 +89,7 @@ const BoardMenu = () => {
       {
         step
           && stepType === 'about'
-            && <BoardAbout />
+            && <BoardAbout back={onBack} />
       }
       {
         step

@@ -151,6 +151,10 @@ const BoardState = props => {
     }
   };
 
+  const setDemoBoards = () => {
+
+  }
+
   const deleteAllBoards = () => {
     dispatch({
       type: DELETE_ALL_BOARDS
@@ -522,6 +526,7 @@ const BoardState = props => {
         colors: state.colors,
         boardColors: state.boardColors,
         getBoardsData,
+        setDemoBoards,
         deleteAllBoards,
         addBoard,
         deleteBoard,

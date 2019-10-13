@@ -3,7 +3,7 @@ import React, { useState, useContext } from 'react';
 import userContext from '../../../context/user/userContext'
 import boardContext from '../../../context/board/boardContext'
 
-const BoardAbout = () => {
+const BoardAbout = ({ back }) => {
   const { currentBoardId } = useContext(userContext);
   const { getBoard, setDescribtion } = useContext(boardContext);
 
@@ -15,6 +15,7 @@ const BoardAbout = () => {
       setDescribtion(text, currentBoardId);
       setChanged(false);
     }
+    back();
   }
 
   const onChange = (e) => {

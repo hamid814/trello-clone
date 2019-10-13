@@ -1,15 +1,15 @@
 import React, { useContext } from 'react';
 import SearchCards from './SearchCards';
 
-import UserContext from '../../context/user/userContext';
-import BoardContext from '../../context/board/boardContext';
+import userContext from '../../context/user/userContext';
+import boardContext from '../../context/board/boardContext';
 
 const Navbar = () => {
-  const userContext = useContext(UserContext);
-  const boardContext = useContext(BoardContext);
+  const UserContext = useContext(userContext);
+  const BoardContext = useContext(boardContext);
 
-  const { clearCurrentBoardId, currentBoardId, setModal, toggleShowBoardsList, keepBoardsList } = userContext;
-  const { getBoard } = boardContext;
+  const { clearCurrentBoardId, currentBoardId, setModal, toggleShowBoardsList, keepBoardsList, setOptionsModal } = UserContext;
+  const { getBoard } = BoardContext;
 
   const homeClicked =() => {
     clearCurrentBoardId();
@@ -21,6 +21,10 @@ const Navbar = () => {
 
   const onBoardsClicked = () => {
     toggleShowBoardsList();
+  }
+
+  const addDemoClicked = () => {
+    setOptionsModal('on', 'addDemo');
   }
 
   const navbarStyle = {
@@ -58,6 +62,10 @@ const Navbar = () => {
         </div>
       </div>
       <div>
+        <div className='btn btn-square btn-transparent rounded' onClick={addDemoClicked}>
+          <i className='fa fa-cubes mr'></i>
+          add demo 
+        </div>
         <div className='btn btn-square btn-transparent rounded' onClick={addClicked}>
           <i className='fa fa-plus'></i>
         </div>

@@ -18,6 +18,7 @@ import CopyList from './options/CopyList';
 import MoveList from './options/MoveList';
 import DeleteAllCards from './options/DeleteAllCards';
 import MoveAllCards from './options/MoveAllCards';
+import AddDemo from './options/AddDemo';
 
 import UserContext from '../../context/user/userContext';
 
@@ -101,7 +102,7 @@ const OptionsModal = () => {
       style={modalDisplay}
       id='options-modal'
       onClick={onClick}>
-        <div ref={container} className='options-modal-container' style={pos}>
+        <div ref={container} className='options-modal-container border' style={pos}>
           <div className='options-modal-header'>
             {
               optionsModalStepStatus === 'on'
@@ -132,6 +133,7 @@ const OptionsModal = () => {
             { optionsModalType === 'moveList' && 'Move List' }
             { optionsModalType === 'deleteAllCards' && 'Empty the List?' }
             { optionsModalType === 'moveAllCards' && 'select board' }
+            { optionsModalType === 'addDemo' && 'Add test boards?' }
           </div>
           <div className='options-modal-body'>
             { optionsModalType === 'deleteAllBoards' && <DeleteAllBoards /> }
@@ -153,6 +155,7 @@ const OptionsModal = () => {
             { optionsModalType === 'moveList' && <MoveList /> }
             { optionsModalType === 'deleteAllCards' && <DeleteAllCards /> }
             { optionsModalType === 'moveAllCards' && <MoveAllCards /> }
+            { optionsModalType === 'addDemo' && <AddDemo /> }
           </div>
         </div>
     </div>

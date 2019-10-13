@@ -37,7 +37,7 @@ const BoardNavbar = ({ board }) => {
         <div className='cursor-d ml-1 d-i-b text-white'>
           { 
             board
-              && (board.describtion ? board.describtion : 'no describtion')
+              && (board.describtion ? board.describtion : 'no description')
           }
         </div>
       </div>

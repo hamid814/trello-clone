@@ -20,6 +20,7 @@ import {
   SET_SHOW_MENU,
   TOGGLE_SHOW_BOARDS,
   TOGGLE_KEEP_BOARDS,
+  SET_FOUND_CARD_ID,
 } from '../types';
 
 export default (state, action) => {
@@ -133,6 +134,11 @@ export default (state, action) => {
       return {
         ...state,
         showBoardsList: !state.showBoardsList
+      }
+    case SET_FOUND_CARD_ID:
+      return {
+        ...state,
+        foundCardId: action.payload
       }
     default:
       return state;

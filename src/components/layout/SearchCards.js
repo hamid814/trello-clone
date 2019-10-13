@@ -10,7 +10,6 @@ const SearchCards = () => {
 
   const [text, setText] = useState('');
   const [searching, setSearching] = useState(false);
-  const [destCard, setDestCard] = useState(null);
 
   useEffect(() => {
     setSearching(false);
@@ -30,6 +29,7 @@ const SearchCards = () => {
 
   const clickedACard = () => {
     setText('');
+    setSearching(false);
   }
 
   const thisStyle = {

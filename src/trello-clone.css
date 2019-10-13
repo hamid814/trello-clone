@@ -1312,6 +1312,31 @@ table th {
   min-height: 35px;
 }
 
+.trello-board-list-item.found {
+  animation: boxShadowFound 2s ease-in;
+}
+
+@keyframes boxShadowFound {
+  0% {
+    box-shadow: 0 0 12px 3px rgba(212, 134, 17, 0.801);
+  }
+  20% {
+    box-shadow: 0 0 12px 3px rgba(204, 40, 40, 0.801);
+  }
+  40% {
+    box-shadow: 0 0 12px 3px rgba(212, 134, 17, 0.801);
+  }
+  60% {
+    box-shadow: 0 0 12px 3px rgba(204, 40, 40, 0.801);
+  }
+  80% {
+    box-shadow: 0 0 12px 3px rgba(212, 134, 17, 0.801);
+  }
+  100% {
+    box-shadow: 0 1px 0 rgba(9,30,66,.25);
+  }
+}
+
 .trello-board-list-item:hover {
   background: #c7d3cd;
 }
@@ -1438,7 +1463,7 @@ table th {
   display: none;
   background: #bbb;
   border-radius: 0.25rem;
-  box-shadow: inset 0px 0px 5px 1px rgba(27, 68, 107, 0.75);
+  box-shadow: inset 0px 0px 5px 1px rgba(81, 92, 102, 0.75);
   position: absolute;
   top: 0;
   bottom: 0;

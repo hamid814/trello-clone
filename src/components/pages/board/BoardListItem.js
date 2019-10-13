@@ -7,7 +7,7 @@ import BoardContext from '../../../context/board/boardContext';
 const BoardListItem = ({ item, isFromSearch }) => {
   const listItem = useRef(null);
 
-  const { currentBoardId, setCurrentCard, setModal, setFastEditModalPos, toggleBigLabels, bigLabels, setData, data } = useContext(UserContext);
+  const { currentBoardId, setCurrentCard, setModal, setFastEditModalPos, toggleBigLabels, bigLabels, setData, data, foundCardId } = useContext(UserContext);
   const { getList, moveCard } = useContext(BoardContext);
 
   const onClick = (e) => {
@@ -111,7 +111,7 @@ const BoardListItem = ({ item, isFromSearch }) => {
 
   return (
     <div
-      className='func-item trello-board-list-item'
+      className={`func-item trello-board-list-item ${item.id === foundCardId && !isFromSearch && 'found'}`}
       draggable={`${!isFromSearch && 'true'}`}
       ref={listItem}
       onDragStart={onDragStart}

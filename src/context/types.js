@@ -54,6 +54,7 @@ export const SET_DATA = 'SET_DATA';
 export const SET_SHOW_MENU = 'SET_SHOW_MENU';
 export const TOGGLE_SHOW_BOARDS = 'TOGGLE_SHOW_BOARDS';
 export const TOGGLE_KEEP_BOARDS = 'TOGGLE_KEEP_BOARDS';
+export const SET_FOUND_CARD_ID = 'SET_FOUND_CARD_ID';
 
 // 
 export const TEST = 'TEST';

@@ -6,10 +6,11 @@ import userContext from '../../context/user/userContext';
 
 const SearchResultItem = ({ card, clickedACard }) => {
   const { getBoard, getList } = useContext(boardContext)
-  const { setCurrentBoardId } = useContext(userContext)
+  const { setCurrentBoardId, setFoundCardId } = useContext(userContext)
 
   const onClick = () => {
     setCurrentBoardId(card.boardId);
+    setFoundCardId(card.id);
     clickedACard();
   }
   

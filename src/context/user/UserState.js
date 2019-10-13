@@ -22,7 +22,8 @@ import {
   SET_DATA,
   SET_SHOW_MENU,
   TOGGLE_SHOW_BOARDS, 
-  TOGGLE_KEEP_BOARDS, 
+  TOGGLE_KEEP_BOARDS,
+  SET_FOUND_CARD_ID,
 } from '../types';
 
 const UserState = props => {
@@ -46,6 +47,7 @@ const UserState = props => {
     showMenu: false,
     showBoardsList: false,
     keepBoardsList: false,
+    foundCardId: null,
   };
 
   const [state, dispatch] = useReducer(userReducer, initialState);
@@ -319,6 +321,19 @@ const UserState = props => {
     });
   }
 
+  const setFoundCardId = (id) => {
+    dispatch({
+      type: SET_FOUND_CARD_ID,
+      payload: id
+    })
+    setTimeout(() => {
+      dispatch({
+      type: SET_FOUND_CARD_ID,
+      payload: null
+    })
+    }, 2000);
+  }
+
   return (
     <UserContext.Provider
       value={{
@@ -341,6 +356,7 @@ const UserState = props => {
         showMenu: state.showMenu,
         showBoardsList: state.showBoardsList,
         keepBoardsList: state.keepBoardsList,
+        foundCardId: state.foundCardId,
         getUserdata,
         setCurrentBoardId,
         clearCurrentBoardId,
@@ -361,6 +377,7 @@ const UserState = props => {
         clearRecent,
         toggleKeepBoardsList,
         toggleShowBoardsList,
+        setFoundCardId,
       }}
     >
       {props.children}

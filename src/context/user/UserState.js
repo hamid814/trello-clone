@@ -22,7 +22,7 @@ import {
   SET_DATA,
   SET_SHOW_MENU,
   TOGGLE_SHOW_BOARDS, 
-  TOGGLE_KEEP_BOARDS,
+  SET_KEEP_BOARDS,
   SET_FOUND_CARD_ID,
 } from '../types';
 
@@ -55,6 +55,7 @@ const UserState = props => {
   const getUserdata = () => {
     const bigLabels = JSON.parse(localStorage.getItem('bigLabels'));
     const recentIds = JSON.parse(localStorage.getItem('recentIds'));
+    const keepBoardsList = JSON.parse(localStorage.getItem('keepBoardsList'));
 
     if(bigLabels) {
       dispatch({
@@ -66,6 +67,12 @@ const UserState = props => {
       dispatch({
         type: SET_RECENT_IDS,
         payload: recentIds
+      });
+    }
+    if(keepBoardsList) {
+      dispatch({
+        type: SET_KEEP_BOARDS,
+        payload: keepBoardsList
       });
     }
   }
@@ -311,7 +318,8 @@ const UserState = props => {
 
   const toggleKeepBoardsList = () => {
     dispatch({
-      type: TOGGLE_KEEP_BOARDS
+      type: SET_KEEP_BOARDS,
+      payload: !state.keepBoardsList
     });
   }
 

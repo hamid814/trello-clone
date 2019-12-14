@@ -30,7 +30,6 @@ const App = () => {
     // focus on inputs
     // style checkboxes
     // save keepBoardsList to local storage
-    // add demo btn
     console.log('notes ↑')
     // eslint-disable-next-line
   }, []);
@@ -58,6 +57,12 @@ const App = () => {
     
     localStorage.setItem('bigLabels', stiringed);
   }, [bigLabels]);
+
+  useEffect(() => {
+    const stiringed = JSON.stringify(keepBoardsList)
+    
+    localStorage.setItem('keepBoardsList', stiringed);
+  }, [keepBoardsList]);
 
   const onClick = (e) => {
     if(optionsModalStatus === 'off') {

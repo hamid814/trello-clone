@@ -19,7 +19,7 @@ import {
   SET_DATA,
   SET_SHOW_MENU,
   TOGGLE_SHOW_BOARDS,
-  TOGGLE_KEEP_BOARDS,
+  SET_KEEP_BOARDS,
   SET_FOUND_CARD_ID,
 } from '../types';
 
@@ -125,10 +125,10 @@ export default (state, action) => {
         ...state,
         showMenu: action.payload
       }
-    case TOGGLE_KEEP_BOARDS:
+    case SET_KEEP_BOARDS:
       return {
         ...state,
-        keepBoardsList: !state.keepBoardsList
+        keepBoardsList: action.payload
       }
     case TOGGLE_SHOW_BOARDS:
       return {

@@ -85,9 +85,9 @@ const App = () => {
       <OptionsModal />
       <Alerts />
       <div className={`all-wrapper ${keepBoardsList ? 'grid-1-4 gap-none' : ''}`}>
-        <div className='all-wrapper'>
+        {/* <div className='all-wrapper'> */}
           <ListOfBoards />
-        </div>
+        {/* </div> */}
         <div className='all-wrapper' onClick={CloseListOfBoards}>
           <Navbar />
           { !currentBoardId

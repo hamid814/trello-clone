@@ -1181,8 +1181,10 @@ const BoardState = props => {
   }
 
   const moveCard = (firstBoardId,firstListId,cardId,destBoardId,destListId,destIndex,card, isCopy) => {
-    // isCopy Argument is here because i use same functions for copy and move a card
-    // in case of copy we shouldent delete first card
+    /*
+      isCopy Argument is here because i use same functions for copy and move a card
+      in case of copy we shouldent delete first card
+    */
 
     !isCopy && deleteCard(firstBoardId, firstListId, cardId);
 

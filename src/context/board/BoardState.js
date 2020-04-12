@@ -86,7 +86,7 @@ const BoardState = props => {
       '#00aecc',
       '#838c91'
     ],
-    // this color is fr labels
+    // this color is for labels
     colors: [
       {
         name: 'green',
